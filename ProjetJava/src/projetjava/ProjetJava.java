@@ -22,18 +22,20 @@ public class ProjetJava {
         ResultSet resultats=null;
         String requete= "";
         
-        //chargement du pilote
+    
+//chargement du pilote
         
         try{
-            Class.forName(test.jdbc.odbc.JdbcOdbcDriver);   //LOCALISATION BDD
+            Class.forName("com.mysql.jdbc.Driver");   //LOCALISATION BDD
         } catch(ClassNotFoundException e){
             arret("Impossible de charger le pilote jdbcs:odbc");
         }
         
         affiche("Connection à la base de données");
         try{
-            String DBurl="jdbc:odbc:testDB";
-            con = DriverManager.getConnection(DBurl);
+            String DBurl="jdbc:mysql://127.0.0.1/phpmyadmin";
+            //CHARGEMENT POUR UN CLIENT
+            con = DriverManager.getConnection(DBurl,"client","java");   //LIEN + ID + MDP
             
             requete= "SELECT * FROM tableinexistante";
             
@@ -75,6 +77,7 @@ public class ProjetJava {
     private static void arret(String message){
         System.out.println(message);
         System.exit(99);
+
     }
        
     
