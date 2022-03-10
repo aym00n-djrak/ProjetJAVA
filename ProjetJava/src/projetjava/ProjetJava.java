@@ -5,6 +5,8 @@
 package projetjava;
 
 import java.sql.*;
+import com.mysql.cj.jdbc.Driver;
+
 
 /**
  *
@@ -24,19 +26,21 @@ public class ProjetJava {
         
     
 //chargement du pilote
-        
+
         try{
-            Class.forName("com.mysql.jdbc.Driver");   //LOCALISATION BDD
+            Class.forName("com.mysql.cj.jdbc.Driver"); //com.mysql.jdbc.Driver
+            affiche("Driver loaded");
+            //com.mysql.jdbc.Driver LOCALISATION BDD
         } catch(ClassNotFoundException e){
-            arret("Impossible de charger le pilote jdbcs:odbc");
+            arret("Impossible de charger le pilote jdbc:odbc");
         }
         
         affiche("Connection à la base de données");
         try{
-            String DBurl="jdbc:mysql://127.0.0.1/phpmyadmin";
+            String DBurl= "jdbc:odbc:destination";           //"jdbc:mysql://127.0.0.1/phpmyadmin"
             //CHARGEMENT POUR UN CLIENT
-            con = DriverManager.getConnection(DBurl,"client","java");   //LIEN + ID + MDP
-            
+            con = DriverManager.getConnection(DBurl,"root","");   //LIEN + ID + MDP
+            affiche("DataBase connected !");
             requete= "SELECT * FROM tableinexistante";
             
             Statement stmt= con.createStatement();
