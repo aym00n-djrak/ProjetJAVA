@@ -33,8 +33,9 @@ public class ProjetJava {
 
         affiche("Connection à la base de données");
         try {
-            String DBurl = "jdbc:odbc:testDB";
-            con = (projetjava.Connection) DriverManager.getConnection(DBurl);
+            
+            String DBurl = "jdbc:mysql://localhost/destination";
+            con = (projetjava.Connection) DriverManager.getConnection(DBurl,"root","");
             affiche("DataBase connected !");
             requete = "SELECT * FROM tableinexistante";
 
