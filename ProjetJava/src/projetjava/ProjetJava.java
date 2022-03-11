@@ -18,7 +18,7 @@ public class ProjetJava {
     public static void main(String[] args) {
         // TODO code application logic here
         //ETABLISSEMENT DE LA BDD
-        Connection con = null;
+        java.sql.Connection con;
         ResultSet resultats = null;
         String requete = "";
 
@@ -35,19 +35,20 @@ public class ProjetJava {
         try {
             
             String DBurl = "jdbc:mysql://localhost/destination";
-            con = (projetjava.Connection) DriverManager.getConnection(DBurl,"root","");
+             con =  DriverManager.getConnection(DBurl,"root","");
             affiche("DataBase connected !");
-            requete = "SELECT * FROM tableinexistante";
+            requete = "SELECT * FROM ville";
 
             Statement stmt = con.createStatement();
+            
             resultats = stmt.executeQuery(requete);
 
             affiche("Parcours des données retournées");
-
+            
             boolean encore = resultats.next();
 
             while (encore) {
-                System.out.print(resultats.getInt(1) + " : " + resultats.getString(2) + " " + resultats.getString(3) + "(" + resultats.getDate(4) + ")");
+                System.out.print("Id: "+ resultats.getInt("idVille")+" Ville: "+resultats.getString("Nom")+" Monnaie: "+ resultats.getString("Monnaie")+" Langue: "+ resultats.getString("Langue"));
                 System.out.println();
                 encore = resultats.next();
             }
