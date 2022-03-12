@@ -59,8 +59,10 @@ public class Menu {
 
     public static void main(String args[]) 
     {
-        new Connection();
-        new Menu();
+        new Login();
+        
+        //new Connection();
+        //new Menu();
     }
 
 }
