@@ -10,18 +10,20 @@ import java.sql.*;
  *
  * @author remyj
  */
-public class ProjetJava {
+public class Connection {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
         // TODO code application logic here
         //ETABLISSEMENT DE LA BDD
         java.sql.Connection con;
         ResultSet resultats = null;
         String requete = "";
 
+        Connection()
+        {
 //chargement du pilote
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); //com.mysql.jdbc.Driver
@@ -81,5 +83,5 @@ public class ProjetJava {
         System.exit(99);
 
     }
-
 }
+
