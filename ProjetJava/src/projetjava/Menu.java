@@ -4,10 +4,62 @@
  */
 package projetjava;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author remyj
  */
 public class Menu {
+    JFrame f;
+    JButton b1,b2,b3,b4;
+    JLabel img1;
+    ImageIcon img;
+    
+    Menu()
+    {
+        img= new ImageIcon("ProjetJava/build/classes/photos/earh.jpg");
+        img1= new JLabel(img);
+        img1.setBounds(0,0,1300,1000);
+        
+        f= new JFrame("Menu");
+        f.getContentPane().setLayout(null);
+        f.getContentPane().setBackground(Color.GRAY);
+        
+        b1= new JButton("Réservation");
+        b1.setBounds(150,390,210,60);
+        
+        b2= new JButton("Réclamation");
+        b2.setBounds(150,490,210,60);
+        
+        b3= new JButton("Annulation");
+        b3.setBounds(580,390,210,60);
+        
+        b4= new JButton("Exit");
+        b4.setBounds(580, 490, 210, 60);
+        
+        b1.setBackground(new Color(100,200,0));
+        b1.setForeground(new Color(255,255,255));
+        b2.setBackground(new Color(100,200,0));
+        b2.setForeground(new Color(255,255,255));
+        b3.setBackground(new Color(100,200,0));
+        b3.setForeground(new Color(255,255,255));
+        b4.setBackground(new Color(100,200,0));
+        b4.setForeground(new Color(255,255,255));
+        
+        f.getContentPane().add(b1);
+        f.getContentPane().add(b2);
+        f.getContentPane().add(b3);
+        f.getContentPane().add(b4);
+        f.getContentPane().add(img1);
+        f.setSize(400,400);
+        f.setVisible(true);
+    }
+    
+    public static void main(String args[])
+    {
+        new Menu();
+    }
     
 }

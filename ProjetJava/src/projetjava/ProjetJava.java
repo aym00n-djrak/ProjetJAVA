@@ -68,6 +68,7 @@ public class ProjetJava {
             e.printStackTrace();
         }
         affiche("Fin du programme");
+               
         System.exit(0);
     }
 
