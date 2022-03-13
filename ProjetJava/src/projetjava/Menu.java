@@ -53,14 +53,15 @@ public class Menu {
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
         f.getContentPane().add(img1);
-        f.setSize(400, 400);
+        
+        f.setSize(1300, 1000);
         f.setVisible(true);
     }
 
     public static void main(String args[]) 
     {
-        new Login();
-        
+        //new Login();
+        new Accueil();
         //new Connection();
         //new Menu();
     }

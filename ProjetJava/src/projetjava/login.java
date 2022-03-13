@@ -6,19 +6,23 @@ package projetjava;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+
 /**
  *
  * @author remyj
  */
-public class Login {
+public class Login implements ActionListener {
 
     JFrame f;
     JLabel l1, l2;
     JTextField t1;
     JPasswordField p1;
     JButton b1, b2;
+    
+    Menu afficher= new Menu();
 
-    Login() {
+    Login() 
         {
 
             f = new JFrame("Login");
@@ -49,6 +53,7 @@ public class Login {
             b2 = new JButton("Exit");
             b2.setForeground(Color.RED);
             b2.setBounds(200, 120, 100, 30);
+            
 
             f.getContentPane().add(l1);
             f.getContentPane().add(l2);
@@ -57,11 +62,36 @@ public class Login {
             f.getContentPane().add(p1);
             f.getContentPane().add(b1);
             f.getContentPane().add(b2);
-            
+
             f.setBounds(300, 300, 400, 300);
 
             f.setResizable(false);
             f.setVisible(true);
+            
+        }    
+
+    public void actionPerformed(ActionEvent e) 
+    {
+        if (e.getSource() == b1) {
+            if (t1.getText().length() == 0 || p1.getText().length() == 0) {
+                //System.out.println("La saisie est nulle");
+                JOptionPane.showMessageDialog(null, "Saisie vide");
+            } else if (t1.getText().equals("root") && p1.getText().equals("")) {
+                f.setVisible(false);
+
+                afficher = new Menu();
+            } else {
+                //System.out.println("Identifiant et mdp incorrect !");
+                JOptionPane.showMessageDialog(null, "Identifiant et mdp incorrect !");
+            }
+
+        }
+        if(e.getSource()==b2)
+        {
+            f.setVisible(false);
+            System.exit(0);
         }
     }
+
 }
+

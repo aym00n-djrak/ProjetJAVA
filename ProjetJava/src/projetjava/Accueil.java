@@ -5,8 +5,6 @@
 package projetjava;
 
 import java.awt.*;
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.*;
 
 /**
@@ -17,17 +15,26 @@ public class Accueil {
     
     JFrame f;
     JLabel l1,l2,l3;
-    Thread t;
+    JPanel p;
+    //Thread t=null;
     ImageIcon img;
+    JLabel img1;
 
     
     Accueil()
     {
         img=new ImageIcon("accueil.jpg");
-        t= new Thread((Runnable) this);
+        img1= new JLabel("");
+        img1.setIcon(new ImageIcon("accueil.png"));
+        
+        
+        //img1.setBounds(0,0,1300,1000);
+        
         f= new JFrame("Bienvenue !");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.BLACK);
+                f.add(img1);
+
         
         //LABEL
         l1= new JLabel("Réservation en ligne");
@@ -36,7 +43,7 @@ public class Accueil {
         l1.setForeground(Color.red);
         
         l2= new JLabel("By Clarence, Thibaud et Rémy");
-        l2.setBounds(350,380,800,40);
+        l2.setBounds(450,380,800,40);
         l2.setFont(new Font("Courier new",Font.BOLD,35));
         l2.setForeground(Color.red);
         
@@ -46,9 +53,11 @@ public class Accueil {
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
         f.getContentPane().add(l3);
+        f.getContentPane().add(img1);
+        
         f.setSize(1300,1000);
         f.setVisible(true);
-        t.start();
+       // t.start();
         
     }
     
