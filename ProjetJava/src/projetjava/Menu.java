@@ -75,12 +75,12 @@ public class Menu {
 
     }
 
-    public static void main(String args[]) throws IOException, InterruptedException {
-      
-        new Connection();
-        new Accueil();
+    public static void main(String args[]) 
+    {
         new Login();
-        
+       // new Accueil();
+        //new Connection();
+        //new Menu();
     }
 
 }
