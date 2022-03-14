@@ -71,7 +71,7 @@ public class Connection {
         }
         affiche("Fin du programme");
                
-        System.exit(0);
+      //  System.exit(0);
     }
 
     private static void affiche(String message) {

@@ -5,7 +5,10 @@
 package projetjava;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
+import java.io.*;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -21,24 +24,27 @@ public class Accueil {
     JLabel img1;
 
     
-    Accueil()
-    {
-        img=new ImageIcon("accueil.jpg");
-        img1= new JLabel("");
-        img1.setIcon(new ImageIcon("accueil.png"));
+    Accueil() throws IOException, InterruptedException
+    {      
+        //File file = new File("accueil.png");
+        //BufferedImage bufferedImage= ImageIO.read(file);
         
+        //img= new ImageIcon(bufferedImage);
+     
         
         //img1.setBounds(0,0,1300,1000);
         
         f= new JFrame("Bienvenue !");
         f.getContentPane().setLayout(null);
-        f.getContentPane().setBackground(Color.BLACK);
-                f.add(img1);
-
-        
+        //f.getContentPane().setBackground(Color.BLACK);
+           
+        img= new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\projetjava\\accueil.png");
+        img1 = new JLabel();
+        img1.setIcon(img);
+  
         //LABEL
-        l1= new JLabel("Réservation en ligne");
-        l1.setBounds(250,300,900,50);
+        l1= new JLabel("Réservation ");
+        l1.setBounds(300,300,900,50);
         l1.setFont(new Font("Symbol BOLD", Font.BOLD,60));
         l1.setForeground(Color.red);
         
@@ -57,27 +63,11 @@ public class Accueil {
         
         f.setSize(1300,1000);
         f.setVisible(true);
-       // t.start();
         
-    }
-    
-    public void run()
-    {
-        int x=1;
-        while(x<=5)
-        {
-            try
-            {
-                Thread.sleep(1000);
-            }
-            catch(Exception e)
-                    {
-                        
-                    }
-            x++;
-        }
+        Thread.sleep(1000);
         f.setVisible(false);
+       // t.start();
+
         
-    }
-    
+    }  
 }
