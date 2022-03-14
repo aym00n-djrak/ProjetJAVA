@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package projetjava;
+package Modele;
+
+import Modele.*;
 
 import java.sql.*;
 
@@ -22,7 +24,10 @@ public class Connection {
         ResultSet resultats = null;
         String requete = "";
 
-        Connection()
+    /**
+     *
+     */
+    public void Connection()
         {
 //chargement du pilote
         try {
@@ -34,11 +39,13 @@ public class Connection {
         }
 
         affiche("Connection à la base de données");
+        /*
         try {
             
             String DBurl = "jdbc:mysql://localhost/destination";
              con =  DriverManager.getConnection(DBurl,"root","");
             affiche("DataBase connected !");
+            
             requete = "SELECT * FROM ville";
 
             Statement stmt = con.createStatement();
@@ -69,16 +76,17 @@ public class Connection {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        affiche("Fin du programme");
+        */
+        affiche("Fin du programme de connection");
                
       //  System.exit(0);
     }
 
-    private static void affiche(String message) {
+    public static void affiche(String message) {
         System.out.println(message);
     }
 
-    private static void arret(String message) {
+    public static void arret(String message) {
         System.out.println(message);
         System.exit(99);
 

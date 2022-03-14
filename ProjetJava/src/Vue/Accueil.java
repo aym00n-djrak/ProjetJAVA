@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package projetjava;
+package Vue;
+
+import Controleur.*;
+import Modele.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -38,7 +41,7 @@ public class Accueil {
         f.getContentPane().setLayout(null);
         //f.getContentPane().setBackground(Color.BLACK);
            
-        img= new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\projetjava\\accueil.png");
+        img= new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\Vue\\accueil.png");
         img1 = new JLabel();
         img1.setIcon(img);
   

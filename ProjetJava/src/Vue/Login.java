@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package projetjava;
+package Vue;
+
+import Controleur.*;
+import Modele.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +17,9 @@ public class Login implements ActionListener {
     JLabel l1, l2;
     JTextField t1;
     JPasswordField p1;
-    JButton b1, b2;
+    JButton b1, b2, b3, b4;
+    
+    Vue.Fenetre phrase= new Vue.Fenetre();
 
     Login() {
 
@@ -42,30 +43,24 @@ public class Login implements ActionListener {
         p1 = new JPasswordField(20);
         p1.setForeground(Color.MAGENTA);
         p1.setBounds(200, 80, 100, 30);
+        
+        
 
         b1 = new JButton("Login");
         b1.setForeground(Color.RED);
         b1.setBounds(50, 120, 100, 30);
 
-        b1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-
-                 new Menu();
-            }
-        });
-
         b2 = new JButton("Exit");
         b2.setForeground(Color.RED);
         b2.setBounds(200, 120, 100, 30);
-
-        b2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-            }
-        });
+        
+        b3 = new JButton("Invité");
+        b3.setForeground(Color.RED);
+        b3.setBounds(150, 150, 50, 15);
+        
+        b3 = new JButton("Créer membre");
+        b3.setForeground(Color.RED);
+        b3.setBounds(300, 150, 50, 15);
 
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
@@ -74,6 +69,37 @@ public class Login implements ActionListener {
         f.getContentPane().add(p1);
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);
+        f.getContentPane().add(b3);
+
+        Controleur.Identifiants check= new Controleur.Identifiants();
+        
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(check.Id(t1.getText(),p1.getText())==true)
+                {
+                    f.setVisible(false);
+                    new Menu();
+                }
+            }
+        });
+
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+            }
+        });
+        
+        b3.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+                new Fenetre().panneau("Mode invité");
+                new Menu();
+            }
+            
+        });
 
         f.setBounds(300, 300, 400, 300);
 
