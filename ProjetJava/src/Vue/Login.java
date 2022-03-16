@@ -84,15 +84,6 @@ public class Login implements ActionListener {
                 if (t1.getText().isEmpty()) {
                     new Fenetre().panneau("Le champ identifiant est vide");
                 } else {
-                    if (check.Id(t1.getText(), p1.getText()) == true) {
-                        f.setVisible(false);
-                        try {
-                            new Menu();
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
                 if (p1.getText().isEmpty()) {
                     new Fenetre().panneau("Le champ password est vide");
                 } else {
@@ -106,7 +97,7 @@ public class Login implements ActionListener {
                     }
                 }
             }
-        });
+        }});
 
         b2.addActionListener(new ActionListener() {
             @Override
@@ -150,6 +141,7 @@ public class Login implements ActionListener {
     }
 
     @Override
+
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
