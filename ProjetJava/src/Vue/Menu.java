@@ -58,6 +58,7 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
+                System.exit(0);
             }
         });
         
@@ -74,10 +75,11 @@ public class Menu {
 
     public static void main(String args[]) throws IOException, InterruptedException 
     {
-        new CreationPage();
+        //CreationPage creationPage = new CreationPage();
+        //creationPage.Creation();
         new Accueil();
-        new Login();
-        Connection connection = new Modele.Connection();
+        //new Login();
+        //Connection connection = new Modele.Connection();
         //connection.Connection();
         //new Menu();
     }

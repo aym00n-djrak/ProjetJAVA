@@ -4,7 +4,13 @@
  */
 package Vue;
 
+import Controleur.*;
+import Modele.*;
+import Vue.*;
+
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,9 +30,10 @@ public class CreationPage {
     JButton b1, b2, b3, b4;
 
     Vue.Fenetre phrase = new Vue.Fenetre();
+    Controleur.Identifiants enregistrement = new Controleur.Identifiants();
 
     public void Creation() {
-        f = new JFrame("Login");
+        f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
 
@@ -47,6 +54,14 @@ public class CreationPage {
         p1.setForeground(Color.MAGENTA);
         p1.setBounds(200, 80, 100, 30);
         
+        b1 = new JButton("Créer");
+        b1.setForeground(Color.RED);
+        b1.setBounds(50, 120, 100, 30);
+        
+        b2 = new JButton("Exit");
+        b2.setForeground(Color.RED);
+        b2.setBounds(200, 120, 100, 30);
+
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
         f.getContentPane().add(b1);
@@ -54,12 +69,29 @@ public class CreationPage {
         f.getContentPane().add(p1);
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);
-        f.getContentPane().add(b3);
-        
-        f.setBounds(300, 300, 400, 300);
 
+        f.setBounds(300, 300, 400, 300);
         f.setResizable(false);
         f.setVisible(true);
-    }
+        
+        b1.addActionListener(new ActionListener(){ ;
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            enregistrement.InsertionBDD(t1.getText(), p1.getText());
+            f.setVisible(false);
+            Connection.affiche("Membre crée !");
+            new Menu();
+            }
+    });
+        
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+                System.exit(0);
+            }
+        });
+
+}
 }

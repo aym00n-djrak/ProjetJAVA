@@ -67,9 +67,9 @@ public class Accueil {
         f.setSize(1300,1000);
         f.setVisible(true);
         
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         f.setVisible(false);
-       // t.start();
+        new Login();
 
         
     }  

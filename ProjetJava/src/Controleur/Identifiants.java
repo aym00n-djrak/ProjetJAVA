@@ -73,4 +73,49 @@ public class Identifiants {
         }
         return false;
     }
+    
+    public void InsertionBDD(String name, String password) {
+        //Creation d'une requete SQL
+        
+
+        try {
+
+            String DBurl = "jdbc:mysql://localhost/booking";
+            con = DriverManager.getConnection(DBurl, "root", "");
+            Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+            
+            System.out.println("Insertion...");
+            
+            requete = "INSERT INTO users " +
+                   "VALUES (NULL, '"+name+"', '"+password+"')";
+
+            stmt.executeUpdate(requete);
+            
+            Connection.affiche("Données insérés dans la table...");
+            /*
+            //Vérification des identifiants
+            while (requete.next()) {
+                System.out.println("Vérification des valeurs enregistrées :");
+                databaseUsername = resultats.getString("users_name");
+                System.out.println(databaseUsername);
+                databasePassword = resultats.getString("users_password");
+                System.out.println(databasePassword);
+            }*/
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("SQLException");
+            do {
+                System.out.println("SQLState :" + e.getSQLState());
+                System.out.println("Description : " + e.getMessage());
+                System.out.println("code erreur : " + e.getErrorCode());
+                System.out.println("");
+                e = e.getNextException();
+            } while (e != null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
