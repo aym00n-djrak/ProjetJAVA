@@ -73,15 +73,4 @@ public class Menu {
 
     }
 
-    public static void main(String args[]) throws IOException, InterruptedException 
-    {
-        //CreationPage creationPage = new CreationPage();
-        //creationPage.Creation();
-        new Accueil();
-        //new Login();
-        //Connection connection = new Modele.Connection();
-        //connection.Connection();
-        //new Menu();
-    }
-
 }
