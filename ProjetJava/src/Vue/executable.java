@@ -6,7 +6,7 @@ package Vue;
 
 import Controleur.InsertImage;
 import Controleur.SelectImage;
-import Controleur.ShowImage;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -18,20 +18,12 @@ public class executable {
     
         public static void main(String args[]) throws IOException, InterruptedException, SQLException 
     {
-            //CreationPage creationPage = new CreationPage();
-            //creationPage.Creation();
-            InsertImage insertImage = new InsertImage();
-            insertImage.Insert();
+
+            //InsertImage insertImage = new InsertImage();
+            //insertImage.Insert();
             
-            //SelectImage selectimage= new SelectImage();
-            //selectimage.Select();
-            
-            //ShowImage showImage = new ShowImage();
-            //showImage.Show();
+            //SelectImage select= new SelectImage();   
+            //select.Select();
             new Accueil();
-            //new Login();
-            //Connection connection = new Modele.Connection();
-            //connection.Connection();
-            //new Menu();
     }
 }

@@ -23,9 +23,10 @@ public class InsertImage {
         {
 
             try {
-           String DBurl = "jdbc:mysql://localhost/booking";
-            con = DriverManager.getConnection(DBurl, "root", "");
-            
+            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
+//            con = DriverManager.getConnection(DBurl, "root", "");
+  con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
+          
             Statement stmt = con.createStatement();
             
             System.out.println("Insertion de l'image...");

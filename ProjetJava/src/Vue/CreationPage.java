@@ -32,11 +32,9 @@ public class CreationPage {
     JPasswordField p1;
     JButton b1, b2, b3, b4;
 
-    Vue.Fenetre phrase = new Vue.Fenetre();
+    Modele.Fenetre phrase = new Modele.Fenetre();
     Controleur.Identifiants enregistrement = new Controleur.Identifiants();
     
-    ShowImage show= new ShowImage();
-
     public void Creation() throws SQLException {
         f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);

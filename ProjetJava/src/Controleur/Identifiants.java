@@ -4,7 +4,7 @@
  */
 package Controleur;
 
-import Vue.Fenetre;
+import Modele.Fenetre;
 import Modele.Connection;
 import Modele.*;
 
@@ -17,7 +17,7 @@ import java.sql.*;
  */
 public class Identifiants {
 
-    Vue.Fenetre phrase = new Fenetre();
+    Modele.Fenetre phrase = new Fenetre();
     String databaseUsername = "";
     String databasePassword = "";
     String requete = "";
@@ -29,8 +29,11 @@ public class Identifiants {
         //Creation d'une requete SQL
         try {
 
-            String DBurl = "jdbc:mysql://localhost/booking";
-            con = DriverManager.getConnection(DBurl, "root", "");
+//            String DBurl = "jdbc:mysql://localhost/booking";
+            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
+
             Connection.affiche("DataBase connected !");
 
             java.sql.Statement stmt = con.createStatement();
@@ -48,12 +51,10 @@ public class Identifiants {
             }
 
             if (name.equals(databaseUsername) && password.equals(databasePassword)) {
-                
+
                 phrase.panneau("Successful Login!");
                 return true;
-            }
-            else
-            {
+            } else {
                 phrase.panneau("Mots de passe ou/et identifiant incorrect !");
                 return false;
             }
@@ -72,26 +73,27 @@ public class Identifiants {
         }
         return false;
     }
-    
+
     public void InsertionBDD(String name, String password) {
         //Creation d'une requete SQL
-        
 
         try {
 
             String DBurl = "jdbc:mysql://localhost/booking";
-            con = DriverManager.getConnection(DBurl, "root", "");
+            //con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
+
             Connection.affiche("DataBase connected !");
 
             java.sql.Statement stmt = con.createStatement();
-            
+
             System.out.println("Insertion...");
-            
-            requete = "INSERT INTO users " +
-                   "VALUES (NULL, '"+name+"', '"+password+"')";
+
+            requete = "INSERT INTO users "
+                    + "VALUES (NULL, '" + name + "', '" + password + "')";
 
             stmt.executeUpdate(requete);
-            
+
             Connection.affiche("Données insérés dans la table...");
             con.close();
 

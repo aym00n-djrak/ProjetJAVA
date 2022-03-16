@@ -40,8 +40,10 @@ public class Accueil {
         f= new JFrame("Bienvenue !");
         f.getContentPane().setLayout(null);
         //f.getContentPane().setBackground(Color.BLACK);
-           
-        img= new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\Vue\\accueil.png");
+        
+        java.net.URL url= this.getClass().getResource("accueil.png");
+
+        img= new ImageIcon(url);
         img1 = new JLabel();
         img1.setIcon(img);
   

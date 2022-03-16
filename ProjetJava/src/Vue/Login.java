@@ -1,5 +1,6 @@
 package Vue;
 
+import Modele.Fenetre;
 import Controleur.*;
 import Modele.*;
 
@@ -22,7 +23,7 @@ public class Login implements ActionListener {
     JPasswordField p1;
     JButton b1, b2, b3, b4;
 
-    Vue.Fenetre phrase = new Vue.Fenetre();
+    Modele.Fenetre phrase = new Modele.Fenetre();
     CreationPage creationPage = new CreationPage();
 
     Login() {
