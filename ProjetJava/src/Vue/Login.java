@@ -6,6 +6,9 @@ import Modele.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +23,7 @@ public class Login implements ActionListener {
     JButton b1, b2, b3, b4;
 
     Vue.Fenetre phrase = new Vue.Fenetre();
+    CreationPage creationPage = new CreationPage();
 
     Login() {
 
@@ -75,9 +79,30 @@ public class Login implements ActionListener {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (check.Id(t1.getText(), p1.getText()) == true) {
-                    f.setVisible(false);
-                    new Menu();
+
+                if (t1.getText().isEmpty()) {
+                    new Fenetre().panneau("Le champ identifiant est vide");
+                } else {
+                    if (check.Id(t1.getText(), p1.getText()) == true) {
+                        f.setVisible(false);
+                        try {
+                            new Menu();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+                if (p1.getText().isEmpty()) {
+                    new Fenetre().panneau("Le champ password est vide");
+                } else {
+                    if (check.Id(t1.getText(), p1.getText()) == true) {
+                        f.setVisible(false);
+                        try {
+                            new Menu();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                 }
             }
         });
@@ -94,7 +119,11 @@ public class Login implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
-                Vue.Menu menu = new Menu();
+                try {
+                    Vue.Menu menu = new Menu();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         });
@@ -104,8 +133,11 @@ public class Login implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
                 new Fenetre().panneau("Création d'un nouveau membre");
-                CreationPage creationPage = new CreationPage();
-                creationPage.Creation();
+                try {
+                    creationPage.Creation();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         });

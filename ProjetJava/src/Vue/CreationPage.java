@@ -11,6 +11,9 @@ import Vue.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,8 +34,10 @@ public class CreationPage {
 
     Vue.Fenetre phrase = new Vue.Fenetre();
     Controleur.Identifiants enregistrement = new Controleur.Identifiants();
+    
+    ShowImage show= new ShowImage();
 
-    public void Creation() {
+    public void Creation() throws SQLException {
         f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
@@ -69,6 +74,8 @@ public class CreationPage {
         f.getContentPane().add(p1);
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);
+        
+        //f.getContentPane().add(show.Show());
 
         f.setBounds(300, 300, 400, 300);
         f.setResizable(false);
@@ -81,7 +88,11 @@ public class CreationPage {
             enregistrement.InsertionBDD(t1.getText(), p1.getText());
             f.setVisible(false);
             Connection.affiche("Membre crée !");
-            new Menu();
+                try {
+                    new Menu();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CreationPage.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
     });
         

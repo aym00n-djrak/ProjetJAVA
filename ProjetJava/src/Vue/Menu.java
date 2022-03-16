@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 import java.io.*;
+import java.sql.SQLException;
 import javax.imageio.ImageIO;
 
 /**
@@ -29,10 +30,11 @@ public class Menu {
     ImageIcon img;
     
     //Modele.Connection connection= new Modele.Connection();
+    ShowImage show= new ShowImage();
 
-    Menu() {
+    Menu() throws SQLException {
 
-        img = new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\Vue\\earth1.png");
+        img = new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\Vue\\earth.png");
         img1 = new JLabel(img);
 
         //System.out.println();
@@ -66,11 +68,18 @@ public class Menu {
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-        f.getContentPane().add(img1);
+        
+        f.getContentPane().add(show.Show());
+       // f.getContentPane().add(img1);
+        System.out.println(show.Show());
 
         f.setSize(1300, 1000);
         f.setVisible(true);
 
+    }
+
+    private void add(JLabel Show) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

@@ -27,7 +27,6 @@ public class Identifiants {
 
     public Boolean Id(String name, String password) {
         //Creation d'une requete SQL
-
         try {
 
             String DBurl = "jdbc:mysql://localhost/booking";
@@ -94,15 +93,6 @@ public class Identifiants {
             stmt.executeUpdate(requete);
             
             Connection.affiche("Données insérés dans la table...");
-            /*
-            //Vérification des identifiants
-            while (requete.next()) {
-                System.out.println("Vérification des valeurs enregistrées :");
-                databaseUsername = resultats.getString("users_name");
-                System.out.println(databaseUsername);
-                databasePassword = resultats.getString("users_password");
-                System.out.println(databasePassword);
-            }*/
             con.close();
 
         } catch (SQLException e) {
