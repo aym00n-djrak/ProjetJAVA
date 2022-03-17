@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Vue;
+package vuemvc;
 
-import Vue.*;
-import Controleur.*;
-import Modele.*;
+import controlmvc.SelectImage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +31,7 @@ public class Menu {
 
     Menu() throws SQLException {
 
-        java.net.URL url = this.getClass().getResource("batman-annee-deux.jpg");
+        java.net.URL url = this.getClass().getResource("batman.jpg");
         img = new ImageIcon(url);
         img1 = new JLabel(img);
 

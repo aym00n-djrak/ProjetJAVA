@@ -2,10 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Vue;
+package vuemvc;
 
-import Controleur.*;
-import Modele.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -27,7 +25,7 @@ public class Accueil {
     JLabel img1;
 
     
-    Accueil() throws IOException, InterruptedException
+    public void Accueil() throws IOException, InterruptedException
     {      
         //File file = new File("accueil.png");
         //BufferedImage bufferedImage= ImageIO.read(file);

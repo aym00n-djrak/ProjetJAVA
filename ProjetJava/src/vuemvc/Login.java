@@ -1,8 +1,6 @@
-package Vue;
+package vuemvc;
 
-import Modele.Fenetre;
-import Controleur.*;
-import Modele.*;
+import modelmvc.Fenetre;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +21,7 @@ public class Login implements ActionListener {
     JPasswordField p1;
     JButton b1, b2, b3, b4;
 
-    Modele.Fenetre phrase = new Modele.Fenetre();
+    modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPage creationPage = new CreationPage();
 
     Login() {
@@ -75,7 +73,7 @@ public class Login implements ActionListener {
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
 
-        Controleur.Identifiants check = new Controleur.Identifiants();
+        controlmvc.Identifiants check = new controlmvc.Identifiants();
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -103,6 +101,7 @@ public class Login implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
+                System.exit(0);
             }
         });
 
@@ -112,7 +111,7 @@ public class Login implements ActionListener {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
                 try {
-                    Vue.Menu menu = new Menu();
+                    vuemvc.Menu menu = new Menu();
                 } catch (SQLException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
