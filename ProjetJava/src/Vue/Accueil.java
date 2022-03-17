@@ -66,7 +66,9 @@ public class Accueil {
         f.getContentPane().add(l3);
         f.getContentPane().add(img1);
         
-        f.setSize(1300,1000);
+      //  f.setSize(1300,1000);
+      f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+
         f.setVisible(true);
         
         Thread.sleep(3000);

@@ -32,7 +32,7 @@ public class Login implements ActionListener {
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
 
-        l1 = new JLabel("PSEUDO");
+        l1 = new JLabel("Email");
         l1.setForeground(Color.red);
         l1.setBounds(50, 50, 100, 30);
 

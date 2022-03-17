@@ -79,8 +79,11 @@ public class Identifiants {
 
         try {
 
-            String DBurl = "jdbc:mysql://localhost/booking";
+            // String DBurl = "jdbc:mysql://localhost/booking";
             //con = DriverManager.getConnection(DBurl, "root", "");
+           
+            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
+
             con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
 
             Connection.affiche("DataBase connected !");

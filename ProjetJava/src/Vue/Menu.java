@@ -4,8 +4,7 @@
  */
 package Vue;
 
-import Vue.Login;
-import Vue.Accueil;
+import Vue.*;
 import Controleur.*;
 import Modele.*;
 
@@ -33,8 +32,8 @@ public class Menu {
     SelectImage select = new SelectImage();
 
     Menu() throws SQLException {
-        
-        java.net.URL url= this.getClass().getResource("batman-annee-deux.jpg");
+
+        java.net.URL url = this.getClass().getResource("batman-annee-deux.jpg");
         img = new ImageIcon(url);
         img1 = new JLabel(img);
 
@@ -69,7 +68,9 @@ public class Menu {
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
         f.getContentPane().add(img1);
-        f.setSize(1300, 1000);
+
+        //f.setSize(1300, 1000);
+        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setVisible(true);
 
     }
