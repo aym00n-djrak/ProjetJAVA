@@ -4,8 +4,7 @@
  */
 package Vue;
 
-import Vue.Login;
-import Vue.Accueil;
+import Vue.*;
 import Controleur.*;
 import Modele.*;
 
@@ -26,15 +25,16 @@ public class Menu {
 
     JFrame f;
     JButton b1, b2, b3, b4;
-    JLabel img1, img2;
+    JLabel img1;
     ImageIcon img;
-    
+
     //Modele.Connection connection= new Modele.Connection();
-    ShowImage show= new ShowImage();
+    SelectImage select = new SelectImage();
 
     Menu() throws SQLException {
 
-        img = new ImageIcon("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\Vue\\earth.png");
+        java.net.URL url = this.getClass().getResource("batman-annee-deux.jpg");
+        img = new ImageIcon(url);
         img1 = new JLabel(img);
 
         //System.out.println();
@@ -42,7 +42,6 @@ public class Menu {
 
         f = new JFrame("Menu");
         f.getContentPane().setLayout(null);
-        //f.getContentPane().setBackground(Color.GRAY);
 
         b1 = new JButton("Paris");
         b1.setBounds(150, 390, 210, 60);
@@ -63,17 +62,15 @@ public class Menu {
                 System.exit(0);
             }
         });
-        
+
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-        
-        f.getContentPane().add(show.Show());
-       // f.getContentPane().add(img1);
-        System.out.println(show.Show());
+        f.getContentPane().add(img1);
 
-        f.setSize(1300, 1000);
+        //f.setSize(1300, 1000);
+        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setVisible(true);
 
     }

@@ -1,5 +1,6 @@
 package Vue;
 
+import Modele.Fenetre;
 import Controleur.*;
 import Modele.*;
 
@@ -22,7 +23,7 @@ public class Login implements ActionListener {
     JPasswordField p1;
     JButton b1, b2, b3, b4;
 
-    Vue.Fenetre phrase = new Vue.Fenetre();
+    Modele.Fenetre phrase = new Modele.Fenetre();
     CreationPage creationPage = new CreationPage();
 
     Login() {
@@ -31,7 +32,7 @@ public class Login implements ActionListener {
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
 
-        l1 = new JLabel("PSEUDO");
+        l1 = new JLabel("Email");
         l1.setForeground(Color.red);
         l1.setBounds(50, 50, 100, 30);
 
@@ -83,15 +84,6 @@ public class Login implements ActionListener {
                 if (t1.getText().isEmpty()) {
                     new Fenetre().panneau("Le champ identifiant est vide");
                 } else {
-                    if (check.Id(t1.getText(), p1.getText()) == true) {
-                        f.setVisible(false);
-                        try {
-                            new Menu();
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
                 if (p1.getText().isEmpty()) {
                     new Fenetre().panneau("Le champ password est vide");
                 } else {
@@ -105,7 +97,7 @@ public class Login implements ActionListener {
                     }
                 }
             }
-        });
+        }});
 
         b2.addActionListener(new ActionListener() {
             @Override
@@ -149,6 +141,7 @@ public class Login implements ActionListener {
     }
 
     @Override
+
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

@@ -7,6 +7,8 @@ package Controleur;
 import Modele.*;
 import Modele.Connection;
 import Vue.*;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.*;
 
 import java.io.*;
@@ -21,17 +23,21 @@ public class SelectImage {
 
     public void Select() throws SQLException {
         try {
-            String DBurl = "jdbc:mysql://localhost/booking";
-            con = DriverManager.getConnection(DBurl, "root", "");
+            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
+            //con = DriverManager.getConnection(DBurl, "root", "");
+con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
 
             Statement stmt = con.createStatement();
+            
             //exécution de la requête
-            ResultSet rs = stmt.executeQuery("SELECT * FROM image");
+            ResultSet rs = stmt.executeQuery("SELECT image FROM Image");
             int i = 0;
             while (rs.next()) {
                 InputStream input = rs.getBinaryStream(1);
                 //créer l'image dans le répertoir courant
-                OutputStream output = new FileOutputStream(new File("test" + i + ".jpg"));
+                
+                OutputStream output = new FileOutputStream(new File("test" + i + ".png"));
+                
                 i++;
                 int b = 0;
                 while ((b = input.read()) > -1) {
@@ -44,6 +50,7 @@ public class SelectImage {
             }
             //fermer la connexion
             con.close();
+                   
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
