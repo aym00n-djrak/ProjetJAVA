@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controleur;
+package controlmvc;
 
-import Modele.Fenetre;
-import Modele.Connection;
-import Modele.*;
+import modelmvc.Fenetre;
+import modelmvc.Connection;
 
 import com.mysql.cj.xdevapi.Statement;
 import java.sql.*;
@@ -17,7 +16,7 @@ import java.sql.*;
  */
 public class Identifiants {
 
-    Modele.Fenetre phrase = new Fenetre();
+    modelmvc.Fenetre phrase = new Fenetre();
     String databaseUsername = "";
     String databasePassword = "";
     String requete = "";

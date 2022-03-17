@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Vue;
+package vuemvc;
 
-import Controleur.*;
-import Modele.*;
-import Vue.*;
+import modelmvc.Connection;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -32,8 +30,8 @@ public class CreationPage {
     JPasswordField p1;
     JButton b1, b2, b3, b4;
 
-    Modele.Fenetre phrase = new Modele.Fenetre();
-    Controleur.Identifiants enregistrement = new Controleur.Identifiants();
+    modelmvc.Fenetre phrase = new modelmvc.Fenetre();
+    controlmvc.Identifiants enregistrement = new controlmvc.Identifiants();
     
     public void Creation() throws SQLException {
         f = new JFrame("Création membre");
