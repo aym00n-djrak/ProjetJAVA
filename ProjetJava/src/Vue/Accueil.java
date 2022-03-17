@@ -27,7 +27,7 @@ public class Accueil {
     JLabel img1;
 
     
-    Accueil() throws IOException, InterruptedException
+    public void Accueil() throws IOException, InterruptedException
     {      
         //File file = new File("accueil.png");
         //BufferedImage bufferedImage= ImageIO.read(file);

@@ -33,7 +33,7 @@ public class DataCity {
 
             java.sql.Statement stmt = con.createStatement();
 
-            requete = "INSERT INTO city VALUES('"+name+"','"+place+"')";
+            requete = "INSERT INTO city VALUES(NULL,'"+name+"','"+place+"')";
 
             System.out.println("Parcours de la table");
 
@@ -84,7 +84,7 @@ try {
         }
 
     }
-    public void PickData(String name, String place) {
+    public void PickData() {
 try {
 
 //            String DBurl = "jdbc:mysql://localhost/booking";
@@ -104,11 +104,11 @@ try {
             
             boolean encore= resultats.next();
             
-            name= resultats.getString("city_name");
-            place= resultats.getString("city_place");
+          //  name= resultats.getString("city_name");
+           // place= resultats.getString("city_place");
 
             while (encore) {
-                System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+"Place: "+ resultats.getString("city_place"));
+                System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+" Place: "+ resultats.getString("city_place"));
                 System.out.println();
                 encore = resultats.next();
             }
