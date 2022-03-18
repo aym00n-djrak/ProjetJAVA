@@ -1,5 +1,6 @@
-package vuemvc;
+package viewmvc;
 
+import controlmvc.*;
 import modelmvc.Fenetre;
 
 import javax.swing.*;
@@ -20,6 +21,8 @@ public class Login implements ActionListener {
     JTextField t1;
     JPasswordField p1;
     JButton b1, b2, b3, b4;
+
+    EmailVerif verif = new EmailVerif();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPage creationPage = new CreationPage();
@@ -79,13 +82,18 @@ public class Login implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (t1.getText().isEmpty()) {
-                    new Fenetre().panneau("Le champ identifiant est vide");
-                } else {
-                if (p1.getText().isEmpty()) {
-                    new Fenetre().panneau("Le champ password est vide");
+                
+                if (verif.emailverif(t1.getText()) == false || t1.getText().isEmpty() || p1.getText().isEmpty()) {
+                    if (t1.getText().isEmpty()) {
+                        new Fenetre().panneau("Le champ email est vide");
+                    } else if (p1.getText().isEmpty()) {
+                        new Fenetre().panneau("Le champ password est vide");
+                    } else if (verif.emailverif(t1.getText()) == false) {
+                        new Fenetre().panneau("L'email ne correspond pas à un mail");
+                    }
                 } else {
                     if (check.Id(t1.getText(), p1.getText()) == true) {
+
                         f.setVisible(false);
                         try {
                             new Menu();
@@ -95,7 +103,8 @@ public class Login implements ActionListener {
                     }
                 }
             }
-        }});
+        }
+        );
 
         b2.addActionListener(new ActionListener() {
             @Override
@@ -111,9 +120,11 @@ public class Login implements ActionListener {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
                 try {
-                    vuemvc.Menu menu = new Menu();
+                    viewmvc.Menu menu = new Menu();
+
                 } catch (SQLException ex) {
-                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Login.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
 
@@ -126,11 +137,12 @@ public class Login implements ActionListener {
                 new Fenetre().panneau("Création d'un nouveau membre");
                 try {
                     creationPage.Creation();
+
                 } catch (SQLException ex) {
-                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Login.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
         });
 
         f.setBounds(300, 300, 400, 300);
@@ -140,8 +152,8 @@ public class Login implements ActionListener {
     }
 
     @Override
-
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

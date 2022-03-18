@@ -17,14 +17,14 @@ import java.sql.*;
 public class Identifiants {
 
     modelmvc.Fenetre phrase = new Fenetre();
-    String databaseUsername = "";
+    String databaseMail = "";
     String databasePassword = "";
     String requete = "";
     ResultSet resultats = null;
 
     java.sql.Connection con;
 
-    public Boolean Id(String name, String password) {
+    public Boolean Id(String mail, String password) {
         //Creation d'une requete SQL
         try {
 
@@ -37,7 +37,7 @@ public class Identifiants {
 
             java.sql.Statement stmt = con.createStatement();
 
-            requete = "SELECT * FROM users WHERE users_name='" + name + "' && users_password='" + password + "'";
+            requete = "SELECT * FROM users WHERE users_mail='" + mail + "' && users_password='" + password + "'";
 
             resultats = stmt.executeQuery(requete);
 
@@ -45,11 +45,11 @@ public class Identifiants {
 
             //Vérification des identifiants
             while (resultats.next()) {
-                databaseUsername = resultats.getString("users_name");
+                databaseMail = resultats.getString("users_mail");
                 databasePassword = resultats.getString("users_password");
             }
 
-            if (name.equals(databaseUsername) && password.equals(databasePassword)) {
+            if (mail.equals(databaseMail) && password.equals(databasePassword)) {
 
                 phrase.panneau("Successful Login!");
                 return true;
@@ -73,7 +73,7 @@ public class Identifiants {
         return false;
     }
 
-    public void InsertionBDD(String name, String password) {
+    public void InsertionBDD(String mail, String password) {
         //Creation d'une requete SQL
 
         try {
@@ -92,7 +92,7 @@ public class Identifiants {
             System.out.println("Insertion...");
 
             requete = "INSERT INTO users "
-                    + "VALUES (NULL, '" + name + "', '" + password + "')";
+                    + "VALUES (NULL, '" + mail + "', '" + password + "')";
 
             stmt.executeUpdate(requete);
 
