@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package vuemvc;
+package viewmvc;
 
 import modelmvc.Connection;
 
@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import modelmvc.Fenetre;
 
 /**
  *
@@ -32,13 +33,14 @@ public class CreationPage {
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     controlmvc.Identifiants enregistrement = new controlmvc.Identifiants();
-    
+    controlmvc.EmailVerif verif = new controlmvc.EmailVerif();
+
     public void Creation() throws SQLException {
         f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
 
-        l1 = new JLabel("PSEUDO");
+        l1 = new JLabel("Email");
         l1.setForeground(Color.red);
         l1.setBounds(50, 50, 100, 30);
 
@@ -54,11 +56,11 @@ public class CreationPage {
         p1 = new JPasswordField(20);
         p1.setForeground(Color.MAGENTA);
         p1.setBounds(200, 80, 100, 30);
-        
+
         b1 = new JButton("Créer");
         b1.setForeground(Color.RED);
         b1.setBounds(50, 120, 100, 30);
-        
+
         b2 = new JButton("Exit");
         b2.setForeground(Color.RED);
         b2.setBounds(200, 120, 100, 30);
@@ -70,28 +72,34 @@ public class CreationPage {
         f.getContentPane().add(p1);
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);
-        
-        //f.getContentPane().add(show.Show());
 
+        //f.getContentPane().add(show.Show());
         f.setBounds(300, 300, 400, 300);
         f.setResizable(false);
         f.setVisible(true);
-        
-        b1.addActionListener(new ActionListener(){ ;
+
+        b1.addActionListener(new ActionListener() {
+            ;
 
             @Override
             public void actionPerformed(ActionEvent e) {
-            enregistrement.InsertionBDD(t1.getText(), p1.getText());
-            f.setVisible(false);
-            Connection.affiche("Membre crée !");
-                try {
-                    new Menu();
-                } catch (SQLException ex) {
-                    Logger.getLogger(CreationPage.class.getName()).log(Level.SEVERE, null, ex);
+
+                if (verif.emailverif(t1.getText()) == true) {
+                    enregistrement.InsertionBDD(t1.getText(), p1.getText());
+                    f.setVisible(false);
+                    Connection.affiche("Membre crée !");
+                    try {
+                        new Menu();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CreationPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    new Fenetre().panneau("L'email ne correspond pas au type  mail");
+
                 }
             }
-    });
-        
+        });
+
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,5 +108,5 @@ public class CreationPage {
             }
         });
 
-}
+    }
 }

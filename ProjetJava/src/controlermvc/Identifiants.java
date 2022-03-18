@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controlmvc;
+package controlermvc;
 
 import modelmvc.Fenetre;
 import modelmvc.Connection;
@@ -17,14 +17,14 @@ import java.sql.*;
 public class Identifiants {
 
     modelmvc.Fenetre phrase = new Fenetre();
-    String databaseMail = "";
+    String databaseUsername = "";
     String databasePassword = "";
     String requete = "";
     ResultSet resultats = null;
 
     java.sql.Connection con;
 
-    public Boolean Id(String mail, String password) {
+    public Boolean Id(String name, String password) {
         //Creation d'une requete SQL
         try {
 
@@ -37,7 +37,7 @@ public class Identifiants {
 
             java.sql.Statement stmt = con.createStatement();
 
-            requete = "SELECT * FROM users WHERE users_mail='" + mail + "' && users_password='" + password + "'";
+            requete = "SELECT * FROM users WHERE users_name='" + name + "' && users_password='" + password + "'";
 
             resultats = stmt.executeQuery(requete);
 
@@ -45,11 +45,11 @@ public class Identifiants {
 
             //Vérification des identifiants
             while (resultats.next()) {
-                databaseMail = resultats.getString("users_mail");
+                databaseUsername = resultats.getString("users_name");
                 databasePassword = resultats.getString("users_password");
             }
 
-            if (mail.equals(databaseMail) && password.equals(databasePassword)) {
+            if (name.equals(databaseUsername) && password.equals(databasePassword)) {
 
                 phrase.panneau("Successful Login!");
                 return true;
@@ -73,7 +73,7 @@ public class Identifiants {
         return false;
     }
 
-    public void InsertionBDD(String mail, String password) {
+    public void InsertionBDD(String name, String password) {
         //Creation d'une requete SQL
 
         try {
@@ -92,7 +92,7 @@ public class Identifiants {
             System.out.println("Insertion...");
 
             requete = "INSERT INTO users "
-                    + "VALUES (NULL, '" + mail + "', '" + password + "')";
+                    + "VALUES (NULL, '" + name + "', '" + password + "')";
 
             stmt.executeUpdate(requete);
 
