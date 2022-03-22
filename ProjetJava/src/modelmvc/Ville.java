@@ -16,7 +16,7 @@ public class Ville {
         System.out.println("Affichage des villes contenu dans la table city: ");
         
         datacity.AddData("Paris", "Champs-Elysées");
-        datacity.PickData();
+        //ddatacity.PickData();
         
         
         

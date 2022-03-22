@@ -16,6 +16,7 @@ import modelmvc.Fenetre;
 import viewmvc.CreationPage;
 import viewmvc.Menu;
 import java.sql.SQLException;
+import viewmvc.Reservation;
 
 /**
  *
@@ -46,8 +47,8 @@ public class EmailVerif {
     public void verifcreaboutonmail(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         {
             Identifiants enregistrement = new Identifiants();
-                            viewmvc.Menu menu = new Menu();
-
+                  //          viewmvc.Menu menu = new Menu();
+                  Reservation reservation = new Reservation();
 
             b.addActionListener(new ActionListener() {
                 ;
@@ -59,11 +60,8 @@ public class EmailVerif {
                         enregistrement.InsertionBDD(t1.getText(), p1.getText());
                         f.setVisible(false);
                         Connection.affiche("Membre crée !");
-                        try {
-                            menu.Menu();
-                        } catch (SQLException ex) {
-                            java.util.logging.Logger.getLogger(EmailVerif.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                        }
+                        //menu.Menu();
+                        reservation.Reservation();
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
 
@@ -92,7 +90,10 @@ public class EmailVerif {
                     if (new Identifiants().Id(t1.getText(), p1.getText()) == true) {
                         
                         f.setVisible(false);
-                        new Menu();
+                        Menu menu = new Menu();
+                        Reservation reservation= new Reservation();
+                        
+                        reservation.Reservation();
                     }
                 }
             }

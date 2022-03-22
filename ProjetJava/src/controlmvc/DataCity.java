@@ -84,9 +84,9 @@ try {
         }
 
     }
-    public void PickData() {
+    public String PickData() {
 try {
-
+    String name = null;
 //            String DBurl = "jdbc:mysql://localhost/booking";
             String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
             // con = DriverManager.getConnection(DBurl, "root", "");
@@ -104,17 +104,17 @@ try {
             
             boolean encore= resultats.next();
             
-          //  name= resultats.getString("city_name");
-           // place= resultats.getString("city_place");
+             
 
             while (encore) {
                 System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+" Place: "+ resultats.getString("city_place"));
                 System.out.println();
+                name=resultats.getString("city_name");
                 encore = resultats.next();
             }
             
             resultats.close();
-
+            return name;
 
         } catch (SQLException e) {
             System.out.println("SQLException");
@@ -126,6 +126,7 @@ try {
                 e = e.getNextException();
             } while (e != null);
         }
+        return null;
 
     }
 }

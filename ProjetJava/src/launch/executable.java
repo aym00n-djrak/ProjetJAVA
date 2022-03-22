@@ -8,9 +8,8 @@ import viewmvc.Accueil;
 import controlmvc.DataCity;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import viewmvc.Reservation;
+
 
 /**
  *
@@ -20,10 +19,16 @@ public class executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException {
         Accueil accueil = new Accueil();
-         accueil.Accueil();
-
-        DataCity city = new DataCity();
+        // accueil.Accueil();
+        Reservation reserv= new Reservation();
+        reserv.Reservation();
         
+        DataCity city = new DataCity();
+        String name = null,place = null;
+        
+        name=city.PickData();
+        
+        System.out.println(" "+name+" "+place);
         //city.AddData("Paris", "Champs-Elysées");
         //city.PickData();
     }
