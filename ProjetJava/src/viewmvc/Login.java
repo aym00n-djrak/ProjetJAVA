@@ -80,8 +80,6 @@ public class Login {
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-
-        controlmvc.Identifiants check = new controlmvc.Identifiants();
         
         verif.verifboutonmail(b1, t1, p1, f);
 
