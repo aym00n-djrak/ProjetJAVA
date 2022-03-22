@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import controlmvc.*;
 import modelmvc.Connection;
 
 import java.awt.Color;
@@ -25,10 +26,10 @@ import modelmvc.Fenetre;
  */
 public class CreationPage {
 
-    JFrame f;
+    public JFrame f;
     JLabel l1, l2;
-    JTextField t1;
-    JPasswordField p1;
+    public JTextField t1;
+    public JPasswordField p1;
     JButton b1, b2, b3, b4;
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
@@ -36,6 +37,7 @@ public class CreationPage {
     controlmvc.EmailVerif verif = new controlmvc.EmailVerif();
 
     public void Creation() throws SQLException {
+
         f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
@@ -48,14 +50,14 @@ public class CreationPage {
         l2.setForeground(Color.red);
         l2.setBounds(50, 80, 100, 30);
 
-        t1 = new JTextField(20);
+        this.t1 = new JTextField(20);
         // t1.addActionListener(this);
-        t1.setForeground(Color.MAGENTA);
-        t1.setBounds(200, 50, 100, 30);
+        this.t1.setForeground(Color.MAGENTA);
+        this.t1.setBounds(200, 50, 100, 30);
 
-        p1 = new JPasswordField(20);
-        p1.setForeground(Color.MAGENTA);
-        p1.setBounds(200, 80, 100, 30);
+        this.p1 = new JPasswordField(20);
+        this.p1.setForeground(Color.MAGENTA);
+        this.p1.setBounds(200, 80, 100, 30);
 
         b1 = new JButton("Créer");
         b1.setForeground(Color.RED);
@@ -78,35 +80,8 @@ public class CreationPage {
         f.setResizable(false);
         f.setVisible(true);
 
-        b1.addActionListener(new ActionListener() {
-            ;
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                if (verif.emailverif(t1.getText()) == true) {
-                    enregistrement.InsertionBDD(t1.getText(), p1.getText());
-                    f.setVisible(false);
-                    Connection.affiche("Membre crée !");
-                    try {
-                        new Menu();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(CreationPage.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else {
-                    new Fenetre().panneau("L'email ne correspond pas au type  mail");
-
-                }
-            }
-        });
-
-        b2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-                System.exit(0);
-            }
-        });
+        verif.verifcreaboutonmail(b1, t1, p1, f);
+        b2.addActionListener(new eventexit());
 
     }
 }

@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author remyj
  */
-public class Login implements ActionListener {
+public class Login {
 
     JFrame f;
     JLabel l1, l2;
@@ -23,15 +23,21 @@ public class Login implements ActionListener {
     JButton b1, b2, b3, b4;
 
     EmailVerif verif = new EmailVerif();
+    Invite invite= new Invite();
+    NewMember newmember= new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPage creationPage = new CreationPage();
 
-    Login() {
+    public void Login() {
+        
+        
 
         f = new JFrame("Login");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
+        
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         l1 = new JLabel("Email");
         l1.setForeground(Color.red);
@@ -42,7 +48,6 @@ public class Login implements ActionListener {
         l2.setBounds(50, 80, 100, 30);
 
         t1 = new JTextField(20);
-        // t1.addActionListener(this);
         t1.setForeground(Color.MAGENTA);
         t1.setBounds(200, 50, 100, 30);
 
@@ -77,83 +82,18 @@ public class Login implements ActionListener {
         f.getContentPane().add(b4);
 
         controlmvc.Identifiants check = new controlmvc.Identifiants();
+        
+        verif.verifboutonmail(b1, t1, p1, f);
 
-        b1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                
-                if (verif.emailverif(t1.getText()) == false || t1.getText().isEmpty() || p1.getText().isEmpty()) {
-                    if (t1.getText().isEmpty()) {
-                        new Fenetre().panneau("Le champ email est vide");
-                    } else if (p1.getText().isEmpty()) {
-                        new Fenetre().panneau("Le champ password est vide");
-                    } else if (verif.emailverif(t1.getText()) == false) {
-                        new Fenetre().panneau("L'email ne correspond pas à un mail");
-                    }
-                } else {
-                    if (check.Id(t1.getText(), p1.getText()) == true) {
-
-                        f.setVisible(false);
-                        try {
-                            new Menu();
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-            }
-        }
-        );
-
-        b2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-                System.exit(0);
-            }
-        });
-
-        b3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-                new Fenetre().panneau("Mode invité");
-                try {
-                    viewmvc.Menu menu = new Menu();
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(Login.class
-                            .getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-        });
-
-        b4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-                new Fenetre().panneau("Création d'un nouveau membre");
-                try {
-                    creationPage.Creation();
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(Login.class
-                            .getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
+        b2.addActionListener(new eventexit());
+        
+        invite.invitebutton(b3, t1, p1, f);
+        
+        newmember.newmemberbutton(b4,f);
 
         f.setBounds(300, 300, 400, 300);
 
         f.setResizable(false);
         f.setVisible(true);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }

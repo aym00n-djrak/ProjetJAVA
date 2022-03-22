@@ -5,6 +5,7 @@
 package viewmvc;
 
 import controlmvc.SelectImage;
+import controlmvc.eventexit;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +30,7 @@ public class Menu {
     //Modele.Connection connection= new Modele.Connection();
     SelectImage select = new SelectImage();
 
-    Menu() throws SQLException {
+    public void Menu() throws SQLException {
 
         java.net.URL url = this.getClass().getResource("batman.jpg");
         img = new ImageIcon(url);
@@ -52,14 +53,7 @@ public class Menu {
 
         b4 = new JButton("Exit");
         b4.setBounds(580, 490, 210, 60);
-
-        b4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.setVisible(false);
-                System.exit(0);
-            }
-        });
+        b4.addActionListener(new eventexit());
 
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);

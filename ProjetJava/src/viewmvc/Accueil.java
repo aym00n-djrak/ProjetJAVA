@@ -62,7 +62,8 @@ public class Accueil {
 
         Thread.sleep(3000);
         f.setVisible(false);
-        new Login();
+        Login login = new Login();
+        login.Login();
 
     }
 }
