@@ -22,17 +22,25 @@ import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import controlmvc.ConfirmationReservation;
+import controlmvc.DataCity;
+import java.util.ArrayList;
+import modelmvc.convertAlistToList;
 
 public class Reservation extends JFrame /*implements ActionListener*/ {
+
+    convertAlistToList conv = new convertAlistToList();
+    DataCity city = new DataCity();
 
     private int idReservation;
     ImageIcon fond;
     JLabel ecran = new JLabel();
 
-    paiement paye = new paiement();
+    Paiement paye = new Paiement();
 
     //Construction de l'interface
     public void Reservation() {
+
+        ArrayList<String> name = new ArrayList<String>();
 
         JFrame frame = new JFrame("-----Air Java----");
         JPanel panneau = new JPanel();
@@ -63,7 +71,12 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
 
         //JComboBox 1 à remplir à l'aide de la base de données
         JLabel reserv = new JLabel("Réserver un vol vers :");
-        String pays[] = {"Paris", "Moscou", "Londres", "Berlin", "Corée", "Tokyo", "Sydney", "Floride", "Brésil", "Strasbourg", "Bordeaux"};
+        
+        city.PickData(name);
+
+        String[] pays = new String[name.size()];
+
+        pays = conv.convert(name);
         JComboBox destination = new JComboBox(pays);
         destination.setBounds(150, 110, 100, 20);
 
@@ -112,55 +125,11 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
         desktop.setSize(1400, 1400);
 
         //fin internal frame reservations
-        /*
-        //Construction de la fenetre paiement
-        JInternalFrame paiement = new JInternalFrame("--- Paiement ---");
-        JPanel panel = new JPanel();
-        //panel.setLayout(new GridLayout(4,1));
-        JLabel titre = new JLabel("Paiement en ligne ");
-        fond = new ImageIcon("\"C:\\Users\\Clarence\\Documents\\NetBeansProjects\\Reservation\\src\\reservation\\cartes.png\"");
-        ecran.setIcon(fond);
-        JLabel payer = new JLabel();
-        payer.setBounds(440, 200, 100, 20);
+        paye.InterfacePaiement(reservation, fond, ecran, desktop, panneau, validate, suite);
 
-        //Ajouts au panel de paiement
-        panel.add(ecran);
-        panel.add(titre);
-        panel.add(payer);
-
-        //Set Proportions
-        paiement.add(panel);
-        paiement.setClosable(true);
-        paiement.setMaximizable(true);
-        paiement.setIconifiable(true);
-        paiement.setResizable(true);
-        paiement.setSize(500, 500);
-        paiement.setLayout(null);
-        //getContentPane().add(panel);
-        paiement.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        paiement.setVisible(true);
-        
-
-        //Ajout au bureau 
-        desktop.add(reservation).setVisible(true);
-        desktop.add(paiement).setVisible(false);
-
-        //CONFIRMATION DE LA RESERVATION        
-        confres.confirmationreserv(validate);
-
-        // FERMETURE DES RESERVATIONS ET OUVERTURE DU PAIEMENT
-        confres.paiementreserv(suite, paiement, reservation);
-
-        desktop.getAllFramesInLayer(1000);
-
-        // panneau.add(desktop);
         //Ajouts à la frame  
         frame.add(panneau);
         frame.add(desktop);
-         */
-        
-        paye.interfacepaiement(reservation, fond, ecran, desktop, frame, panneau, validate, suite);
-        
         frame.getContentPane().add(ecran);
         frame.setSize(1600, 1600);
         frame.setBackground(new Color(119, 135, 136));

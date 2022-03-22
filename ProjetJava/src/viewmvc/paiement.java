@@ -4,30 +4,19 @@
  */
 package viewmvc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.swing.*;
-
-import java.awt.event.*;
-import java.awt.Color;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import controlmvc.ConfirmationReservation;
 
 /**
  *
  * @author remyj
  */
-public class paiement {
+public class Paiement {
     
     ConfirmationReservation confres= new ConfirmationReservation();
     
-    public void interfacepaiement(JInternalFrame reservation, ImageIcon fond, JLabel ecran, JDesktopPane desktop, JFrame frame,JPanel panneau, JButton validate, JButton suite)
+    public void InterfacePaiement(JInternalFrame reservation, ImageIcon fond, JLabel ecran, JDesktopPane desktop,JPanel panneau, JButton validate, JButton suite)
     {
     //Construction de la fenetre paiement
         JInternalFrame paiement = new JInternalFrame("--- Paiement ---");
@@ -52,7 +41,6 @@ public class paiement {
         paiement.setResizable(true);
         paiement.setSize(500, 500);
         paiement.setLayout(null);
-        //getContentPane().add(panel);
         paiement.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         paiement.setVisible(true);
 
@@ -68,10 +56,6 @@ public class paiement {
 
         desktop.getAllFramesInLayer(1000);
 
-        // panneau.add(desktop);
-        //Ajouts à la frame  
-        frame.add(panneau);
-        frame.add(desktop);
-    
+     
 }
 }

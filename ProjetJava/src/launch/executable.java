@@ -8,6 +8,9 @@ import viewmvc.Accueil;
 import controlmvc.DataCity;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import modelmvc.*;
 import viewmvc.Reservation;
 
 
@@ -19,16 +22,28 @@ public class executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException {
         Accueil accueil = new Accueil();
-        // accueil.Accueil();
+         accueil.Accueil();
         Reservation reserv= new Reservation();
-        reserv.Reservation();
+        //reserv.Reservation();
         
         DataCity city = new DataCity();
-        String name = null,place = null;
+        ArrayList<String> name = new ArrayList<String>();
         
-        name=city.PickData();
+            
         
-        System.out.println(" "+name+" "+place);
+        boolean add = name.add("Bat");
+        
+        city.PickData(name);
+        
+        convertAlistToList conv= new convertAlistToList();
+        
+        String[] liste= new String[name.size()];
+        
+        liste=conv.convert(name);
+        
+        System.out.println(name);
+        System.out.println(liste);
+
         //city.AddData("Paris", "Champs-Elysées");
         //city.PickData();
     }

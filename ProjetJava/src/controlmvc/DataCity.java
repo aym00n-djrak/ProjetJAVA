@@ -8,6 +8,7 @@ import modelmvc.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -84,9 +85,8 @@ try {
         }
 
     }
-    public String PickData() {
+    public ArrayList<String> PickData(ArrayList<String> name) {
 try {
-    String name = null;
 //            String DBurl = "jdbc:mysql://localhost/booking";
             String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
             // con = DriverManager.getConnection(DBurl, "root", "");
@@ -109,7 +109,7 @@ try {
             while (encore) {
                 System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+" Place: "+ resultats.getString("city_place"));
                 System.out.println();
-                name=resultats.getString("city_name");
+                name.add(resultats.getString("city_name"));
                 encore = resultats.next();
             }
             
