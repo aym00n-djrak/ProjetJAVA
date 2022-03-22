@@ -65,11 +65,11 @@ public class Login {
 
         b3 = new JButton("Invité");
         b3.setForeground(Color.RED);
-        b3.setBounds(150, 150, 80, 40);
+        b3.setBounds(50, 170, 80, 40);
 
         b4 = new JButton("Créer membre");
         b4.setForeground(Color.RED);
-        b4.setBounds(150, 200, 50, 15);
+        b4.setBounds(150, 170, 80, 40);
 
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);

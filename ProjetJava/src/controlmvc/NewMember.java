@@ -11,8 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 import modelmvc.Fenetre;
 import viewmvc.CreationPage;
 import viewmvc.Login;
