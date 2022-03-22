@@ -18,7 +18,7 @@ import viewmvc.Reservation;
  *
  * @author remyj
  */
-public class executable {
+public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException {
         Accueil accueil = new Accueil();
@@ -35,7 +35,7 @@ public class executable {
         
         city.PickData(name);
         
-        convertAlistToList conv= new convertAlistToList();
+        ConvertAlistToList conv= new ConvertAlistToList();
         
         String[] liste= new String[name.size()];
         

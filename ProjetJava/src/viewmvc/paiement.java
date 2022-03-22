@@ -16,22 +16,25 @@ public class Paiement {
     
     ConfirmationReservation confres= new ConfirmationReservation();
     
-    public void InterfacePaiement(JInternalFrame reservation, ImageIcon fond, JLabel ecran, JDesktopPane desktop,JPanel panneau, JButton validate, JButton suite)
+    public void InterfacePaiement(JInternalFrame reservation, JLabel ecran, JDesktopPane desktop,JPanel panneau, JButton validate, JButton suite)
     {
     //Construction de la fenetre paiement
         JInternalFrame paiement = new JInternalFrame("--- Paiement ---");
         JPanel panel = new JPanel();
         //panel.setLayout(new GridLayout(4,1));
         JLabel titre = new JLabel("Paiement en ligne ");
-        fond = new ImageIcon("\"C:\\Users\\Clarence\\Documents\\NetBeansProjects\\Reservation\\src\\reservation\\cartes.png\"");
-        ecran.setIcon(fond);
-        JLabel payer = new JLabel();
+        
+        java.net.URL url = this.getClass().getResource("carte.png");
+
+        ImageIcon fond = new ImageIcon(url);
+        JLabel payer = new JLabel(fond);
         payer.setBounds(440, 200, 100, 20);
 
         //Ajouts au panel de paiement
         panel.add(ecran);
         panel.add(titre);
-        panel.add(payer);
+        //panel.add(payer);
+        
 
         //Set Proportions
         paiement.add(panel);
@@ -43,6 +46,8 @@ public class Paiement {
         paiement.setLayout(null);
         paiement.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         paiement.setVisible(true);
+        
+        paiement.getContentPane().add(payer);
 
         //Ajout au bureau 
         desktop.add(reservation).setVisible(true);

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author remyj
  */
-public class convertAlistToList {
+public class ConvertAlistToList {
     
     public String[] convert(ArrayList<String> name)
     {

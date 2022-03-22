@@ -8,31 +8,21 @@ package viewmvc;
  *
  * @author Clarence
  */
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import javax.swing.*;
 
 import java.awt.event.*;
 import java.awt.Color;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import controlmvc.ConfirmationReservation;
 import controlmvc.DataCity;
 import java.util.ArrayList;
-import modelmvc.convertAlistToList;
+import modelmvc.ConvertAlistToList;
 
 public class Reservation extends JFrame /*implements ActionListener*/ {
 
-    convertAlistToList conv = new convertAlistToList();
+    ConvertAlistToList conv = new ConvertAlistToList();
     DataCity city = new DataCity();
 
     private int idReservation;
-    ImageIcon fond;
     JLabel ecran = new JLabel();
 
     Paiement paye = new Paiement();
@@ -44,10 +34,7 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
 
         JFrame frame = new JFrame("-----Air Java----");
         JPanel panneau = new JPanel();
-
-        /*   JButton ok = new JButton ("Valider");
-         ok.setBounds(180,720, 140,60);
-         ok.addActionListener( this::menuListener);//ok*/
+        
         //Appel de la methode MenuBar
         frame.setJMenuBar(MenuBar());
 
@@ -65,10 +52,6 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
         onglets.add("Confirmation d'achats", pconf);
         onglets.add("Historique de réservations", phistori);
 
-        JComboBox<String> jcombo1 = new JComboBox<String>();
-        Connection bddconnect = null;
-        Statement bddstatement = null;
-
         //JComboBox 1 à remplir à l'aide de la base de données
         JLabel reserv = new JLabel("Réserver un vol vers :");
         
@@ -81,7 +64,6 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
         destination.setBounds(150, 110, 100, 20);
 
         reserv.setBounds(150, 120, 100, 20);
-        jcombo1.setBounds(150, 110, 100, 20);
 
         //JComboBox 2 choix nb Passagers
         JLabel passager = new JLabel("Passager(s)");
@@ -92,10 +74,11 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
 
         //JComboBox calendrier
         /*   JComboBox calendrier = new JComboBox();*/
+        
         //Confirmation de la reservation 
         JButton validate = new JButton("Confirmer votre réservation");
-        ConfirmationReservation confres = new ConfirmationReservation();
         JButton suite = new JButton("Accéder à la plateforme de paiement");
+        
         validate.setBounds(40, 30, 200, 60);
         suite.setBounds(780, 820, 140, 60);
 
@@ -103,7 +86,6 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
         pachat.add(reserv);
         pachat.add(passager);
         pachat.add(destination);
-        pachat.add(jcombo1);
         pachat.add(voyageur);
 
         //Ajouts à pconf
@@ -125,7 +107,16 @@ public class Reservation extends JFrame /*implements ActionListener*/ {
         desktop.setSize(1400, 1400);
 
         //fin internal frame reservations
-        paye.InterfacePaiement(reservation, fond, ecran, desktop, panneau, validate, suite);
+        paye.InterfacePaiement(reservation, ecran, desktop, panneau, validate, suite);
+        
+        //AJOUTS BACKGROUND
+        
+        java.net.URL url = this.getClass().getResource("earth.png");
+        ImageIcon img = new ImageIcon(url);
+        JLabel img1 = new JLabel(img);
+
+        //System.out.println();
+        img1.setBounds(0, 0, 1300, 1000);
 
         //Ajouts à la frame  
         frame.add(panneau);

@@ -8,6 +8,12 @@ package modelmvc;
  *
  * @author remyj
  */
-public class CreerMembre {
+public class CreationDestination {
+    
+    
+    public void CreationDestination()
+    {
+        
+    }
     
 }

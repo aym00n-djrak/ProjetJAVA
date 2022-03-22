@@ -19,7 +19,6 @@ public class Accueil {
     JFrame f;
     JLabel l1, l2, l3;
     JPanel p;
-    //Thread t=null;
     ImageIcon img;
     JLabel img1;
 
@@ -55,12 +54,12 @@ public class Accueil {
         f.getContentPane().add(l3);
         f.getContentPane().add(img1);
 
-        //  f.setSize(1300,1000);
+          f.setSize(1300,1000);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         f.setVisible(true);
 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         f.setVisible(false);
         Login login = new Login();
         login.Login();
