@@ -21,9 +21,9 @@ public class SelectImage {
 
     public void Select() throws SQLException {
         try {
-            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
-            //con = DriverManager.getConnection(DBurl, "root", "");
-con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
+        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
             Statement stmt = con.createStatement();
             

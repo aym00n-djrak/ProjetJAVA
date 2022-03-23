@@ -29,9 +29,9 @@ public class Identifiants {
         try {
 
 //            String DBurl = "jdbc:mysql://localhost/booking";
-            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
+        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
-            con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
             Connection.affiche("DataBase connected !");
 
@@ -81,9 +81,9 @@ public class Identifiants {
             // String DBurl = "jdbc:mysql://localhost/booking";
             //con = DriverManager.getConnection(DBurl, "root", "");
            
-            String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
-
-            con = DriverManager.getConnection(DBurl, "sql11479534", "XKb4Tl5i6i");
+        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
             Connection.affiche("DataBase connected !");
 

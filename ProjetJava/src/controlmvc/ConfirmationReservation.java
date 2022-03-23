@@ -23,7 +23,6 @@ public class ConfirmationReservation {
 
                 ouverture.setVisible(true);
             }
-
         });
     }
 
