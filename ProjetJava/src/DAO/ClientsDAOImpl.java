@@ -96,7 +96,6 @@ public class ClientsDAOImpl implements ClientsDAO {
                 client.SetDateNaissance(resultat.getString("Date de naissance"));
                 client.SetNumReservation(resultat.getInt("Numéro de reservation"));
                 client.SetForeignKeyUser(resultat.getInt("users_idusers"));
-                encore = resultat.next();
             }
 
             resultat.close();

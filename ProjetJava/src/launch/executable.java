@@ -23,7 +23,7 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException {
         Accueil accueil = new Accueil();
-        //accueil.Accueil();
+        accueil.Accueil();
         Reservation reserv = new Reservation();
         //reserv.Reservation();
 
@@ -46,21 +46,29 @@ public class Executable {
         System.out.println("testDAO");
         
         Employe employe=new Employe();
+                Employe employe1=new Employe();
+
         EmployeDAOImpl e= new EmployeDAOImpl();
         
         employe.SetCompagnie("airbus");
         employe.SetDepartement("pilote");
-        employe.SetId(1);
-        employe.SetNom("Monceau");
+        employe.SetId(2);
+        employe.SetNom("Barbier");
         employe.SetPrenom("Marc");
-        employe.SetForeignKey(2);
+        employe.SetForeignKey(1);
         
         System.out.println(employe.GetCompagnie());
         System.out.println(employe.GetDepartement());
         System.out.println(employe.GetForeignKey());
         
-        e.AddEmploye(employe);
-
+        //e.AddEmploye(employe);
+        
+       // employe1=e.GetEmploye(1);
+        
+      // e.UpdateEmploye(employe);
+      e.DeleteEmploye(2);
+      e.DeleteEmploye(1);
+        System.out.println(employe1.GetNom());
         
         
     }

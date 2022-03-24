@@ -94,7 +94,6 @@ public class PaiementDAOImpl implements PaiementDAO {
                 paiement.SetDate(resultat.getString("Date"));
                 paiement.SetForeignKeyReservationt(resultat.getInt("idRéservation"));
                 paiement.SetForeignKeyClient(resultat.getInt("idClients"));
-                encore = resultat.next();
             }
 
             resultat.close();

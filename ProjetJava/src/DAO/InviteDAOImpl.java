@@ -104,7 +104,6 @@ public class InviteDAOImpl implements InviteDAO {
                 invite.SetId(resultat.getInt("idInvites"));
                 invite.SetNom(resultat.getString("Nom"));
                 invite.SetPrenom(resultat.getString("Prenom"));
-                encore = resultat.next();
             }
 
             resultat.close();

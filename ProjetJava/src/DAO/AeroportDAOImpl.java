@@ -96,8 +96,6 @@ public class AeroportDAOImpl implements AeroportDAO {
                 aeroport.SetId(resultat.getInt("idAéroport"));
                 aeroport.SetName(resultat.getString("Name"));
                 aeroport.SetPays(resultat.getString("Pays"));
-
-                encore = resultat.next();
             }
             
             resultat.close();
