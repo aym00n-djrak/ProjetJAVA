@@ -73,7 +73,7 @@ public class AeroportDAOImpl implements AeroportDAO {
         Statement statement = null;
         ResultSet resultat = null;
 
-        String sql = "SELECT * FROM city WHERE idAéroport=" + idaeroport + "";
+        String sql = "SELECT * FROM aéroport WHERE idAéroport=" + idaeroport + "";
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -93,7 +93,7 @@ public class AeroportDAOImpl implements AeroportDAO {
 
                 System.out.println();
 
-                aeroport.SetId(idaeroport);
+                aeroport.SetId(resultat.getInt("idAéroport"));
                 aeroport.SetName(resultat.getString("Name"));
                 aeroport.SetPays(resultat.getString("Pays"));
                 
