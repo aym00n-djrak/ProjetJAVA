@@ -13,6 +13,7 @@ import java.util.Arrays;
 import modelmvc.*;
 import viewmvc.Reservation;
 
+import DAO.*;
 
 /**
  *
@@ -22,29 +23,45 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException {
         Accueil accueil = new Accueil();
-         accueil.Accueil();
-        Reservation reserv= new Reservation();
+        //accueil.Accueil();
+        Reservation reserv = new Reservation();
         //reserv.Reservation();
-        
+
         DataCity city = new DataCity();
         ArrayList<String> name = new ArrayList<String>();
-        
-            
-        
-        boolean add = name.add("Bat");
-        
-        city.PickData(name);
-        
-        ConvertAlistToList conv= new ConvertAlistToList();
-        
-        String[] liste= new String[name.size()];
-        
-        liste=conv.convert(name);
-        
+
+        //  boolean add = name.add("Bat");
+        // city.PickData(name);
+        ConvertAlistToList conv = new ConvertAlistToList();
+
+        String[] liste = new String[name.size()];
+
+        liste = conv.convert(name);
+
         System.out.println(name);
         System.out.println(liste);
 
         //city.AddData("Paris", "Champs-Elysées");
         //city.PickData();
+        System.out.println("testDAO");
+        
+        Employe employe=new Employe();
+        EmployeDAOImpl e= new EmployeDAOImpl();
+        
+        employe.SetCompagnie("airbus");
+        employe.SetDepartement("pilote");
+        employe.SetId(1);
+        employe.SetNom("Monceau");
+        employe.SetPrenom("Marc");
+        employe.SetForeignKey(2);
+        
+        System.out.println(employe.GetCompagnie());
+        System.out.println(employe.GetDepartement());
+        System.out.println(employe.GetForeignKey());
+        
+        e.AddEmploye(employe);
+
+        
+        
     }
 }

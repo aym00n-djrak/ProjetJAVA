@@ -19,7 +19,7 @@ public class Invite {
     }
 
     public void SetId(int id) {
-        id = idinvite;
+        idinvite=id;
     }
 
     public String GetNom() {
@@ -27,7 +27,7 @@ public class Invite {
     }
 
     public void SetNom(String name) {
-        name = nom;
+        nom=name;
     }
 
     public String GetPrenom() {
@@ -35,7 +35,7 @@ public class Invite {
     }
 
     public void SetPrenom(String name) {
-        name = prenom;
+        prenom=name;
     }
 
 }

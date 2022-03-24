@@ -24,7 +24,7 @@ public class Reservation {
     
     public void SetId(int id)
     {
-        id = idreservation;
+        idreservation=id;
     }
 
     public int GetNombreBillet() {
@@ -33,7 +33,7 @@ public class Reservation {
     
     public void SetNombreBillet(int nombre)
     {
-        nombre=nombrebillet;
+        nombrebillet=nombre;
     }
 
     public String GetStatut() {
@@ -42,7 +42,7 @@ public class Reservation {
     
     public void SetStatut(String state)
     {
-        state=statut;
+        statut=state;
     }
 
     public int GetForeignKeyClientMembre() {
@@ -51,7 +51,7 @@ public class Reservation {
     
     public void SetForeignKeyClientMembre(int f)
     {
-        f=foreignkeyclientmembre;
+        foreignkeyclientmembre=f;
     }
     
     public int GetConfirmation()
@@ -61,7 +61,7 @@ public class Reservation {
     
     public void SetConfirmation(int conf)
     {
-        conf=confirmation;
+        confirmation=conf;
     }
 
     public int GetForeignKeyVol() {
@@ -70,6 +70,6 @@ public class Reservation {
     
     public void SetForeignKeyVol(int f)
     {
-        f=foreignkeyvol;
+        foreignkeyvol=f;
     }
 }

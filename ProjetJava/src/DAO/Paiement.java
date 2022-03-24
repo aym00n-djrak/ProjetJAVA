@@ -22,7 +22,7 @@ public class Paiement {
     }
 
     public void SetId(int id) {
-        id = idpaiement;
+        idpaiement=id;
     }
 
     public int GetMontant() {
@@ -30,7 +30,7 @@ public class Paiement {
     }
 
     public void SetMontant(int mont) {
-        mont = montant;
+        montant=mont;
     }
 
     public String GetDate() {
@@ -38,7 +38,7 @@ public class Paiement {
     }
 
     public void SetDate(String d) {
-        d = date;
+        date=d;
     }
 
     public int GetForeignKeyReservation() {
@@ -46,7 +46,7 @@ public class Paiement {
     }
 
     public void SetForeignKeyReservationt(int f) {
-        f = foreignkeyreservation;
+        foreignkeyreservation=f;
     }
 
     public int GetForeignKeyClient() {
@@ -54,7 +54,7 @@ public class Paiement {
     }
 
     public void SetForeignKeyClient(int f) {
-        f = foreignkeyclient;
+       foreignkeyclient=f;
     }
 
 }

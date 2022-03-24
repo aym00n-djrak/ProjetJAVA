@@ -21,7 +21,7 @@ public class Aeroport {
     
     public void SetId(int id)
     {
-        id=idaeroport;
+        idaeroport=id;
     }
     
     public String GetName()
@@ -31,7 +31,7 @@ public class Aeroport {
     
     public void SetName(String nom)
     {
-        nom=name;
+        name=nom;
     }
     
     public String GetPays()
@@ -41,6 +41,6 @@ public class Aeroport {
     
     public void SetPays(String country)
     {
-        country=pays;
+        pays=country;
     }
 }

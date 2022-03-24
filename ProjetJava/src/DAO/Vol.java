@@ -24,7 +24,7 @@ public class Vol {
     }
 
     public void SetId(int id) {
-        id = idvol;
+        idvol=id;
     }
 
     public String GetCompagnie() {
@@ -32,7 +32,7 @@ public class Vol {
     }
 
     public void SetCompagnie(String comp) {
-        comp = compagnie;
+        compagnie=comp;
     }
 
     public int GetNumeroVol() {
@@ -40,7 +40,7 @@ public class Vol {
     }
 
     public void SetNumeroVol(int num) {
-        num = numerovol;
+        numerovol=num;
     }
 
     public String GetTypeAvion() {
@@ -48,7 +48,7 @@ public class Vol {
     }
 
     public void SetTypeAvion(String type) {
-        type = typeavion;
+        typeavion=type;
     }
 
     public String GetDateDepart() {
@@ -56,7 +56,7 @@ public class Vol {
     }
 
     public void SetDateDepart(String date) {
-        date = datedepart;
+        datedepart=date;
     }
 
     public String GetDateArrivee() {
@@ -64,7 +64,7 @@ public class Vol {
     }
 
     public void SetDateArrivee(String date) {
-        date = datearrivee;
+        datearrivee=date;
     }
 
     public String GetHeureDepart() {
@@ -72,7 +72,7 @@ public class Vol {
     }
 
     public void SetHeureDepart(String heure) {
-        heure = heuredepart;
+        heuredepart=heure;
     }
 
     public String GetHeureArrivee() {
@@ -81,7 +81,7 @@ public class Vol {
     
         public void SetHeureArrivee(String heure)
     {
-        heure=heurearrivee;
+        heurearrivee=heure;
     }
 
 }

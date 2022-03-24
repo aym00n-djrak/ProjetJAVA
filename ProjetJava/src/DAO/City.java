@@ -22,7 +22,7 @@ public class City {
     
     public void SetId(int id)
     {
-        id=idcity;
+        idcity=id;
     }
     
     public String GetNom()
@@ -32,7 +32,7 @@ public class City {
     
     public void SetNom(String name)
     {
-        name=nom;
+        nom=name;
     }
     
     public String GetPays()
@@ -42,7 +42,7 @@ public class City {
     
     public void SetPays(String country)
     {
-        country=pays;
+        pays=country;
     }
     
     public int GetPrix()
@@ -52,6 +52,6 @@ public class City {
     
     public void SetPrix(int e)
     {
-        e=prix;
+        prix=e;
     }
 }

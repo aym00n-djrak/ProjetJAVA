@@ -20,7 +20,7 @@ public class Users {
 
     public void SetId(int id)
     {
-        id=idusers;
+        idusers=id;
     }
     public String GetMail() {
         return mail;
@@ -28,7 +28,7 @@ public class Users {
     
     public void SetMail(String courriel)
     {
-        courriel=mail;
+        mail=courriel;
     }
 
     public String GetPassword() {
@@ -37,7 +37,7 @@ public class Users {
     
     public void SetPassword(String pass)
     {
-        pass=password;
+        password=pass;
     }
 
 }

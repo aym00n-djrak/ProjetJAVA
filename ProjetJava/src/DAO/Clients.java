@@ -24,7 +24,7 @@ public class Clients {
     }
 
     public void SetId(int id) {
-        id = idmembre;
+        idmembre=id;
     }
 
     public String GetNom() {
@@ -32,7 +32,7 @@ public class Clients {
     }
 
     public void SetNom(String name) {
-        name = nom;
+        nom=name;
     }
 
     public String GetPrenom() {
@@ -40,7 +40,7 @@ public class Clients {
     }
 
     public void SetPrenom(String name) {
-        name = prenom;
+        prenom=name;
     }
     
     public String GetClasse()
@@ -50,7 +50,7 @@ public class Clients {
     
     public void SetClasse(String c)
     {
-        c=classe;
+        classe=c;
     }
     
     public String GetDateNaissance() {
@@ -58,7 +58,7 @@ public class Clients {
     }
 
     public void SetDateNaissance(String date) {
-        date = datenaissance;
+        datenaissance=date;
     }
 
     public int GetNumReservation() {
@@ -66,7 +66,7 @@ public class Clients {
     }
 
     public void SetNumReservation(int reservation) {
-        reservation = numreservation;
+        numreservation=reservation;
     }
 
     public int GetForeignKeyUser() {
@@ -74,7 +74,7 @@ public class Clients {
     }
 
     public void SetForeignKeyUser(int fuser) {
-        fuser = foreignkeyuser;
+        foreignkeyuser=fuser;
     }
 
 }

@@ -8,6 +8,7 @@ package DAO;
  *
  * @author remyj
  */
+
 public class Employe {
 
     private int idemploye;
@@ -21,49 +22,49 @@ public class Employe {
         return idemploye;
     }
 
-    public void SetId(int id) {
-        id = idemploye;
+    public void SetId(int eid) {
+        idemploye=eid;
     }
 
     public String GetNom() {
         return nom;
     }
 
-    public void SetNom(String name) {
-        name = nom;
+    public void SetNom(String ename) {
+        nom=ename;
     }
 
     public String GetPrenom() {
         return prenom;
     }
 
-    public void SetPrenom(String name) {
-        name = prenom;
+    public void SetPrenom(String ename) {
+        prenom=ename;
     }
 
     public String GetDepartement() {
         return departement;
     }
 
-    public void SetDepartement(String dep) {
-        dep = departement;
+    public void SetDepartement(String edep) {
+         departement=edep;
     }
 
     public String GetCompagnie() {
         return compagnie;
     }
 
-    public void SetCompagnie(String comp) {
-        comp = compagnie;
+    public void SetCompagnie(String ecomp) {
+        compagnie=ecomp;
     }
 
     public int GetForeignKey() {
         return foreignkey;
     }
     
-    public void SetForeignKey(int f)
+    public void SetForeignKey(int ef)
     {
-        f=foreignkey;
+        foreignkey=ef;
     }
 
 }
