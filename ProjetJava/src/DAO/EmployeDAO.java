@@ -8,11 +8,8 @@ package DAO;
  *
  * @author remyj
  */
-public class EmployeDAO {
+public interface EmployeDAO {
     
-    public void AddEmploye(Employe employe)
-    {
-        
-    }
+    public void AddEmploye(Employe employe);
     
 }

@@ -8,10 +8,7 @@ package DAO;
  *
  * @author remyj
  */
-public class ReservationDAO {
+public interface ReservationDAO {
     
-    public void AddReservation(Reservation reservation)
-    {
-        
-    }
+    public void AddReservation(Reservation reservation);
 }

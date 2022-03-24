@@ -8,11 +8,8 @@ package DAO;
  *
  * @author remyj
  */
-public class CityDAO {
+public interface CityDAO {
     
-    public void AddCity(City city)
-    {
-        
-    }
+    public void AddCity(City city);
     
 }

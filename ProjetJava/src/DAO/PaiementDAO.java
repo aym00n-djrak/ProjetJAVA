@@ -8,11 +8,8 @@ package DAO;
  *
  * @author remyj
  */
-public class PaiementDAO {
+public interface PaiementDAO {
     
-    public void AddPaiement(Paiement paiement)
-    {
-        
-    }
+    public void AddPaiement(Paiement paiement);
     
 }

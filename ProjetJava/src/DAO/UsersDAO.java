@@ -8,11 +8,7 @@ package DAO;
  *
  * @author remyj
  */
-public class UsersDAO {
+public interface UsersDAO {
     
-    public void AddUser(Users user)
-    {
-        
-    }
-    
+    public void AddUser(Users user);   
 }

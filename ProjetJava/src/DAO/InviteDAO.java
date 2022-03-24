@@ -8,11 +8,7 @@ package DAO;
  *
  * @author remyj
  */
-public class InviteDAO {
+public interface InviteDAO {
     
-    public void AddInvite(Invite invite)
-    {
-        
-    }
-    
+    public void AddInvite(Invite invite);    
 }

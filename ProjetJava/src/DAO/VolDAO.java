@@ -8,11 +8,7 @@ package DAO;
  *
  * @author remyj
  */
-public class VolDAO {
+public interface VolDAO {
     
-    public void AddVol(Vol vol)
-    {
-        
-    }
-    
+    public void AddVol(Vol vol);   
 }
