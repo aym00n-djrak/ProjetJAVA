@@ -13,7 +13,7 @@ import java.sql.Statement;
  *
  * @author remyj
  */
-public class CityDAOImpl {
+public class CityDAOImpl implements CityDAO {
 
     java.sql.Connection con;
 
@@ -21,8 +21,8 @@ public class CityDAOImpl {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into city values(" + city.GetId() + "," + "'" + city.GetNom()
-                + "'" + "," + "'" + city.GetPays() + "'" + ")";
+        String sql = "insert into city values( NULL ," + "'" + city.GetNom()
+                + "'" + "," + "'" + city.GetPays() + "'" + ","+city.GetPrix()+")";
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";

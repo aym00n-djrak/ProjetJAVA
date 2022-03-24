@@ -13,6 +13,7 @@ public class City {
     private int idcity;
     private String nom;
     private String pays;
+    private int prix;
     
     public int GetId()
     {
@@ -42,5 +43,15 @@ public class City {
     public void SetPays(String country)
     {
         country=pays;
+    }
+    
+    public int GetPrix()
+    {
+        return prix;
+    }
+    
+    public void SetPrix(int e)
+    {
+        e=prix;
     }
 }
