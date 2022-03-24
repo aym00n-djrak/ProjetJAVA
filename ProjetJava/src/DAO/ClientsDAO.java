@@ -12,7 +12,7 @@ public interface ClientsDAO {
     
     public void AddClient(Clients client);
     
-    public void GetClient(int idclient);
+    public Clients GetClient(int idclient);
     
     public void UptdateClient(Clients client);
     

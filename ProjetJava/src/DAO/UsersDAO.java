@@ -12,7 +12,7 @@ public interface UsersDAO {
     
     public void AddUser(Users user);
     
-    public void GetUser(int iduser);
+    public Users GetUser(int iduser);
     
     public void UpdateUser(Users user);
     

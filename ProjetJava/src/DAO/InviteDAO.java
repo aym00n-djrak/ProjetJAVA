@@ -12,7 +12,7 @@ public interface InviteDAO {
     
     public void AddInvite(Invite invite);  
     
-    public void GetInvite(int idinvite);
+    public Invite GetInvite(int idinvite);
     
     public void UpdateInvite(Invite invite);
     

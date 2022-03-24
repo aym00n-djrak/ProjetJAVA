@@ -108,7 +108,7 @@ try {
              
 
             while (encore) {
-                System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+" Place: "+ resultats.getString("city_place"));
+                System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+" pays: "+ resultats.getString("Pays")+"tarifs: "+resultats.getInt("Tarifs"));
                 System.out.println();
                 name.add(resultats.getString("city_name"));
                 encore = resultats.next();

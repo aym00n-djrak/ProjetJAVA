@@ -12,7 +12,7 @@ public interface VolDAO {
     
     public void AddVol(Vol vol);
     
-    public void GetVol(int idvol);
+    public Vol GetVol(int idvol);
     
     public void UpdateVol(Vol vol);
     

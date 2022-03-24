@@ -38,7 +38,7 @@ public class AeroportDAOImpl implements AeroportDAO {
 
             stmt.executeUpdate(sql);
 
-            System.out.println("Record is inserted into Aeroport table for  Aeroport : " + aeroport.GetName());
+            System.out.println("Record is inserted into Aeroport table for  Aeroport : " + aeroport.GetId());
 
         } catch (SQLException e) {
 
@@ -67,7 +67,7 @@ public class AeroportDAOImpl implements AeroportDAO {
     }
 
     @Override
-    public void GetAeroport(int idaeroport) {
+    public Aeroport GetAeroport(int idaeroport) {
         Aeroport aeroport = new Aeroport();
         Connection dbConnection = null;
         Statement statement = null;
@@ -84,7 +84,7 @@ public class AeroportDAOImpl implements AeroportDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeUpdate(sql);
+            stmt.executeQuery(sql);
 
             boolean encore = resultat.next();
 
@@ -96,11 +96,56 @@ public class AeroportDAOImpl implements AeroportDAO {
                 aeroport.SetId(resultat.getInt("idAéroport"));
                 aeroport.SetName(resultat.getString("Name"));
                 aeroport.SetPays(resultat.getString("Pays"));
-                
+
                 encore = resultat.next();
             }
-
+            
             resultat.close();
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return aeroport;
+    }
+
+    public void UpdateAeroport(Aeroport aeroport) {
+        Connection dbConnection = null;
+        Statement statement = null;
+
+        String sql = "update aéroport set idAéroport=" + aeroport.GetId() + "," + "Name='" + aeroport.GetName()
+                + "'" + "," + "Pays='" + aeroport.GetPays() + "'" + ")";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Record is updated into Aeroport table for  Aeroport : " + aeroport.GetId());
 
         } catch (SQLException e) {
 
@@ -125,16 +170,52 @@ public class AeroportDAOImpl implements AeroportDAO {
             }
 
         }
-    }
 
-    @Override
-    public void UpdateAeroport(Aeroport aeroport) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void DeleteAeroport(int idaeroport) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        Connection dbConnection = null;
+        Statement statement = null;
 
+        String sql = "delete from Aéroport where idAéroport=" + idaeroport;
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Record is Deleted into Aeroport table for  Aeroport : " + idaeroport);
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+    }
 }

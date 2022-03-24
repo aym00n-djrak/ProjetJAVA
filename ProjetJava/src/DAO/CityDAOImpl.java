@@ -6,6 +6,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -63,19 +64,159 @@ public class CityDAOImpl implements CityDAO {
 
     }
 
-    @Override
-    public void GetCity(int idcity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   @Override
+    public City GetCity(int idcity) {
+        City city = new City();
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+
+        String sql = "SELECT * FROM city WHERE idCity=" + idcity + "";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeQuery(sql);
+
+            boolean encore = resultat.next();
+
+            while (encore) {
+                System.out.print("Id: " + resultat.getInt("idCity") + " Name: " + resultat.getString("city_name") + " Pays: " + resultat.getString("Pays")+ "Tarif: "+ resultat.getInt("Tarifs"));
+
+                System.out.println();
+
+                city.SetId(resultat.getInt("idCity"));
+                city.SetNom(resultat.getString("city_name"));
+                city.SetPays(resultat.getString("Pays"));
+                city.SetPrix(resultat.getInt("Tarifs"));
+                
+                encore = resultat.next();
+            }
+
+            resultat.close();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return city;
     }
 
-    @Override
     public void UpdateCity(City city) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Connection dbConnection = null;
+        Statement statement = null;
+
+        String sql = "update city set idCity=" + city.GetId() + "," + "city_name='" + city.GetNom()
+                + "'" + "," + "Pays='" + city.GetPays() + "'" +","+ "Tarifs="+city.GetPrix()+ ")";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Record is updated into city table for  city : " + city.GetId());
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
     }
 
     @Override
     public void DeleteCity(int idcity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        Connection dbConnection = null;
+        Statement statement = null;
+
+        String sql = "delete from city where idCity="+idcity;
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Record is Deleted into city table for  city : " + idcity);
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+    } 
 
 }

@@ -8,11 +8,14 @@ package DAO;
  *
  * @author remyj
  */
-public class AeroportDAO {
+public interface AeroportDAO {
     
-    public void AddAeroport(Aeroport aeroport)
-    {
-        
-    }
+    public void AddAeroport(Aeroport aeroport);
     
+    public Aeroport GetAeroport(int idaeroport);
+    
+    public void UpdateAeroport(Aeroport aeroport);
+    
+    public void DeleteAeroport(int idaeroport);
+
 }

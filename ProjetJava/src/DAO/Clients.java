@@ -14,6 +14,7 @@ public class Clients {
     private String nom;
     private String prenom;
     private String datenaissance;
+    private String classe;
     private int numreservation;
 
     private int foreignkeyuser;
@@ -41,7 +42,17 @@ public class Clients {
     public void SetPrenom(String name) {
         name = prenom;
     }
-
+    
+    public String GetClasse()
+    {
+        return classe;
+    }
+    
+    public void SetClasse(String c)
+    {
+        c=classe;
+    }
+    
     public String GetDateNaissance() {
         return datenaissance;
     }

@@ -6,6 +6,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -75,20 +76,155 @@ public class InviteDAOImpl implements InviteDAO {
 
   }
 
-    @Override
-    public void GetInvite(int idinvite) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        @Override
+    public Invite GetInvite(int idinvite) {
+        Invite invite = new Invite();
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultat = null;
 
+        String sql = "SELECT * FROM invites WHERE iDInvites=" + idinvite + "";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeQuery(sql);
+
+            boolean encore = resultat.next();
+
+            while (encore) {
+                System.out.println();
+
+                invite.SetId(resultat.getInt("idInvites"));
+                invite.SetNom(resultat.getString("Nom"));
+                invite.SetPrenom(resultat.getString("Prenom"));
+                encore = resultat.next();
+            }
+
+            resultat.close();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+            return invite;
+    }
+    
     @Override
-    public void UpdateInvite(Invite invite) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void UpdateInvite(Invite invite){
+        Connection dbConnection = null;
+        Statement statement = null;
+
+        String sql = "update invites set idInvites=" + invite.GetId() + "," + "Nom='" + invite.GetNom()
+                + "'" + "," + "Prenom='" + invite.GetPrenom()+"'";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Record is updated into invite table for  invite : " + invite.GetId());
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
     }
 
     @Override
     public void DeleteInvite(int idinvite) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Connection dbConnection = null;
+        Statement statement = null;
+
+        String sql = "delete from invites where idInvites=" + idinvite;
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            stmt.executeUpdate(sql);
+
+            System.out.println("Record is Deleted into invites table for  invite : " + idinvite);
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
     }
-    
-    
 }

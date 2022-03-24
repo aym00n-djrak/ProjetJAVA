@@ -12,7 +12,7 @@ public interface ReservationDAO {
     
     public void AddReservation(Reservation reservation);
     
-    public void GetReservation(int idreservation);
+    public Reservation GetReservation(int idreservation);
     
     public void UpdateReservation(Reservation reservation);
     

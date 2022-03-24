@@ -12,7 +12,7 @@ public interface PaiementDAO {
     
     public void AddPaiement(Paiement paiement);
     
-    public void GetPaiement(int idpaiement);
+    public Paiement GetPaiement(int idpaiement);
     
     public void UpdatePaiement(Paiement paiement);
     
