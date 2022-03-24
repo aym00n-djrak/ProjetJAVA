@@ -10,5 +10,11 @@ package DAO;
  */
 public interface UsersDAO {
     
-    public void AddUser(Users user);   
+    public void AddUser(Users user);
+    
+    public void GetUser(int iduser);
+    
+    public void UpdateUser(Users user);
+    
+    public void DeleteUser(int iduser);
 }

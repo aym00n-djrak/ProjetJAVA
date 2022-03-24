@@ -8,11 +8,14 @@ package DAO;
  *
  * @author remyj
  */
-public class ClientsDAO {
+public interface ClientsDAO {
     
-    public void AddClient(Clients client)
-    {
-        
-    }
+    public void AddClient(Clients client);
+    
+    public void GetClient(int idclient);
+    
+    public void UptdateClient(Clients client);
+    
+    public void DeleteClient(int idclient);
     
 }

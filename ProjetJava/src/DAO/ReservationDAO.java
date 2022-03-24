@@ -11,4 +11,10 @@ package DAO;
 public interface ReservationDAO {
     
     public void AddReservation(Reservation reservation);
+    
+    public void GetReservation(int idreservation);
+    
+    public void UpdateReservation(Reservation reservation);
+    
+    public void DeleteReservation(int idreservation);
 }

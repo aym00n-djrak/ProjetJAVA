@@ -10,5 +10,12 @@ package DAO;
  */
 public interface VolDAO {
     
-    public void AddVol(Vol vol);   
+    public void AddVol(Vol vol);
+    
+    public void GetVol(int idvol);
+    
+    public void UpdateVol(Vol vol);
+    
+    public void DeleteVol(int idvol);
+    
 }

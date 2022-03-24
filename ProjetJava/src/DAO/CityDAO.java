@@ -12,4 +12,10 @@ public interface CityDAO {
     
     public void AddCity(City city);
     
+    public void GetCity(int idcity);
+    
+    public void UpdateCity(City city);
+    
+    public void DeleteCity(int idcity);
+    
 }
