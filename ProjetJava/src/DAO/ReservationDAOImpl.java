@@ -95,8 +95,6 @@ public class ReservationDAOImpl implements ReservationDAO {
                 reservation.SetStatut(resultat.getString("Statut"));
                 reservation.SetConfirmation(resultat.getInt("Confirmation"));
                 reservation.SetForeignKeyVol(resultat.getInt("Vol_idVol"));
-
-                encore = resultat.next();
             }
 
             resultat.close();

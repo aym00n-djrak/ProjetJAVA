@@ -106,7 +106,6 @@ public class UsersDAOImpl implements UsersDAO {
                 user.SetId(resultat.getInt("idusers"));
                 user.SetMail(resultat.getString("users_mail"));
                 user.SetPassword(resultat.getString("users_password"));
-                encore = resultat.next();
             }
 
             resultat.close();

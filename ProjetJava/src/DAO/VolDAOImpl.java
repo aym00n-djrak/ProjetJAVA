@@ -97,8 +97,6 @@ public class VolDAOImpl implements VolDAO {
                 vol.SetDateArrivee(resultat.getString("Date de retour"));
                 vol.SetHeureDepart(resultat.getString("Heure de départ"));
                 vol.SetHeureArrivee(resultat.getString("Heure d'arrivée"));
-
-                encore = resultat.next();
             }
 
             resultat.close();

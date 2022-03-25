@@ -95,9 +95,7 @@ public class CityDAOImpl implements CityDAO {
                 city.SetNom(resultat.getString("city_name"));
                 city.SetPays(resultat.getString("Pays"));
                 city.SetPrix(resultat.getInt("Tarifs"));
-                
-                encore = resultat.next();
-            }
+                            }
 
             resultat.close();
 

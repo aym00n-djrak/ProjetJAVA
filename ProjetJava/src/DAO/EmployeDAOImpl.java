@@ -98,21 +98,20 @@ public class EmployeDAOImpl implements EmployeDAO{
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat= stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
 
-            while (encore) {
                 System.out.println();
-
-                employe.SetId(resultat.getInt("idMembres"));
+                
+                while(resultat.next())
+                {
+                employe.SetId(resultat.getInt("idEmployes"));
                 employe.SetNom(resultat.getString("Nom"));
                 employe.SetPrenom(resultat.getString("Prenom"));
                 employe.SetDepartement(resultat.getString("Departement"));
                 employe.SetCompagnie(resultat.getString("Compagnie"));
                 employe.SetForeignKey(resultat.getInt("vol_idVol"));
-                encore = resultat.next();
-            }
+                }
 
             resultat.close();
 
@@ -148,8 +147,7 @@ public class EmployeDAOImpl implements EmployeDAO{
         Statement statement = null;
 
         String sql = "update employe set idEmployes=" + employe.GetId() + "," + "Nom='" + employe.GetNom()
-                + "'" + "," + "Prenom='" + employe.GetPrenom() + "'" + "," + "Departement='" + employe.GetDepartement() + "'" + "," + "Compagnie='" + employe.GetCompagnie()+ "'" + "," + "vol=idVol="
-                + employe.GetForeignKey();
+                + "'" + "," + "Prenom='" + employe.GetPrenom() + "'" + "," + "Departement='" + employe.GetDepartement() + "'" + "," + "Compagnie='" + employe.GetCompagnie()+ "'" + "," + "vol_idVol="+ employe.GetForeignKey();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
