@@ -13,13 +13,17 @@ import javax.swing.JInternalFrame;
  *
  * @author Clarence
  */
+//l'idée c'est qu'interface clients soit un desktop accessible depuis la barre de menu
+//qui contient plusieurs internal frames activables par boutons 
 
 public class Interfaclients extends JFrame {
     private JButton ajoutreserv;
     private JDesktopPane desktopclients;
     private JButton newvol;
-    private JInternalFrame Ajoutvol= new JInternalFrame();
+    private JInternalFrame Ajoutvol;
     Interfaclients(){
+      arrangement();
+
 
 }
     private void arrangement() {
@@ -27,6 +31,7 @@ public class Interfaclients extends JFrame {
         desktopclients = new JDesktopPane();
         ajoutreserv = new JButton();
         newvol = new JButton();
+        Ajoutvol= new JInternalFrame();
         
 
         javax.swing.GroupLayout desktopclientsLayout = new javax.swing.GroupLayout(desktopclients);
