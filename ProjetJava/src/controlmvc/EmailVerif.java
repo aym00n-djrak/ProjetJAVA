@@ -61,7 +61,7 @@ public class EmailVerif {
                         f.setVisible(false);
                         Connection.affiche("Membre crée !");
                         //menu.Menu();
-                        reservation.Reservation();
+                        reservation.Reserv();
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
 
@@ -93,7 +93,7 @@ public class EmailVerif {
                         Menu menu = new Menu();
                         Reservation reservation= new Reservation();
                         
-                        reservation.Reservation();
+                        reservation.Reserv();
                     }
                 }
             }

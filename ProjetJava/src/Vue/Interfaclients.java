@@ -16,6 +16,7 @@ import javax.swing.JMenuItem;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.ImageIcon;
+import viewmvc.Reservation;
 
 /**
  *

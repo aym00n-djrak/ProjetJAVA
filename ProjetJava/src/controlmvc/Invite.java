@@ -32,7 +32,7 @@ public class Invite {
                 viewmvc.Menu menu = new Menu();
                 Reservation reservation = new Reservation();
                 //menu.Menu();
-                reservation.Reservation();
+                reservation.Reserv();
             }
 
         });

@@ -57,6 +57,16 @@ public class Executable {
         employe.SetPrenom("Marc");
         employe.SetForeignKey(1);
         
+        Clients cl = new Clients();
+        ClientsDAOImpl ca= new ClientsDAOImpl();
+       
+        
+        City c= new City();
+        
+        CityDAOImpl ci= new CityDAOImpl();
+        
+        c=ci.GetCity(2);
+        
         System.out.println(employe.GetCompagnie());
         System.out.println(employe.GetDepartement());
         System.out.println(employe.GetForeignKey());
