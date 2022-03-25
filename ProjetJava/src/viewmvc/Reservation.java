@@ -71,9 +71,7 @@ public class Reservation extends JInternalFrame{
 
 //Calendrier
        JLabel labeldate = new JLabel("Durée de votre séjour");
-       /*JTextField textannee = new JTextField();
-       JTextField textjours = new JTextField();
-       JTextField textmois = new JTextField();  */
+       /*JCalendar/JDate/Mibthchooser*/
         
 //Adultes
 
