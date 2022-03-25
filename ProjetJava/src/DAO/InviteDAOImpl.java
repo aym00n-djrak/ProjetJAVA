@@ -15,68 +15,55 @@ import java.sql.Statement;
  * @author remyj
  */
 public class InviteDAOImpl implements InviteDAO {
-       java.sql.Connection con;
 
-       public void AddInvite(Invite invite)
-  {
-    Connection dbConnection = null;
-    Statement statement=null;
+    java.sql.Connection con;
 
-    String sql = "insert into invite values(" + invite.GetId() + ","+ "'" + invite.GetNom()
-                    + "'" + ","+ "'" + invite.GetPrenom()+ "'"+")";
+    public void AddInvite(Invite invite) {
+        Connection dbConnection = null;
+        Statement statement = null;
 
-    try
-    {
- String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+        String sql = "insert into invite values(" + invite.GetId() + "," + "'" + invite.GetNom()
+                + "'" + "," + "'" + invite.GetPrenom() + "'" + ")";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
             modelmvc.Connection.affiche("DataBase connected !");
 
             java.sql.Statement stmt = con.createStatement();
-   
-      stmt.executeUpdate(sql);
 
-      System.out.println("Record is inserted into Invite table for  Invite : " + invite.GetNom());
+            stmt.executeUpdate(sql);
 
-    }
-    catch( SQLException e )
-    {
+            System.out.println("Record is inserted into Invite table for  Invite : " + invite.GetNom());
 
-      e.printStackTrace();
+        } catch (SQLException e) {
 
-    }
-    finally
-    {
+            e.printStackTrace();
 
-      if( statement != null )
-      {
-        try
-        {
-          statement.close();
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
-        catch( SQLException e )
-        {
-          e.printStackTrace();
-        }
-      }
-
-      if( dbConnection != null )
-      {
-        try
-        {
-          dbConnection.close();
-        }
-        catch( SQLException e )
-        {
-          e.printStackTrace();
-        }
-      }
 
     }
 
-  }
-
-        @Override
+    @Override
     public Invite GetInvite(int idinvite) {
         Invite invite = new Invite();
         Connection dbConnection = null;
@@ -132,16 +119,16 @@ public class InviteDAOImpl implements InviteDAO {
             }
 
         }
-            return invite;
+        return invite;
     }
-    
+
     @Override
-    public void UpdateInvite(Invite invite){
+    public void UpdateInvite(Invite invite) {
         Connection dbConnection = null;
         Statement statement = null;
 
         String sql = "update invites set idInvites=" + invite.GetId() + "," + "Nom='" + invite.GetNom()
-                + "'" + "," + "Prenom='" + invite.GetPrenom()+"'";
+                + "'" + "," + "Prenom='" + invite.GetPrenom() + "'";
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
