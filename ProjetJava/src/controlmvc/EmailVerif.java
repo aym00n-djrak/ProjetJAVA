@@ -90,11 +90,10 @@ public class EmailVerif {
                     if (new Identifiants().Id(t1.getText(), p1.getText()) == true) {
                         
                         f.setVisible(false);
-                        Menu menu = new Menu();
+
                         Reservation reservation= new Reservation();
-                        
                         reservation.Reserv();
-                    }
+                                       }
                 }
             }
         }

@@ -84,9 +84,7 @@ public class CityDAOImpl implements CityDAO {
 
             stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
 
-            while (encore) {
                 System.out.print("Id: " + resultat.getInt("idCity") + " Name: " + resultat.getString("city_name") + " Pays: " + resultat.getString("Pays")+ "Tarif: "+ resultat.getInt("Tarifs"));
 
                 System.out.println();
@@ -95,7 +93,7 @@ public class CityDAOImpl implements CityDAO {
                 city.SetNom(resultat.getString("city_name"));
                 city.SetPays(resultat.getString("Pays"));
                 city.SetPrix(resultat.getInt("Tarifs"));
-                            }
+                            
 
             resultat.close();
 

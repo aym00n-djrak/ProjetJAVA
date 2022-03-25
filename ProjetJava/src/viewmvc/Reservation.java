@@ -8,11 +8,8 @@ package viewmvc;
  *
  * @author Clarence
  */
-import controlmvc.DataCity;
 import javax.swing.*;
 
-import java.awt.event.*;
-import java.awt.Color;
 
 import controlmvc.DataCity;
 import java.util.ArrayList;
