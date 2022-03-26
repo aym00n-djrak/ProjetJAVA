@@ -8,13 +8,13 @@ package viewmvc;
  *
  * @author Clarence
  */
-import controlmvc.DataCity;
+import DAO.*;
 import java.util.ArrayList;
 import modelmvc.ConvertAlistToList;
 import javax.swing.*;
 
 //Rserva== internalframe de interfaclients
-public class Réservation extends javax.swing.JInternalFrame {
+public class Réservation extends JInternalFrame {
     ConvertAlistToList conv = new ConvertAlistToList();
   //  Paiement paye = new Paiement();
 
