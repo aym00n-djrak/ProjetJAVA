@@ -5,15 +5,14 @@ package launch;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import viewmvc.Accueil;
-import controlmvc.DataCity;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import modelmvc.*;
-import viewmvc.Reservation;
+import viewmvc.*;
 
 import DAO.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,10 +20,28 @@ import DAO.*;
  */
 public class Executable {
 
-    public static void main(String args[]) throws IOException, InterruptedException, SQLException {
+    public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
         //accueil.Accueil();
-        Reservation reserv = new Reservation();
-        reserv.Reserv();
+
+        
+        ArrayList<City> listcity= new ArrayList<>();
+        
+        ArrayList<City> c= new ArrayList<>();
+ 
+        CityDAOImpl list= new CityDAOImpl();
+        
+        listcity=list.GetAllCity();
+        
+        ListVol listvol= new ListVol();
+
+        
+        ListVol liste= new ListVol();
+        
+      //  liste.affichagevol();
+        
+        CreerDestination creadest= new CreerDestination();
+        
+        creadest.InterfaceCreeDestination();
     }
 }

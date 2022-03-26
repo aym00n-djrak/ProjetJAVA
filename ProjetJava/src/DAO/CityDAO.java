@@ -4,6 +4,8 @@
  */
 package DAO;
 
+import java.util.*;
+
 /**
  *
  * @author remyj
@@ -13,6 +15,8 @@ public interface CityDAO {
     public void AddCity(City city);
     
     public City GetCity(int idcity);
+    
+    public ArrayList<City> GetAllCity();
     
     public void UpdateCity(City city);
     

@@ -47,13 +47,12 @@ public class EmailVerif {
     public void verifcreaboutonmail(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         {
             Identifiants enregistrement = new Identifiants();
-                  //          viewmvc.Menu menu = new Menu();
-                  Reservation reservation = new Reservation();
+            //          viewmvc.Menu menu = new Menu();
+            Reservation reservation = new Reservation();
 
             b.addActionListener(new ActionListener() {
-                ;
 
-            @Override
+                @Override
                 public void actionPerformed(ActionEvent e) {
 
                     if (emailverif(t1.getText()) == true) {
@@ -70,14 +69,12 @@ public class EmailVerif {
             });
         }
     }
-    
-    public void verifboutonmail(JButton b, JTextField t1, JPasswordField p1, JFrame f)
-    {
+
+    public void verifboutonmail(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                
                 if (emailverif(t1.getText()) == false || t1.getText().isEmpty() || p1.getText().isEmpty()) {
                     if (t1.getText().isEmpty()) {
                         new Fenetre().panneau("Le champ email est vide");
@@ -88,12 +85,12 @@ public class EmailVerif {
                     }
                 } else {
                     if (new Identifiants().Id(t1.getText(), p1.getText()) == true) {
-                        
+
                         f.setVisible(false);
 
-                        Reservation reservation= new Reservation();
+                        Reservation reservation = new Reservation();
                         reservation.Reserv();
-                                       }
+                    }
                 }
             }
         }

@@ -66,9 +66,4 @@ public class Menu {
         f.setVisible(true);
 
     }
-
-    private void add(JLabel Show) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }
