@@ -45,6 +45,7 @@ public class Réservation extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         DataCity cityd = new DataCity();
         DataCity citya = new DataCity(); 
+        ArrayList<String> name = new ArrayList<String>(); 
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -83,26 +84,13 @@ public class Réservation extends javax.swing.JInternalFrame {
         String[] pays = new String[name.size()];
         pays = conv.convert(name);
         combodepart = new JComboBox(pays);
-        combodepart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combodepartActionPerformed(evt);
-            }
-        });
-
+       
+ 
        citya.PickData(name);
        comboarrivee = new JComboBox(pays);
-        comboarrivee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboarriveeActionPerformed(evt);
-            }
-        });
-
+      
         nbenfants.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
-        nbenfants.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nbenfantsActionPerformed(evt);
-            }
-        });
+       
 
         nbadultes.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "1", "2", "3", "4", "5" }));
         nbadultes.addActionListener(new java.awt.event.ActionListener() {
