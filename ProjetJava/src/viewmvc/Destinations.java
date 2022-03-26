@@ -87,8 +87,8 @@ public class Destinations extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void parisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parisActionPerformed
-        InfoParis p = new InfoParis();
-        p.setVisible(true);
+      //  InfoParis p = new InfoParis();
+        //p.setVisible(true);
     }//GEN-LAST:event_parisActionPerformed
 
 

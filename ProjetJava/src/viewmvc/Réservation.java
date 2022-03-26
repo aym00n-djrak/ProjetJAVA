@@ -9,6 +9,7 @@ package viewmvc;
  * @author Clarence
  */
 import DAO.*;
+import controlmvc.DataCity;
 import java.util.ArrayList;
 import modelmvc.ConvertAlistToList;
 import javax.swing.*;
@@ -21,13 +22,13 @@ public class Réservation extends JInternalFrame {
 
   
     public Réservation() {
-        initComponents();
+        initComponent();
    
     }
 
 
 
- private void initComponents() {
+ private void initComponent() {
 
         labelvoyage = new javax.swing.JLabel();
         labeldepart = new javax.swing.JLabel();
@@ -350,7 +351,7 @@ public class Réservation extends JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/*
+
     private void nbenfantsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nbenfantsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nbenfantsActionPerformed
@@ -370,7 +371,7 @@ public class Réservation extends JInternalFrame {
     private void combodepartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combodepartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combodepartActionPerformed
-*/
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adultes;
