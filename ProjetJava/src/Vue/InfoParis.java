@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package essai;
+package Vue;
 
 /**
  *
@@ -29,6 +29,8 @@ public class InfoParis extends javax.swing.JFrame {
         parisNY = new javax.swing.JLabel();
         parisAlg = new javax.swing.JLabel();
         redirp = new javax.swing.JButton();
+        parisaler = new javax.swing.JLabel();
+        parisny = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Propositions de vols sur Paris");
@@ -39,15 +41,17 @@ public class InfoParis extends javax.swing.JFrame {
         parisAlg.setBackground(new java.awt.Color(255, 255, 255));
         parisAlg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/parisalger.png"))); // NOI18N
 
-        redirp.setBackground(new java.awt.Color(255, 204, 204));
+        redirp.setBackground(new java.awt.Color(153, 0, 0));
         redirp.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
-        redirp.setForeground(new java.awt.Color(204, 0, 0));
+        redirp.setForeground(new java.awt.Color(255, 255, 255));
         redirp.setText("Réservez maintenant !");
         redirp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 redirpActionPerformed(evt);
             }
         });
+
+        parisny.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/parisny.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,9 +64,14 @@ public class InfoParis extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(parisNY))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addContainerGap()
+                        .addComponent(parisny)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(parisaler))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addComponent(redirp)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,9 +79,16 @@ public class InfoParis extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(parisAlg)
                     .addComponent(parisNY))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(redirp)
-                .addGap(0, 265, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(parisaler))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(parisny)
+                        .addGap(27, 27, 27)
+                        .addComponent(redirp)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,6 +125,7 @@ public class InfoParis extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(InfoParis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -121,6 +138,8 @@ public class InfoParis extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel parisAlg;
     private javax.swing.JLabel parisNY;
+    private javax.swing.JLabel parisaler;
+    private javax.swing.JLabel parisny;
     private javax.swing.JButton redirp;
     // End of variables declaration//GEN-END:variables
 }

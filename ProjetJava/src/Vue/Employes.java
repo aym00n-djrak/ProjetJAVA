@@ -4,6 +4,12 @@
  */
 package essaiemployes;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Clarence
@@ -40,6 +46,10 @@ public class Employes extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         infos.setBackground(new java.awt.Color(255, 255, 255));
         infos.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
         infos.setText("Informations");
@@ -48,27 +58,23 @@ public class Employes extends javax.swing.JInternalFrame {
         ref.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ref.setText("Référence");
 
-        jTextField1.setText("jTextField1");
-
         namemploye.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         namemploye.setText("Nom");
-
-        jTextField2.setText("jTextField2");
 
         premployes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         premployes.setText("Prénom");
 
-        jTextField3.setText("jTextField3");
-
         departement.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         departement.setText("Département");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
         compagnie.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         compagnie.setText("Compagnie");
-
-        jTextField5.setText("jTextField5");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setText("BDD A METTRE");
@@ -77,17 +83,17 @@ public class Employes extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(289, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(94, 94, 94)
                 .addComponent(jLabel1)
-                .addGap(286, 286, 286))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(99, 99, 99)
                 .addComponent(jLabel1)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,6 +173,16 @@ public class Employes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+   /* private final JLabel tab, req, res, lignes;
+    private final JLabel nameBDD, requeteLabel;
+    private final JTextField requeteTexte, nameBDDTexte;
+    private final JButton exec, local;
+    private final java.awt.List listeDeTables, listeDeRequetes;
+    private final JTextArea fenetreLignes, fenetreRes;
+    private final JPanel p0, p1, nord, p2, p3;*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel compagnie;

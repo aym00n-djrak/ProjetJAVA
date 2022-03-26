@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package essaiemployes;
+package Vue;
 
 /**
  *
@@ -31,6 +31,9 @@ public class Interfemployes extends javax.swing.JFrame {
         ajoutvol = new javax.swing.JToggleButton();
         stat = new javax.swing.JToggleButton();
         employesb = new javax.swing.JDesktopPane();
+        labemploi = new javax.swing.JLabel();
+        addplanes = new javax.swing.JLabel();
+        statlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,9 +49,19 @@ public class Interfemployes extends javax.swing.JFrame {
 
         ajoutvol.setBackground(new java.awt.Color(255, 255, 255));
         ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/minivion2.png"))); // NOI18N
+        ajoutvol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajoutvolActionPerformed(evt);
+            }
+        });
 
         stat.setBackground(new java.awt.Color(255, 255, 255));
         stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/stat.png"))); // NOI18N
+        stat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -56,17 +69,17 @@ public class Interfemployes extends javax.swing.JFrame {
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(75, 75, 75)
                 .addComponent(ajoutvol, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(61, 61, 61)
                 .addComponent(stat, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 652, Short.MAX_VALUE))
+                .addGap(0, 530, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(emplois, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ajoutvol, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(stat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(emplois, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout employesbLayout = new javax.swing.GroupLayout(employesb);
@@ -77,8 +90,17 @@ public class Interfemployes extends javax.swing.JFrame {
         );
         employesbLayout.setVerticalGroup(
             employesbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 423, Short.MAX_VALUE)
+            .addGap(0, 482, Short.MAX_VALUE)
         );
+
+        labemploi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labemploi.setText("Utilisateur");
+
+        addplanes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        addplanes.setText("Ajouter un vol");
+
+        statlabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        statlabel.setText("Statistiques");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,17 +108,29 @@ public class Interfemployes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employesb, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(employesb, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labemploi)
+                        .addGap(53, 53, 53)
+                        .addComponent(addplanes)
+                        .addGap(52, 52, 52)
+                        .addComponent(statlabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labemploi)
+                    .addComponent(addplanes)
+                    .addComponent(statlabel))
+                .addGap(24, 24, 24)
                 .addComponent(employesb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,6 +141,18 @@ public class Interfemployes extends javax.swing.JFrame {
         Employes v1 = new Employes();//fenetre interne
         employesb.add(v1).setVisible(true);
     }//GEN-LAST:event_emploisActionPerformed
+
+    private void ajoutvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutvolActionPerformed
+        employesb.removeAll();
+        Ajoutervol a1 = new Ajoutervol();
+        employesb.add(a1).setVisible(true);
+    }//GEN-LAST:event_ajoutvolActionPerformed
+
+    private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
+        employesb.removeAll();
+        Stat s1 = new Stat();
+        employesb.add(s1).setVisible(true);
+    }//GEN-LAST:event_statActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,10 +190,13 @@ public class Interfemployes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addplanes;
     private javax.swing.JToggleButton ajoutvol;
     private javax.swing.JToggleButton emplois;
     private javax.swing.JDesktopPane employesb;
+    private javax.swing.JLabel labemploi;
     private javax.swing.JPanel panel;
     private javax.swing.JToggleButton stat;
+    private javax.swing.JLabel statlabel;
     // End of variables declaration//GEN-END:variables
 }
