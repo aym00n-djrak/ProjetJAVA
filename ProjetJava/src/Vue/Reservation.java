@@ -12,20 +12,20 @@ import javax.swing.*;
 
 import java.awt.event.*;
 import java.awt.Color;
-/*
-import controlmvc.DataCity;
+
+//import controlmvc.DataCity;
 import java.util.ArrayList;
-import modelmvc.ConvertAlistToList;
+//import modelmvc.ConvertAlistToList;
 
 public class Reservation extends JFrame  {
 
-    ConvertAlistToList conv = new ConvertAlistToList();
-    DataCity city = new DataCity();
+   // ConvertAlistToList conv = new ConvertAlistToList();
+    //DataCity city = new DataCity();
 
     private int idReservation;
     JLabel ecran = new JLabel();
 
-    Paiement paye = new Paiement();
+   // Paiement paye = new Paiement();
 
     //Construction de l'interface
     public void Reservation() {
@@ -55,11 +55,11 @@ public class Reservation extends JFrame  {
         //JComboBox 1 à remplir à l'aide de la base de données
         JLabel reserv = new JLabel("Réserver un vol vers :");
         
-        city.PickData(name);
+     //   city.PickData(name);
 
         String[] pays = new String[name.size()];
 
-        pays = conv.convert(name);
+    //    pays = conv.convert(name);
         JComboBox destination = new JComboBox(pays);
         destination.setBounds(150, 110, 100, 20);
 
@@ -107,7 +107,7 @@ public class Reservation extends JFrame  {
         desktop.setSize(1400, 1400);
 
         //fin internal frame reservations
-        paye.InterfacePaiement(reservation, ecran, desktop, panneau, validate, suite);
+     //   paye.InterfacePaiement(reservation, ecran, desktop, panneau, validate, suite);
         
         //AJOUTS BACKGROUND
         
@@ -142,8 +142,6 @@ public class Reservation extends JFrame  {
 
         JMenu notif = new JMenu("Notifications");
 
-        JMenu enregistrement = new JMenu("Enregistrement");
-
         JMenu info = new JMenu("Informations");
 
         JMenu aide = new JMenu("Aide");
@@ -153,15 +151,14 @@ public class Reservation extends JFrame  {
         JMenuItem membres = new JMenuItem("Espace Membres");
         membres.setIcon(new ImageIcon("membres.png"));
         membres.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, KeyEvent.CTRL_DOWN_MASK));//commande Ctrl+T
-        membres.addActionListener(this::menuListener);
+      
         //Sep
         users.addSeparator();
 //Employes        
         JMenuItem employes = new JMenuItem("Espace Employés");
         employes.setIcon(new ImageIcon("membres.png"));
         employes.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, KeyEvent.CTRL_DOWN_MASK));//Commande Ctrl+R
-        employes.addActionListener(this::menuListener);
-
+      
         //Ajouts de membres et employes à la barre de menu 
         users.add(membres);
         users.add(employes);
@@ -169,16 +166,16 @@ public class Reservation extends JFrame  {
         //Ajouts des items dans langues
         JMenuItem francais = new JMenuItem("Français - Fr");
         francais.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK));
-        francais.addActionListener(this::menuListener);
+     
         JMenuItem espagnol = new JMenuItem("Español - Es ");
         espagnol.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_DOWN_MASK));
-        espagnol.addActionListener(this::menuListener);
+     
         JMenuItem allemand = new JMenuItem(" German - Ger");
         allemand.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
-        allemand.addActionListener(this::menuListener);
+     
         JMenuItem chinois = new JMenuItem(" Chinese - Chin");
         chinois.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
-        chinois.addActionListener(this::menuListener);
+     
 
         //Ajouts des langues
         langues.add(francais);
@@ -199,7 +196,6 @@ public class Reservation extends JFrame  {
 
         eiffelcafe.add(users);
         eiffelcafe.add(notif);
-        eiffelcafe.add(enregistrement);
         eiffelcafe.add(info);
         eiffelcafe.add(langues);
         eiffelcafe.add(aide);
@@ -208,12 +204,9 @@ public class Reservation extends JFrame  {
 
     }
 
-    public void menuListener(ActionEvent event) {
-        JOptionPane.showMessageDialog(this, "ça fonctionne !");
-    }
 
     
-}  */
+} 
    
 
 

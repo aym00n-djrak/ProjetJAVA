@@ -8,12 +8,12 @@ package essai;
  *
  * @author Clarence
  */
-public class Bookavol extends javax.swing.JInternalFrame {
+public class Réservations extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Bookavol
+     * Creates new form Réservations
      */
-    public Bookavol() {
+    public Réservations() {
         initComponents();
     }
 
@@ -30,17 +30,17 @@ public class Bookavol extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Réserver un nouveau vol");
+        setTitle("Gestion de vos réservations");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 969, Short.MAX_VALUE)
+            .addGap(0, 971, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
 
         pack();
