@@ -91,15 +91,15 @@ public class Interfaceutili extends javax.swing.JPanel {
 
     private void ajoutreservActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutreservActionPerformed
         desktopclients.removeAll();
-        Reservation fr1 = new Reservation();
-        desktopclients.add(fr1);
+        //Reservation fr1 = new Reservation();
+       // desktopclients.add(fr1);
         desktopclients.setVisible(true); 
     }//GEN-LAST:event_ajoutreservActionPerformed
 
     private void newvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newvolActionPerformed
         desktopclients.removeAll();
-        Ajoutvol fvol = new Ajoutvol();
-        desktopclients.add(fvol);
+       // Bookavol fvol = new Bookavol();
+      //  desktopclients.add(fvol);
         desktopclients.setVisible(true);
     }//GEN-LAST:event_newvolActionPerformed
 
