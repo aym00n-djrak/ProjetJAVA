@@ -175,7 +175,7 @@ public class Interfclients extends javax.swing.JFrame {
         });
     }
 //Methode de la barre de menu interface clients
-    private JMenuBar MenuBar() {
+   /* private JMenuBar MenuBar() {
         //Elements utiles
         JMenuBar eiffelcafe = new JMenuBar();
 
@@ -245,7 +245,7 @@ public class Interfclients extends javax.swing.JFrame {
 
         return eiffelcafe;
 
-    }
+    }*/
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
