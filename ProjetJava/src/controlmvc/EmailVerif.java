@@ -16,7 +16,7 @@ import modelmvc.Fenetre;
 import viewmvc.CreationPage;
 import viewmvc.Menu;
 import java.sql.SQLException;
-import viewmvc.Reservation;
+import viewmvc.Réservation;
 
 /**
  *
@@ -48,7 +48,7 @@ public class EmailVerif {
         {
             Identifiants enregistrement = new Identifiants();
             //          viewmvc.Menu menu = new Menu();
-            Reservation reservation = new Reservation();
+            Réservation reservation = new Réservation();
 
             b.addActionListener(new ActionListener() {
 
@@ -60,7 +60,6 @@ public class EmailVerif {
                         f.setVisible(false);
                         Connection.affiche("Membre crée !");
                         //menu.Menu();
-                        reservation.Reserv();
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
 
@@ -88,8 +87,8 @@ public class EmailVerif {
 
                         f.setVisible(false);
 
-                        Reservation reservation = new Reservation();
-                        reservation.Reserv();
+                        Réservation reservation = new Réservation();
+                        
                     }
                 }
             }

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author remyj
  */
-public class InterfaceDestination {
+public class InterfaceDestination_1{
     
     public void AffichageDestination(String destination)
     {

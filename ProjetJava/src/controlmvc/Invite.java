@@ -13,7 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import modelmvc.Fenetre;
 import viewmvc.Menu;
-import viewmvc.Reservation;
+import viewmvc.Réservation;
 
 /**
  *
@@ -30,9 +30,7 @@ public class Invite {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
                 viewmvc.Menu menu = new Menu();
-                Reservation reservation = new Reservation();
                 //menu.Menu();
-                reservation.Reserv();
             }
 
         });
