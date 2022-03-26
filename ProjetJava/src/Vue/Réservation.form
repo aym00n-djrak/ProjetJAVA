@@ -81,7 +81,7 @@
                                           <Component id="labeldepart" min="-2" pref="123" max="-2" attributes="0"/>
                                           <Component id="combodepart" min="-2" pref="123" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="114" max="32767" attributes="0"/>
+                                      <EmptySpace pref="110" max="32767" attributes="0"/>
                                       <Component id="minivionarrivee" min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -92,7 +92,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="178" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="173" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
