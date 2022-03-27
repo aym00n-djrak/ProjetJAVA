@@ -12,7 +12,10 @@ import controlmvc.eventexit;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -158,8 +161,11 @@ public class CreerDestination implements ActionListener {
         if (b2.getText() == "Quitter") {
             System.out.println(b1);
             f.setVisible(false);
-            ListVol listvol = new ListVol();
-            listvol.affichagevol();
+            try {
+                ListVol listvol = new ListVol();
+            } catch (SQLException ex) {
+                Logger.getLogger(CreerDestination.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
     }

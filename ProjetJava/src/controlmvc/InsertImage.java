@@ -17,7 +17,7 @@ public class InsertImage {
 
     java.sql.Connection con;
 
-    public void Insert() {
+    public void Insert(String s) {
         {
 
             try {
@@ -30,19 +30,22 @@ public class InsertImage {
                 System.out.println("Insertion de l'image...");
 
                 //l'image à insérer
-                File file = new File("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\Vue\\batman-annee-deux.jpg");
+               
+                File file= new File(s);
+
+                //File file= new File("C:\\Users\\remyj\\OneDrive - Groupe INSEEC (POCE)\\Documents\\GitHub\\Projetjava\\ProjetJava\\src\\viewmvc\\berlin.png");
                 FileInputStream input = new FileInputStream(file);
 
                 //creation de la requête
                 PreparedStatement ps
-                        = con.prepareStatement("insert into Image values(?,?,?)");
+                        = con.prepareStatement("insert into image values(?,?)");
 
                 //id
-                ps.setString(1, "img001");
-                //size
-                ps.setInt(2, 99);
+                ps.setString(1, "1");
                 //image
-                ps.setBinaryStream(3, (InputStream) input, (int) file.length());
+                ps.setBinaryStream(2, (InputStream) input, (int) file.length());
+                
+                
                 //exécution de la requête
                 ps.executeUpdate();
                 System.out.println("Image insérée avec succès!");
