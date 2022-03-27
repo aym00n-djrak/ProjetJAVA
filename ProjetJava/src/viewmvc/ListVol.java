@@ -13,26 +13,25 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class ListVol extends JFrame implements ActionListener {
+public class ListVol extends JInternalFrame implements ActionListener {
 
-    Dimension boutonDim = new Dimension(200, 100);
+    Dimension boutonDim = new Dimension(150, 75);
 
     JPanel pan = new JPanel();
 
-    ShowMyImage im= new ShowMyImage();
     JScrollPane scrollPane = new JScrollPane(pan);
 
     public ListVol() throws SQLException {
         super("Mes destinations");
 
-        this.setLocationRelativeTo(null);
+        // this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 800);
+        this.setSize(600, 1200);
         init();
-        this.setVisible(true);
 
     }
 
@@ -47,6 +46,7 @@ public class ListVol extends JFrame implements ActionListener {
             JButton btn = new JButton(city.get(i).GetNom());
             JButton btnimg = new JButton();
             JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
+            ShowMyImage im = new ShowMyImage();
 
             btn.setPreferredSize(boutonDim);
             btnimg.setPreferredSize(boutonDim);
@@ -58,8 +58,9 @@ public class ListVol extends JFrame implements ActionListener {
             btnprix.setBackground(Color.WHITE);
 
             buttons[i] = btn;
-            Image img= im.getImage(1);
-            btnimg.setIcon(new javax.swing.ImageIcon(img));
+            //Image img= im.getImage(i);
+
+            btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(i)));
             btn.addActionListener(this);
 
             pan.add(btn);
@@ -70,7 +71,7 @@ public class ListVol extends JFrame implements ActionListener {
 
         //on va mettre 400 pour la hauteur du panel comme ca le hauteur
         //des boutons est grande que du panel
-        pan.setPreferredSize(new Dimension(600, 800));
+        pan.setPreferredSize(new Dimension(600, 1200));
 
         this.add(scrollPane);
     }

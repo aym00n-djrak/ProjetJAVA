@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import modelmvc.Fenetre;
+import viewmvc.Interfclients;
 import viewmvc.Menu;
 import viewmvc.Réservation;
 
@@ -29,8 +30,9 @@ public class Invite {
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
-                viewmvc.Menu menu = new Menu();
-                //menu.Menu();
+
+                Interfclients interfclients= new Interfclients();
+                interfclients.run();
             }
 
         });

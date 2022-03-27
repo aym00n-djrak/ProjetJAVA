@@ -5,11 +5,15 @@
 package viewmvc;
 
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import modelmvc.CreationDestination;
 
 /**
  *
@@ -38,6 +42,7 @@ public class Interfclients extends javax.swing.JFrame {
         vol = new javax.swing.JButton();
         historique = new javax.swing.JButton();
         destinations = new javax.swing.JButton();
+        destinations1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Espace clients");
@@ -77,10 +82,20 @@ public class Interfclients extends javax.swing.JFrame {
 
         destinations.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         destinations.setForeground(new java.awt.Color(255, 153, 153));
-        destinations.setText("Destinations ");
+        destinations.setText("Créer Destination ");
+        destinations.setActionCommand("Créer Destination");
         destinations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destinationsActionPerformed(evt);
+                creerdestinationsActionPerformed(evt);
+            }
+        });
+
+        destinations1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        destinations1.setForeground(new java.awt.Color(255, 153, 153));
+        destinations1.setText("Destinations ");
+        destinations1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinations1ActionPerformed(evt);
             }
         });
 
@@ -89,12 +104,14 @@ public class Interfclients extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(vol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(destinations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(destinations1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(historique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(destinations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                    .addComponent(vol, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(desktopclients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -107,13 +124,15 @@ public class Interfclients extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(vol, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
+                        .addGap(27, 27, 27)
                         .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
+                        .addGap(41, 41, 41)
                         .addComponent(historique, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
+                        .addGap(42, 42, 42)
+                        .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(destinations, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95))))
+                        .addGap(130, 130, 130))))
         );
 
         pack();
@@ -130,30 +149,42 @@ public class Interfclients extends javax.swing.JFrame {
         desktopclients.removeAll();
         Réservations r1 = new Réservations();//fenetre interne
         desktopclients.add(r1).setVisible(true);
-     
+
     }//GEN-LAST:event_manageActionPerformed
 
-    private void destinationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinationsActionPerformed
-        desktopclients.removeAll();
-        Destinations d1 = new Destinations();
-        desktopclients.add(d1).setVisible(true);
-    }//GEN-LAST:event_destinationsActionPerformed
+    private void creerdestinationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creerdestinationsActionPerformed
+        CreationDestination creer= new CreationDestination();
+                    desktopclients.add(creer).setVisible(true);
+
+    }//GEN-LAST:event_creerdestinationsActionPerformed
+
+    private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            desktopclients.removeAll();
+            //Destinations d1 = new Destinations();
+            ListVol d1 = new ListVol();
+
+            desktopclients.add(d1).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Interfclients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_destinations1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public void run() {
 
-            public void run() {
-                
-                new Interfclients().setVisible(true);
+        new Interfclients().setVisible(true);
 
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopclients;
     private javax.swing.JButton destinations;
+    private javax.swing.JButton destinations1;
     private javax.swing.JButton historique;
     private javax.swing.JButton manage;
     private javax.swing.JButton vol;

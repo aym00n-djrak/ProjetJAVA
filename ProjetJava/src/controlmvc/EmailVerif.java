@@ -16,6 +16,7 @@ import modelmvc.Fenetre;
 import viewmvc.CreationPage;
 import viewmvc.Menu;
 import java.sql.SQLException;
+import viewmvc.Interfclients;
 import viewmvc.Réservation;
 
 /**
@@ -87,8 +88,9 @@ public class EmailVerif {
 
                         f.setVisible(false);
 
-                        Réservation reservation = new Réservation();
+                        Interfclients interfclient= new Interfclients();
                         
+                        interfclient.run();
                     }
                 }
             }

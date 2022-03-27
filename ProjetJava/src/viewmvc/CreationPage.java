@@ -14,9 +14,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import modelmvc.Fenetre;
 
@@ -35,6 +37,7 @@ public class CreationPage {
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     controlmvc.Identifiants enregistrement = new controlmvc.Identifiants();
     controlmvc.EmailVerif verif = new controlmvc.EmailVerif();
+
 
     public void Creation() throws SQLException {
 
@@ -85,3 +88,4 @@ public class CreationPage {
 
     }
 }
+

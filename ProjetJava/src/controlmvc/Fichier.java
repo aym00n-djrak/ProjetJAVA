@@ -50,7 +50,7 @@ public class Fichier extends JFrame implements ActionListener {
             String Firm= chooser.getSelectedFile().getAbsolutePath();
             System.out.println(Firm);
             InsertImage i= new InsertImage();
-            i.Insert(Firm);
+            //i.Insert(Firm, 1 );
             this.setVisible(false);
             
         }

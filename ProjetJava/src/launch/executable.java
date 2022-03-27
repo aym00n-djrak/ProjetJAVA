@@ -26,7 +26,7 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
-        //accueil.Accueil();
+        accueil.Accueil();
 
         
         ArrayList<City> listcity= new ArrayList<>();
@@ -37,7 +37,7 @@ public class Executable {
         
         //listcity=list.GetAllCity();
                 
-       ListVol liste= new ListVol();
+       //ListVol liste= new ListVol();
         
         
                 
@@ -47,7 +47,7 @@ public class Executable {
 
         
      // Fichier e= new Fichier();
-        
+      
 //i.Insert();
           paye p = new paye();
           
