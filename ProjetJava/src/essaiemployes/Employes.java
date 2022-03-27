@@ -34,19 +34,19 @@ public class Employes extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backg = new javax.swing.JPanel();
         infos = new javax.swing.JLabel();
+        ground = new javax.swing.JPanel();
         ref = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        reftxt = new javax.swing.JTextField();
         namemploye = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nametxt = new javax.swing.JTextField();
         premployes = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        surnametxt = new javax.swing.JTextField();
         departement = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        depttxt = new javax.swing.JTextField();
         compagnie = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        compatxt = new javax.swing.JTextField();
         executer = new javax.swing.JButton();
 
         setClosable(true);
@@ -54,54 +54,50 @@ public class Employes extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
+        backg.setBackground(new java.awt.Color(0, 0, 0));
+
         infos.setBackground(new java.awt.Color(255, 255, 255));
         infos.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        infos.setForeground(new java.awt.Color(255, 255, 255));
         infos.setText("Informations");
 
+        ground.setBackground(new java.awt.Color(0, 204, 204));
+
         ref.setBackground(new java.awt.Color(255, 255, 255));
-        ref.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ref.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ref.setForeground(new java.awt.Color(255, 255, 255));
         ref.setText("Référence");
 
-        namemploye.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        namemploye.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        namemploye.setForeground(new java.awt.Color(255, 255, 255));
         namemploye.setText("Nom");
 
-        premployes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        premployes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        premployes.setForeground(new java.awt.Color(255, 255, 255));
         premployes.setText("Prénom");
 
-        departement.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        departement.setText("Département");
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        surnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                surnametxtActionPerformed(evt);
             }
         });
 
-        compagnie.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        departement.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        departement.setForeground(new java.awt.Color(255, 255, 255));
+        departement.setText("Département");
+
+        depttxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                depttxtActionPerformed(evt);
+            }
+        });
+
+        compagnie.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        compagnie.setForeground(new java.awt.Color(255, 255, 255));
         compagnie.setText("Compagnie");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setText("BDD A METTRE");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jLabel1)
-                .addContainerGap(481, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel1)
-                .addContainerGap(273, Short.MAX_VALUE))
-        );
-
         executer.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        executer.setForeground(new java.awt.Color(153, 0, 0));
+        executer.setForeground(new java.awt.Color(204, 204, 0));
         executer.setText("Exécuter");
         executer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,118 +105,136 @@ public class Employes extends javax.swing.JInternalFrame {
             }
         });
 
+        javax.swing.GroupLayout groundLayout = new javax.swing.GroupLayout(ground);
+        ground.setLayout(groundLayout);
+        groundLayout.setHorizontalGroup(
+            groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(groundLayout.createSequentialGroup()
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, groundLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(executer))
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addComponent(compagnie)
+                                .addGap(42, 42, 42)
+                                .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(groundLayout.createSequentialGroup()
+                                        .addComponent(ref)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(groundLayout.createSequentialGroup()
+                                        .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(groundLayout.createSequentialGroup()
+                                        .addComponent(premployes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(groundLayout.createSequentialGroup()
+                                        .addComponent(departement)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(depttxt)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        groundLayout.setVerticalGroup(
+            groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(groundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ref))
+                .addGap(18, 18, 18)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(namemploye)
+                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(premployes)
+                    .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(departement)
+                    .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(compagnie)
+                    .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(executer)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout backgLayout = new javax.swing.GroupLayout(backg);
+        backg.setLayout(backgLayout);
+        backgLayout.setHorizontalGroup(
+            backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgLayout.createSequentialGroup()
+                .addGroup(backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(infos)
+                        .addGap(0, 153, Short.MAX_VALUE))
+                    .addGroup(backgLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        backgLayout.setVerticalGroup(
+            backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(infos)
+                .addGap(36, 36, 36)
+                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(infos)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(ref)
-                                            .addGap(18, 18, 18))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(45, 45, 45)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(premployes)
-                                        .addGap(35, 35, 35)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(compagnie)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(departement)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4)))))
-                .addGap(31, 31, 31)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(executer)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(backg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(infos)
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ref)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(namemploye)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(premployes)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(departement)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(compagnie)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(executer)
-                .addGap(43, 43, 43))
+            .addComponent(backg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void depttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depttxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_depttxtActionPerformed
 
     private void executerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_executerActionPerformed
-   /* private final JLabel tab, req, res, lignes;
-    private final JLabel nameBDD, requeteLabel;
-    private final JTextField requeteTexte, nameBDDTexte;
-    private final JButton exec, local;
-    private final java.awt.List listeDeTables, listeDeRequetes;
-    private final JTextArea fenetreLignes, fenetreRes;
-    private final JPanel p0, p1, nord, p2, p3;*/
+
+    private void surnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surnametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_surnametxtActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel backg;
     private javax.swing.JLabel compagnie;
+    private javax.swing.JTextField compatxt;
     private javax.swing.JLabel departement;
+    private javax.swing.JTextField depttxt;
     private javax.swing.JButton executer;
+    private javax.swing.JPanel ground;
     private javax.swing.JLabel infos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel namemploye;
+    private javax.swing.JTextField nametxt;
     private javax.swing.JLabel premployes;
     private javax.swing.JLabel ref;
+    private javax.swing.JTextField reftxt;
+    private javax.swing.JTextField surnametxt;
     // End of variables declaration//GEN-END:variables
 }
