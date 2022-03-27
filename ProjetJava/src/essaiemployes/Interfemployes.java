@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vue;
+package essaiemployes;
 
 /**
  *
  * @author Clarence
  */
+import DAO.*;
 public class Interfemployes extends javax.swing.JFrame {
 
     /**
@@ -30,17 +31,20 @@ public class Interfemployes extends javax.swing.JFrame {
         emplois = new javax.swing.JToggleButton();
         ajoutvol = new javax.swing.JToggleButton();
         stat = new javax.swing.JToggleButton();
+        labelclients = new javax.swing.JLabel();
+        clientbutton = new javax.swing.JToggleButton();
         employesb = new javax.swing.JDesktopPane();
         labemploi = new javax.swing.JLabel();
         addplanes = new javax.swing.JLabel();
         statlabel = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
         emplois.setBackground(new java.awt.Color(255, 255, 255));
-        emplois.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/employes.png"))); // NOI18N
+        emplois.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
         emplois.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emploisActionPerformed(evt);
@@ -48,7 +52,7 @@ public class Interfemployes extends javax.swing.JFrame {
         });
 
         ajoutvol.setBackground(new java.awt.Color(255, 255, 255));
-        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/minivion2.png"))); // NOI18N
+        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/minivion2.png"))); // NOI18N
         ajoutvol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ajoutvolActionPerformed(evt);
@@ -56,10 +60,20 @@ public class Interfemployes extends javax.swing.JFrame {
         });
 
         stat.setBackground(new java.awt.Color(255, 255, 255));
-        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/stat.png"))); // NOI18N
+        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/stat.png"))); // NOI18N
         stat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statActionPerformed(evt);
+            }
+        });
+
+        labelclients.setBackground(new java.awt.Color(255, 255, 255));
+
+        clientbutton.setBackground(new java.awt.Color(255, 255, 255));
+        clientbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
+        clientbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientbuttonActionPerformed(evt);
             }
         });
 
@@ -68,18 +82,35 @@ public class Interfemployes extends javax.swing.JFrame {
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(ajoutvol, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(stat, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 530, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(ajoutvol, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(stat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(labelclients)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clientbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(emplois, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ajoutvol, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(stat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelclients)
+                .addGap(132, 132, 132))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(stat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(ajoutvol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clientbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout employesbLayout = new javax.swing.GroupLayout(employesb);
@@ -90,17 +121,20 @@ public class Interfemployes extends javax.swing.JFrame {
         );
         employesbLayout.setVerticalGroup(
             employesbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
         );
 
         labemploi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labemploi.setText("Utilisateur");
 
         addplanes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        addplanes.setText("Ajouter un vol");
+        addplanes.setText("Gestion des vols");
 
         statlabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         statlabel.setText("Statistiques");
+
+        label.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label.setText("Gestion des clients");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,25 +146,28 @@ public class Interfemployes extends javax.swing.JFrame {
                     .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labemploi)
-                        .addGap(53, 53, 53)
+                        .addGap(47, 47, 47)
                         .addComponent(addplanes)
-                        .addGap(52, 52, 52)
+                        .addGap(39, 39, 39)
                         .addComponent(statlabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(58, 58, 58)
+                        .addComponent(label)
+                        .addGap(0, 397, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labemploi)
-                    .addComponent(addplanes)
-                    .addComponent(statlabel))
-                .addGap(24, 24, 24)
+                    .addComponent(label)
+                    .addComponent(statlabel)
+                    .addComponent(addplanes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labemploi))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(employesb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 52, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,6 +190,12 @@ public class Interfemployes extends javax.swing.JFrame {
         Stat s1 = new Stat();
         employesb.add(s1).setVisible(true);
     }//GEN-LAST:event_statActionPerformed
+
+    private void clientbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientbuttonActionPerformed
+        employesb.removeAll();
+        Clients c1 = new Clients();
+        employesb.add(c1).setVisible(true);
+    }//GEN-LAST:event_clientbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,8 +235,11 @@ public class Interfemployes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addplanes;
     private javax.swing.JToggleButton ajoutvol;
+    private javax.swing.JToggleButton clientbutton;
     private javax.swing.JToggleButton emplois;
     private javax.swing.JDesktopPane employesb;
+    private javax.swing.JLabel label;
+    private javax.swing.JLabel labelclients;
     private javax.swing.JLabel labemploi;
     private javax.swing.JPanel panel;
     private javax.swing.JToggleButton stat;

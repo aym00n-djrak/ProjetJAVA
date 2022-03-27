@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import DAO.*;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Employes extends javax.swing.JInternalFrame {
      */
     public Employes() {
         initComponents();
+       
     }
 
     /**
@@ -45,7 +47,9 @@ public class Employes extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        executer = new javax.swing.JButton();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
@@ -96,6 +100,15 @@ public class Employes extends javax.swing.JInternalFrame {
                 .addContainerGap(273, Short.MAX_VALUE))
         );
 
+        executer.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        executer.setForeground(new java.awt.Color(153, 0, 0));
+        executer.setText("Exécuter");
+        executer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                executerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,6 +149,10 @@ public class Employes extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(executer)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +184,9 @@ public class Employes extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(compagnie)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(executer)
+                .addGap(43, 43, 43))
         );
 
         pack();
@@ -176,6 +195,10 @@ public class Employes extends javax.swing.JInternalFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void executerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_executerActionPerformed
    /* private final JLabel tab, req, res, lignes;
     private final JLabel nameBDD, requeteLabel;
     private final JTextField requeteTexte, nameBDDTexte;
@@ -187,6 +210,7 @@ public class Employes extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel compagnie;
     private javax.swing.JLabel departement;
+    private javax.swing.JButton executer;
     private javax.swing.JLabel infos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
