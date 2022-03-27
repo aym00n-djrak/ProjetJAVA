@@ -186,8 +186,8 @@ public class Clients extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_editerActionPerformed
 
     private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed
-   
-        try{
+   //Tester AddEmploye à la place
+     /*   try{
              String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
              con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
              String sql = "insert into clients(idMembres,Nom,Prénom) values (?,?,?)";
@@ -200,7 +200,7 @@ public class Clients extends javax.swing.JInternalFrame {
              JOptionPane.showMessageDialog(null,"Ajout effectué");
                     } catch(Exception e){
                           e.printStackTrace();
-                   }
+                   }*/
 
     }//GEN-LAST:event_ajoutActionPerformed
 
