@@ -30,7 +30,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
         // this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 1200);
+        this.setSize(600, 2000);
         init();
 
     }
@@ -71,7 +71,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
         //on va mettre 400 pour la hauteur du panel comme ca le hauteur
         //des boutons est grande que du panel
-        pan.setPreferredSize(new Dimension(600, 1200));
+        pan.setPreferredSize(new Dimension(600, 2000));
 
         this.add(scrollPane);
     }
