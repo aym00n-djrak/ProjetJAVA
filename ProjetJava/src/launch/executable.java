@@ -49,7 +49,7 @@ public class Executable {
      // Fichier e= new Fichier();
       
 //i.Insert();
-          paye p = new paye();
+       //   paye p = new paye();
           
           //p.run();
           
