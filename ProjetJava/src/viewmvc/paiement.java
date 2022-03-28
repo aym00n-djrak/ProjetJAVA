@@ -4,7 +4,6 @@
  */
 package viewmvc;
 
-
 import javax.swing.*;
 import controlmvc.ConfirmationReservation;
 
@@ -13,18 +12,23 @@ import controlmvc.ConfirmationReservation;
  * @author remyj
  */
 public class Paiement {
-    
-    ConfirmationReservation confres= new ConfirmationReservation();
-    
-    public void InterfacePaiement(JInternalFrame reservation, JLabel ecran, JDesktopPane desktop,JPanel panneau, JButton validate, JButton suite)
-    {
-    //Construction de la fenetre paiement
-        JInternalFrame paiement = new JInternalFrame("--- Paiement ---");
+
+    JInternalFrame paiement = new JInternalFrame("--- Paiement ---");
+
+    ConfirmationReservation confres = new ConfirmationReservation();
+
+    public void InterfacePaiement(JLabel ecran, JDesktopPane desktop) {
+        //Construction de la fenetre paiement
+                desktop.removeAll();
+
+        JInternalFrame reservation = new JInternalFrame("--- Réservation ---");
         JPanel panel = new JPanel();
+        JButton validate = new JButton("Valider");
+        JButton suite = new JButton("Suite");
         //panel.setLayout(new GridLayout(4,1));
         JLabel titre = new JLabel("Paiement en ligne ");
-        
-        java.net.URL url = this.getClass().getResource("carte.png");
+
+        java.net.URL url = this.getClass().getResource("map.png");
 
         ImageIcon fond = new ImageIcon(url);
         JLabel payer = new JLabel(fond);
@@ -34,7 +38,6 @@ public class Paiement {
         panel.add(ecran);
         panel.add(titre);
         //panel.add(payer);
-        
 
         //Set Proportions
         paiement.add(panel);
@@ -46,12 +49,11 @@ public class Paiement {
         paiement.setLayout(null);
         paiement.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         paiement.setVisible(true);
-        
+
         paiement.getContentPane().add(payer);
 
         //Ajout au bureau 
-        desktop.add(reservation).setVisible(true);
-        desktop.add(paiement).setVisible(false);
+        desktop.add(paiement).setVisible(true);
 
         //CONFIRMATION DE LA RESERVATION        
         confres.confirmationreserv(validate);
@@ -61,6 +63,5 @@ public class Paiement {
 
         desktop.getAllFramesInLayer(1000);
 
-     
-}
+    }
 }

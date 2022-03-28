@@ -83,7 +83,7 @@ public class CreationPage {
         f.setResizable(false);
         f.setVisible(true);
 
-        verif.verifcreaboutonmail(b1, t1, p1, f);
+        verif.verifcreaboutonmailusers(b1, t1, p1, f);
         b2.addActionListener(new eventexit());
 
     }

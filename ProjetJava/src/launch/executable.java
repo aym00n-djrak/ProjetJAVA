@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import viewmvc.*;
 
 import DAO.*;
+import controlmvc.EmailVerif;
 import controlmvc.Fichier;
 import controlmvc.InsertImage;
 import controlmvc.ShowMyImage;
@@ -49,12 +50,20 @@ public class Executable {
      // Fichier e= new Fichier();
       
 //i.Insert();
-       //   paye p = new paye();
+        //  paye p = new paye();
           
           //p.run();
           
 
+        InfoVille info= new InfoVille();
+        //info.init(0);
         
         
+                CreerVol creavol= new CreerVol();
+               // Vol vol= new Vol();
+//creavol.InterfaceCreerVol(vol);
+
+EmailVerif e= new EmailVerif();
+
     }
 }

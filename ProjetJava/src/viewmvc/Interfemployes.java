@@ -2,17 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package essaiemployes;
+package viewmvc;
+
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import modelmvc.CreationDestination;
 
 /**
  *
  * @author Clarence
  */
-import DAO.*;
 public class Interfemployes extends javax.swing.JFrame {
 
     /**
-     * Creates new form Interfemployes
+     * Creates new form Interfclients
      */
     public Interfemployes() {
         initComponents();
@@ -27,114 +37,67 @@ public class Interfemployes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel = new javax.swing.JPanel();
-        emplois = new javax.swing.JToggleButton();
-        ajoutvol = new javax.swing.JToggleButton();
-        stat = new javax.swing.JToggleButton();
-        labelclients = new javax.swing.JLabel();
-        clientbutton = new javax.swing.JToggleButton();
-        employesb = new javax.swing.JDesktopPane();
-        labemploi = new javax.swing.JLabel();
-        addplanes = new javax.swing.JLabel();
-        statlabel = new javax.swing.JLabel();
-        label = new javax.swing.JLabel();
+        desktopclients = new javax.swing.JDesktopPane();
+        manage = new javax.swing.JButton();
+        vol = new javax.swing.JButton();
+        historique = new javax.swing.JButton();
+        destinations = new javax.swing.JButton();
+        destinations1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Espace employés");
 
-        panel.setBackground(new java.awt.Color(255, 255, 255));
-
-        emplois.setBackground(new java.awt.Color(255, 255, 255));
-        emplois.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
-        emplois.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emploisActionPerformed(evt);
-            }
-        });
-
-        ajoutvol.setBackground(new java.awt.Color(255, 255, 255));
-        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/minivion2.png"))); // NOI18N
-        ajoutvol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajoutvolActionPerformed(evt);
-            }
-        });
-
-        stat.setBackground(new java.awt.Color(255, 255, 255));
-        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/stat.png"))); // NOI18N
-        stat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statActionPerformed(evt);
-            }
-        });
-
-        labelclients.setBackground(new java.awt.Color(255, 255, 255));
-
-        clientbutton.setBackground(new java.awt.Color(255, 255, 255));
-        clientbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
-        clientbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientbuttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(ajoutvol, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(stat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addComponent(labelclients)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(clientbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        javax.swing.GroupLayout desktopclientsLayout = new javax.swing.GroupLayout(desktopclients);
+        desktopclients.setLayout(desktopclientsLayout);
+        desktopclientsLayout.setHorizontalGroup(
+            desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 824, Short.MAX_VALUE)
         );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelclients)
-                .addGap(132, 132, 132))
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(stat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(ajoutvol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clientbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout employesbLayout = new javax.swing.GroupLayout(employesb);
-        employesb.setLayout(employesbLayout);
-        employesbLayout.setHorizontalGroup(
-            employesbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        desktopclientsLayout.setVerticalGroup(
+            desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        employesbLayout.setVerticalGroup(
-            employesbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-        );
 
-        labemploi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labemploi.setText("Utilisateur");
+        manage.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        manage.setForeground(new java.awt.Color(0, 204, 204));
+        manage.setText("Gérer vos réservations");
+        manage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageActionPerformed(evt);
+            }
+        });
 
-        addplanes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        addplanes.setText("Gestion des vols");
+        vol.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        vol.setForeground(new java.awt.Color(51, 204, 0));
+        vol.setText("Réserver un nouveau vol");
+        vol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volActionPerformed(evt);
+            }
+        });
 
-        statlabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        statlabel.setText("Statistiques");
+        historique.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        historique.setForeground(new java.awt.Color(255, 153, 102));
+        historique.setText("Historique d'achats");
 
-        label.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        label.setText("Gestion des clients");
+        destinations.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        destinations.setForeground(new java.awt.Color(255, 153, 153));
+        destinations.setText("Créer Destination ");
+        destinations.setActionCommand("Créer Destination");
+        destinations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creerdestinationsActionPerformed(evt);
+            }
+        });
+
+        destinations1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        destinations1.setForeground(new java.awt.Color(255, 153, 153));
+        destinations1.setText("Destinations ");
+        destinations1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinations1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

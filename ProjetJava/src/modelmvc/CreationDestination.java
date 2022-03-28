@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import viewmvc.Interfclients;
+import viewmvc.Interfemployes;
 
 /**
  *
@@ -162,7 +162,7 @@ public class CreationDestination extends JInternalFrame implements ActionListene
 
         JOptionPane.showMessageDialog(null, "Destination créée !");
         setVisible(false);
-        Interfclients interf = new Interfclients();
+        Interfemployes interf = new Interfemployes();
         interf.run();
     }
 

@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import modelmvc.Fenetre;
 import viewmvc.CreationPage;
-import viewmvc.Login;
+import viewmvc.LoginEmploye;
 
 /**
  *
@@ -33,7 +33,7 @@ public class NewMember {
                 try {
                     creationPage.Creation();
                 } catch (SQLException ex) {
-                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LoginEmploye.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
