@@ -8,7 +8,10 @@ package viewmvc;
  *
  * @author Clarence
  */
+import java.awt.event.ActionEvent;
 import java.sql.DriverManager;
+import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import org.jfree.chart.ChartFactory;
@@ -20,6 +23,18 @@ import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.jdbc.JDBCCategoryDataset;
 
 public class Interfemployes extends javax.swing.JFrame {
+
+    private JPanel panel;
+    private JToggleButton emplois;
+    private JToggleButton ajoutvol;
+    private JToggleButton stat;
+    private JLabel labelclients;
+    private JToggleButton clientbutton;
+    private JDesktopPane employesb;
+    private JLabel labemploi;
+    private JLabel addplanes;
+    private JLabel statlabel;
+    private JLabel label;
 
     /**
      * Creates new form Interfemployes
@@ -210,13 +225,20 @@ public class Interfemployes extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   /* public static void main(String args[]) {
+/*private void clientbuttonActionPerformed(java.awt.event.ActionEvent evt) {
+employesb.removeAll();
+Clients c1 = new Clients();
+employesb.add(c1).setVisible(true);
+
+}   
+
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        /*try {
+       /* try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -235,7 +257,7 @@ public class Interfemployes extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-      /*  java.awt.EventQueue.invokeLater(new Runnable() {
+    /*    java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfemployes().setVisible(true);
             }
@@ -255,4 +277,4 @@ public class Interfemployes extends javax.swing.JFrame {
     private javax.swing.JToggleButton stat;
     private javax.swing.JLabel statlabel;
     // End of variables declaration//GEN-END:variables
-}*/
+*/
