@@ -180,9 +180,9 @@ public class Interfemployes extends javax.swing.JFrame {
     }//GEN-LAST:event_emploisActionPerformed
 
     private void ajoutvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutvolActionPerformed
-       /* employesb.removeAll();
-        Ajoutervol a1 = new Ajoutervol();
-        employesb.add(a1).setVisible(true);*/
+        employesb.removeAll();
+        Bookavol a1 = new Bookavol();
+        employesb.add(a1).setVisible(true);
     }//GEN-LAST:event_ajoutvolActionPerformed
 
     private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
