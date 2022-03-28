@@ -44,6 +44,7 @@ c.get(i).SetPrix(c.get(i).GetPrix()*(15/100));
 System.out.println("Vous devez donc payer : "+c);
 }
 else {
+c.get(i).SetPrix(c.get(i).GetPrix());
 System.out.println("Vous devez payer : "+c);
 }
 ci.AddCity(c.get(i));

@@ -6,8 +6,6 @@ package controlmvc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.util.regex.*;
 import java.util.*;
 import javax.swing.*;
