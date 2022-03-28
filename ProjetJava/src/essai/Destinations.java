@@ -29,8 +29,6 @@ public class Destinations extends javax.swing.JInternalFrame {
         paris = new javax.swing.JButton();
         berlin = new javax.swing.JButton();
         tokyo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollBar1 = new javax.swing.JScrollBar();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -50,8 +48,6 @@ public class Destinations extends javax.swing.JInternalFrame {
 
         tokyo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/tokyo.png"))); // NOI18N
 
-        jScrollPane1.setViewportView(jScrollBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,23 +60,18 @@ public class Destinations extends javax.swing.JInternalFrame {
                             .addContainerGap()
                             .addComponent(paris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(tokyo, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 549, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addContainerGap(1299, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(paris)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tokyo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addComponent(berlin)))
-                .addContainerGap())
+                .addComponent(paris)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tokyo)
+                .addGap(43, 43, 43)
+                .addComponent(berlin)
+                .addContainerGap(339, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,8 +85,6 @@ public class Destinations extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton berlin;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton paris;
     private javax.swing.JButton tokyo;
     // End of variables declaration//GEN-END:variables

@@ -257,13 +257,9 @@
                   <Component id="duree" min="-2" pref="457" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                   <Component id="sejourd" min="-2" pref="117" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="chooserd" min="-2" pref="266" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="312" max="-2" attributes="0"/>
                   <Component id="sejoura" min="-2" pref="197" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="choosera" min="-2" pref="276" max="-2" attributes="0"/>
-                  <EmptySpace pref="455" max="32767" attributes="0"/>
+                  <EmptySpace pref="749" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -272,22 +268,10 @@
               <Component id="sejoura" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="duree" alignment="3" pref="103" max="32767" attributes="0"/>
-                          <Component id="sejourd" alignment="3" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="chooserd" min="-2" pref="67" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="duree" alignment="3" pref="103" max="32767" attributes="0"/>
+                      <Component id="sejourd" alignment="3" max="32767" attributes="0"/>
                   </Group>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="choosera" min="-2" pref="79" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -325,10 +309,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Jusqu&apos;au :"/>
           </Properties>
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="chooserd">
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="choosera">
         </Component>
       </SubComponents>
     </Container>

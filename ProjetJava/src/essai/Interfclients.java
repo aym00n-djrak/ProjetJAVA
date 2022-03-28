@@ -37,7 +37,6 @@ public class Interfclients extends javax.swing.JFrame {
         desktopclients = new javax.swing.JDesktopPane();
         manage = new javax.swing.JButton();
         vol = new javax.swing.JButton();
-        historique = new javax.swing.JButton();
         destinations = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,16 +46,16 @@ public class Interfclients extends javax.swing.JFrame {
         desktopclients.setLayout(desktopclientsLayout);
         desktopclientsLayout.setHorizontalGroup(
             desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1644, Short.MAX_VALUE)
+            .addGap(0, 1608, Short.MAX_VALUE)
         );
         desktopclientsLayout.setVerticalGroup(
             desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
+            .addGap(0, 1319, Short.MAX_VALUE)
         );
 
         manage.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         manage.setForeground(new java.awt.Color(0, 204, 204));
-        manage.setText("Gérer vos réservations");
+        manage.setText("Historique de réservations");
         manage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageActionPerformed(evt);
@@ -70,15 +69,6 @@ public class Interfclients extends javax.swing.JFrame {
         vol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volActionPerformed(evt);
-            }
-        });
-
-        historique.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        historique.setForeground(new java.awt.Color(255, 153, 102));
-        historique.setText("Historique d'achats");
-        historique.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historiqueActionPerformed(evt);
             }
         });
 
@@ -96,17 +86,12 @@ public class Interfclients extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(vol)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(destinations, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(historique, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manage))
-                        .addGap(30, 30, 30)
-                        .addComponent(desktopclients)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(vol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(destinations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(desktopclients)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -114,15 +99,13 @@ public class Interfclients extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(vol, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+                .addGap(49, 49, 49)
                 .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
-                .addComponent(historique, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(211, 211, 211)
+                .addGap(70, 70, 70)
                 .addComponent(destinations, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 238, Short.MAX_VALUE)
+                .addGap(0, 39, Short.MAX_VALUE)
                 .addComponent(desktopclients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -137,9 +120,9 @@ public class Interfclients extends javax.swing.JFrame {
     }//GEN-LAST:event_volActionPerformed
 
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
-        desktopclients.removeAll();
+       /* desktopclients.removeAll();
         Réservations r1 = new Réservations();//fenetre interne
-        desktopclients.add(r1).setVisible(true);
+        desktopclients.add(r1).setVisible(true);*/
      
     }//GEN-LAST:event_manageActionPerformed
 
@@ -148,10 +131,6 @@ public class Interfclients extends javax.swing.JFrame {
         Destinations d1 = new Destinations();
         desktopclients.add(d1).setVisible(true);
     }//GEN-LAST:event_destinationsActionPerformed
-
-    private void historiqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historiqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_historiqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,7 +245,6 @@ public class Interfclients extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopclients;
     private javax.swing.JButton destinations;
-    private javax.swing.JButton historique;
     private javax.swing.JButton manage;
     private javax.swing.JButton vol;
     // End of variables declaration//GEN-END:variables

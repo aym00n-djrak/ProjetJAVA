@@ -41,8 +41,6 @@ public class Ajoutervol extends javax.swing.JInternalFrame {
         duree = new javax.swing.JLabel();
         sejourd = new javax.swing.JLabel();
         sejoura = new javax.swing.JLabel();
-        chooserd = new com.toedter.calendar.JDateChooser();
-        choosera = new com.toedter.calendar.JDateChooser();
         passag = new javax.swing.JPanel();
         pass = new javax.swing.JLabel();
         adultes = new javax.swing.JLabel();
@@ -174,31 +172,18 @@ public class Ajoutervol extends javax.swing.JInternalFrame {
                 .addComponent(duree, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133)
                 .addComponent(sejourd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chooserd, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(312, 312, 312)
                 .addComponent(sejoura, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(choosera, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(455, Short.MAX_VALUE))
+                .addContainerGap(749, Short.MAX_VALUE))
         );
         basLayout.setVerticalGroup(
             basLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sejoura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(basLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(basLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(basLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(duree, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                        .addComponent(sejourd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(chooserd, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(choosera, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(basLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(duree, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(sejourd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         getContentPane().add(bas);
@@ -294,8 +279,6 @@ public class Ajoutervol extends javax.swing.JInternalFrame {
     private javax.swing.JLabel arrivee;
     private javax.swing.JLabel background;
     private javax.swing.JPanel bas;
-    private com.toedter.calendar.JDateChooser choosera;
-    private com.toedter.calendar.JDateChooser chooserd;
     private javax.swing.JComboBox<String> comboarrivee;
     private javax.swing.JComboBox<String> combodepart;
     private javax.swing.JComboBox<String> combovoyage;
