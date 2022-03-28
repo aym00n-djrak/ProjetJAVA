@@ -35,17 +35,14 @@ for(int i = 0; i<c.size();i++)
 if (client.GetAge()<100 && client.GetAge()>65) {
 System.out.println("Vous bénéficiez du tarif senior : réduction de 20% sur votre billet");
 c.get(i).SetPrix(c.get(i).GetPrix()*(20/100));
-System.out.println("Vous devez donc payer : "+c);
-
 }
 else if (client.GetAge()<17 && client.GetAge()>0){
 System.out.println("Vous bénéficiez du tarif enfant : réduction de 15% sur votre billet");
 c.get(i).SetPrix(c.get(i).GetPrix()*(15/100));
-System.out.println("Vous devez donc payer : "+c);
+;
 }
 else {
 c.get(i).SetPrix(c.get(i).GetPrix());
-System.out.println("Vous devez payer : "+c);
 }
 ci.AddCity(c.get(i));
 }
