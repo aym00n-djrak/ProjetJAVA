@@ -74,7 +74,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="editer" min="-2" pref="107" max="-2" attributes="0"/>
+                      <Component id="enregistrer" min="-2" pref="107" max="-2" attributes="0"/>
                       <Component id="ajout" min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -91,14 +91,14 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="actualiser" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="editer" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="enregistrer" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="supp" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ajout" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,25 +131,26 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="num" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="numtxt" min="-2" pref="162" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="nomclient" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="id" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="prenom" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="age" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="prenomtxt" min="-2" pref="178" max="-2" attributes="0"/>
                                   <Component id="idtxt" min="-2" pref="180" max="-2" attributes="0"/>
                                   <Component id="nomtxt" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="agetxt" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="num" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="numtxt" min="-2" pref="162" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="dob" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="167" pref="30" max="32767" attributes="0"/>
                   </Group>
@@ -174,7 +175,10 @@
                           <Component id="prenomtxt" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="dob" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="age" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="agetxt" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="num" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -231,12 +235,12 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dob">
+            <Component class="javax.swing.JLabel" name="age">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Date de naissance"/>
+                <Property name="text" type="java.lang.String" value="&#xc2;ge "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="num">
@@ -253,6 +257,13 @@
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="agetxt">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -274,7 +285,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualiserActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="editer">
+        <Component class="javax.swing.JButton" name="enregistrer">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -285,10 +296,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Editer"/>
+            <Property name="text" type="java.lang.String" value="Enregistrer"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editerActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enregistrerActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="supp">

@@ -48,31 +48,45 @@ public class Employes extends javax.swing.JInternalFrame {
         compagnie = new javax.swing.JLabel();
         compatxt = new javax.swing.JTextField();
         executer = new javax.swing.JButton();
+        suppBouton = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Gestion des employes");
 
-        backg.setBackground(new java.awt.Color(0, 0, 0));
+        backg.setBackground(new java.awt.Color(0, 153, 153));
 
         infos.setBackground(new java.awt.Color(255, 255, 255));
-        infos.setFont(new java.awt.Font("SimSun", 1, 36)); // NOI18N
+        infos.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         infos.setForeground(new java.awt.Color(255, 255, 255));
-        infos.setText("Informations");
+        infos.setText(" Informations employés");
 
-        ground.setBackground(new java.awt.Color(0, 204, 204));
+        ground.setBackground(new java.awt.Color(204, 204, 204));
 
         ref.setBackground(new java.awt.Color(255, 255, 255));
-        ref.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ref.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         ref.setForeground(new java.awt.Color(255, 255, 255));
         ref.setText("Référence");
 
-        namemploye.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        reftxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reftxtActionPerformed(evt);
+            }
+        });
+
+        namemploye.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         namemploye.setForeground(new java.awt.Color(255, 255, 255));
         namemploye.setText("Nom");
 
-        premployes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        nametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nametxtActionPerformed(evt);
+            }
+        });
+
+        premployes.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         premployes.setForeground(new java.awt.Color(255, 255, 255));
         premployes.setText("Prénom");
 
@@ -82,7 +96,7 @@ public class Employes extends javax.swing.JInternalFrame {
             }
         });
 
-        departement.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        departement.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         departement.setForeground(new java.awt.Color(255, 255, 255));
         departement.setText("Département");
 
@@ -92,12 +106,18 @@ public class Employes extends javax.swing.JInternalFrame {
             }
         });
 
-        compagnie.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        compagnie.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         compagnie.setForeground(new java.awt.Color(255, 255, 255));
         compagnie.setText("Compagnie");
 
-        executer.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        executer.setForeground(new java.awt.Color(204, 204, 0));
+        compatxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compatxtActionPerformed(evt);
+            }
+        });
+
+        executer.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        executer.setForeground(new java.awt.Color(0, 153, 153));
         executer.setText("Exécuter");
         executer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,69 +125,75 @@ public class Employes extends javax.swing.JInternalFrame {
             }
         });
 
+        suppBouton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        suppBouton.setForeground(new java.awt.Color(153, 0, 51));
+        suppBouton.setText("Supprimer");
+
         javax.swing.GroupLayout groundLayout = new javax.swing.GroupLayout(ground);
         ground.setLayout(groundLayout);
         groundLayout.setHorizontalGroup(
             groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(groundLayout.createSequentialGroup()
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, groundLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(executer))
                     .addGroup(groundLayout.createSequentialGroup()
-                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap()
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(groundLayout.createSequentialGroup()
-                                .addComponent(compagnie)
-                                .addGap(42, 42, 42)
-                                .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(groundLayout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(premployes))
+                                    .addComponent(ref))
+                                .addGap(74, 74, 74)
                                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(groundLayout.createSequentialGroup()
-                                        .addComponent(ref)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(groundLayout.createSequentialGroup()
-                                        .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(groundLayout.createSequentialGroup()
-                                        .addComponent(premployes)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(groundLayout.createSequentialGroup()
-                                        .addComponent(departement)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(depttxt)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(surnametxt, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                                    .addComponent(reftxt)
+                                    .addComponent(nametxt)))
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(departement)
+                                    .addComponent(compagnie))
+                                .addGap(18, 18, 18)
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(suppBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(depttxt, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                                        .addComponent(compatxt))))))
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addGap(524, 524, 524)
+                        .addComponent(executer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(639, Short.MAX_VALUE))
         );
         groundLayout.setVerticalGroup(
             groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(groundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ref))
-                .addGap(18, 18, 18)
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ref, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reftxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(namemploye)
-                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(premployes)
-                    .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(departement)
-                    .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(compagnie)
-                    .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(executer)
-                .addContainerGap())
+                    .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(executer, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(suppBouton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout backgLayout = new javax.swing.GroupLayout(backg);
@@ -175,31 +201,28 @@ public class Employes extends javax.swing.JInternalFrame {
         backgLayout.setHorizontalGroup(
             backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgLayout.createSequentialGroup()
-                .addGroup(backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(infos)
-                        .addGap(0, 153, Short.MAX_VALUE))
-                    .addGroup(backgLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(63, 63, 63)
+                .addComponent(infos, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         backgLayout.setVerticalGroup(
             backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(backgLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(infos)
-                .addGap(36, 36, 36)
-                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,6 +244,18 @@ public class Employes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_surnametxtActionPerformed
 
+    private void reftxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reftxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reftxtActionPerformed
+
+    private void nametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nametxtActionPerformed
+
+    private void compatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compatxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compatxtActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backg;
     private javax.swing.JLabel compagnie;
@@ -235,6 +270,7 @@ public class Employes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel premployes;
     private javax.swing.JLabel ref;
     private javax.swing.JTextField reftxt;
+    private javax.swing.JButton suppBouton;
     private javax.swing.JTextField surnametxt;
     // End of variables declaration//GEN-END:variables
 }

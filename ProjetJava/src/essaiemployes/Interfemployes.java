@@ -180,15 +180,13 @@ public class Interfemployes extends javax.swing.JFrame {
     }//GEN-LAST:event_emploisActionPerformed
 
     private void ajoutvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutvolActionPerformed
-        employesb.removeAll();
+       /* employesb.removeAll();
         Ajoutervol a1 = new Ajoutervol();
-        employesb.add(a1).setVisible(true);
+        employesb.add(a1).setVisible(true);*/
     }//GEN-LAST:event_ajoutvolActionPerformed
 
     private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
-        employesb.removeAll();
-        Stat s1 = new Stat();
-        employesb.add(s1).setVisible(true);
+     
     }//GEN-LAST:event_statActionPerformed
 
     private void clientbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientbuttonActionPerformed

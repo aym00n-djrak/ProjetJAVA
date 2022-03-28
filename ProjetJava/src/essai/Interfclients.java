@@ -139,7 +139,7 @@ public class Interfclients extends javax.swing.JFrame {
 
     private void volActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volActionPerformed
         desktopclients.removeAll();
-        Bookavol v1 = new Bookavol();//fenetre interne
+        Ajoutervol v1 = new Ajoutervol();//fenetre interne
         desktopclients.add(v1).setVisible(true);
     }//GEN-LAST:event_volActionPerformed
 

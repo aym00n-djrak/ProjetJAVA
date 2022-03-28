@@ -41,11 +41,12 @@ public class Clients extends javax.swing.JInternalFrame {
         idtxt = new javax.swing.JTextField();
         prenom = new javax.swing.JLabel();
         prenomtxt = new javax.swing.JTextField();
-        dob = new javax.swing.JLabel();
+        age = new javax.swing.JLabel();
         num = new javax.swing.JLabel();
         numtxt = new javax.swing.JTextField();
+        agetxt = new javax.swing.JTextField();
         actualiser = new javax.swing.JButton();
-        editer = new javax.swing.JButton();
+        enregistrer = new javax.swing.JButton();
         supp = new javax.swing.JButton();
         ajout = new javax.swing.JButton();
 
@@ -80,14 +81,16 @@ public class Clients extends javax.swing.JInternalFrame {
 
         prenomtxt.setBackground(new java.awt.Color(204, 204, 204));
 
-        dob.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        dob.setText("Date de naissance");
+        age.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        age.setText("Âge ");
 
         num.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         num.setText("Numéro de réservation");
 
         numtxt.setBackground(new java.awt.Color(204, 204, 204));
         numtxt.setText("  ");
+
+        agetxt.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
         back.setLayout(backLayout);
@@ -97,20 +100,21 @@ public class Clients extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backLayout.createSequentialGroup()
+                        .addComponent(num)
+                        .addGap(18, 18, 18)
+                        .addComponent(numtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(backLayout.createSequentialGroup()
                         .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nomclient)
                             .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(prenom))
+                            .addComponent(prenom)
+                            .addComponent(age))
                         .addGap(31, 31, 31)
                         .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(prenomtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nomtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(backLayout.createSequentialGroup()
-                        .addComponent(num)
-                        .addGap(18, 18, 18)
-                        .addComponent(numtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dob))
+                            .addComponent(nomtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(agetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, Short.MAX_VALUE))
         );
         backLayout.setVerticalGroup(
@@ -129,7 +133,9 @@ public class Clients extends javax.swing.JInternalFrame {
                     .addComponent(prenom)
                     .addComponent(prenomtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(dob)
+                .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(age)
+                    .addComponent(agetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(num)
@@ -147,13 +153,13 @@ public class Clients extends javax.swing.JInternalFrame {
             }
         });
 
-        editer.setBackground(new java.awt.Color(0, 204, 51));
-        editer.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        editer.setForeground(new java.awt.Color(255, 255, 255));
-        editer.setText("Editer");
-        editer.addActionListener(new java.awt.event.ActionListener() {
+        enregistrer.setBackground(new java.awt.Color(0, 204, 51));
+        enregistrer.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
+        enregistrer.setForeground(new java.awt.Color(255, 255, 255));
+        enregistrer.setText("Enregistrer");
+        enregistrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editerActionPerformed(evt);
+                enregistrerActionPerformed(evt);
             }
         });
 
@@ -198,7 +204,7 @@ public class Clients extends javax.swing.JInternalFrame {
                     .addComponent(actualiser))
                 .addGap(18, 18, 18)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editer, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ajout, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
@@ -212,12 +218,12 @@ public class Clients extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(actualiser, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(supp)
                     .addComponent(ajout))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,9 +246,9 @@ public class Clients extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_actualiserActionPerformed
 
-    private void editerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editerActionPerformed
+    private void enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editerActionPerformed
+    }//GEN-LAST:event_enregistrerActionPerformed
 
     private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed
    //Tester AddEmploye à la place
@@ -270,11 +276,12 @@ public class Clients extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualiser;
+    private javax.swing.JLabel age;
+    private javax.swing.JTextField agetxt;
     private javax.swing.JButton ajout;
     private javax.swing.JPanel back;
     private javax.swing.JPanel background;
-    private javax.swing.JLabel dob;
-    private javax.swing.JButton editer;
+    private javax.swing.JButton enregistrer;
     private javax.swing.JLabel id;
     private javax.swing.JTextField idtxt;
     private javax.swing.JLabel informations;
