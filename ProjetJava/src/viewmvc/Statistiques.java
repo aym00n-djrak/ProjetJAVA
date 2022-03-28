@@ -4,6 +4,15 @@
  */
 package viewmvc;
 
+import java.sql.DriverManager;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
+
 /**
  *
  * @author Clarence
@@ -15,6 +24,31 @@ public class Statistiques extends javax.swing.JInternalFrame {
      */
     public Statistiques() {
         initComponents();
+
+try{
+    java.sql.Connection con = null;
+String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+String query="Select Nombre de billet, Vol_idVol from réservation";
+JDBCCategoryDataset dataset=new JDBCCategoryDataset(con, query);
+JFreeChart CategoryDataset;
+dataset = null;
+JFreeChart chart = ChartFactory.createBarChart("Fréquentation des destinations", "Nombre de billet", "Vol_idVol", dataset, PlotOrientation.VERTICAL, false, true, true);
+BarRenderer renderer=null;
+CategoryPlot plot=null;
+renderer= new BarRenderer();
+ChartFrame frame = new ChartFrame("Statistiques", chart);
+frame.setVisible(true);
+frame.setSize(400,650);
+
+}
+catch ( Exception e){
+e.printStackTrace();
+}
+
     }
 
     /**

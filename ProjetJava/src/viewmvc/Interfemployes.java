@@ -9,6 +9,8 @@ package viewmvc;
  * @author Clarence
  */
 import java.sql.DriverManager;
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -195,29 +197,6 @@ public class Interfemployes extends javax.swing.JFrame {
 
     private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
 
-try{
-    java.sql.Connection con = null;
-String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
-            // con = DriverManager.getConnection(DBurl, "root", "");
-            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
-
-            modelmvc.Connection.affiche("DataBase connected !");
-String query="Select Nombre de billet, Vol_idVol from réservation";
-JDBCCategoryDataset dataset=new JDBCCategoryDataset(con, query);
-JFreeChart CategoryDataset;
-dataset = null;
-JFreeChart chart = ChartFactory.createBarChart("Fréquentation des destinations", "Nombre de billet", "Vol_idVol", dataset, PlotOrientation.VERTICAL, false, true, true);
-BarRenderer renderer=null;
-CategoryPlot plot=null;
-renderer= new BarRenderer();
-ChartFrame frame = new ChartFrame("Statistiques", chart);
-frame.setVisible(true);
-frame.setSize(400,650);
-
-}
-catch ( Exception e){
-e.printStackTrace();
-}
 
 }
     }//GEN-LAST:event_statActionPerformed
