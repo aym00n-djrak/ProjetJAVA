@@ -10,8 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -20,10 +22,16 @@ import javax.swing.JScrollPane;
 public class ListVol extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(150, 75);
+    ArrayList<City> city = new ArrayList<City>();
+    CityDAOImpl citydao = new CityDAOImpl();
+    JInternalFrame creavol= new JInternalFrame();
 
     JPanel pan = new JPanel();
 
     JScrollPane scrollPane = new JScrollPane(pan);
+    public int id;
+    
+    JDesktopPane desktop1= new JDesktopPane();
 
     public ListVol() throws SQLException {
         super("Mes destinations");
@@ -31,13 +39,13 @@ public class ListVol extends JInternalFrame implements ActionListener {
         // this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 2000);
-        init();
+       // init();
 
     }
 
-    public void init() throws SQLException {
-        CityDAOImpl citydao = new CityDAOImpl();
-        ArrayList<City> city = new ArrayList<City>();
+    public void init(JDesktopPane desktop) throws SQLException {
+        
+        desktop1=desktop;
         city = citydao.GetAllCity();
 
         JButton[] buttons = new JButton[city.size()];
@@ -78,9 +86,30 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        city = citydao.GetAllCity();
+        CreerVol creavol = new CreerVol();
         InterfaceDestination intdest = new InterfaceDestination();
+        VolDAOImpl vol = new VolDAOImpl();
+        Vol volcity = new Vol();
+        InfoVille info = new InfoVille();
         JButton btn = (JButton) e.getSource();
-        intdest.AffichageDestination("Voyage vers : " + btn.getText());
+        
+        for (int i = 0; i < city.size(); i++) {
+            String test = city.get(i).GetNom();
+            if (Objects.equals(test, btn.getText())) {
+                id = i;
+            } else {
+                System.out.println("Nom différent");
+            }
+        }
+        System.out.println(id);
+        volcity.SetId(id);
+        volcity.SetCompagnie("Air" + city.get(id).GetNom());
+
+        intdest.AffichageDestination("Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers l'interface de création de billet de vol.");
+        setVisible(false);
+        creavol.InterfaceCreerVol(volcity, desktop1, pan);
     }
 
 }

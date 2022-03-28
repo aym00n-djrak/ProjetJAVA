@@ -22,10 +22,10 @@ public class VolDAOImpl implements VolDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into vol values(" + vol.GetId() + "," + "'" + vol.GetCompagnie()
-                + "'" + "," + vol.GetNumeroVol() + "," + "'" + vol.GetTypeAvion() + "'" + "," + "'" + vol.GetDateDepart() + "'" + "," + "'" + vol.GetDateArrivee() + "'" + ","
-                + "'" + vol.GetHeureDepart() + "'" + "," + "'" + vol.GetHeureArrivee() + "'" + "," + ")";
-
+        String sql = "insert into vol values(" + vol.GetId() + "," + "'" + vol.GetCompagnie()+ "'" + "," + vol.GetNumeroVol() + "," + "'" + vol.GetTypeAvion() + "'" + "," + "'" + vol.GetDateDepart() + "'" + "," + "'" + vol.GetDateArrivee() + "'" + ","
+                + "'" + vol.GetHeureDepart() + "'" + "," + "'" + vol.GetHeureArrivee() + "'"+ ")";
+        String sql1= "insert into vol values(?,?,?,?,?,?,?,?)";
+        
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");

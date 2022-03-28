@@ -19,12 +19,12 @@ import modelmvc.CreationDestination;
  *
  * @author Clarence
  */
-public class Interfclients extends javax.swing.JFrame {
+public class Interfemployes extends javax.swing.JFrame {
 
     /**
      * Creates new form Interfclients
      */
-    public Interfclients() {
+    public Interfemployes() {
         initComponents();
     }
 
@@ -45,7 +45,7 @@ public class Interfclients extends javax.swing.JFrame {
         destinations1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Espace clients");
+        setTitle("Espace employés");
 
         javax.swing.GroupLayout desktopclientsLayout = new javax.swing.GroupLayout(desktopclients);
         desktopclients.setLayout(desktopclientsLayout);
@@ -164,10 +164,11 @@ public class Interfclients extends javax.swing.JFrame {
             desktopclients.removeAll();
             //Destinations d1 = new Destinations();
             ListVol d1 = new ListVol();
+            d1.init(desktopclients);
 
             desktopclients.add(d1).setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(Interfclients.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Interfemployes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_destinations1ActionPerformed
 
@@ -176,7 +177,7 @@ public class Interfclients extends javax.swing.JFrame {
      */
     public void run() {
 
-        new Interfclients().setVisible(true);
+        new Interfemployes().setVisible(true);
 
     }
 

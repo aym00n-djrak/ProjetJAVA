@@ -49,12 +49,17 @@ public class Executable {
      // Fichier e= new Fichier();
       
 //i.Insert();
-          paye p = new paye();
+        //  paye p = new paye();
           
           //p.run();
           
 
+        InfoVille info= new InfoVille();
+        //info.init(0);
         
         
+                CreerVol creavol= new CreerVol();
+                Vol vol= new Vol();
+//creavol.InterfaceCreerVol(vol);
     }
 }
