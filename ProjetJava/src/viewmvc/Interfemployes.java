@@ -190,9 +190,9 @@ public class Interfemployes extends javax.swing.JFrame {
     }//GEN-LAST:event_statActionPerformed
 
     private void clientbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientbuttonActionPerformed
-        employesb.removeAll();
+        /*employesb.removeAll();
         Clients c1 = new Clients();
-        employesb.add(c1).setVisible(true);
+        employesb.add(c1).setVisible(true);*/
     }//GEN-LAST:event_clientbuttonActionPerformed
 
     /**
