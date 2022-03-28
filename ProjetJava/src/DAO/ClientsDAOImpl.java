@@ -23,8 +23,8 @@ public class ClientsDAOImpl implements ClientsDAO {
         Statement statement = null;
 
         String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom()
-                + "'" + "," + "'" + client.GetPrenom() + "'" + "," + "'" + client.GetDateNaissance()
-                + "'" + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
+                + "'" + "," + "'" + client.GetPrenom() + "'" + ","  + client.GetAge()
+                + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -93,7 +93,7 @@ public class ClientsDAOImpl implements ClientsDAO {
                 client.SetNom(resultat.getString("Nom"));
                 client.SetPrenom(resultat.getString("Prénom"));
                 client.SetClasse(resultat.getString("classe"));
-                client.SetDateNaissance(resultat.getString("Date de naissance"));
+                client.SetAge(resultat.getInt("Age"));
                 client.SetNumReservation(resultat.getInt("Numéro de reservation"));
                 client.SetForeignKeyUser(resultat.getInt("users_idusers"));
             }
@@ -132,7 +132,7 @@ public class ClientsDAOImpl implements ClientsDAO {
         Statement statement = null;
 
         String sql = "update clients set idMembres=" + client.GetId() + "," + "Nom='" + client.GetNom()
-                + "'" + "," + "Prénom='" + client.GetPrenom() + "'" + "," + "classe='" + client.GetClasse() + "'" + "," + "Date de naissance='" + client.GetDateNaissance() + "'" + "," + "Numéro de reservation=" + client.GetNumReservation() + "," + "users=idusers="
+                + "'" + "," + "Prénom='" + client.GetPrenom() + "'" + "," + "classe='" + client.GetClasse() + "'" + "," + "Date de naissance=" + client.GetAge() + "," + "Numéro de reservation=" + client.GetNumReservation() + "," + "users=idusers="
                 + client.GetForeignKeyUser();
 
         try {

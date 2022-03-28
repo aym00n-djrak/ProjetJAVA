@@ -4,7 +4,7 @@
  */
 package viewmvc;
 
-import controlmvc.SelectImage;
+import controlmvc.*;
 import controlmvc.eventexit;
 
 import java.awt.*;
@@ -28,7 +28,6 @@ public class Menu {
     ImageIcon img;
 
     //Modele.Connection connection= new Modele.Connection();
-    SelectImage select = new SelectImage();
 
     public void Menu() throws SQLException {
 

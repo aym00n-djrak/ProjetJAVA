@@ -4,6 +4,8 @@
  */
 package DAO;
 
+import java.awt.Image;
+import java.io.File;
 import java.util.*;
 
 /**
@@ -21,5 +23,7 @@ public interface CityDAO {
     public void UpdateCity(City city);
     
     public void DeleteCity(int idcity);
+    
+
     
 }

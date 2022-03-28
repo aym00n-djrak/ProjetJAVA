@@ -21,9 +21,9 @@ public class Réservation extends JInternalFrame {
 
 
   
-    public Réservation() {
-        initComponent();
-   
+    public void  Réservation() {
+         initComponent();
+  
     }
 
 

@@ -6,8 +6,6 @@ package controlmvc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.util.regex.*;
 import java.util.*;
 import javax.swing.*;
@@ -16,6 +14,7 @@ import modelmvc.Fenetre;
 import viewmvc.CreationPage;
 import viewmvc.Menu;
 import java.sql.SQLException;
+import viewmvc.Interfclients;
 import viewmvc.Réservation;
 
 /**
@@ -87,8 +86,9 @@ public class EmailVerif {
 
                         f.setVisible(false);
 
-                        Réservation reservation = new Réservation();
+                        Interfclients interfclient= new Interfclients();
                         
+                        interfclient.run();
                     }
                 }
             }

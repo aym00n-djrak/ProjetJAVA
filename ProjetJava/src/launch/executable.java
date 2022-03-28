@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import viewmvc.*;
 
 import DAO.*;
+import controlmvc.Fichier;
+import controlmvc.InsertImage;
+import controlmvc.ShowMyImage;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,7 +26,7 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
-        //accueil.Accueil();
+        accueil.Accueil();
 
         
         ArrayList<City> listcity= new ArrayList<>();
@@ -31,17 +35,26 @@ public class Executable {
  
         CityDAOImpl list= new CityDAOImpl();
         
-        listcity=list.GetAllCity();
+        //listcity=list.GetAllCity();
+                
+       //ListVol liste= new ListVol();
         
-        ListVol listvol= new ListVol();
+        
+                
+        //CreerDestination creadest= new CreerDestination();
+        
+        //creadest.InterfaceCreeDestination();
 
         
-        ListVol liste= new ListVol();
+     // Fichier e= new Fichier();
+      
+//i.Insert();
+          paye p = new paye();
+          
+          //p.run();
+          
+
         
-      //  liste.affichagevol();
         
-        CreerDestination creadest= new CreerDestination();
-        
-        creadest.InterfaceCreeDestination();
     }
 }

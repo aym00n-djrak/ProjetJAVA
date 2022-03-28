@@ -4,6 +4,9 @@
  */
 package DAO;
 
+import java.awt.Image;
+import java.io.File;
+
 /**
  *
  * @author remyj
@@ -54,4 +57,5 @@ public class City {
     {
         prix=e;
     }
+    
 }
