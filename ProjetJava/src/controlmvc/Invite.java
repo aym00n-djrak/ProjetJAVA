@@ -12,7 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import modelmvc.Fenetre;
-import viewmvc.Interfemployes;
+import viewmvc.Interfclients;
+import viewmvc.Interfclients;
 import viewmvc.Menu;
 import viewmvc.Réservation;
 
@@ -31,7 +32,7 @@ public class Invite {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
 
-                Interfemployes interfclients= new Interfemployes();
+                Interfclients interfclients= new Interfclients();
                 interfclients.run();
             }
 

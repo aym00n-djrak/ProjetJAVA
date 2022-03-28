@@ -22,8 +22,8 @@ public class ClientsDAOImpl implements ClientsDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom()
-                + "'" + "," + "'" + client.GetPrenom() + "'" + ","  + client.GetAge()
+        String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom()+ "'" 
+                +",'"+client.GetClasse()+ "'," + "'" + client.GetPrenom() + "'" + ","  + client.GetAge()
                 + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
 
         try {
@@ -82,11 +82,10 @@ public class ClientsDAOImpl implements ClientsDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat=stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
+            resultat.next();
+            
                 System.out.println();
 
                 client.SetId(resultat.getInt("idMembres"));
@@ -96,7 +95,7 @@ public class ClientsDAOImpl implements ClientsDAO {
                 client.SetAge(resultat.getInt("Age"));
                 client.SetNumReservation(resultat.getInt("Numéro de reservation"));
                 client.SetForeignKeyUser(resultat.getInt("users_idusers"));
-            }
+            
 
             resultat.close();
 
@@ -131,9 +130,9 @@ public class ClientsDAOImpl implements ClientsDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "update clients set idMembres=" + client.GetId() + "," + "Nom='" + client.GetNom()
-                + "'" + "," + "Prénom='" + client.GetPrenom() + "'" + "," + "classe='" + client.GetClasse() + "'" + "," + "Date de naissance=" + client.GetAge() + "," + "Numéro de reservation=" + client.GetNumReservation() + "," + "users=idusers="
-                + client.GetForeignKeyUser();
+
+        
+        String sql= "UPDATE clients SET idMembres="+client.GetId()+",Nom='"+client.GetNom()+"',Prénom='"+client.GetPrenom()+"',classe='"+client.GetClasse()+"',Age="+client.GetAge()+",reservation="+client.GetNumReservation();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";

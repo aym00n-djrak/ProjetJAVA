@@ -15,7 +15,7 @@ import modelmvc.Fenetre;
 import viewmvc.CreationPage;
 import viewmvc.Menu;
 import java.sql.SQLException;
-import viewmvc.Interfemployes;
+import viewmvc.Interfclients;
 import viewmvc.Réservation;
 
 /**
@@ -146,9 +146,9 @@ public class EmailVerif {
 
                         f.setVisible(false);
 
-                        Interfemployes interfemploye = new Interfemployes();
+                        Interfclients interfclient = new Interfclients();
 
-                        interfemploye.run();
+                        interfclient.run();
                     }
                 }
             }

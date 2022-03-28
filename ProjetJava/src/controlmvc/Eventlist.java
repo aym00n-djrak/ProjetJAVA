@@ -13,13 +13,11 @@ import viewmvc.CreationPage;
  *
  * @author remyj
  */
-public class eventexit implements ActionListener {
+public class Eventlist implements ActionListener {
         
     @Override
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
     }
     
-    
-
 }

@@ -7,7 +7,7 @@ package modelmvc;
 import DAO.City;
 import DAO.CityDAOImpl;
 import controlmvc.InsertImage;
-import controlmvc.eventexit;
+import controlmvc.Eventlist;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import viewmvc.Interfemployes;
+import viewmvc.Interfclients;
 
 /**
  *
@@ -102,7 +102,7 @@ public class CreationDestination extends JInternalFrame implements ActionListene
             }
 
         });
-        b2.addActionListener(new eventexit());
+        b2.addActionListener(new Eventlist());
         open.addActionListener(this);
 
         getContentPane().add(l1);
@@ -162,7 +162,7 @@ public class CreationDestination extends JInternalFrame implements ActionListene
 
         JOptionPane.showMessageDialog(null, "Destination créée !");
         setVisible(false);
-        Interfemployes interf = new Interfemployes();
+        Interfclients interf = new Interfclients();
         interf.run();
     }
 

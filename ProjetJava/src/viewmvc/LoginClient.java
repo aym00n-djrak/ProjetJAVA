@@ -67,7 +67,7 @@ public class LoginClient {
         b3.setForeground(Color.RED);
         b3.setBounds(50, 170, 80, 40);
 
-        b4 = new JButton("Créer employé");
+        b4 = new JButton("Créer membre");
         b4.setForeground(Color.RED);
         b4.setBounds(150, 170, 200, 40);
 
@@ -83,7 +83,7 @@ public class LoginClient {
         
         verif.verifboutonmail(b1, t1, p1, f);
 
-        b2.addActionListener(new eventexit());
+        b2.addActionListener(new Eventlist());
         
         invite.invitebutton(b3, t1, p1, f);
         

@@ -8,7 +8,7 @@ import DAO.*;
 import controlmvc.EmailVerif;
 import controlmvc.Invite;
 import controlmvc.NewMember;
-import controlmvc.eventexit;
+import controlmvc.Eventlist;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

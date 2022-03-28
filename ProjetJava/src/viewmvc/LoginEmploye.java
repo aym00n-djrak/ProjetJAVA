@@ -14,17 +14,17 @@ import java.util.logging.Logger;
  *
  * @author remyj
  */
-public class LoginEmploye {
+public class LoginEmploye implements ActionListener {
 
     JFrame f;
     JLabel l1, l2;
     JTextField t1;
     JPasswordField p1;
-    JButton b1, b2, b3, b4;
+    JButton b1, b2, b3, b4,b5;
 
     EmailVerif verif = new EmailVerif();
-    Invite invite= new Invite();
-    NewMember newmember= new NewMember();
+    Invite invite = new Invite();
+    NewMember newmember = new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPage creationPage = new CreationPage();
@@ -34,7 +34,7 @@ public class LoginEmploye {
         f = new JFrame("Login");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
-        
+
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         l1 = new JLabel("Email");
@@ -67,7 +67,11 @@ public class LoginEmploye {
 
         b4 = new JButton("Créer membre");
         b4.setForeground(Color.RED);
-        b4.setBounds(150, 170, 80, 40);
+        b4.setBounds(150, 170, 200, 40);
+
+        b5 = new JButton("Créer employé");
+        b5.setForeground(Color.RED);
+        b5.setBounds(150, 220, 200, 40);
 
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
@@ -78,18 +82,29 @@ public class LoginEmploye {
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-        
-        verif.verifboutonmail(b1, t1, p1, f);
+        f.getContentPane().add(b5);
 
-        b2.addActionListener(new eventexit());
+        verif.verifboutonmail(b1, t1, p1, f);
         
+        b5.addActionListener(this);
+
+        b2.addActionListener(new Eventlist());
+        
+
         invite.invitebutton(b3, t1, p1, f);
-        
-        newmember.newmemberbutton(b4,f);
+
+        newmember.newmemberbutton(b4, f);
 
         f.setBounds(300, 300, 400, 300);
 
         f.setResizable(false);
         f.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        f.setVisible(false);
+        InterfEmployes interfemploye= new InterfEmployes();
+        interfemploye.run();
     }
 }

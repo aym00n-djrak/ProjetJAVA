@@ -132,7 +132,7 @@ public class CityDAOImpl implements CityDAO {
         Statement statement = null;
 
         String sql = "update city set idCity=" + city.GetId() + "," + "city_name='" + city.GetNom()
-                + "'" + "," + "Pays='" + city.GetPays() + "'" + "," + "Tarifs=" + city.GetPrix() + ")";
+                + "'" + "," + "Pays='" + city.GetPays() + "'" + "," + "Tarifs=" + city.GetPrix();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";

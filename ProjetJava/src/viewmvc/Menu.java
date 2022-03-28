@@ -5,7 +5,7 @@
 package viewmvc;
 
 import controlmvc.*;
-import controlmvc.eventexit;
+import controlmvc.Eventlist;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -52,7 +52,7 @@ public class Menu {
 
         b4 = new JButton("Exit");
         b4.setBounds(580, 490, 210, 60);
-        b4.addActionListener(new eventexit());
+        b4.addActionListener(new Eventlist());
 
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);

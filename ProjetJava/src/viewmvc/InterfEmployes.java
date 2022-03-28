@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package essaiemployes;
+package viewmvc;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -15,12 +15,12 @@ import DAO.*;
  *
  * @author Clarence
  */
-public class Employes extends javax.swing.JInternalFrame {
+public class InterfEmployes extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Employes
      */
-    public Employes() {
+    public InterfEmployes() {
         initComponents();
        
     }
@@ -128,6 +128,11 @@ public class Employes extends javax.swing.JInternalFrame {
         suppBouton.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         suppBouton.setForeground(new java.awt.Color(153, 0, 51));
         suppBouton.setText("Supprimer");
+        suppBouton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suppBoutonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout groundLayout = new javax.swing.GroupLayout(ground);
         ground.setLayout(groundLayout);
@@ -256,6 +261,19 @@ public class Employes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_compatxtActionPerformed
 
+    private void suppBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppBoutonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_suppBoutonActionPerformed
+
+    
+        /**
+     * @param args the command line arguments
+     */
+    public void run() {
+
+        new InterfEmployes().setVisible(true);
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backg;
     private javax.swing.JLabel compagnie;
