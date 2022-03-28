@@ -19,6 +19,8 @@ public class Paiement {
 
     public void InterfacePaiement(JLabel ecran, JDesktopPane desktop) {
         //Construction de la fenetre paiement
+                desktop.removeAll();
+
         JInternalFrame reservation = new JInternalFrame("--- Réservation ---");
         JPanel panel = new JPanel();
         JButton validate = new JButton("Valider");
@@ -26,7 +28,7 @@ public class Paiement {
         //panel.setLayout(new GridLayout(4,1));
         JLabel titre = new JLabel("Paiement en ligne ");
 
-        java.net.URL url = this.getClass().getResource("carte.png");
+        java.net.URL url = this.getClass().getResource("map.png");
 
         ImageIcon fond = new ImageIcon(url);
         JLabel payer = new JLabel(fond);
@@ -51,8 +53,7 @@ public class Paiement {
         paiement.getContentPane().add(payer);
 
         //Ajout au bureau 
-        desktop.add(reservation).setVisible(true);
-        desktop.add(paiement).setVisible(false);
+        desktop.add(paiement).setVisible(true);
 
         //CONFIRMATION DE LA RESERVATION        
         confres.confirmationreserv(validate);

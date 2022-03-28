@@ -147,8 +147,8 @@ public class Interfemployes extends javax.swing.JFrame {
 
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
-        Réservations r1 = new Réservations();//fenetre interne
-        desktopclients.add(r1).setVisible(true);
+        //Réservations r1 = new Réservations();//fenetre interne
+       // desktopclients.add(r1).setVisible(true);
 
     }//GEN-LAST:event_manageActionPerformed
 

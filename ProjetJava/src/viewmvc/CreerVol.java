@@ -8,6 +8,7 @@ import DAO.City;
 import DAO.CityDAOImpl;
 import DAO.Vol;
 import DAO.VolDAOImpl;
+import controlmvc.ConfirmationReservation;
 import controlmvc.ConfirmationVol;
 import controlmvc.EmailVerif;
 import controlmvc.Invite;
@@ -225,6 +226,8 @@ public class CreerVol extends JInternalFrame implements ActionListener {
         
         Paiement paye= new Paiement();
         
+            ConfirmationReservation confres = new ConfirmationReservation();
+
         confvol.volreserv(desktop, b1, vol, paye.paiement, ecran);
     }
 
