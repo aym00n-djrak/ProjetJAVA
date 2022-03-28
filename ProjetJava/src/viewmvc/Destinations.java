@@ -39,16 +39,16 @@ public class Destinations extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Destinations by Air Java");
 
-        paris.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/paris_1.png"))); // NOI18N
+        paris.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/paris.png"))); // NOI18N
         paris.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 parisActionPerformed(evt);
             }
         });
 
-        berlin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/berlin.png"))); // NOI18N
+        berlin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/berlin.png"))); // NOI18N
 
-        tokyo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/tokyo.png"))); // NOI18N
+        tokyo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/tokyo.png"))); // NOI18N
 
         jScrollPane1.setViewportView(jScrollBar1);
 
@@ -64,7 +64,7 @@ public class Destinations extends javax.swing.JInternalFrame {
                             .addContainerGap()
                             .addComponent(paris, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(tokyo, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 578, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 549, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
@@ -78,7 +78,7 @@ public class Destinations extends javax.swing.JInternalFrame {
                         .addComponent(paris)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tokyo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addComponent(berlin)))
                 .addContainerGap())
         );
@@ -87,8 +87,8 @@ public class Destinations extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void parisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parisActionPerformed
-      //  InfoParis p = new InfoParis();
-        //p.setVisible(true);
+        InfoParis p = new InfoParis();
+        p.setVisible(true);
     }//GEN-LAST:event_parisActionPerformed
 
 
