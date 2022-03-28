@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author remyj
  */
-public class Executable extends {
+public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
@@ -35,6 +35,8 @@ public class Executable extends {
  
         CityDAOImpl list= new CityDAOImpl();
 
+        Statistiques s = new Statistiques();
+        
 
         
         //listcity=list.GetAllCity();
