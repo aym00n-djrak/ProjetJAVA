@@ -28,7 +28,7 @@ public class UsersDAOImpl implements UsersDAO {
 
     try
     {
- String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+    String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
             modelmvc.Connection.affiche("DataBase connected !");

@@ -5,7 +5,6 @@ import controlmvc.ShowMyImage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class ListVol extends JInternalFrame implements ActionListener {
+public class ListVolclient extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(150, 75);
     ArrayList<City> city = new ArrayList<City>();
@@ -35,12 +34,12 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
     JDesktopPane desktop1 = new JDesktopPane();
 
-    public ListVol() throws SQLException {
+    public ListVolclient() throws SQLException {
         super("Mes destinations");
 
         // this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 1000);
+        this.setSize(600, 2000);
         // init();
 
     }
@@ -51,7 +50,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
         city = citydao.GetAllCity();
 
         JButton[] buttons = new JButton[city.size()];
-        //pan.setLayout(new GridLayout(0, 1, 0, 3));
+
         for (int i = 0; i < city.size(); i++) {
             JButton btn = new JButton(city.get(i).GetNom());
             JButton btnimg = new JButton();
@@ -68,6 +67,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
             btnprix.setBackground(Color.WHITE);
 
             buttons[i] = btn;
+            //Image img= im.getImage(i);
 
             btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(i)));
             btn.addActionListener(this);
@@ -77,9 +77,12 @@ public class ListVol extends JInternalFrame implements ActionListener {
             pan.add(btnprix);
 
         }
-        pan.setPreferredSize(new Dimension(600, 1000));
-        this.add(scrollPane);
 
+        //on va mettre 400 pour la hauteur du panel comme ca le hauteur
+        //des boutons est grande que du panel
+        pan.setPreferredSize(new Dimension(600, 2000));
+
+        this.add(scrollPane);
     }
 
     @Override
@@ -102,11 +105,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
         }
         System.out.println(id);
         volcity.SetId(id);
-        volcity.SetCompagnie("Air" + city.get(id).GetNom());
-
-        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers l'interface de création de billet de vol.");
+        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers l'interface de paiement.");
         setVisible(false);
-        creavol.InterfaceCreerVol(volcity, desktop1, pan);
     }
 
 }

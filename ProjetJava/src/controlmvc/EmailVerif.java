@@ -4,6 +4,7 @@
  */
 package controlmvc;
 
+import DAO.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.System.Logger;
@@ -45,11 +46,12 @@ public class EmailVerif {
         return verif;
     }
 
-    public void verifcreaboutonmail(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public void verifcreaboutonmailusers(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         {
             Identifiants enregistrement = new Identifiants();
-            //          viewmvc.Menu menu = new Menu();
             Réservation reservation = new Réservation();
+            Users user = new Users();
+            UsersDAOImpl userdao = new UsersDAOImpl();
 
             b.addActionListener(new ActionListener() {
 
@@ -57,14 +59,72 @@ public class EmailVerif {
                 public void actionPerformed(ActionEvent e) {
 
                     if (emailverif(t1.getText()) == true) {
-                        enregistrement.InsertionBDD(t1.getText(), p1.getText());
+                        user.SetMail(t1.getText());
+                        user.SetPassword(p1.getText());
+                        userdao.AddUser(user);
                         f.setVisible(false);
                         Connection.affiche("Membre crée !");
-                        //menu.Menu();
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
 
                     }
+                }
+            });
+        }
+    }
+
+    public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4,JTextField t5, JFrame f) {
+        {
+            Identifiants enregistrement = new Identifiants();
+            Réservation reservation = new Réservation();
+            Employe employe = new Employe();
+            EmployeDAOImpl employedao = new EmployeDAOImpl();
+
+            b.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                        employe.SetId(0);
+                        employe.SetNom(t1.getText());
+                        employe.SetPrenom(t2.getText());
+                        employe.SetCompagnie(t3.getText());
+                        employe.SetDepartement(t4.getText());
+                        employe.SetForeignKey(Integer.parseInt(t5.getText()));
+                        
+                        employedao.AddEmploye(employe);
+                        f.setVisible(false);
+                        Connection.affiche("Employé crée !");
+                    
+                }
+            });
+        }
+    }
+    
+        public void creationclients(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4,JTextField t5,JTextField t6, JFrame f) {
+        {
+            Identifiants enregistrement = new Identifiants();
+            Réservation reservation = new Réservation();
+            Clients client = new Clients();
+            ClientsDAOImpl clientdao = new ClientsDAOImpl();
+
+            b.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                        client.SetId(0);
+                        client.SetNom(t1.getText());
+                        client.SetPrenom(t2.getText());
+                        client.SetClasse(t3.getText());
+                        client.SetAge(Integer.parseInt(t4.getText()));
+                        client.SetNumReservation(Integer.parseInt(t5.getText()));
+                        client.SetForeignKeyUser(Integer.parseInt(t6.getText()));
+                        
+                        clientdao.AddClient(client);
+                        f.setVisible(false);
+                        Connection.affiche("Client crée !");
+                    
                 }
             });
         }
@@ -88,9 +148,9 @@ public class EmailVerif {
 
                         f.setVisible(false);
 
-                        Interfemployes interfclient= new Interfemployes();
-                        
-                        interfclient.run();
+                        Interfemployes interfemploye = new Interfemployes();
+
+                        interfemploye.run();
                     }
                 }
             }
