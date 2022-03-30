@@ -105,10 +105,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
         volcity.SetId(id);
         volcity.SetCompagnie("Air" + city.get(id).GetNom());
 
-        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers l'interface de création de billet de vol.");
+        JOptionPane.showMessageDialog(null, "La destination : " + btn.getText() + " a bien été créée dirigez vous vers l'interface de création de vol !");
         setVisible(false);
         
-        creavol.run(volcity);
     }
-
 }

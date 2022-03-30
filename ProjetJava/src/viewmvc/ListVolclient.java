@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -50,6 +52,7 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
         city = citydao.GetAllCity();
 
         JButton[] buttons = new JButton[city.size()];
+        System.out.println("Chargement....");
 
         for (int i = 0; i < city.size(); i++) {
             JButton btn = new JButton(city.get(i).GetNom());
@@ -77,6 +80,7 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
             pan.add(btnprix);
 
         }
+        System.out.println("Chargement terminé");
 
         //on va mettre 400 pour la hauteur du panel comme ca le hauteur
         //des boutons est grande que du panel
@@ -104,9 +108,17 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
             }
         }
         System.out.println(id);
-        volcity.SetId(id);
-        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers l'interface de paiement.");
+        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers la liste des billets disponibles.");
+
         setVisible(false);
+        try {
+            ListVolDispo listedispo= new ListVolDispo();
+            listedispo = new ListVolDispo();
+            listedispo.init(desktop1, id);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListVolclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

@@ -37,30 +37,10 @@ public class Executable {
 
         CityDAOImpl list = new CityDAOImpl();
 
-        //listcity=list.GetAllCity();
-        //ListVol liste= new ListVol();
-        //CreerDestination creadest= new CreerDestination();
-        //creadest.InterfaceCreeDestination();
-        // Fichier e= new Fichier();
-//i.Insert();
-        //  paye p = new paye();
-        //p.run();
-        InfoVille info = new InfoVille();
-        //info.init(0);
-
-        CreaVol creavol = new CreaVol();
+        ArrayList<Vol> vol= new ArrayList<>();
+        VolDAOImpl voldao= new VolDAOImpl();
         
-        // Vol vol= new Vol();
-//creavol.InterfaceCreerVol(vol);
-
-        EmailVerif e = new EmailVerif();
+        vol=voldao.GetAllVol();
         
-        Clients cy= new Clients();
-        
-        ClientsDAOImpl cdao= new ClientsDAOImpl();
-        
-
-        System.out.println(cy.GetNom());
-
     }
 }

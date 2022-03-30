@@ -759,7 +759,4 @@ public class CreaVol extends javax.swing.JInternalFrame {
     private javax.swing.JTextField surnametxt1;
     // End of variables declaration//GEN-END:variables
 
-    void run(Vol volcity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

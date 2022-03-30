@@ -131,8 +131,6 @@ public class Interfclients extends javax.swing.JFrame {
 
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
-        //Réservations r1 = new Réservations();//fenetre interne
-       // desktopclients.add(r1).setVisible(true);
 
     }//GEN-LAST:event_manageActionPerformed
 
@@ -143,7 +141,7 @@ public class Interfclients extends javax.swing.JFrame {
         try {
             desktopclients.removeAll();
             //Destinations d1 = new Destinations();
-            ListVol d1 = new ListVol();
+            ListVolclient d1 = new ListVolclient();
             d1.init(desktopclients);
 
             desktopclients.add(d1).setVisible(true);
