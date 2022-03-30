@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
+<<<<<<< Updated upstream:ProjetJava/src/Vue/Employes.java
 package Vue;
+=======
+package viewmvc;
+>>>>>>> Stashed changes:ProjetJava/src/viewmvc/Employes.java
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
