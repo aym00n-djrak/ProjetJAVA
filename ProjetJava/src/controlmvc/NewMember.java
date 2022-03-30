@@ -12,7 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import modelmvc.Fenetre;
-import viewmvc.CreationPage;
+import viewmvc.CreationPageClient;
+import viewmvc.CreationPageEmploye;
 import viewmvc.LoginEmploye;
 
 /**
@@ -20,18 +21,33 @@ import viewmvc.LoginEmploye;
  * @author remyj
  */
 public class NewMember {
-        CreationPage creationPage = new CreationPage();
 
-    
-    public void newmemberbutton(JButton b, JFrame f)
-    {
+    CreationPageClient creationPageclient = new CreationPageClient();
+    CreationPageEmploye creationPageemploye = new CreationPageEmploye();
+
+    public void newmemberbuttonemploye(JButton b, JFrame f) {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
                 new Fenetre().panneau("Création d'un nouveau membre");
                 try {
-                    creationPage.Creation();
+                    creationPageemploye.Creation();
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginEmploye.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+
+    public void newmemberbuttonclient(JButton b, JFrame f) {
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+                new Fenetre().panneau("Création d'un nouveau membre");
+                try {
+                    creationPageclient.Creation();
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginEmploye.class.getName()).log(Level.SEVERE, null, ex);
                 }

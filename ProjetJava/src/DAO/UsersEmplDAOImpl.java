@@ -14,23 +14,21 @@ import java.sql.Statement;
  *
  * @author remyj
  */
-
-public class EmployeDAOImpl implements EmployeDAO{
+public class UsersEmplDAOImpl implements UsersEmplDAO {
     
-        java.sql.Connection con;
+       java.sql.Connection con;
 
-       public void AddEmploye(Employe employe)
+       public void AddUser(UsersEmpl user)
   {
     Connection dbConnection = null;
     Statement statement=null;
 
-    String sql = "insert into employe values(" + employe.GetId() + ","+ "'" + employe.GetNom()
-                    + "'" + "," +"'"+ employe.GetPrenom()+ "'"+","+"'"+employe.GetDepartement()
-                    + "'" + "," +"'"+ employe.GetCompagnie()+ "'" + "," + employe.GetForeignKey()+")";
+    String sql = "insert into usersempl values(" + user.GetId() + ","+ "'" + user.GetMail()
+                    + "'" + "," +"'"+ user.GetPassword()+ "'"+")";
 
     try
     {
- String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+    String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
             modelmvc.Connection.affiche("DataBase connected !");
@@ -39,7 +37,7 @@ public class EmployeDAOImpl implements EmployeDAO{
    
       stmt.executeUpdate(sql);
 
-      System.out.println("Record is inserted into Employee table for  Employee : " + employe.GetNom());
+      System.out.println("Record is inserted into Users table for  User : " + user.GetMail());
 
     }
     catch( SQLException e )
@@ -81,13 +79,13 @@ public class EmployeDAOImpl implements EmployeDAO{
 
 
     @Override
-    public Employe GetEmploye(int idemploye) {
-        Employe employe = new Employe();
+    public Users GetUser(int iduser) {
+        Users user = new Users();
         Connection dbConnection = null;
         Statement statement = null;
         ResultSet resultat = null;
 
-        String sql = "SELECT * FROM employe WHERE idEmployes=" + idemploye + "";
+        String sql = "SELECT * FROM usersempl WHERE idusers=" + iduser;
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -98,20 +96,17 @@ public class EmployeDAOImpl implements EmployeDAO{
 
             java.sql.Statement stmt = con.createStatement();
 
-            resultat= stmt.executeQuery(sql);
+            stmt.executeQuery(sql);
 
+            boolean encore = resultat.next();
 
+            while (encore) {
                 System.out.println();
-                
-                while(resultat.next())
-                {
-                employe.SetId(resultat.getInt("idEmployes"));
-                employe.SetNom(resultat.getString("Nom"));
-                employe.SetPrenom(resultat.getString("Prenom"));
-                employe.SetDepartement(resultat.getString("Departement"));
-                employe.SetCompagnie(resultat.getString("Compagnie"));
-                employe.SetForeignKey(resultat.getInt("vol_idVol"));
-                }
+
+                user.SetId(resultat.getInt("idusers"));
+                user.SetMail(resultat.getString("users_mail"));
+                user.SetPassword(resultat.getString("users_password"));
+            }
 
             resultat.close();
 
@@ -138,17 +133,15 @@ public class EmployeDAOImpl implements EmployeDAO{
             }
 
         }
-            return employe;
+        return user;
     }
-    
+
     @Override
-    public void UpdateEmploye(int id,Employe employe){
+    public void UpdateUser(UsersEmpl user) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "update employe set Nom='" + employe.GetNom()
-                + "'" + "," + "Prenom='" + employe.GetPrenom() + "'" + "," + "Departement='" + employe.GetDepartement() + "'" + "," + "Compagnie='" + employe.GetCompagnie()+ "'" 
-                + " where idEmployes="+ employe.GetId();
+        String sql = "update usersempl set idusers=" + user.GetId() + "," + "users_mail='" + user.GetMail() + "'," + "users_password='" + user.GetPassword() + "'";
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -161,7 +154,7 @@ public class EmployeDAOImpl implements EmployeDAO{
 
             stmt.executeUpdate(sql);
 
-            System.out.println("Record is updated into employe table for  employe : " + employe.GetId());
+            System.out.println("Record is updated into users table for  user : " + user.GetId());
 
         } catch (SQLException e) {
 
@@ -190,11 +183,11 @@ public class EmployeDAOImpl implements EmployeDAO{
     }
 
     @Override
-    public void DeleteEmploye(int idemploye) {
+    public void DeleteUser(int iduser) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "delete from employe where idEmployes=" + idemploye;
+        String sql = "delete from usersempl where idusers=" + iduser;
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -207,7 +200,7 @@ public class EmployeDAOImpl implements EmployeDAO{
 
             stmt.executeUpdate(sql);
 
-            System.out.println("Record is Deleted into employe table for  employe : " + idemploye);
+            System.out.println("Record is Deleted into users table for  user : " + iduser);
 
         } catch (SQLException e) {
 
@@ -234,6 +227,7 @@ public class EmployeDAOImpl implements EmployeDAO{
         }
 
     }
+
+
     
 }
-

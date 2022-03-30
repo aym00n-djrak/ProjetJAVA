@@ -277,7 +277,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
         client.SetNumReservation(Integer.parseInt(numtxt.getText()));
         client.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
 
-        cdao.UptdateClient(client);
+        cdao.UptdateClient(client.GetId(),client);
     }//GEN-LAST:event_actualiserActionPerformed
 
     private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed

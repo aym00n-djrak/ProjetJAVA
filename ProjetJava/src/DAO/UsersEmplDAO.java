@@ -8,14 +8,13 @@ package DAO;
  *
  * @author remyj
  */
-public interface EmployeDAO {
+public interface UsersEmplDAO {
     
-    public void AddEmploye(Employe employe);
+    public void AddUser(UsersEmpl user);
     
-    public Employe GetEmploye(int idemploye);
+    public Users GetUser(int iduser);
     
-    public void UpdateEmploye(int id, Employe employe);
+    public void UpdateUser(UsersEmpl user);
     
-    public void DeleteEmploye(int idemploye);
-    
+    public void DeleteUser(int iduser);
 }

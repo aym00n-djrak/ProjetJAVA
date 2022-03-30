@@ -1,7 +1,7 @@
 package viewmvc;
 
 import DAO.*;
-import controlmvc.ShowMyImage;
+import controlmvc.ReadImage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -56,7 +56,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
             JButton btn = new JButton(city.get(i).GetNom());
             JButton btnimg = new JButton();
             JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
-            ShowMyImage im = new ShowMyImage();
+            ReadImage im = new ReadImage();
 
             btn.setPreferredSize(boutonDim);
             btnimg.setPreferredSize(boutonDim);
@@ -86,7 +86,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         city = citydao.GetAllCity();
-        CreerVol creavol = new CreerVol();
+        //CreerVol creavol = new CreerVol();
+        CreaVol creavol= new CreaVol();
         VolDAOImpl vol = new VolDAOImpl();
         Vol volcity = new Vol();
         InfoVille info = new InfoVille();
@@ -106,7 +107,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
         JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers l'interface de création de billet de vol.");
         setVisible(false);
-        creavol.InterfaceCreerVol(volcity, desktop1, pan);
+        
+        creavol.run(volcity);
     }
 
 }

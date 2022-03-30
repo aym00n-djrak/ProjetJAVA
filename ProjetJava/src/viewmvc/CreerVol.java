@@ -45,7 +45,7 @@ public class CreerVol extends JInternalFrame implements ActionListener {
     NewMember newmember = new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
-    CreationPage creationPage = new CreationPage();
+    CreationPageClient creationPage = new CreationPageClient();
     public Vol vol = new Vol();
     ConfirmationVol confvol = new ConfirmationVol();
      JLabel ecran = new JLabel();

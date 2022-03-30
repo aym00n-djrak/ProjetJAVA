@@ -40,7 +40,7 @@ public class CreerDestination implements ActionListener {
     NewMember newmember = new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
-    CreationPage creationPage = new CreationPage();
+    CreationPageClient creationPage = new CreationPageClient();
 
     public void InterfaceCreeDestination() {
 

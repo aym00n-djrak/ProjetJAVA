@@ -27,7 +27,7 @@ public class LoginClient {
     NewMember newmember= new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
-    CreationPage creationPage = new CreationPage();
+    CreationPageClient creationPage = new CreationPageClient();
 
     public void Login() {
         
@@ -81,13 +81,13 @@ public class LoginClient {
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
         
-        verif.verifboutonmail(b1, t1, p1, f);
+        verif.verifboutonmailclient(b1, t1, p1, f);
 
         b2.addActionListener(new Eventlist());
         
-        invite.invitebutton(b3, t1, p1, f);
+        invite.invitebuttonclient(b3, t1, p1, f);
         
-        newmember.newmemberbutton(b4,f);
+        newmember.newmemberbuttonclient(b4,f);
 
         f.setBounds(300, 300, 400, 300);
 

@@ -14,7 +14,7 @@ public interface VolDAO {
     
     public Vol GetVol(int idvol);
     
-    public void UpdateVol(Vol vol);
+    public void UpdateVol(int id,Vol vol);
     
     public void DeleteVol(int idvol);
     

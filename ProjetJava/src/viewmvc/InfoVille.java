@@ -5,7 +5,7 @@
 package viewmvc;
 
 import DAO.*;
-import controlmvc.ShowMyImage;
+import controlmvc.ReadImage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -28,7 +28,7 @@ public class InfoVille extends JInternalFrame implements ActionListener {
     }
 
     public void init(int id) throws SQLException {
-        ShowMyImage im = new ShowMyImage();
+        ReadImage im = new ReadImage();
         CityDAOImpl ci = new CityDAOImpl();
         City c = new City();
         c = ci.GetCity(id);

@@ -14,7 +14,7 @@ public interface ClientsDAO {
     
     public Clients GetClient(int idclient);
     
-    public void UptdateClient(Clients client);
+    public void UptdateClient(int id,Clients client);
     
     public void DeleteClient(int idclient);
     

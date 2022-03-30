@@ -14,7 +14,7 @@ import DAO.*;
 import controlmvc.EmailVerif;
 import controlmvc.Fichier;
 import controlmvc.InsertImage;
-import controlmvc.ShowMyImage;
+import controlmvc.ReadImage;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +29,7 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
-        //accueil.Accueil();
+        accueil.Accueil();
 
         ArrayList<City> listcity = new ArrayList<>();
 
@@ -48,7 +48,8 @@ public class Executable {
         InfoVille info = new InfoVille();
         //info.init(0);
 
-        CreerVol creavol = new CreerVol();
+        CreaVol creavol = new CreaVol();
+        
         // Vol vol= new Vol();
 //creavol.InterfaceCreerVol(vol);
 
@@ -58,33 +59,8 @@ public class Executable {
         
         ClientsDAOImpl cdao= new ClientsDAOImpl();
         
-        //cz=cdao.GetClient(1);
-        cy.SetId(3);
-        cy.SetAge(22);
-        cy.SetNom("Mahd");
-        cy.SetPrenom("Cit");
-        
-        cdao.AddClient(cy);
-        
-        cy.SetId(4);        
-       cdao.UptdateClient(cy);
-        
+
         System.out.println(cy.GetNom());
 
-        City ca= new City();
-        
-        CityDAOImpl citydao= new CityDAOImpl();
-        
-       //ca=citydao.GetCity(0);
-       
-       //citydao.UpdateCity(ca);
-       
-       Employe em= new Employe();
-       
-       EmployeDAOImpl emdao= new EmployeDAOImpl();
-       
-       em=emdao.GetEmploye(0);
-        
-       emdao.UpdateEmploye(em);
     }
 }

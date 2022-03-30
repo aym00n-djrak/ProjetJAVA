@@ -22,7 +22,7 @@ public class VolDAOImpl implements VolDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into vol values(" + vol.GetId() + "," + "'" + vol.GetCompagnie()+ "'" + "," + vol.GetNumeroVol() + "," + "'" + vol.GetTypeAvion() + "'" + "," + "'" + vol.GetDateDepart() + "'" + "," + "'" + vol.GetDateArrivee() + "'" + ","
+        String sql = "insert into vol values(" + vol.GetId() +"," + "'" + vol.GetDestination()+ "'" + "," + "'" + vol.GetCompagnie()+ "'" + "," + vol.GetNumeroVol() + "," + "'" + vol.GetTypeAvion() + "'" + "," + "'" + vol.GetDateDepart() + "'" + "," + "'" + vol.GetDateArrivee() + "'" + ","
                 + "'" + vol.GetHeureDepart() + "'" + "," + "'" + vol.GetHeureArrivee() + "'"+ ")";
         String sql1= "insert into vol values(?,?,?,?,?,?,?,?)";
         
@@ -128,11 +128,12 @@ public class VolDAOImpl implements VolDAO {
     }
 
     @Override
-    public void UpdateVol(Vol vol) {
+    public void UpdateVol(int id, Vol vol) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "update vol set idVol=" + vol.GetId() + "," + "Compagnie='" + vol.GetCompagnie()+ "'," + "Numero_vol=" + vol.GetNumeroVol()+ "," + "Type_Avion='" + vol.GetTypeAvion() + "'" + "," + "Date de départ='" + vol.GetDateDepart()+ "',Date de retour='" + vol.GetDateArrivee()+"',Heure de départ='"+vol.GetHeureDepart()+"',Heure d'arrivée='"+vol.GetHeureArrivee();
+        String sql = "UPDATE vol SET idVol=" + vol.GetId() +",destination='" + vol.GetDestination()+ "'," + "Compagnie='" + vol.GetCompagnie()+ "',Numero_vol=" + vol.GetNumeroVol()+ ",Type_Avion='" + vol.GetTypeAvion() + "',Date de départ='" + vol.GetDateDepart()+ "',Date de retour='" + vol.GetDateArrivee()+"',Heure de départ='"+vol.GetHeureDepart()+"',Heure d'arrivée='"+vol.GetHeureArrivee()+"'"
+                    +" WHERE idVol="+ vol.GetId();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";

@@ -26,7 +26,7 @@ import modelmvc.Fenetre;
  *
  * @author remyj
  */
-public class CreationPage {
+public class CreationPageEmploye {
 
     public JFrame f;
     JLabel l1, l2;
@@ -83,7 +83,7 @@ public class CreationPage {
         f.setResizable(false);
         f.setVisible(true);
 
-        verif.verifcreaboutonmailusers(b1, t1, p1, f);
+        verif.verifcreaboutonmailusersempl(b1, t1, p1, f);
         b2.addActionListener(new Eventlist());
 
     }

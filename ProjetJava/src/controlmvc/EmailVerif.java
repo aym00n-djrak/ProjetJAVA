@@ -12,17 +12,21 @@ import java.util.*;
 import javax.swing.*;
 import modelmvc.Connection;
 import modelmvc.Fenetre;
-import viewmvc.CreationPage;
+import viewmvc.CreationPageClient;
 import viewmvc.Menu;
 import java.sql.SQLException;
 import viewmvc.Interfclients;
+import viewmvc.Interfemployes;
 import viewmvc.Réservation;
+import viewmvc.SwitchEmployeCLient;
 
 /**
  *
  * @author remyj
  */
 public class EmailVerif {
+
+    SwitchEmployeCLient switchec = new SwitchEmployeCLient();
 
     public Boolean emailverif(String adresse) {
 
@@ -61,7 +65,36 @@ public class EmailVerif {
                         user.SetPassword(p1.getText());
                         userdao.AddUser(user);
                         f.setVisible(false);
-                        Connection.affiche("Membre crée !");
+                                JOptionPane.showMessageDialog(null,"Identifiant membre client crée !");
+                        switchec.run();
+                    } else {
+                        new Fenetre().panneau("L'email ne correspond pas au type  mail");
+                    }
+                }
+            });
+        }
+    }
+
+    public void verifcreaboutonmailusersempl(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+        {
+            Identifiants enregistrement = new Identifiants();
+            Réservation reservation = new Réservation();
+            UsersEmpl user = new UsersEmpl();
+            UsersEmplDAOImpl userdao = new UsersEmplDAOImpl();
+
+            b.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    if (emailverif(t1.getText()) == true) {
+                        user.SetMail(t1.getText());
+                        user.SetPassword(p1.getText());
+                        userdao.AddUser(user);
+                        f.setVisible(false);
+                                JOptionPane.showMessageDialog(null,"Identifiant membre employé crée !");
+                        switchec.run();
+
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
 
@@ -71,7 +104,7 @@ public class EmailVerif {
         }
     }
 
-    public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4,JTextField t5, JFrame f) {
+    public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JDesktopPane f) {
         {
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
@@ -83,23 +116,23 @@ public class EmailVerif {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                        employe.SetId(0);
-                        employe.SetNom(t1.getText());
-                        employe.SetPrenom(t2.getText());
-                        employe.SetCompagnie(t3.getText());
-                        employe.SetDepartement(t4.getText());
-                        employe.SetForeignKey(Integer.parseInt(t5.getText()));
-                        
-                        employedao.AddEmploye(employe);
-                        f.setVisible(false);
-                        Connection.affiche("Employé crée !");
-                    
+                    employe.SetId(0);
+                    employe.SetNom(t1.getText());
+                    employe.SetPrenom(t2.getText());
+                    employe.SetCompagnie(t3.getText());
+                    employe.SetDepartement(t4.getText());
+                    employe.SetForeignKey(Integer.parseInt(t5.getText()));
+
+                    employedao.AddEmploye(employe);
+                    f.setVisible(false);
+                    Connection.affiche("Employé crée !");
+
                 }
             });
         }
     }
-    
-        public void creationclients(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4,JTextField t5,JTextField t6, JFrame f) {
+
+    public void creationclients(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JTextField t6, JFrame f) {
         {
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
@@ -111,24 +144,24 @@ public class EmailVerif {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                        client.SetId(0);
-                        client.SetNom(t1.getText());
-                        client.SetPrenom(t2.getText());
-                        client.SetClasse(t3.getText());
-                        client.SetAge(Integer.parseInt(t4.getText()));
-                        client.SetNumReservation(Integer.parseInt(t5.getText()));
-                        client.SetForeignKeyUser(Integer.parseInt(t6.getText()));
-                        
-                        clientdao.AddClient(client);
-                        f.setVisible(false);
-                        Connection.affiche("Client crée !");
-                    
+                    client.SetId(0);
+                    client.SetNom(t1.getText());
+                    client.SetPrenom(t2.getText());
+                    client.SetClasse(t3.getText());
+                    client.SetAge(Integer.parseInt(t4.getText()));
+                    client.SetNumReservation(Integer.parseInt(t5.getText()));
+                    client.SetForeignKeyUser(Integer.parseInt(t6.getText()));
+
+                    clientdao.AddClient(client);
+                    f.setVisible(false);
+                    Connection.affiche("Client crée !");
+
                 }
             });
         }
     }
 
-    public void verifboutonmail(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public void verifboutonmailclient(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -142,13 +175,39 @@ public class EmailVerif {
                         new Fenetre().panneau("L'email ne correspond pas à un mail");
                     }
                 } else {
-                    if (new Identifiants().Id(t1.getText(), p1.getText()) == true) {
+                    if (new Identifiants().Iduser(t1.getText(), p1.getText()) == true) {
+
+                        f.setVisible(false);
+                        Interfclients interfclient = new Interfclients();
+                        interfclient.run();
+                    }
+                }
+            }
+        }
+        );
+
+    }
+
+    public void verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (emailverif(t1.getText()) == false || t1.getText().isEmpty() || p1.getText().isEmpty()) {
+                    if (t1.getText().isEmpty()) {
+                        new Fenetre().panneau("Le champ email est vide");
+                    } else if (p1.getText().isEmpty()) {
+                        new Fenetre().panneau("Le champ password est vide");
+                    } else if (emailverif(t1.getText()) == false) {
+                        new Fenetre().panneau("L'email ne correspond pas à un mail");
+                    }
+                } else {
+                    if (new Identifiants().Iduserempl(t1.getText(), p1.getText()) == true) {
 
                         f.setVisible(false);
 
-                        Interfclients interfclient = new Interfclients();
-
-                        interfclient.run();
+                        Interfemployes interfemploye = new Interfemployes();
+                        interfemploye.run();
                     }
                 }
             }

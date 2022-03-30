@@ -1,7 +1,7 @@
 package viewmvc;
 
 import DAO.*;
-import controlmvc.ShowMyImage;
+import controlmvc.ReadImage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -55,7 +55,7 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
             JButton btn = new JButton(city.get(i).GetNom());
             JButton btnimg = new JButton();
             JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
-            ShowMyImage im = new ShowMyImage();
+            ReadImage im = new ReadImage();
 
             btn.setPreferredSize(boutonDim);
             btnimg.setPreferredSize(boutonDim);

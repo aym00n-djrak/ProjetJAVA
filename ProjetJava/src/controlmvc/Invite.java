@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import modelmvc.Fenetre;
 import viewmvc.Interfclients;
 import viewmvc.Interfclients;
+import viewmvc.Interfemployes;
 import viewmvc.Menu;
 import viewmvc.Réservation;
 
@@ -24,7 +25,7 @@ import viewmvc.Réservation;
 
 public class Invite {
     
-    public void invitebutton(JButton b, JTextField t1, JPasswordField p1, JFrame f)
+    public void invitebuttonclient(JButton b, JTextField t1, JPasswordField p1, JFrame f)
     {
          b.addActionListener(new ActionListener() {
             @Override
@@ -38,5 +39,20 @@ public class Invite {
 
         });
     }
+        public void invitebuttonemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f)
+    {
+         b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+                new Fenetre().panneau("Mode invité");
+
+                Interfemployes interfemploye= new Interfemployes();
+                interfemploye.run();
+            }
+
+        });
+    }
+    
     
 }

@@ -20,14 +20,14 @@ public class LoginEmploye implements ActionListener {
     JLabel l1, l2;
     JTextField t1;
     JPasswordField p1;
-    JButton b1, b2, b3, b4,b5;
+    JButton b1, b2, b3, b4;
 
     EmailVerif verif = new EmailVerif();
     Invite invite = new Invite();
     NewMember newmember = new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
-    CreationPage creationPage = new CreationPage();
+    CreationPageClient creationPage = new CreationPageClient();
 
     public void Login() {
 
@@ -65,13 +65,10 @@ public class LoginEmploye implements ActionListener {
         b3.setForeground(Color.RED);
         b3.setBounds(50, 170, 80, 40);
 
-        b4 = new JButton("Créer membre");
+        b4 = new JButton("Créer un membre employé");
         b4.setForeground(Color.RED);
         b4.setBounds(150, 170, 200, 40);
 
-        b5 = new JButton("Créer employé");
-        b5.setForeground(Color.RED);
-        b5.setBounds(150, 220, 200, 40);
 
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
@@ -82,18 +79,15 @@ public class LoginEmploye implements ActionListener {
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-        f.getContentPane().add(b5);
 
-        verif.verifboutonmail(b1, t1, p1, f);
-        
-        b5.addActionListener(this);
-
-        b2.addActionListener(new Eventlist());
+        verif.verifboutonmailemploye(b1, t1, p1, f);
         
 
-        invite.invitebutton(b3, t1, p1, f);
+        b2.addActionListener(new Eventlist());    
 
-        newmember.newmemberbutton(b4, f);
+        invite.invitebuttonemploye(b3, t1, p1, f);
+
+        newmember.newmemberbuttonemploye(b4, f);
 
         f.setBounds(300, 300, 400, 300);
 
@@ -103,8 +97,8 @@ public class LoginEmploye implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        f.setVisible(false);
-        InterfEmployes interfemploye= new InterfEmployes();
-        interfemploye.run();
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+
 }
