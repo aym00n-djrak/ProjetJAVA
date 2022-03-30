@@ -11,12 +11,12 @@ import java.util.*;
 import javax.swing.*;
 import modelmvc.Connection;
 import modelmvc.Fenetre;
-import viewmvc.CreationPage;
+/*import viewmvc.CreationPage;
 import viewmvc.Menu;
 import java.sql.SQLException;
 import viewmvc.Interfclients;
 import viewmvc.Ajoutervol;
-
+*/
 /**
  *
  * @author remyj

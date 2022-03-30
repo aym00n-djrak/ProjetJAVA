@@ -2,11 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-<<<<<<< Updated upstream:ProjetJava/src/Vue/Interfemployes.java
+
 package Vue;
-=======
-package viewmvc;
->>>>>>> Stashed changes:ProjetJava/src/viewmvc/Interfemployes.java
 
 /**
  *

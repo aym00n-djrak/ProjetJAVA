@@ -127,9 +127,9 @@ public class Interfclients extends javax.swing.JFrame {
     }//GEN-LAST:event_manageActionPerformed
 
     private void destinationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinationsActionPerformed
-        desktopclients.removeAll();
+       /* desktopclients.removeAll();
         Destinations d1 = new Destinations();
-        desktopclients.add(d1).setVisible(true);
+        desktopclients.add(d1).setVisible(true);*/
     }//GEN-LAST:event_destinationsActionPerformed
 
     /**
