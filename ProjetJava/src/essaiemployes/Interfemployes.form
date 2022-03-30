@@ -131,7 +131,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/essaiemployes/minivion2.png"/>
+              <Image iconType="3" name="/viewmvc/minivion2.png"/>
             </Property>
           </Properties>
           <Events>
@@ -144,7 +144,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/essaiemployes/stat.png"/>
+              <Image iconType="3" name="/viewmvc/stat.png"/>
             </Property>
           </Properties>
           <Events>

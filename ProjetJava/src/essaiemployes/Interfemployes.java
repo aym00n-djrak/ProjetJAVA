@@ -52,7 +52,7 @@ public class Interfemployes extends javax.swing.JFrame {
         });
 
         ajoutvol.setBackground(new java.awt.Color(255, 255, 255));
-        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/minivion2.png"))); // NOI18N
+        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/minivion2.png"))); // NOI18N
         ajoutvol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ajoutvolActionPerformed(evt);
@@ -60,7 +60,7 @@ public class Interfemployes extends javax.swing.JFrame {
         });
 
         stat.setBackground(new java.awt.Color(255, 255, 255));
-        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/stat.png"))); // NOI18N
+        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/stat.png"))); // NOI18N
         stat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statActionPerformed(evt);
