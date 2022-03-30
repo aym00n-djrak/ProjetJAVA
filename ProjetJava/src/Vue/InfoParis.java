@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package essai;
+package Vue;
 
 /**
  *
@@ -37,7 +37,7 @@ public class InfoParis extends javax.swing.JFrame {
         parisNY.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/parisny.png"))); // NOI18N
 
         parisAlg.setBackground(new java.awt.Color(255, 255, 255));
-        parisAlg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essai/parisalger.png"))); // NOI18N
+        parisAlg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/parisny.png"))); // NOI18N
 
         redirp.setBackground(new java.awt.Color(153, 0, 0));
         redirp.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
@@ -56,8 +56,8 @@ public class InfoParis extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(parisAlg, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(parisAlg)
+                        .addGap(107, 107, 107)
                         .addComponent(parisNY))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
@@ -67,19 +67,21 @@ public class InfoParis extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(parisAlg, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(parisNY, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(parisNY, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(parisAlg, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(redirp)
-                .addGap(0, 364, Short.MAX_VALUE))
+                .addGap(0, 347, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void redirpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redirpActionPerformed
-        
+        Ajoutervol c2 = new Ajoutervol(); //Btn retour mais faut se debarasser de la frame en exit et pas dispose
+        c2.setVisible(true);
+        this.dispose();
      
     }//GEN-LAST:event_redirpActionPerformed
 

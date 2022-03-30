@@ -118,7 +118,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/essaiemployes/employes.png"/>
+              <Image iconType="3" name="/Vue/employes.png"/>
             </Property>
           </Properties>
           <Events>
@@ -131,7 +131,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/viewmvc/minivion2.png"/>
+              <Image iconType="3" name="/Vue/minivion2.png"/>
             </Property>
           </Properties>
           <Events>
@@ -144,7 +144,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/viewmvc/stat.png"/>
+              <Image iconType="3" name="/Vue/stat.png"/>
             </Property>
           </Properties>
           <Events>
@@ -164,7 +164,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/essaiemployes/employes.png"/>
+              <Image iconType="3" name="/Vue/employes.png"/>
             </Property>
           </Properties>
           <Events>

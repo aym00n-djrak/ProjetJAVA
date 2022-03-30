@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package essaiemployes;
+package Vue;
 
 /**
  *
@@ -44,7 +44,7 @@ public class Interfemployes extends javax.swing.JFrame {
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
         emplois.setBackground(new java.awt.Color(255, 255, 255));
-        emplois.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
+        emplois.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/employes.png"))); // NOI18N
         emplois.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emploisActionPerformed(evt);
@@ -52,7 +52,7 @@ public class Interfemployes extends javax.swing.JFrame {
         });
 
         ajoutvol.setBackground(new java.awt.Color(255, 255, 255));
-        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/minivion2.png"))); // NOI18N
+        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/minivion2.png"))); // NOI18N
         ajoutvol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ajoutvolActionPerformed(evt);
@@ -60,7 +60,7 @@ public class Interfemployes extends javax.swing.JFrame {
         });
 
         stat.setBackground(new java.awt.Color(255, 255, 255));
-        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewmvc/stat.png"))); // NOI18N
+        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/stat.png"))); // NOI18N
         stat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statActionPerformed(evt);
@@ -70,7 +70,7 @@ public class Interfemployes extends javax.swing.JFrame {
         labelclients.setBackground(new java.awt.Color(255, 255, 255));
 
         clientbutton.setBackground(new java.awt.Color(255, 255, 255));
-        clientbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
+        clientbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/employes.png"))); // NOI18N
         clientbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientbuttonActionPerformed(evt);
