@@ -19,6 +19,7 @@ public class Vol {
     private String datearrivee;
     private String heuredepart;
     private String heurearrivee;
+    private int idcity;
 
     public int GetId() {
         return idvol;
@@ -90,6 +91,16 @@ public class Vol {
 
     public void SetHeureArrivee(String heure) {
         heurearrivee = heure;
+    }
+    
+    public int GetForeignKeyCity()
+    {
+        return idcity;
+    }
+    
+    public void SetForeignKeyCity(int id)
+    {
+        idcity=id;
     }
 
 }

@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -79,8 +80,8 @@ public class UsersEmplDAOImpl implements UsersEmplDAO {
 
 
     @Override
-    public Users GetUser(int iduser) {
-        Users user = new Users();
+    public UsersEmpl GetUser(int iduser) {
+        UsersEmpl user = new UsersEmpl();
         Connection dbConnection = null;
         Statement statement = null;
         ResultSet resultat = null;
@@ -227,7 +228,71 @@ public class UsersEmplDAOImpl implements UsersEmplDAO {
         }
 
     }
+ @Override
+    public ArrayList<UsersEmpl> GetAllUserEmpl() {
+        ArrayList<UsersEmpl> u = new ArrayList<UsersEmpl>();
+        UsersEmpl user = new UsersEmpl();
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+        int compteur = 0;
 
+        String sql = "SELECT * FROM usersempl ";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            resultat = stmt.executeQuery(sql);
+
+            System.out.println();
+
+            boolean encore = resultat.next();
+
+            while (encore) {
+                user = new UsersEmpl();
+
+                System.out.print("Id: " + resultat.getInt("idusers") + " Mail: " + resultat.getString("users_mail") + " password: " + resultat.getString("users_password"));
+                System.out.println();
+                user.SetId(resultat.getInt("idusers"));
+                user.SetMail(resultat.getString("users_mail"));
+                user.SetPassword(resultat.getString("users_password"));
+                u.add(user);
+                encore = resultat.next();
+                compteur++;
+            }
+            resultat.close();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return u;
+    }
 
     
 }

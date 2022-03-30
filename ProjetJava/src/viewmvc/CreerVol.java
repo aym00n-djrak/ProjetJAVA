@@ -224,17 +224,12 @@ public class CreerVol extends JInternalFrame implements ActionListener {
         //Ajout au bureau 
         desktop.add(creervol).setVisible(true);
         
-        Paiement paye= new Paiement();
-        
-            ConfirmationReservation confres = new ConfirmationReservation();
-
-        confvol.volreserv(desktop, b1, vol, paye.paiement, ecran);
+      
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         VolDAOImpl voldao = new VolDAOImpl();
-        Paiement paye = new Paiement();
 
         vol.SetCompagnie(t1.getText());
         vol.SetDateArrivee(t2.getText());

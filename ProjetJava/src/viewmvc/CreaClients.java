@@ -23,6 +23,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
     Connection con;
     PreparedStatement st;
     ResultSet res;
+    Clients c = new Clients();
 
     public CreaClients() {
         initComponents();
@@ -266,33 +267,31 @@ public class CreaClients extends javax.swing.JInternalFrame {
 
     private void actualiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualiserActionPerformed
         // TODO add your handling code here:
-        Clients client = new Clients();
         ClientsDAOImpl cdao = new ClientsDAOImpl();
 
-        client.SetId(Integer.parseInt(idtxt.getText()));
-        client.SetNom(nomtxt.getText());
-        client.SetPrenom(prenomtxt.getText());
-        client.SetClasse(agetxt1.getText());
-        client.SetAge(Integer.parseInt(agetxt.getText()));
-        client.SetNumReservation(Integer.parseInt(numtxt.getText()));
-        client.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
+        c.SetId(Integer.parseInt(idtxt.getText()));
+        c.SetNom(nomtxt.getText());
+        c.SetPrenom(prenomtxt.getText());
+        c.SetClasse(agetxt1.getText());
+        c.SetAge(Integer.parseInt(agetxt.getText()));
+        c.SetNumReservation(Integer.parseInt(numtxt.getText()));
+        c.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
 
-        cdao.UptdateClient(client.GetId(),client);
+        cdao.UptdateClient(c.GetId(), c);
     }//GEN-LAST:event_actualiserActionPerformed
 
     private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed
-        Clients client = new Clients();
         ClientsDAOImpl cdao = new ClientsDAOImpl();
 
-        client.SetId(Integer.parseInt(idtxt.getText()));
-        client.SetNom(nomtxt.getText());
-        client.SetPrenom(prenomtxt.getText());
-        client.SetClasse(agetxt1.getText());
-        client.SetAge(Integer.parseInt(agetxt.getText()));
-        client.SetNumReservation(Integer.parseInt(numtxt.getText()));
-        client.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
+        c.SetId(Integer.parseInt(idtxt.getText()));
+        c.SetNom(nomtxt.getText());
+        c.SetPrenom(prenomtxt.getText());
+        c.SetClasse(agetxt1.getText());
+        c.SetAge(Integer.parseInt(agetxt.getText()));
+        c.SetNumReservation(Integer.parseInt(numtxt.getText()));
+        c.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
 
-        cdao.AddClient(client);
+        cdao.AddClient(c);
         JOptionPane.showMessageDialog(null, "Client ajouté");
 
     }//GEN-LAST:event_ajoutActionPerformed
@@ -300,17 +299,17 @@ public class CreaClients extends javax.swing.JInternalFrame {
     private void suppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppActionPerformed
         // TODO add your handling code here:
 
-        Clients c = new Clients();
         ClientsDAOImpl cdao = new ClientsDAOImpl();
         System.out.println(idtxt.getText());
         c.SetId(Integer.parseInt(idtxt.getText()));
 
         cdao.DeleteClient(c.GetId());
         JOptionPane.showMessageDialog(null, "Client Supprimé");
-
     }//GEN-LAST:event_suppActionPerformed
 
-    public void run() {
+    public void run(Clients client) {
+        c = client;
+        System.out.println(c.GetNom());
         new CreaClients().setVisible(true);
     }
 

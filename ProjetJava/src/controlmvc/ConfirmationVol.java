@@ -5,7 +5,6 @@
 package controlmvc;
 
 import DAO.Vol;
-import DAO.VolDAOImpl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -13,7 +12,6 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import viewmvc.Paiement;
 
 /**
  *
@@ -25,9 +23,7 @@ public class ConfirmationVol {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Paiement paye = new Paiement();
                 JOptionPane.showMessageDialog(null, "Procédons au paiement !");
-                paye.InterfacePaiement(ecran, desktop);
                 ouverture.setVisible(true);
             }
         });

@@ -28,6 +28,8 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
     ArrayList<City> city = new ArrayList<City>();
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
+    
+    Clients c= new Clients();
 
     JPanel pan = new JPanel();
 
@@ -46,8 +48,10 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
 
     }
 
-    public void init(JDesktopPane desktop) throws SQLException {
+    public void init(JDesktopPane desktop, Clients client) throws SQLException {
 
+        c=client;
+        
         desktop1 = desktop;
         city = citydao.GetAllCity();
 
@@ -114,7 +118,7 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
         try {
             ListVolDispo listedispo= new ListVolDispo();
             listedispo = new ListVolDispo();
-            listedispo.init(desktop1, id);
+            listedispo.init(desktop1, id, c);
         } catch (SQLException ex) {
             Logger.getLogger(ListVolclient.class.getName()).log(Level.SEVERE, null, ex);
         }

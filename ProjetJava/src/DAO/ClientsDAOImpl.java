@@ -89,7 +89,8 @@ public class ClientsDAOImpl implements ClientsDAO {
             resultat.next();
 
             System.out.println();
-
+            while(resultat.next())
+            {
             client.SetId(resultat.getInt("idMembres"));
             client.SetNom(resultat.getString("Nom"));
             client.SetPrenom(resultat.getString("Prénom"));
@@ -97,7 +98,7 @@ public class ClientsDAOImpl implements ClientsDAO {
             client.SetAge(resultat.getInt("Age"));
             client.SetNumReservation(resultat.getInt("Numéro de reservation"));
             client.SetForeignKeyUser(resultat.getInt("users_idusers"));
-
+            }
             resultat.close();
 
         } catch (SQLException e) {

@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import DAO.Clients;
 import controlmvc.*;
 import modelmvc.Connection;
 
@@ -33,6 +34,7 @@ public class CreationPageClient {
     public JTextField t1;
     public JPasswordField p1;
     JButton b1, b2, b3, b4;
+    Clients c= new Clients();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     controlmvc.Identifiants enregistrement = new controlmvc.Identifiants();
@@ -83,7 +85,7 @@ public class CreationPageClient {
         f.setResizable(false);
         f.setVisible(true);
 
-        verif.verifcreaboutonmailusers(b1, t1, p1, f);
+        verif.verifcreaboutonmailusers(b1, t1, p1, f,c);
         b2.addActionListener(new Eventlist());
 
     }

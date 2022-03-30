@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import DAO.Employe;
 import controlmvc.*;
 import modelmvc.Connection;
 
@@ -33,6 +34,7 @@ public class CreationPageEmploye {
     public JTextField t1;
     public JPasswordField p1;
     JButton b1, b2, b3, b4;
+    Employe e= new Employe();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     controlmvc.Identifiants enregistrement = new controlmvc.Identifiants();
@@ -83,7 +85,7 @@ public class CreationPageEmploye {
         f.setResizable(false);
         f.setVisible(true);
 
-        verif.verifcreaboutonmailusersempl(b1, t1, p1, f);
+        verif.verifcreaboutonmailusersempl(b1, t1, p1,f, e);
         b2.addActionListener(new Eventlist());
 
     }

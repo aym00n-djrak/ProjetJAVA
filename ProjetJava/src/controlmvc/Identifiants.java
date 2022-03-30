@@ -19,11 +19,12 @@ public class Identifiants {
     modelmvc.Fenetre phrase = new Fenetre();
     String databaseMail = "";
     String databasePassword = "";
+    String databaseId= "";
     String requete = "";
     ResultSet resultats = null;
 
     java.sql.Connection con;
-
+    int id;
     public Boolean Iduser(String mail, String password) {
         //Creation d'une requete SQL
         try {

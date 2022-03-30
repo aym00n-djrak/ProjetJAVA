@@ -1,5 +1,6 @@
 package viewmvc;
 
+import DAO.Clients;
 import controlmvc.*;
 import modelmvc.Fenetre;
 
@@ -21,6 +22,8 @@ public class LoginClient {
     JTextField t1;
     JPasswordField p1;
     JButton b1, b2, b3, b4;
+    
+    Clients c= new Clients();
 
     EmailVerif verif = new EmailVerif();
     Invite invite= new Invite();
@@ -85,7 +88,7 @@ public class LoginClient {
 
         b2.addActionListener(new Eventlist());
         
-        invite.invitebuttonclient(b3, t1, p1, f);
+        invite.invitebuttonclient(b3, t1, p1, f,c);
         
         newmember.newmemberbuttonclient(b4,f);
 

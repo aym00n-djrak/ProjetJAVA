@@ -27,6 +27,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
     ArrayList<City> city = new ArrayList<City>();
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
+    
+    Employe employe= new Employe();
 
     JPanel pan = new JPanel();
 
@@ -45,8 +47,10 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
     }
 
-    public void init(JDesktopPane desktop) throws SQLException {
+    public void init(JDesktopPane desktop, Employe e) throws SQLException {
 
+        employe= e;
+        
         desktop1 = desktop;
         city = citydao.GetAllCity();
 

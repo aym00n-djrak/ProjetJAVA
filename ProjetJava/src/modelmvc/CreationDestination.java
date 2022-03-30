@@ -6,6 +6,7 @@ package modelmvc;
 
 import DAO.City;
 import DAO.CityDAOImpl;
+import DAO.Clients;
 import controlmvc.InsertImage;
 import controlmvc.Eventlist;
 import java.awt.Color;
@@ -33,6 +34,7 @@ public class CreationDestination extends JInternalFrame implements ActionListene
     public JTextField t1, t2, t3, t4;
     public JPasswordField p1;
     JButton b1, b2, b3, b4;
+    Clients cl= new Clients();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     controlmvc.Identifiants enregistrement = new controlmvc.Identifiants();
@@ -40,8 +42,10 @@ public class CreationDestination extends JInternalFrame implements ActionListene
 
     JButton open = new JButton("Sélectionner un fichier");
 
-    public CreationDestination() {
+    public CreationDestination(Clients client) {
+        
         super("Création destination");
+        cl=client;
         getContentPane().setLayout(null);
         getContentPane().setBackground(Color.black);
         init();
@@ -163,7 +167,7 @@ public class CreationDestination extends JInternalFrame implements ActionListene
         JOptionPane.showMessageDialog(null, "Destination créée !");
         setVisible(false);
         Interfclients interf = new Interfclients();
-        interf.run();
+        interf.run(cl);
     }
 
 }

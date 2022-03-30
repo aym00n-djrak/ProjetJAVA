@@ -29,7 +29,7 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
-        accueil.Accueil();
+       accueil.Accueil();
 
         ArrayList<City> listcity = new ArrayList<>();
 
@@ -38,9 +38,26 @@ public class Executable {
         CityDAOImpl list = new CityDAOImpl();
 
         ArrayList<Vol> vol= new ArrayList<>();
+        Vol voln= new Vol();
         VolDAOImpl voldao= new VolDAOImpl();
         
+        ArrayList<Paiement> pdao= new ArrayList<>();
+        PaiementDAOImpl p= new PaiementDAOImpl();
+        Paiement pa= new Paiement();
+        
+        pa.SetDate("30/03/2022");
+        pa.SetId(1);
+        pa.SetMontant(350);
+        pa.SetForeignKeyClient(1);
+        pa.SetForeignKeyReservationt(2);
+        
+        //p.AddPaiement(pa);
+        
+        pdao=p.GetAllPaiement();
+        
         vol=voldao.GetAllVol();
+        
+        voln=voldao.GetVol(7);
         
     }
 }

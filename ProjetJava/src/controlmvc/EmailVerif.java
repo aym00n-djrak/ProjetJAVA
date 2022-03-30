@@ -27,6 +27,8 @@ import viewmvc.SwitchEmployeCLient;
 public class EmailVerif {
 
     SwitchEmployeCLient switchec = new SwitchEmployeCLient();
+    Clients client = new Clients();
+    Employe employe = new Employe();
 
     public Boolean emailverif(String adresse) {
 
@@ -48,8 +50,10 @@ public class EmailVerif {
         return verif;
     }
 
-    public void verifcreaboutonmailusers(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public void verifcreaboutonmailusers(JButton b, JTextField t1, JPasswordField p1, JFrame f, Clients c) {
         {
+            client = c;
+
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
             Users user = new Users();
@@ -65,7 +69,7 @@ public class EmailVerif {
                         user.SetPassword(p1.getText());
                         userdao.AddUser(user);
                         f.setVisible(false);
-                                JOptionPane.showMessageDialog(null,"Identifiant membre client crée !");
+                        JOptionPane.showMessageDialog(null, "Identifiant membre client crée !");
                         switchec.run();
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
@@ -75,8 +79,10 @@ public class EmailVerif {
         }
     }
 
-    public void verifcreaboutonmailusersempl(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public void verifcreaboutonmailusersempl(JButton b, JTextField t1, JPasswordField p1, JFrame f, Employe e) {
         {
+            employe = e;
+
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
             UsersEmpl user = new UsersEmpl();
@@ -92,7 +98,7 @@ public class EmailVerif {
                         user.SetPassword(p1.getText());
                         userdao.AddUser(user);
                         f.setVisible(false);
-                                JOptionPane.showMessageDialog(null,"Identifiant membre employé crée !");
+                        JOptionPane.showMessageDialog(null, "Identifiant membre employé crée !");
                         switchec.run();
 
                     } else {
@@ -104,8 +110,9 @@ public class EmailVerif {
         }
     }
 
-    public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JDesktopPane f) {
+    public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JDesktopPane f, Employe e) {
         {
+            employe = e;
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
             Employe employe = new Employe();
@@ -132,8 +139,10 @@ public class EmailVerif {
         }
     }
 
-    public void creationclients(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JTextField t6, JFrame f) {
+    public void creationclients(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JTextField t6, JFrame f, Clients c) {
         {
+            client = c;
+
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
             Clients client = new Clients();
@@ -176,10 +185,24 @@ public class EmailVerif {
                     }
                 } else {
                     if (new Identifiants().Iduser(t1.getText(), p1.getText()) == true) {
+                        ArrayList<Users> user = new ArrayList<>();
+                        UsersDAOImpl userdao = new UsersDAOImpl();
+                        ClientsDAOImpl cdao = new ClientsDAOImpl();
+
+                        user = userdao.GetAllUser();
+                        int id = 0;
+
+                        for (int i = 0; i < user.size(); i++) {
+                            if (user.get(i).GetMail().equals(t1.getText())) {
+                                id = i;
+                            }
+                        }
 
                         f.setVisible(false);
                         Interfclients interfclient = new Interfclients();
-                        interfclient.run();
+                        System.out.println(id);
+
+                        interfclient.run(cdao.GetClient(id));
                     }
                 }
             }
@@ -188,11 +211,11 @@ public class EmailVerif {
 
     }
 
-    public void verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public void verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f, Employe e) {
+
         b.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
+            public void actionPerformed(ActionEvent evt) {
                 if (emailverif(t1.getText()) == false || t1.getText().isEmpty() || p1.getText().isEmpty()) {
                     if (t1.getText().isEmpty()) {
                         new Fenetre().panneau("Le champ email est vide");
@@ -203,10 +226,26 @@ public class EmailVerif {
                     }
                 } else {
                     if (new Identifiants().Iduserempl(t1.getText(), p1.getText()) == true) {
+                        ArrayList<UsersEmpl> user = new ArrayList<>();
+                        UsersEmplDAOImpl userdao = new UsersEmplDAOImpl();
+                        EmployeDAOImpl edao = new EmployeDAOImpl();
+                        Employe employe= new Employe();
 
+                        user = userdao.GetAllUserEmpl();
+                        int id = 0;
+
+                        for (int i = 0; i < user.size(); i++) {
+                            System.out.println(t1.getText());
+                            if (t1.getText().equals(user.get(id).GetMail())) {
+                                id = i;
+                            }
+                        }
                         f.setVisible(false);
 
                         Interfemployes interfemploye = new Interfemployes();
+                        System.out.println(id);
+                        employe=edao.GetEmploye(id);
+                        System.out.println(employe.GetPrenom());
                         interfemploye.run();
                     }
                 }

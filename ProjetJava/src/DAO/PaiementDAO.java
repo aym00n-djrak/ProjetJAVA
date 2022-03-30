@@ -4,18 +4,22 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author remyj
  */
 public interface PaiementDAO {
-    
+
     public void AddPaiement(Paiement paiement);
-    
+
     public Paiement GetPaiement(int idpaiement);
-    
+
+    public ArrayList<Paiement> GetAllPaiement();
+
     public void UpdatePaiement(Paiement paiement);
-    
+
     public void DeletePaiement(int idpaiement);
-    
+
 }

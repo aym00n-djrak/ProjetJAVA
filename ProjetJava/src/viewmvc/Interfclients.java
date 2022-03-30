@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import DAO.Clients;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,6 +25,8 @@ public class Interfclients extends javax.swing.JFrame {
     /**
      * Creates new form Interfclients
      */
+    Clients client = new Clients();
+
     public Interfclients() {
         initComponents();
     }
@@ -42,6 +45,8 @@ public class Interfclients extends javax.swing.JFrame {
         destinations1 = new javax.swing.JButton();
         vol1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Espace clients");
@@ -90,18 +95,30 @@ public class Interfclients extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jLabel1.setText("INTERFACE CLIENT");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Bonjour :");
+
+        System.out.println(client.GetPrenom());
+        String txt= client.GetPrenom();
+        jLabel3.setText(txt);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(manage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(desktopclients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -109,14 +126,18 @@ public class Interfclients extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101)
                 .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(344, 344, 344))
+                .addGap(214, 214, 214))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(desktopclients)
@@ -132,6 +153,15 @@ public class Interfclients extends javax.swing.JFrame {
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
 
+        try {
+            ListVolReserve list = new ListVolReserve();
+            list.init(desktopclients, client);
+            //desktopclients.add(list).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Interfclients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_manageActionPerformed
 
     private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
@@ -142,7 +172,7 @@ public class Interfclients extends javax.swing.JFrame {
             desktopclients.removeAll();
             //Destinations d1 = new Destinations();
             ListVolclient d1 = new ListVolclient();
-            d1.init(desktopclients);
+            d1.init(desktopclients, client);
 
             desktopclients.add(d1).setVisible(true);
         } catch (SQLException ex) {
@@ -153,17 +183,14 @@ public class Interfclients extends javax.swing.JFrame {
     private void vol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vol1ActionPerformed
         // TODO add your handling code here:
         desktopclients.removeAll();
-        CreaClients creacl= new CreaClients();
-        creacl.run();
+        CreaClients creacl = new CreaClients();
+        creacl.run(client);
         desktopclients.add(creacl).setVisible(true);
-        
+
     }//GEN-LAST:event_vol1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public void run() {
-
+    public void run(Clients c) {
+        client = c;
         new Interfclients().setVisible(true);
 
     }
@@ -173,6 +200,8 @@ public class Interfclients extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desktopclients;
     private javax.swing.JButton destinations1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton manage;
     private javax.swing.JButton vol1;
     // End of variables declaration//GEN-END:variables
