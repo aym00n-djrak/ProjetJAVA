@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -187,13 +188,14 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
 
     private void payerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payerActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Paiement effectué !");
+        setVisible(false);
     }//GEN-LAST:event_payerActionPerformed
-
 
     public void run() {
         new Paiementaffichage().setVisible(true);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel crypto;
     private javax.swing.JTextField cryptotxt;
