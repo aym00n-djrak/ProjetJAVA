@@ -9,12 +9,12 @@ package viewmvc;
  *
  * @author Clarence
  */
-public class Paiement extends javax.swing.JInternalFrame {
+public class Paiementaffichage extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Paiement
      */
-    public Paiement() {
+    public Paiementaffichage() {
         initComponents();
     }
 
@@ -191,7 +191,7 @@ public class Paiement extends javax.swing.JInternalFrame {
 
 
     public void run() {
-        new Paiement().setVisible(true);
+        new Paiementaffichage().setVisible(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -150,7 +150,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         reservdao.AddReservation(reservation);
         JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet,  vous allez être redirigez vers l'interface de paiement.");
         setVisible(false);
-        Paiement paiement= new Paiement();
+        Paiementaffichage paiement= new Paiementaffichage();
         desktop1.add(paiement).setVisible(true);
         //voldao.DeleteVol(idvol);
       //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");
