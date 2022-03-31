@@ -85,7 +85,7 @@ public class CreationPageEmploye {
         f.setResizable(false);
         f.setVisible(true);
 
-        verif.verifcreaboutonmailusersempl(b1, t1, p1,f, e);
+        e=verif.verifcreaboutonmailusersempl(b1, t1, p1,f);
         b2.addActionListener(new Eventlist());
 
     }

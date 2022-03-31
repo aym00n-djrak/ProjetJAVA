@@ -22,24 +22,20 @@ public class LoginClient {
     JTextField t1;
     JPasswordField p1;
     JButton b1, b2, b3, b4;
-    
-    Clients c= new Clients();
 
     EmailVerif verif = new EmailVerif();
-    Invite invite= new Invite();
-    NewMember newmember= new NewMember();
+    Invite invite = new Invite();
+    NewMember newmember = new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPageClient creationPage = new CreationPageClient();
 
-    public void Login() {
-        
-        
+    public void Login(Clients c, JLabel j) {
 
         f = new JFrame("Login");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
-        
+
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         l1 = new JLabel("Email");
@@ -83,16 +79,17 @@ public class LoginClient {
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-        
-        verif.verifboutonmailclient(b1, t1, p1, f);
+
+        c = verif.verifboutonmailclient(b1, t1, p1, f,j);
 
         b2.addActionListener(new Eventlist());
-        
-        invite.invitebuttonclient(b3, t1, p1, f,c);
-        
-        newmember.newmemberbuttonclient(b4,f);
+
+        c = invite.invitebuttonclient(b3, t1, p1, f);
+
+        newmember.newmemberbuttonclient(b4, f);
 
         f.setBounds(300, 300, 400, 300);
+
 
         f.setResizable(false);
         f.setVisible(true);

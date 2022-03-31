@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package viewmvc;
+package modelmvc;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -11,22 +11,19 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import DAO.*;
 import controlmvc.EmailVerif;
-import controlmvc.InsertImage;
 import javax.swing.JDesktopPane;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import modelmvc.Connection;
 
 /**
  *
  * @author Clarence
  */
-public class CreaCity extends javax.swing.JInternalFrame {
+public class CreaEmployes extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Employes
      */
-    public CreaCity() {
+    public CreaEmployes() {
         initComponents();
 
     }
@@ -43,6 +40,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
         backg = new javax.swing.JPanel();
         infos = new javax.swing.JLabel();
         ground = new javax.swing.JPanel();
+        ref = new javax.swing.JLabel();
         reftxt = new javax.swing.JTextField();
         namemploye = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
@@ -51,11 +49,12 @@ public class CreaCity extends javax.swing.JInternalFrame {
         departement = new javax.swing.JLabel();
         depttxt = new javax.swing.JTextField();
         compagnie = new javax.swing.JLabel();
+        compatxt = new javax.swing.JTextField();
         executer = new javax.swing.JButton();
         suppBouton = new javax.swing.JButton();
         ref2 = new javax.swing.JLabel();
+        foreigntxt = new javax.swing.JTextField();
         executer2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         backg1 = new javax.swing.JPanel();
         infos1 = new javax.swing.JLabel();
@@ -77,16 +76,21 @@ public class CreaCity extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Gestion des villes");
+        setTitle("Gestion des employes");
 
         backg.setBackground(new java.awt.Color(0, 153, 153));
 
         infos.setBackground(new java.awt.Color(255, 255, 255));
         infos.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         infos.setForeground(new java.awt.Color(255, 255, 255));
-        infos.setText(" Création d'une destination");
+        infos.setText(" Informations employés");
 
         ground.setBackground(new java.awt.Color(204, 204, 204));
+
+        ref.setBackground(new java.awt.Color(255, 255, 255));
+        ref.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ref.setForeground(new java.awt.Color(255, 255, 255));
+        ref.setText("Foreign");
 
         reftxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +100,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
 
         namemploye.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         namemploye.setForeground(new java.awt.Color(255, 255, 255));
-        namemploye.setText("Ville");
+        namemploye.setText("Nom");
 
         nametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +110,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
 
         premployes.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         premployes.setForeground(new java.awt.Color(255, 255, 255));
-        premployes.setText("Pays");
+        premployes.setText("Prénom");
 
         surnametxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +120,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
 
         departement.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         departement.setForeground(new java.awt.Color(255, 255, 255));
-        departement.setText("Tarifs");
+        departement.setText("Département");
 
         depttxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +130,13 @@ public class CreaCity extends javax.swing.JInternalFrame {
 
         compagnie.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         compagnie.setForeground(new java.awt.Color(255, 255, 255));
-        compagnie.setText("Photo");
+        compagnie.setText("Compagnie");
+
+        compatxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compatxtActionPerformed(evt);
+            }
+        });
 
         executer.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         executer.setForeground(new java.awt.Color(0, 153, 153));
@@ -160,15 +170,6 @@ public class CreaCity extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(204, 0, 0));
-        jButton1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jButton1.setText("Selectionnez l'image");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout groundLayout = new javax.swing.GroupLayout(ground);
         ground.setLayout(groundLayout);
         groundLayout.setHorizontalGroup(
@@ -176,27 +177,31 @@ public class CreaCity extends javax.swing.JInternalFrame {
             .addGroup(groundLayout.createSequentialGroup()
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(groundLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(departement)
-                            .addComponent(compagnie))
-                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ref2)
                             .addGroup(groundLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(groundLayout.createSequentialGroup()
-                                .addGap(192, 192, 192)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(groundLayout.createSequentialGroup()
-                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(premployes)
-                            .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ref2))
+                                .addContainerGap()
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(premployes))))
                         .addGap(74, 74, 74)
                         .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nametxt)
                             .addComponent(surnametxt, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(reftxt)))
+                            .addComponent(reftxt))
+                        .addGap(25, 25, 25)
+                        .addComponent(ref)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(departement)
+                            .addComponent(compagnie))
+                        .addGap(18, 18, 18)
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(depttxt, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                            .addComponent(compatxt)))
                     .addGroup(groundLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(suppBouton)
@@ -204,37 +209,38 @@ public class CreaCity extends javax.swing.JInternalFrame {
                         .addComponent(executer2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(executer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(639, Short.MAX_VALUE))
+                .addContainerGap(543, Short.MAX_VALUE))
         );
         groundLayout.setVerticalGroup(
             groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(groundLayout.createSequentialGroup()
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(groundLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(reftxt)
-                        .addGap(18, 18, 18)
-                        .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ref2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(groundLayout.createSequentialGroup()
-                        .addComponent(ref2, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)
-                        .addComponent(namemploye)))
-                .addGap(43, 43, 43)
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(41, 41, 41)
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ref)
+                            .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)))
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(namemploye, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nametxt))
+                .addGap(39, 39, 39)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(premployes)
                     .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(departement)
                     .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(groundLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(compagnie))
-                    .addGroup(groundLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(compagnie)
+                    .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(executer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(executer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -246,21 +252,21 @@ public class CreaCity extends javax.swing.JInternalFrame {
         backg.setLayout(backgLayout);
         backgLayout.setHorizontalGroup(
             backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(infos, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgLayout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
-            .addGroup(backgLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(infos, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgLayout.setVerticalGroup(
             backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(infos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -464,9 +470,9 @@ public class CreaCity extends javax.swing.JInternalFrame {
             .addComponent(backg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 310, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 310, Short.MAX_VALUE)))
         );
 
         pack();
@@ -477,17 +483,20 @@ public class CreaCity extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_depttxtActionPerformed
 
     private void executerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executerActionPerformed
-        CityDAOImpl city = new CityDAOImpl();
-        City c = new City();
-        c.SetId(Integer.parseInt(reftxt.getText()));
-        c.SetNom(nametxt.getText());
-        c.SetPays(surnametxt.getText());
-        c.SetPrix(Integer.parseInt(depttxt.getText()));
-        city.AddCity(c);
+        // TODO add your handling code here:
+        Employe employe = new Employe();
+        EmployeDAOImpl employedao = new EmployeDAOImpl();
 
-        JOptionPane.showMessageDialog(null, "Destination bien ajoutée !");
+        employe.SetId(Integer.parseInt(reftxt.getText()));
+        employe.SetNom(nametxt.getText());
+        employe.SetPrenom(surnametxt.getText());
+        employe.SetCompagnie(compatxt.getText());
+        employe.SetDepartement(depttxt.getText());
+        employe.SetForeignKey(Integer.parseInt(foreigntxt.getText()));
+
+        employedao.AddEmploye(employe);
         setVisible(false);
-
+        Connection.affiche("Employé créé !");
     }//GEN-LAST:event_executerActionPerformed
 
     private void surnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surnametxtActionPerformed
@@ -502,18 +511,25 @@ public class CreaCity extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nametxtActionPerformed
 
+    private void compatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compatxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_compatxtActionPerformed
+
     private void suppBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppBoutonActionPerformed
-        CityDAOImpl city = new CityDAOImpl();
-        City c = new City();
-        c.SetId(Integer.parseInt(reftxt.getText()));
-        c.SetNom(nametxt.getText());
-        c.SetPays(surnametxt.getText());
-        c.SetPrix(Integer.parseInt(depttxt.getText()));
-        city.DeleteCity(c.GetId());
+        // TODO add your handling code here:
+        Employe employe = new Employe();
+        EmployeDAOImpl employedao = new EmployeDAOImpl();
 
-        JOptionPane.showMessageDialog(null, "Destination bien supprimée !");
+        employe.SetId(Integer.parseInt(reftxt.getText()));
+        employe.SetNom(nametxt.getText());
+        employe.SetPrenom(surnametxt.getText());
+        employe.SetCompagnie(compatxt.getText());
+        employe.SetDepartement(depttxt.getText());
+        employe.SetForeignKey(Integer.parseInt(foreigntxt.getText()));
+
+        employedao.DeleteEmploye(employe.GetId());
         setVisible(false);
-
+        Connection.affiche("Employé supprimé !");
 
     }//GEN-LAST:event_suppBoutonActionPerformed
 
@@ -547,48 +563,33 @@ public class CreaCity extends javax.swing.JInternalFrame {
 
     private void executer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executer2ActionPerformed
         // TODO add your handling code here:
-        CityDAOImpl city = new CityDAOImpl();
-        City c = new City();
-        c.SetId(Integer.parseInt(reftxt.getText()));
-        c.SetNom(nametxt.getText());
-        c.SetPays(surnametxt.getText());
-        c.SetPrix(Integer.parseInt(depttxt.getText()));
-        city.UpdateCity(c.GetId(),c);
+        Employe employe = new Employe();
+        EmployeDAOImpl employedao = new EmployeDAOImpl();
 
-        JOptionPane.showMessageDialog(null, "Destination bien mise à jour !");
+        employe.SetId(Integer.parseInt(reftxt.getText()));
+        employe.SetNom(nametxt.getText());
+        employe.SetPrenom(surnametxt.getText());
+        employe.SetCompagnie(compatxt.getText());
+        employe.SetDepartement(depttxt.getText());
+        employe.SetForeignKey(Integer.parseInt(foreigntxt.getText()));
+
+        employedao.UpdateEmploye(employe.GetId(),employe);
         setVisible(false);
-
+        Connection.affiche("Employé mis à jour!");
     }//GEN-LAST:event_executer2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- JTextArea a = new JTextArea();
-
-        JFileChooser chooser = new JFileChooser();
-        chooser.setApproveButtonText("Choix du fichier...");
-        chooser.showOpenDialog(null);
-
-        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            a.append(chooser.getSelectedFile().getAbsolutePath());
-            System.out.println(a.getAccessibleContext());
-            String Firm = chooser.getSelectedFile().getAbsolutePath();
-            System.out.println(Firm);
-            InsertImage i = new InsertImage();
-            i.Insert(Firm, Integer.valueOf(reftxt.getText()));
-            JOptionPane.showMessageDialog(null, "Image insérée ! Cliquer sur créer !");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public void run() {
-        new CreaCity().setVisible(true);
+        new CreaEmployes().setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backg;
     private javax.swing.JPanel backg1;
     private javax.swing.JLabel compagnie;
     private javax.swing.JLabel compagnie1;
+    private javax.swing.JTextField compatxt;
     private javax.swing.JTextField compatxt1;
     private javax.swing.JLabel departement;
     private javax.swing.JLabel departement1;
@@ -597,11 +598,11 @@ public class CreaCity extends javax.swing.JInternalFrame {
     private javax.swing.JButton executer;
     private javax.swing.JButton executer1;
     private javax.swing.JButton executer2;
+    private javax.swing.JTextField foreigntxt;
     private javax.swing.JPanel ground;
     private javax.swing.JPanel ground1;
     private javax.swing.JLabel infos;
     private javax.swing.JLabel infos1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel namemploye;
     private javax.swing.JLabel namemploye1;
@@ -609,6 +610,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
     private javax.swing.JTextField nametxt1;
     private javax.swing.JLabel premployes;
     private javax.swing.JLabel premployes1;
+    private javax.swing.JLabel ref;
     private javax.swing.JLabel ref1;
     private javax.swing.JLabel ref2;
     private javax.swing.JTextField reftxt;

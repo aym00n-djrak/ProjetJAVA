@@ -55,8 +55,10 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
         desktop1 = desktop;
         VolDAOImpl voldao = new VolDAOImpl();
         Vol vol = new Vol();
+        
         ReservationDAOImpl rdao = new ReservationDAOImpl();
         Reservation reserv = new Reservation();
+        
         ArrayList<Paiement> paye = new ArrayList<>();
         PaiementDAOImpl p = new PaiementDAOImpl();
 
@@ -68,18 +70,23 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
         System.out.println("Id utilisateur: " + c.GetId());
 
         for (int i = 0; i < paye.size(); i++) {
+            
+            //ON CHERCHE LES PAIEMENTS CORRESPONDANT AU CLIENT
+            if (c.GetId()== paye.get(i).GetForeignKeyClient()) {
 
-            if (c.GetId() == paye.get(i).GetForeignKeyClient()) {
-
+                //ON PREND LE NUMERO DE RESERVATION DE PAIEMENT CORRESPONDANT A LA RESERVATION
                 reserv = rdao.GetReservation(paye.get(i).GetForeignKeyReservation());
 
                 System.out.println("Id reservation paiement: " + paye.get(i).GetForeignKeyReservation());
                 System.out.println("Id reservation vol: " + reserv.GetForeignKeyVol());
-
+                
+                
+                //ON ATTRIBUE A VOL LE NUMERO DE RESERVATION DU VOL LUI CORRESPONDANT
                 vol = voldao.GetVol(reserv.GetForeignKeyVol());
 
                 System.out.println("Id vol city: " + vol.GetForeignKeyCity());
 
+                //ON CREE LES BOUTONS PERMETTANT LAFFICHAGE DES DONNEES VOULUES
                 JButton btn = new JButton(vol.GetDestination());
                 JButton prix = new JButton("" + paye.get(i).GetMontant());
                 JButton date = new JButton(paye.get(i).GetDate());
@@ -95,9 +102,6 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
 
                 btn.setBackground(Color.ORANGE);
                 prix.setBackground(Color.WHITE);
-
-                buttons[i] = btn;
-                //Image img= im.getImage(i);
 
                 btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(vol.GetForeignKeyCity())));
                 btn.addActionListener(this);

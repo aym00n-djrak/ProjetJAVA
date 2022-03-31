@@ -22,15 +22,15 @@ public class LoginEmploye implements ActionListener {
     JTextField t1;
     JPasswordField p1;
     JButton b1, b2, b3, b4;
-    Employe e= new Employe();
     EmailVerif verif = new EmailVerif();
     Invite invite = new Invite();
     NewMember newmember = new NewMember();
+    
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPageClient creationPage = new CreationPageClient();
 
-    public void Login() {
+    public void Login(Employe e,JLabel j) {
 
         f = new JFrame("Login");
         f.getContentPane().setLayout(null);
@@ -81,12 +81,12 @@ public class LoginEmploye implements ActionListener {
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
 
-        verif.verifboutonmailemploye(b1, t1, p1, f,e);
+        e=verif.verifboutonmailemploye(b1, t1, p1, f,j);
         
 
         b2.addActionListener(new Eventlist());    
 
-        invite.invitebuttonemploye(b3, t1, p1, f,e);
+        e=invite.invitebuttonemploye(b3, t1, p1, f);
 
         newmember.newmemberbuttonemploye(b4, f);
 

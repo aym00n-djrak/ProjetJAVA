@@ -50,9 +50,8 @@ public class EmailVerif {
         return verif;
     }
 
-    public void verifcreaboutonmailusers(JButton b, JTextField t1, JPasswordField p1, JFrame f, Clients c) {
+    public Clients verifcreaboutonmailusers(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         {
-            client = c;
 
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
@@ -70,18 +69,36 @@ public class EmailVerif {
                         userdao.AddUser(user);
                         f.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Identifiant membre client crée !");
-                        switchec.run();
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
                     }
+                    if (new Identifiants().Iduser(t1.getText(), p1.getText()) == true) {
+                        ArrayList<Users> user = new ArrayList<>();
+                        UsersDAOImpl userdao = new UsersDAOImpl();
+                        ClientsDAOImpl cdao = new ClientsDAOImpl();
+                        int id = 0;
+                        user = userdao.GetAllUser();
+
+                        for (int i = 0; i < user.size(); i++) {
+                            if (user.get(i).GetMail().equals(t1.getText())) {
+                                id = user.get(i).GetId();
+                                System.out.println(id);
+
+                            }
+                        }
+                        f.setVisible(false);
+                        System.out.println(id);
+                        client = cdao.GetClient(id);
+                    }
+
                 }
             });
         }
+        return client;
     }
 
-    public void verifcreaboutonmailusersempl(JButton b, JTextField t1, JPasswordField p1, JFrame f, Employe e) {
+    public Employe verifcreaboutonmailusersempl(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         {
-            employe = e;
 
             Identifiants enregistrement = new Identifiants();
             Réservation reservation = new Réservation();
@@ -99,15 +116,35 @@ public class EmailVerif {
                         userdao.AddUser(user);
                         f.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Identifiant membre employé crée !");
-                        switchec.run();
 
                     } else {
                         new Fenetre().panneau("L'email ne correspond pas au type  mail");
+                    }
+                    if (new Identifiants().Iduserempl(t1.getText(), p1.getText()) == true) {
+                        ArrayList<UsersEmpl> user = new ArrayList<>();
+                        UsersEmplDAOImpl userdao = new UsersEmplDAOImpl();
+                        EmployeDAOImpl edao = new EmployeDAOImpl();
 
+                        user = userdao.GetAllUserEmpl();
+                        int id = 0;
+
+                        for (int i = 0; i < user.size(); i++) {
+                            System.out.println(t1.getText());
+                            if (t1.getText().equals(user.get(id).GetMail())) {
+                                id = user.get(i).GetId();
+                                System.out.println(id);
+
+                            }
+                        }
+                        f.setVisible(false);
+                        System.out.println(id);
+                        employe = edao.GetEmploye(id);
+                        System.out.println(employe.GetPrenom());
                     }
                 }
             });
         }
+        return employe;
     }
 
     public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JDesktopPane f, Employe e) {
@@ -170,8 +207,13 @@ public class EmailVerif {
         }
     }
 
-    public void verifboutonmailclient(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public Clients verifboutonmailclient(JButton b, JTextField t1, JPasswordField p1, JFrame f, JLabel j) {
         b.addActionListener(new ActionListener() {
+            int id = 0;
+            ArrayList<Users> user = new ArrayList<>();
+            UsersDAOImpl userdao = new UsersDAOImpl();
+            ClientsDAOImpl cdao = new ClientsDAOImpl();
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -185,37 +227,40 @@ public class EmailVerif {
                     }
                 } else {
                     if (new Identifiants().Iduser(t1.getText(), p1.getText()) == true) {
-                        ArrayList<Users> user = new ArrayList<>();
-                        UsersDAOImpl userdao = new UsersDAOImpl();
-                        ClientsDAOImpl cdao = new ClientsDAOImpl();
 
                         user = userdao.GetAllUser();
-                        int id = 0;
 
                         for (int i = 0; i < user.size(); i++) {
-                            if (user.get(i).GetMail().equals(t1.getText())) {
-                                id = i;
+                            if (t1.getText().equals(user.get(i).GetMail())) {
+                                id = user.get(i).GetId();
+                                System.out.println(id);
                             }
                         }
-
                         f.setVisible(false);
-                        Interfclients interfclient = new Interfclients();
                         System.out.println(id);
-
-                        interfclient.run(cdao.GetClient(id));
+                        Clients clients = cdao.GetClient(id);
+                        System.out.println(cdao.GetClient(id).GetNom());
+                        System.out.println("Le client action est: " + clients.GetPrenom());
+                        j.setText(clients.GetPrenom());
+                        System.out.println(j.getText());
                     }
                 }
             }
         }
         );
-
+        f.setVisible(false);
+        System.out.println("Le client est: " + client.GetPrenom());
+        j.setText(client.GetPrenom());
+        System.out.println(j.getText());
+        return client;
     }
 
-    public void verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f, Employe e) {
+    public Employe verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f,JLabel j) {
 
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
+
                 if (emailverif(t1.getText()) == false || t1.getText().isEmpty() || p1.getText().isEmpty()) {
                     if (t1.getText().isEmpty()) {
                         new Fenetre().panneau("Le champ email est vide");
@@ -229,7 +274,6 @@ public class EmailVerif {
                         ArrayList<UsersEmpl> user = new ArrayList<>();
                         UsersEmplDAOImpl userdao = new UsersEmplDAOImpl();
                         EmployeDAOImpl edao = new EmployeDAOImpl();
-                        Employe employe= new Employe();
 
                         user = userdao.GetAllUserEmpl();
                         int id = 0;
@@ -237,21 +281,22 @@ public class EmailVerif {
                         for (int i = 0; i < user.size(); i++) {
                             System.out.println(t1.getText());
                             if (t1.getText().equals(user.get(id).GetMail())) {
-                                id = i;
+                                id = user.get(i).GetId();
+                                System.out.println(id);
+
                             }
                         }
                         f.setVisible(false);
-
-                        Interfemployes interfemploye = new Interfemployes();
                         System.out.println(id);
-                        employe=edao.GetEmploye(id);
+                        employe = edao.GetEmploye(id);
+                        j.setText(employe.GetPrenom());
                         System.out.println(employe.GetPrenom());
-                        interfemploye.run();
                     }
                 }
             }
         }
         );
-
+        f.setVisible(false);
+        return employe;
     }
 }

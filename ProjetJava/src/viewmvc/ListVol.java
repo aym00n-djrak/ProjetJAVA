@@ -1,5 +1,6 @@
 package viewmvc;
 
+import modelmvc.CreaVol;
 import DAO.*;
 import controlmvc.ReadImage;
 import java.awt.Color;

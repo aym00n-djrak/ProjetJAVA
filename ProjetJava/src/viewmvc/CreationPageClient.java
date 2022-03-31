@@ -85,7 +85,7 @@ public class CreationPageClient {
         f.setResizable(false);
         f.setVisible(true);
 
-        verif.verifcreaboutonmailusers(b1, t1, p1, f,c);
+        c=verif.verifcreaboutonmailusers(b1, t1, p1, f);
         b2.addActionListener(new Eventlist());
 
     }

@@ -36,7 +36,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
     JPanel pan = new JPanel();
     
     JScrollPane scrollPane = new JScrollPane(pan);
-    public int idvol, idvolsuppr;
+    public int idcity, idvol;
 
     JDesktopPane desktop1 = new JDesktopPane();
 
@@ -108,9 +108,9 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 pan.add(numvol);
                 pan.add(btnprix);
 
-                idvol = id;
-                idvolsuppr=j;
-            } else {
+                idcity = id;
+                idvol=j;
+            } else if(j==vol.size()) {
                 JOptionPane.showMessageDialog(null, "Aucun vol n'existe pour la destination: " + city.get(id).GetNom());
                 this.setVisible(false);
             }
@@ -136,17 +136,19 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         JButton btn = (JButton) e.getSource();
         Vol volrecord = new Vol();
         volrecord = voldao.GetVol(idvol);
+        System.out.println("L'id de la ville est : "+idcity);
         System.out.println("L'id du vol est :" + idvol);
+        System.out.println("Le nom de la ville est: "+ volrecord.GetDestination());
 
         Reservation reservation = new Reservation();
         reservation.SetNombreBillet(1);
         reservation.SetStatut("Non payé");
         reservation.SetConfirmation(0);
-        reservation.SetForeignKeyVol(idvolsuppr);
+        reservation.SetForeignKeyVol(idvol);
         reservation.SetForeignKeyClientMembre(c.GetNumReservation());
 
         reservdao.AddReservation(reservation);
-        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet,  vous allez être dirigez vers l'interface de paiement.");
+        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet,  vous allez être redirigez vers l'interface de paiement.");
         setVisible(false);
         //voldao.DeleteVol(idvol);
       //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");

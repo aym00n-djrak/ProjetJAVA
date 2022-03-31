@@ -222,9 +222,7 @@ public class CreerVol extends JInternalFrame implements ActionListener {
                 true);
 
         //Ajout au bureau 
-        desktop.add(creervol).setVisible(true);
-        
-      
+        desktop.add(creervol).setVisible(true);      
     }
 
     @Override

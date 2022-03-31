@@ -8,6 +8,7 @@ import DAO.Clients;
 import DAO.Employe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,40 +25,40 @@ import viewmvc.Réservation;
  *
  * @author remyj
  */
-
 public class Invite {
-    Clients client= new Clients();
-    Employe employe= new Employe();
-    
-    public void invitebuttonclient(JButton b, JTextField t1, JPasswordField p1, JFrame f, Clients c)
-    {
-         b.addActionListener(new ActionListener() {
+
+    Clients client = new Clients();
+    Employe employe = new Employe();
+
+    public Clients invitebuttonclient(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+        b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                client=c;
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
 
-                Interfclients interfclients= new Interfclients();
-                interfclients.run(c);
+                client.SetNom("Invite");
+                client.SetPrenom("Invite");
             }
 
         });
+        f.setVisible(false);
+        return client;
     }
-        public void invitebuttonemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f,Employe e)
-    {
-         b.addActionListener(new ActionListener() { 
+
+    public Employe invitebuttonemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+        b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
-
-                Interfemployes interfemploye= new Interfemployes();
-                interfemploye.run();
+                employe.SetNom("Invite");
+                employe.SetPrenom("Invite");
             }
 
         });
+        f.setVisible(false);
+        return employe;
     }
-    
-    
+
 }

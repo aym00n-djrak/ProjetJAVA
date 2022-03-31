@@ -92,7 +92,7 @@
                       <Component id="supp" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ajout" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -144,8 +144,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="agetxt1" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <Component id="prenomtxt" min="-2" pref="178" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="idtxt" min="-2" pref="180" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -155,6 +153,8 @@
                                   </Group>
                                   <Component id="nomtxt" min="-2" pref="178" max="-2" attributes="0"/>
                                   <Component id="agetxt" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="agetxt1" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="prenomtxt" min="-2" pref="178" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -181,10 +181,10 @@
                           <Component id="nomclient" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nomtxt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="prenom" min="-2" max="-2" attributes="0"/>
-                          <Component id="prenomtxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="agetxt1" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -194,7 +194,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="age1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="agetxt1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="prenomtxt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -282,7 +282,6 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
