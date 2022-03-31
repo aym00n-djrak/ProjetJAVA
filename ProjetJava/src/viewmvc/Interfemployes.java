@@ -8,6 +8,7 @@ import modelmvc.CreaEmployes;
 import modelmvc.CreaVol;
 import modelmvc.CreaCity;
 import DAO.Clients;
+import DAO.ClientsDAOImpl;
 import DAO.Employe;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -20,6 +21,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import modelmvc.findUsersId;
 
 /**
  *
@@ -248,8 +250,15 @@ public class Interfemployes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int id;
+        Clients client= new Clients();
+        ClientsDAOImpl cdao= new ClientsDAOImpl();
+        
         LoginEmploye login = new LoginEmploye();
         login.Login(employe, jLabel3);
+
+        
+        
         jLabel3.setText(employe.GetPrenom());
 
     }//GEN-LAST:event_jButton1ActionPerformed
