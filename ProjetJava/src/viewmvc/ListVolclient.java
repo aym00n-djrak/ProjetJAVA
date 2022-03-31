@@ -1,18 +1,18 @@
 package viewmvc;
 
-import modelmvc.CreaVol;
 import DAO.*;
 import controlmvc.ReadImage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -22,14 +22,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class ListVol extends JInternalFrame implements ActionListener {
+public class ListVolclient extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(150, 75);
     ArrayList<City> city = new ArrayList<City>();
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
     
-    Employe employe= new Employe();
+    Clients c= new Clients();
 
     JPanel pan = new JPanel();
 
@@ -38,25 +38,26 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
     JDesktopPane desktop1 = new JDesktopPane();
 
-    public ListVol() throws SQLException {
+    public ListVolclient() throws SQLException {
         super("Mes destinations");
 
         // this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 1000);
+        this.setSize(600, 2000);
         // init();
 
     }
 
-    public void init(JDesktopPane desktop, Employe e) throws SQLException {
+    public void init(JDesktopPane desktop, Clients client) throws SQLException {
 
-        employe= e;
+        c=client;
         
         desktop1 = desktop;
         city = citydao.GetAllCity();
 
         JButton[] buttons = new JButton[city.size()];
-        //pan.setLayout(new GridLayout(0, 1, 0, 3));
+        System.out.println("Chargement....");
+
         for (int i = 0; i < city.size(); i++) {
             JButton btn = new JButton(city.get(i).GetNom());
             JButton btnimg = new JButton();
@@ -73,6 +74,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
             btnprix.setBackground(Color.WHITE);
 
             buttons[i] = btn;
+            //Image img= im.getImage(i);
 
             btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(i)));
             btn.addActionListener(this);
@@ -82,17 +84,20 @@ public class ListVol extends JInternalFrame implements ActionListener {
             pan.add(btnprix);
 
         }
-        pan.setPreferredSize(new Dimension(600, 1000));
-        this.add(scrollPane);
+        System.out.println("Chargement terminé");
 
+        //on va mettre 400 pour la hauteur du panel comme ca le hauteur
+        //des boutons est grande que du panel
+        pan.setPreferredSize(new Dimension(600, 2000));
+
+        this.add(scrollPane);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         city = citydao.GetAllCity();
-        //CreerVol creavol = new CreerVol();
-        CreaVol creavol= new CreaVol();
+        CreerVol creavol = new CreerVol();
         VolDAOImpl vol = new VolDAOImpl();
         Vol volcity = new Vol();
         InfoVille info = new InfoVille();
@@ -107,11 +112,17 @@ public class ListVol extends JInternalFrame implements ActionListener {
             }
         }
         System.out.println(id);
-        volcity.SetId(id);
-        volcity.SetCompagnie("Air" + city.get(id).GetNom());
+        JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet, dirigé vous allez être dirigez vers la liste des billets disponibles.");
 
-        JOptionPane.showMessageDialog(null, "La destination : " + btn.getText() + " a bien été créée dirigez vous vers l'interface de création de vol !");
         setVisible(false);
-        
+        try {
+            ListVolDispo listedispo= new ListVolDispo();
+            listedispo = new ListVolDispo();
+            listedispo.init(desktop1, id, c);
+        } catch (SQLException ex) {
+            Logger.getLogger(ListVolclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
+
 }

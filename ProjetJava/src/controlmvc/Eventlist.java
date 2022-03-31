@@ -7,19 +7,17 @@ package controlmvc;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import viewmvc.CreationPage;
+import viewmvc.CreationPageClient;
 
 /**
  *
  * @author remyj
  */
-public class eventexit implements ActionListener {
+public class Eventlist implements ActionListener {
         
     @Override
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
     }
     
-    
-
 }

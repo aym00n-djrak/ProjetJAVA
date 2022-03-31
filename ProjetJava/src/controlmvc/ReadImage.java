@@ -18,7 +18,7 @@ import javax.swing.JLabel;
  *
  * @author remyj
  */
-public class ShowMyImage extends JFrame {
+public class ReadImage extends JFrame {
 
     java.sql.Connection con;
 

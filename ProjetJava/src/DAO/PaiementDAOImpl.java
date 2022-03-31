@@ -9,6 +9,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -63,8 +66,7 @@ public class PaiementDAOImpl implements PaiementDAO {
 
     }
 
-
-        @Override
+    @Override
     public Paiement GetPaiement(int idpaiement) {
         Paiement paiement = new Paiement();
         Connection dbConnection = null;
@@ -121,16 +123,16 @@ public class PaiementDAOImpl implements PaiementDAO {
             }
 
         }
-            return paiement;
+        return paiement;
     }
-    
+
     @Override
-    public void UpdatePaiement(Paiement paiement){
+    public void UpdatePaiement(Paiement paiement) {
         Connection dbConnection = null;
         Statement statement = null;
 
         String sql = "update paiement set idPaiement=" + paiement.GetId() + "," + "Montant='" + paiement.GetMontant()
-                + "'" + "," + "Date='" + paiement.GetDate()+"'"+",idRéservation="+paiement.GetForeignKeyReservation()+",idClients="+paiement.GetForeignKeyClient();
+                + "'" + "," + "Date='" + paiement.GetDate() + "'" + ",idRéservation=" + paiement.GetForeignKeyReservation() + ",idClients=" + paiement.GetForeignKeyClient();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -214,6 +216,75 @@ public class PaiementDAOImpl implements PaiementDAO {
             }
 
         }
+
+    }
+
+    @Override
+    public ArrayList<Paiement> GetAllPaiement() {
+        ArrayList<Paiement> p = new ArrayList<Paiement>();
+        Paiement paye = new Paiement();
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+        int compteur = 0;
+
+        String sql = "SELECT * FROM paiement ";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            resultat = stmt.executeQuery(sql);
+
+            System.out.println();
+
+            boolean encore = resultat.next();
+
+            while (encore) {
+                paye = new Paiement();
+
+                System.out.print("Id: " + resultat.getInt("idPaiement") + " Montant: " + resultat.getString("Montant") + " Date: " + resultat.getInt("idRéservation") + " idClient: " + resultat.getInt("idClients"));
+                System.out.println();
+                paye.SetId(resultat.getInt("idPaiement"));
+                paye.SetMontant(resultat.getInt("Montant"));
+                paye.SetDate(resultat.getString("Date"));
+                paye.SetForeignKeyReservationt(resultat.getInt("idRéservation"));
+                paye.SetForeignKeyClient(resultat.getInt("idClients"));
+                p.add(paye);
+                encore = resultat.next();
+                compteur++;
+            }
+            resultat.close();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return p;
 
     }
 

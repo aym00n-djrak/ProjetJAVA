@@ -4,8 +4,11 @@
  */
 package controlmvc;
 
+import DAO.Clients;
+import DAO.Employe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +16,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import modelmvc.Fenetre;
 import viewmvc.Interfclients;
+import viewmvc.Interfclients;
+import viewmvc.Interfemployes;
 import viewmvc.Menu;
 import viewmvc.Réservation;
 
@@ -20,22 +25,40 @@ import viewmvc.Réservation;
  *
  * @author remyj
  */
-
 public class Invite {
-    
-    public void invitebutton(JButton b, JTextField t1, JPasswordField p1, JFrame f)
-    {
-         b.addActionListener(new ActionListener() {
+
+    Clients client = new Clients();
+    Employe employe = new Employe();
+
+    public Clients invitebuttonclient(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+        b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
                 new Fenetre().panneau("Mode invité");
 
-                Interfclients interfclients= new Interfclients();
-                interfclients.run();
+                client.SetNom("Invite");
+                client.SetPrenom("Invite");
             }
 
         });
+        f.setVisible(false);
+        return client;
     }
-    
+
+    public Employe invitebuttonemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                f.setVisible(false);
+                new Fenetre().panneau("Mode invité");
+                employe.SetNom("Invite");
+                employe.SetPrenom("Invite");
+            }
+
+        });
+        f.setVisible(false);
+        return employe;
+    }
+
 }

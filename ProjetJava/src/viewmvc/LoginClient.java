@@ -1,5 +1,6 @@
 package viewmvc;
 
+import DAO.Clients;
 import controlmvc.*;
 import modelmvc.Fenetre;
 
@@ -14,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author remyj
  */
-public class Login {
+public class LoginClient {
 
     JFrame f;
     JLabel l1, l2;
@@ -23,20 +24,18 @@ public class Login {
     JButton b1, b2, b3, b4;
 
     EmailVerif verif = new EmailVerif();
-    Invite invite= new Invite();
-    NewMember newmember= new NewMember();
+    Invite invite = new Invite();
+    NewMember newmember = new NewMember();
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
-    CreationPage creationPage = new CreationPage();
+    CreationPageClient creationPage = new CreationPageClient();
 
-    public void Login() {
-        
-        
+    public void Login(Clients c, JLabel j) {
 
         f = new JFrame("Login");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
-        
+
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         l1 = new JLabel("Email");
@@ -69,7 +68,7 @@ public class Login {
 
         b4 = new JButton("Créer membre");
         b4.setForeground(Color.RED);
-        b4.setBounds(150, 170, 80, 40);
+        b4.setBounds(150, 170, 200, 40);
 
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
@@ -80,16 +79,17 @@ public class Login {
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
-        
-        verif.verifboutonmail(b1, t1, p1, f);
 
-        b2.addActionListener(new eventexit());
-        
-        invite.invitebutton(b3, t1, p1, f);
-        
-        newmember.newmemberbutton(b4,f);
+        c = verif.verifboutonmailclient(b1, t1, p1, f,j);
+
+        b2.addActionListener(new Eventlist());
+
+        c = invite.invitebuttonclient(b3, t1, p1, f);
+
+        newmember.newmemberbuttonclient(b4, f);
 
         f.setBounds(300, 300, 400, 300);
+
 
         f.setResizable(false);
         f.setVisible(true);

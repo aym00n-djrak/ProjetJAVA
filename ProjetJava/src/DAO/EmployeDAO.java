@@ -14,7 +14,7 @@ public interface EmployeDAO {
     
     public Employe GetEmploye(int idemploye);
     
-    public void UpdateEmploye(Employe employe);
+    public void UpdateEmploye(int id, Employe employe);
     
     public void DeleteEmploye(int idemploye);
     

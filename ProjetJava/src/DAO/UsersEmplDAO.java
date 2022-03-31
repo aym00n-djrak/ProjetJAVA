@@ -10,15 +10,15 @@ import java.util.ArrayList;
  *
  * @author remyj
  */
-public interface UsersDAO {
+public interface UsersEmplDAO {
     
-    public void AddUser(Users user);
+    public void AddUser(UsersEmpl user);
     
-    public Users GetUser(int iduser);
+    public UsersEmpl GetUser(int iduser);
     
-    public ArrayList<Users> GetAllUser();
+    public ArrayList<UsersEmpl> GetAllUserEmpl();
     
-    public void UpdateUser(Users user);
+    public void UpdateUser(UsersEmpl user);
     
     public void DeleteUser(int iduser);
 }

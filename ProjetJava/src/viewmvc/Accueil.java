@@ -61,8 +61,8 @@ public class Accueil {
 
         Thread.sleep(1000);
         f.setVisible(false);
-        Login login = new Login();
-        login.Login();
+        SwitchEmployeCLient switchec= new SwitchEmployeCLient();
+        switchec.run();
 
     }
 }

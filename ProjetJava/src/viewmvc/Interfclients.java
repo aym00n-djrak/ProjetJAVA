@@ -4,6 +4,10 @@
  */
 package viewmvc;
 
+import modelmvc.CreaClients;
+import DAO.Clients;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -13,7 +17,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
-import modelmvc.CreationDestination;
 
 /**
  *
@@ -24,6 +27,8 @@ public class Interfclients extends javax.swing.JFrame {
     /**
      * Creates new form Interfclients
      */
+    Clients client = new Clients();
+
     public Interfclients() {
         initComponents();
     }
@@ -39,13 +44,18 @@ public class Interfclients extends javax.swing.JFrame {
 
         desktopclients = new javax.swing.JDesktopPane();
         manage = new javax.swing.JButton();
-        vol = new javax.swing.JButton();
-        historique = new javax.swing.JButton();
-        destinations = new javax.swing.JButton();
         destinations1 = new javax.swing.JButton();
+        vol1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Espace clients");
+
+        desktopclients.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout desktopclientsLayout = new javax.swing.GroupLayout(desktopclients);
         desktopclients.setLayout(desktopclientsLayout);
@@ -55,7 +65,7 @@ public class Interfclients extends javax.swing.JFrame {
         );
         desktopclientsLayout.setVerticalGroup(
             desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         manage.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
@@ -64,29 +74,6 @@ public class Interfclients extends javax.swing.JFrame {
         manage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageActionPerformed(evt);
-            }
-        });
-
-        vol.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        vol.setForeground(new java.awt.Color(51, 204, 0));
-        vol.setText("Réserver un nouveau vol");
-        vol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                volActionPerformed(evt);
-            }
-        });
-
-        historique.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        historique.setForeground(new java.awt.Color(255, 153, 102));
-        historique.setText("Historique d'achats");
-
-        destinations.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        destinations.setForeground(new java.awt.Color(255, 153, 153));
-        destinations.setText("Créer Destination ");
-        destinations.setActionCommand("Créer Destination");
-        destinations.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creerdestinationsActionPerformed(evt);
             }
         });
 
@@ -99,94 +86,176 @@ public class Interfclients extends javax.swing.JFrame {
             }
         });
 
+        vol1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        vol1.setForeground(new java.awt.Color(51, 204, 0));
+        vol1.setText("Creer un client");
+        vol1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vol1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel1.setText("INTERFACE CLIENT");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Bonjour :");
+
+        System.out.println(client.GetPrenom());
+        String txt= "Not connected";;
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText(txt);
+
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setText("Connection");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setText("Déconnection");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(destinations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(destinations1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(historique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-                    .addComponent(vol, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(desktopclients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(desktopclients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(vol, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(historique, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(destinations, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(130, 130, 130))))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101)
+                .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(desktopclients)
+                .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("Espace client");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void volActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volActionPerformed
-        desktopclients.removeAll();
-        Ajoutervol v1 = new Ajoutervol();//fenetre interne
-        desktopclients.add(v1).setVisible(true);
-    }//GEN-LAST:event_volActionPerformed
-
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
-        Réservations r1 = new Réservations();//fenetre interne
-        desktopclients.add(r1).setVisible(true);
+
+        try {
+            ListVolReserve list = new ListVolReserve();
+            list.init(desktopclients, client);
+            //desktopclients.add(list).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Interfclients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
 
     }//GEN-LAST:event_manageActionPerformed
 
-    private void creerdestinationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creerdestinationsActionPerformed
-        CreationDestination creer= new CreationDestination();
-                    desktopclients.add(creer).setVisible(true);
-
-    }//GEN-LAST:event_creerdestinationsActionPerformed
-
     private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
+        desktopclients.removeAll();
+
         try {
             desktopclients.removeAll();
             //Destinations d1 = new Destinations();
-            ListVol d1 = new ListVol();
+            ListVolclient d1 = new ListVolclient();
+            d1.init(desktopclients, client);
 
             desktopclients.add(d1).setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Interfclients.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        System.out.println(client.GetNom());
     }//GEN-LAST:event_destinations1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void vol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vol1ActionPerformed
+        // TODO add your handling code here:
+        desktopclients.removeAll();
+        CreaClients creacl = new CreaClients();
+        creacl.run(client);
+        desktopclients.add(creacl).setVisible(true);
+        System.out.println("Le client est: "+client.GetPrenom());
+        jLabel3.setText(client.GetPrenom());
+        System.out.println(jLabel3.getText());
+
+
+    }//GEN-LAST:event_vol1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LoginClient login = new LoginClient();
+        login.Login(client,jLabel3);
+        System.out.println("Le client est: "+client.GetPrenom());
+        jLabel3.setText(client.GetPrenom());
+        System.out.println(jLabel3.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        SwitchEmployeCLient switchec = new SwitchEmployeCLient();
+        switchec.run();
+        setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void run() {
-
         new Interfclients().setVisible(true);
-
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopclients;
-    private javax.swing.JButton destinations;
     private javax.swing.JButton destinations1;
-    private javax.swing.JButton historique;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton manage;
-    private javax.swing.JButton vol;
+    private javax.swing.JButton vol1;
     // End of variables declaration//GEN-END:variables
 }

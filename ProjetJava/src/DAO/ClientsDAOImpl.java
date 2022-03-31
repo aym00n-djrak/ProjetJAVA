@@ -6,6 +6,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,12 +19,13 @@ public class ClientsDAOImpl implements ClientsDAO {
 
     java.sql.Connection con;
 
+    @Override
     public void AddClient(Clients client) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom()
-                + "'" + "," + "'" + client.GetPrenom() + "'" + ","  + client.GetAge()
+        String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom() + "'"
+                + ",'" + client.GetClasse() + "'," + "'" + client.GetPrenom() + "'" + "," + client.GetAge()
                 + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
 
         try {
@@ -82,22 +84,20 @@ public class ClientsDAOImpl implements ClientsDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat = stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
-                System.out.println();
-
-                client.SetId(resultat.getInt("idMembres"));
-                client.SetNom(resultat.getString("Nom"));
-                client.SetPrenom(resultat.getString("Prénom"));
-                client.SetClasse(resultat.getString("classe"));
-                client.SetAge(resultat.getInt("Age"));
-                client.SetNumReservation(resultat.getInt("Numéro de reservation"));
-                client.SetForeignKeyUser(resultat.getInt("users_idusers"));
+            System.out.println();
+            
+            while(resultat.next())
+            {
+            client.SetId(resultat.getInt("idMembres"));
+            client.SetNom(resultat.getString("Nom"));
+            client.SetPrenom(resultat.getString("Prénom"));
+            client.SetClasse(resultat.getString("classe"));
+            client.SetAge(resultat.getInt("Age"));
+            client.SetNumReservation(resultat.getInt("reservation"));
+            client.SetForeignKeyUser(resultat.getInt("users_idusers"));
             }
-
             resultat.close();
 
         } catch (SQLException e) {
@@ -125,16 +125,16 @@ public class ClientsDAOImpl implements ClientsDAO {
         }
         return client;
     }
-    
+
     @Override
-    public void UptdateClient(Clients client){
+    public void UptdateClient(int id, Clients client) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "update clients set idMembres=" + client.GetId() + "," + "Nom='" + client.GetNom()
-                + "'" + "," + "Prénom='" + client.GetPrenom() + "'" + "," + "classe='" + client.GetClasse() + "'" + "," + "Date de naissance=" + client.GetAge() + "," + "Numéro de reservation=" + client.GetNumReservation() + "," + "users=idusers="
-                + client.GetForeignKeyUser();
-
+        String sql= "UPDATE clients "
+                +" SET  Nom='"+client.GetNom()+"',Prénom='"+client.GetPrenom()+"',classe='"+client.GetClasse()+"',Age="+client.GetAge()+",reservation="+client.GetNumReservation()
+                +" WHERE idMembres="+id;
+        
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
@@ -145,7 +145,6 @@ public class ClientsDAOImpl implements ClientsDAO {
             java.sql.Statement stmt = con.createStatement();
 
             stmt.executeUpdate(sql);
-
             System.out.println("Record is updated into clients table for  client : " + client.GetId());
 
         } catch (SQLException e) {

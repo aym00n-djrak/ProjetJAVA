@@ -2,20 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package essaiemployes;
+package viewmvc;
+
+import modelmvc.CreaEmployes;
+import modelmvc.CreaVol;
+import modelmvc.CreaCity;
+import DAO.Clients;
+import DAO.Employe;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 /**
  *
  * @author Clarence
  */
-import DAO.*;
 public class Interfemployes extends javax.swing.JFrame {
 
     /**
-     * Creates new form Interfemployes
+     * Creates new form Interfclients
      */
+    public Employe employe = new Employe();
+
     public Interfemployes() {
+
         initComponents();
+
     }
 
     /**
@@ -27,114 +47,106 @@ public class Interfemployes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel = new javax.swing.JPanel();
-        emplois = new javax.swing.JToggleButton();
-        ajoutvol = new javax.swing.JToggleButton();
-        stat = new javax.swing.JToggleButton();
-        labelclients = new javax.swing.JLabel();
-        clientbutton = new javax.swing.JToggleButton();
-        employesb = new javax.swing.JDesktopPane();
-        labemploi = new javax.swing.JLabel();
-        addplanes = new javax.swing.JLabel();
-        statlabel = new javax.swing.JLabel();
-        label = new javax.swing.JLabel();
+        desktopclients = new javax.swing.JDesktopPane();
+        manage = new javax.swing.JButton();
+        destinations = new javax.swing.JButton();
+        destinations1 = new javax.swing.JButton();
+        vol1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Espace employés");
 
-        panel.setBackground(new java.awt.Color(255, 255, 255));
+        desktopclients.setBackground(new java.awt.Color(0, 0, 0));
 
-        emplois.setBackground(new java.awt.Color(255, 255, 255));
-        emplois.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
-        emplois.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emploisActionPerformed(evt);
-            }
-        });
-
-        ajoutvol.setBackground(new java.awt.Color(255, 255, 255));
-        ajoutvol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/minivion2.png"))); // NOI18N
-        ajoutvol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajoutvolActionPerformed(evt);
-            }
-        });
-
-        stat.setBackground(new java.awt.Color(255, 255, 255));
-        stat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/stat.png"))); // NOI18N
-        stat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statActionPerformed(evt);
-            }
-        });
-
-        labelclients.setBackground(new java.awt.Color(255, 255, 255));
-
-        clientbutton.setBackground(new java.awt.Color(255, 255, 255));
-        clientbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/essaiemployes/employes.png"))); // NOI18N
-        clientbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientbuttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(ajoutvol, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(stat, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addComponent(labelclients)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(clientbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        javax.swing.GroupLayout desktopclientsLayout = new javax.swing.GroupLayout(desktopclients);
+        desktopclients.setLayout(desktopclientsLayout);
+        desktopclientsLayout.setHorizontalGroup(
+            desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 824, Short.MAX_VALUE)
         );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelclients)
-                .addGap(132, 132, 132))
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(stat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(ajoutvol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emplois, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clientbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout employesbLayout = new javax.swing.GroupLayout(employesb);
-        employesb.setLayout(employesbLayout);
-        employesbLayout.setHorizontalGroup(
-            employesbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        desktopclientsLayout.setVerticalGroup(
+            desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        employesbLayout.setVerticalGroup(
-            employesbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-        );
 
-        labemploi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labemploi.setText("Utilisateur");
+        manage.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        manage.setForeground(new java.awt.Color(0, 204, 204));
+        manage.setText("Créer Vol");
+        manage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageActionPerformed(evt);
+            }
+        });
 
-        addplanes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        addplanes.setText("Gestion des vols");
+        destinations.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        destinations.setForeground(new java.awt.Color(255, 153, 153));
+        destinations.setText("Créer Destination ");
+        destinations.setActionCommand("Créer Destination");
+        destinations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creerdestinationsActionPerformed(evt);
+            }
+        });
 
-        statlabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        statlabel.setText("Statistiques");
+        destinations1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        destinations1.setForeground(new java.awt.Color(255, 153, 153));
+        destinations1.setText("Destinations ");
+        destinations1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinations1ActionPerformed(evt);
+            }
+        });
 
-        label.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        label.setText("Gestion des clients");
+        vol1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        vol1.setForeground(new java.awt.Color(51, 204, 0));
+        vol1.setText("Creer un employe");
+        vol1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vol1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel1.setText("INTERFACE EMPLOYE");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Bonjour : ");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        String txt="Not connected";
+        jLabel3.setText(txt);
+
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setText("Connection");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setText("Déconnection");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,105 +154,154 @@ public class Interfemployes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(employesb, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labemploi)
-                        .addGap(47, 47, 47)
-                        .addComponent(addplanes)
-                        .addGap(39, 39, 39)
-                        .addComponent(statlabel)
-                        .addGap(58, 58, 58)
-                        .addComponent(label)
-                        .addGap(0, 397, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(jButton3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(vol1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(destinations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(destinations1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)))
+                .addComponent(desktopclients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label)
-                    .addComponent(statlabel)
-                    .addComponent(addplanes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labemploi))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(employesb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 52, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(57, 57, 57)
+                .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(destinations, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton3)
+                .addGap(86, 86, 86)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(desktopclients)
+                .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleName("Espace client");
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emploisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emploisActionPerformed
-        employesb.removeAll();
-        Employes v1 = new Employes();//fenetre interne
-        employesb.add(v1).setVisible(true);
-    }//GEN-LAST:event_emploisActionPerformed
+    private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
+        desktopclients.removeAll();
+        CreaVol creavol = new CreaVol();
+        desktopclients.add(creavol).setVisible(true);
 
-    private void ajoutvolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutvolActionPerformed
-       /* employesb.removeAll();
-        Ajoutervol a1 = new Ajoutervol();
-        employesb.add(a1).setVisible(true);*/
-    }//GEN-LAST:event_ajoutvolActionPerformed
 
-    private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
-     
-    }//GEN-LAST:event_statActionPerformed
+    }//GEN-LAST:event_manageActionPerformed
 
-    private void clientbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientbuttonActionPerformed
-        employesb.removeAll();
-        Clients c1 = new Clients();
-        employesb.add(c1).setVisible(true);
-    }//GEN-LAST:event_clientbuttonActionPerformed
+    private void creerdestinationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creerdestinationsActionPerformed
+        desktopclients.removeAll();
+        CreaCity creacity = new CreaCity();
+        desktopclients.add(creacity).setVisible(true);
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    }//GEN-LAST:event_creerdestinationsActionPerformed
+
+    private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
+        // TODO add your handling code here:
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfemployes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfemployes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfemployes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfemployes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+            desktopclients.removeAll();
+            //Destinations d1 = new Destinations();
+            ListVol d1 = new ListVol();
+            d1.init(desktopclients, employe);
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfemployes().setVisible(true);
-            }
-        });
+            desktopclients.add(d1).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Interfemployes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_destinations1ActionPerformed
+
+    private void vol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vol1ActionPerformed
+        // TODO add your handling code here:
+        desktopclients.removeAll();
+        CreaEmployes creaempl = new CreaEmployes();
+        creaempl.run();
+        desktopclients.add(creaempl).setVisible(true);
+
+    }//GEN-LAST:event_vol1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        LoginEmploye login = new LoginEmploye();
+        login.Login(employe, jLabel3);
+        jLabel3.setText(employe.GetPrenom());
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        SwitchEmployeCLient switchec = new SwitchEmployeCLient();
+        switchec.run();
+        setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ListVolReserve r;
+        try {
+            r = new ListVolReserve();
+            desktopclients.add(r).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Interfemployes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void run() {
+        new Interfemployes().setVisible(true);
+
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addplanes;
-    private javax.swing.JToggleButton ajoutvol;
-    private javax.swing.JToggleButton clientbutton;
-    private javax.swing.JToggleButton emplois;
-    private javax.swing.JDesktopPane employesb;
-    private javax.swing.JLabel label;
-    private javax.swing.JLabel labelclients;
-    private javax.swing.JLabel labemploi;
-    private javax.swing.JPanel panel;
-    private javax.swing.JToggleButton stat;
-    private javax.swing.JLabel statlabel;
+    private javax.swing.JDesktopPane desktopclients;
+    private javax.swing.JButton destinations;
+    private javax.swing.JButton destinations1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton manage;
+    private javax.swing.JButton vol1;
     // End of variables declaration//GEN-END:variables
 }
