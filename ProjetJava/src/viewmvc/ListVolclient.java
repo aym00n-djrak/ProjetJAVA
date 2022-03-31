@@ -118,6 +118,7 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
         try {
             ListVolDispo listedispo= new ListVolDispo();
             listedispo = new ListVolDispo();
+            System.out.println("Le client est :"+ c.GetPrenom());
             listedispo.init(desktop1, id, c);
         } catch (SQLException ex) {
             Logger.getLogger(ListVolclient.class.getName()).log(Level.SEVERE, null, ex);

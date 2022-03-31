@@ -8,6 +8,7 @@ import modelmvc.CreaEmployes;
 import modelmvc.CreaVol;
 import modelmvc.CreaCity;
 import DAO.Clients;
+import DAO.ClientsDAOImpl;
 import DAO.Employe;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -20,6 +21,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import modelmvc.findUsersId;
 
 /**
  *
@@ -57,7 +59,6 @@ public class Interfemployes extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Espace employés");
@@ -141,13 +142,6 @@ public class Interfemployes extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,10 +157,7 @@ public class Interfemployes extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jButton3)))
+                                .addComponent(jButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -202,9 +193,7 @@ public class Interfemployes extends javax.swing.JFrame {
                 .addComponent(destinations, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton3)
-                .addGap(86, 86, 86)
+                .addGap(141, 141, 141)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -261,8 +250,15 @@ public class Interfemployes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int id;
+        Clients client= new Clients();
+        ClientsDAOImpl cdao= new ClientsDAOImpl();
+        
         LoginEmploye login = new LoginEmploye();
         login.Login(employe, jLabel3);
+
+        
+        
         jLabel3.setText(employe.GetPrenom());
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -273,17 +269,6 @@ public class Interfemployes extends javax.swing.JFrame {
         switchec.run();
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        ListVolReserve r;
-        try {
-            r = new ListVolReserve();
-            desktopclients.add(r).setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(Interfemployes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void run() {
         new Interfemployes().setVisible(true);
@@ -297,7 +282,6 @@ public class Interfemployes extends javax.swing.JFrame {
     private javax.swing.JButton destinations1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

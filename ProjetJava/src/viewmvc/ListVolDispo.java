@@ -26,15 +26,18 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(200, 75);
     ArrayList<City> city = new ArrayList<City>();
+    
+    ArrayList<Reservation> reservationliste = new ArrayList<>();
+    
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
     ArrayList<Vol> vol = new ArrayList<>();
     VolDAOImpl voldao = new VolDAOImpl();
-    
-    Clients c= new Clients();
-    
+
+    Clients c = new Clients();
+
     JPanel pan = new JPanel();
-    
+
     JScrollPane scrollPane = new JScrollPane(pan);
     public int idcity, idvol;
 
@@ -51,9 +54,9 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
     }
 
     public void init(JDesktopPane desktop, int id, Clients client) throws SQLException {
-        
-        c=client;
-        
+
+        c = client;
+        System.out.println("Le client est : "+c.GetPrenom());
         desktop1 = desktop;
         city = citydao.GetAllCity();
 
@@ -109,8 +112,8 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 pan.add(btnprix);
 
                 idcity = id;
-                idvol=j;
-            } else if(j==vol.size()) {
+                idvol = vol.get(j).GetId();
+            } else if (j == vol.size()) {
                 JOptionPane.showMessageDialog(null, "Aucun vol n'existe pour la destination: " + city.get(id).GetNom());
                 this.setVisible(false);
             }
@@ -118,8 +121,6 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         }
         System.out.println("Chargement terminé !");
 
-        //on va mettre 400 pour la hauteur du panel comme ca le hauteur
-        //des boutons est grande que du panel
         pan.setPreferredSize(new Dimension(600, 2000));
 
         this.add(scrollPane);
@@ -129,16 +130,18 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        int idreserv;
         JOptionPane.showMessageDialog(null, "Enregistrement du billet...");
         ReservationDAOImpl reservdao = new ReservationDAOImpl();
 
+        Reservation r = new Reservation();
         JButton btn = (JButton) e.getSource();
         Vol volrecord = new Vol();
         volrecord = voldao.GetVol(idvol);
-        System.out.println("L'id de la ville est : "+idcity);
+        System.out.println("L'id de la ville est : " + idcity);
+
         System.out.println("L'id du vol est :" + idvol);
-        System.out.println("Le nom de la ville est: "+ volrecord.GetDestination());
+        System.out.println("Le nom de la ville est: " + volrecord.GetDestination());
 
         Reservation reservation = new Reservation();
         reservation.SetNombreBillet(1);
@@ -146,12 +149,46 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         reservation.SetConfirmation(0);
         reservation.SetForeignKeyVol(idvol);
         reservation.SetForeignKeyClientMembre(c.GetNumReservation());
+        
+        System.out.println("l'id reserv membre est : "+reservation.GetForeignKeyClientMembre());
 
         reservdao.AddReservation(reservation);
+
         JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet,  vous allez être redirigez vers l'interface de paiement.");
+        
+        reservationliste = reservdao.GetAllReservation();
+
+        for (int i = 0; i < reservationliste.size(); i++) {
+            if (reservationliste.get(i).GetForeignKeyClientMembre() == c.GetNumReservation()) {
+                r = reservdao.GetReservation(reservationliste.get(i).GetId());
+            }
+        }
+        
+        
+        System.out.println("L'id de la liste est : "+r.GetId());
         setVisible(false);
+        Paiementaffichage paiement = new Paiementaffichage();
+
+        Paiement paye = new Paiement();
+        PaiementDAOImpl pdao = new PaiementDAOImpl();
+
+        paye.SetMontant(city.get(idcity).GetPrix());
+        paye.SetDate(volrecord.GetDateDepart());
+        paye.SetForeignKeyReservationt(r.GetId());
+        paye.SetForeignKeyClient(c.GetId());
+        
+        System.out.println("L'id Client est: "+c.GetId());
+        
+        System.out.println(paye.GetMontant());
+        System.out.println(paye.GetDate());
+        System.out.println(paye.GetForeignKeyReservation());
+        System.out.println(paye.GetForeignKeyClient());
+
+        pdao.AddPaiement(paye);
+
+        desktop1.add(paiement).setVisible(true);
         //voldao.DeleteVol(idvol);
-      //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");
+        //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");
     }
 
 }

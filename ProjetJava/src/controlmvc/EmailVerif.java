@@ -50,7 +50,7 @@ public class EmailVerif {
         return verif;
     }
 
-    public Clients verifcreaboutonmailusers(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
+    public Clients verifcreaboutonmailusers(JButton b,JTextField t0, JTextField t1, JPasswordField p1, JFrame f) {
         {
 
             Identifiants enregistrement = new Identifiants();
@@ -64,6 +64,7 @@ public class EmailVerif {
                 public void actionPerformed(ActionEvent e) {
 
                     if (emailverif(t1.getText()) == true) {
+                        user.SetId(Integer.parseInt(t0.getText()));
                         user.SetMail(t1.getText());
                         user.SetPassword(p1.getText());
                         userdao.AddUser(user);

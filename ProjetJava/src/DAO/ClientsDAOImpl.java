@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -87,16 +88,15 @@ public class ClientsDAOImpl implements ClientsDAO {
             resultat = stmt.executeQuery(sql);
 
             System.out.println();
-            
-            while(resultat.next())
-            {
-            client.SetId(resultat.getInt("idMembres"));
-            client.SetNom(resultat.getString("Nom"));
-            client.SetPrenom(resultat.getString("Prénom"));
-            client.SetClasse(resultat.getString("classe"));
-            client.SetAge(resultat.getInt("Age"));
-            client.SetNumReservation(resultat.getInt("reservation"));
-            client.SetForeignKeyUser(resultat.getInt("users_idusers"));
+
+            while (resultat.next()) {
+                client.SetId(resultat.getInt("idMembres"));
+                client.SetNom(resultat.getString("Nom"));
+                client.SetPrenom(resultat.getString("Prénom"));
+                client.SetClasse(resultat.getString("classe"));
+                client.SetAge(resultat.getInt("Age"));
+                client.SetNumReservation(resultat.getInt("reservation"));
+                client.SetForeignKeyUser(resultat.getInt("users_idusers"));
             }
             resultat.close();
 
@@ -131,10 +131,10 @@ public class ClientsDAOImpl implements ClientsDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql= "UPDATE clients "
-                +" SET  Nom='"+client.GetNom()+"',Prénom='"+client.GetPrenom()+"',classe='"+client.GetClasse()+"',Age="+client.GetAge()+",reservation="+client.GetNumReservation()
-                +" WHERE idMembres="+id;
-        
+        String sql = "UPDATE clients "
+                + " SET  Nom='" + client.GetNom() + "',Prénom='" + client.GetPrenom() + "',classe='" + client.GetClasse() + "',Age=" + client.GetAge() + ",reservation=" + client.GetNumReservation()
+                + " WHERE idMembres=" + id;
+
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
@@ -219,4 +219,74 @@ public class ClientsDAOImpl implements ClientsDAO {
 
     }
 
+    @Override
+    public ArrayList<Clients> GetAllClient() {
+        ArrayList<Clients> c = new ArrayList<Clients>();
+        Clients client = new Clients();
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+        int compteur = 0;
+
+        String sql = "SELECT * FROM clients ";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            resultat = stmt.executeQuery(sql);
+
+            System.out.println();
+
+            boolean encore = resultat.next();
+
+            while (encore) {
+                client = new Clients();
+
+                System.out.print("Id: " + resultat.getInt("idMembres") + " nom: " + resultat.getString("Nom") + " Prenom: " + resultat.getString("Prénom") + " Classe: " + resultat.getString("classe") + " Age: " + resultat.getInt("Age") + " reservation: " + resultat.getInt("reservation") + " users_idusers :" + resultat.getInt("users_idusers"));
+                System.out.println();
+                client.SetId(resultat.getInt("idMembres"));
+                client.SetNom(resultat.getString("Nom"));
+                client.SetPrenom(resultat.getString("Prénom"));
+                client.SetClasse(resultat.getString("classe"));
+                client.SetAge(resultat.getInt("Age"));
+                client.SetNumReservation(resultat.getInt("reservation"));
+                client.SetForeignKeyUser(resultat.getInt("users_idusers"));
+
+                c.add(client);
+                encore = resultat.next();
+                compteur++;
+            }
+            resultat.close();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return c;
+    }
 }

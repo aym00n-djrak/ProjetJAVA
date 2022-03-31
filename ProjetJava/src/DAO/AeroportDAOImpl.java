@@ -84,11 +84,9 @@ public class AeroportDAOImpl implements AeroportDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat=stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
+            while (resultat.next()) {
                 System.out.print("Id: " + resultat.getInt("idAéroport") + " Name: " + resultat.getString("Name") + " Pays: " + resultat.getString("Pays"));
 
                 System.out.println();
@@ -168,7 +166,6 @@ public class AeroportDAOImpl implements AeroportDAO {
             }
 
         }
-
     }
 
     @Override

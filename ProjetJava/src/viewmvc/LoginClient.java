@@ -80,11 +80,11 @@ public class LoginClient {
         f.getContentPane().add(b3);
         f.getContentPane().add(b4);
 
-        c = verif.verifboutonmailclient(b1, t1, p1, f,j);
+        c=verif.verifboutonmailclient(b1, t1, p1, f,j);
 
         b2.addActionListener(new Eventlist());
 
-        c = invite.invitebuttonclient(b3, t1, p1, f);
+        c=invite.invitebuttonclient(b3, t1, p1, f);
 
         newmember.newmemberbuttonclient(b4, f);
 
