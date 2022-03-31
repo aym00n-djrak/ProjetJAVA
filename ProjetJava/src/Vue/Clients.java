@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package essaiemployes;
+package Vue;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -261,7 +261,7 @@ public class Clients extends javax.swing.JInternalFrame {
 
     private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed
    //Tester AddEmploye à la place
-        try{
+       /* try{
              String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
              con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
              String sql = "insert into clients(idMembres,Nom,Prénom) values (?,?,?)";
@@ -274,7 +274,7 @@ public class Clients extends javax.swing.JInternalFrame {
              JOptionPane.showMessageDialog(null,"Ajout effectué");
                     } catch(Exception e){
                           e.printStackTrace();
-                   }
+                   }*/
     }//GEN-LAST:event_ajoutActionPerformed
 
     private void suppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppActionPerformed
