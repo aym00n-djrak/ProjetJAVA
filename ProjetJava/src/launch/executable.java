@@ -22,11 +22,14 @@ import java.util.logging.Logger;
  *
  * @author remyj
  */
+
+
+
 public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
-        accueil.Accueil();
+        //accueil.Accueil();
 
         
         ArrayList<City> listcity= new ArrayList<>();
@@ -35,7 +38,10 @@ public class Executable {
  
         CityDAOImpl list= new CityDAOImpl();
 
-        Statistiques s = new Statistiques();
+
+Statistiques stat= new Statistiques();
+
+stat.initComponents();
         
 
         
