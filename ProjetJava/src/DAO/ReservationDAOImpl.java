@@ -23,7 +23,7 @@ public class ReservationDAOImpl implements ReservationDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into réservation values(NULL,"+ reservation.GetNombreBillet()
+        String sql = "insert into réservation values(NULL," + reservation.GetNombreBillet()
                 + "," + reservation.GetForeignKeyClientMembre() + "," + "'" + reservation.GetStatut() + "'" + "," + reservation.GetConfirmation() + "," + reservation.GetForeignKeyVol() + ")";
 
         try {
@@ -82,13 +82,9 @@ public class ReservationDAOImpl implements ReservationDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            resultat=stmt.executeQuery(sql);
+            resultat = stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
-                System.out.println();
-
+            while (resultat.next()) {
                 reservation.SetId(resultat.getInt("idRéservation"));
                 reservation.SetNombreBillet(resultat.getInt("Nombre de billet"));
                 reservation.SetForeignKeyClientMembre(resultat.getInt("Clients_idMembres"));

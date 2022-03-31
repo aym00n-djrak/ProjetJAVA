@@ -4,6 +4,8 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author remyj
@@ -13,6 +15,8 @@ public interface ClientsDAO {
     public void AddClient(Clients client);
     
     public Clients GetClient(int idclient);
+
+    public ArrayList<Clients> GetAllClient();
     
     public void UptdateClient(int id,Clients client);
     

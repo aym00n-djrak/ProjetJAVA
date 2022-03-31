@@ -6,6 +6,7 @@ package viewmvc;
 
 import modelmvc.CreaClients;
 import DAO.Clients;
+import DAO.ClientsDAOImpl;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -17,6 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import modelmvc.findUsersId;
 
 /**
  *
@@ -183,9 +185,14 @@ public class Interfclients extends javax.swing.JFrame {
 
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
-
+        int id=1;
+        ClientsDAOImpl cdao= new ClientsDAOImpl();
         try {
+            findUsersId findid=new findUsersId();
+            //id=findid.IdUser(jLabel3);
+            client=cdao.GetClient(id);
             ListVolReserve list = new ListVolReserve();
+            System.out.println(client.GetPrenom());
             list.init(desktopclients, client);
             //desktopclients.add(list).setVisible(true);
         } catch (SQLException ex) {

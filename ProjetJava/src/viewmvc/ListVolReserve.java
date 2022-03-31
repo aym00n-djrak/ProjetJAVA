@@ -72,15 +72,17 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
         for (int i = 0; i < paye.size(); i++) {
             
             //ON CHERCHE LES PAIEMENTS CORRESPONDANT AU CLIENT
-            if (c.GetId()== paye.get(i).GetForeignKeyClient()) {
+            if (c.GetId()== paye.get(i).GetId()) {
+                
+                System.out.println("le rang est : "+i);
 
                 //ON PREND LE NUMERO DE RESERVATION DE PAIEMENT CORRESPONDANT A LA RESERVATION
-                reserv = rdao.GetReservation(paye.get(i).GetForeignKeyReservation());
-
+               // reserv = rdao.GetReservation(paye.get(i).GetForeignKeyReservation());
+                reserv=rdao.GetReservation(11);
                 System.out.println("Id reservation paiement: " + paye.get(i).GetForeignKeyReservation());
                 System.out.println("Id reservation vol: " + reserv.GetForeignKeyVol());
                 
-                
+               
                 //ON ATTRIBUE A VOL LE NUMERO DE RESERVATION DU VOL LUI CORRESPONDANT
                 vol = voldao.GetVol(reserv.GetForeignKeyVol());
 
@@ -110,7 +112,7 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
                 pan.add(btnimg);
                 pan.add(date);
                 pan.add(prix);
-
+                
             } else {
                 System.out.println("Chargement terminé pas de paiement trouvé");
             }

@@ -714,8 +714,8 @@ public class CreaVol extends javax.swing.JInternalFrame {
 
     public void run() {
         new CreaVol().setVisible(true);
-
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backg;
     private javax.swing.JPanel backg1;

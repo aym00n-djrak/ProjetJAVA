@@ -30,7 +30,6 @@ public class Executable {
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
        accueil.Accueil();
-      ClientsDAOImpl cdao= new ClientsDAOImpl();
-      //System.out.println(cdao.GetClient(1).GetPrenom());
+
     }
 }
