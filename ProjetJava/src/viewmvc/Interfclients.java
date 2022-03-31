@@ -185,12 +185,13 @@ public class Interfclients extends javax.swing.JFrame {
 
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
-        int id=1;
-        ClientsDAOImpl cdao= new ClientsDAOImpl();
+        int id;
+        ClientsDAOImpl cdao = new ClientsDAOImpl();
         try {
-            findUsersId findid=new findUsersId();
-            //id=findid.IdUser(jLabel3);
-            client=cdao.GetClient(id);
+            findUsersId findid = new findUsersId();
+            id = findid.IdUser(jLabel3);
+            client = cdao.GetClient(id);
+            System.out.println("Le client est: " + client.GetPrenom());
             ListVolReserve list = new ListVolReserve();
             System.out.println(client.GetPrenom());
             list.init(desktopclients, client);
@@ -205,9 +206,14 @@ public class Interfclients extends javax.swing.JFrame {
     private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
         // TODO add your handling code here:       
         desktopclients.removeAll();
-
+        int id;
+        ClientsDAOImpl cdao = new ClientsDAOImpl();
         try {
             desktopclients.removeAll();
+            findUsersId findid = new findUsersId();
+            id = findid.IdUser(jLabel3);
+            client = cdao.GetClient(id);
+            System.out.println("Le client est: " + client.GetPrenom());
             //Destinations d1 = new Destinations();
             ListVolclient d1 = new ListVolclient();
             d1.init(desktopclients, client);
@@ -226,7 +232,7 @@ public class Interfclients extends javax.swing.JFrame {
         CreaClients creacl = new CreaClients();
         creacl.run(client);
         desktopclients.add(creacl).setVisible(true);
-        System.out.println("Le client est: "+client.GetPrenom());
+        System.out.println("Le client est: " + client.GetPrenom());
         jLabel3.setText(client.GetPrenom());
         System.out.println(jLabel3.getText());
 
@@ -236,8 +242,8 @@ public class Interfclients extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         LoginClient login = new LoginClient();
-        login.Login(client,jLabel3);
-        System.out.println("Le client est: "+client.GetPrenom());
+        login.Login(client, jLabel3);
+        System.out.println("Le client est: " + client.GetPrenom());
         jLabel3.setText(client.GetPrenom());
         System.out.println(jLabel3.getText());
     }//GEN-LAST:event_jButton1ActionPerformed

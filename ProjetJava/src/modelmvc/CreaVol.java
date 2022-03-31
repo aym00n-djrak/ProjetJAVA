@@ -581,6 +581,8 @@ public class CreaVol extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_depttxtActionPerformed
 
     private void executerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executerActionPerformed
+        System.out.println("Id: " + id);
+
         VolDAOImpl voldao = new VolDAOImpl();
         Vol vol = new Vol();
         vol.SetId(Integer.parseInt(idtxt.getText()));
@@ -596,7 +598,7 @@ public class CreaVol extends javax.swing.JInternalFrame {
         vol.SetHeureArrivee(compatxt4.getText());
         vol.SetNumeroVol(Integer.parseInt(surnametxt.getText()));
         vol.SetTypeAvion(depttxt.getText());
-
+        vol.SetForeignKeyCity(id);
         voldao.AddVol(vol);
         JOptionPane.showMessageDialog(null, "Vol bien ajoutée !");
         setVisible(false);
@@ -704,6 +706,7 @@ public class CreaVol extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         System.out.println("L'indice de la ville est: " + combocopy.getSelectedIndex());
         id = combocopy.getSelectedIndex();
+        System.out.println("Id: " + id);
 
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -715,7 +718,7 @@ public class CreaVol extends javax.swing.JInternalFrame {
     public void run() {
         new CreaVol().setVisible(true);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backg;
     private javax.swing.JPanel backg1;

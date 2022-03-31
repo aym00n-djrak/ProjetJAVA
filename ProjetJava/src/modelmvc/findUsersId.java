@@ -25,9 +25,9 @@ public class findUsersId {
         System.out.println("Le jlabel est intitulé: "+j.getText());
         for(int i=0;i<client.size();i++)
         {
-            if(client.get(i).GetPrenom().equals(j.getText()))
+            if(j.getText().equals(client.get(i).GetPrenom()))
             {
-                id=i;
+                id=client.get(i).GetId();
                 System.out.println("L'id trouvé est :"+id);
             }
         }

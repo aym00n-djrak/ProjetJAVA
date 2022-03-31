@@ -25,6 +25,7 @@ public class Accueil {
     public void Accueil() throws IOException, InterruptedException {
 
         f = new JFrame("Bienvenue !");
+        
         f.getContentPane().setLayout(null);
         //f.getContentPane().setBackground(Color.BLACK);
 
@@ -33,7 +34,7 @@ public class Accueil {
         img = new ImageIcon(url);
         img1 = new JLabel();
         img1.setIcon(img);
-        img1.setBounds(0, 0, f.getWidth(), f.getHeight());
+        img1.setBounds(0, 0, 1920, 1080);
 
         //LABEL
         l1 = new JLabel("Réservation ");
@@ -47,19 +48,19 @@ public class Accueil {
         l2.setForeground(Color.red);
 
         l3 = new JLabel(img);
-        l3.setBounds(0, 0, 1300, 1000);
+        l3.setBounds(0, 0, 1920, 1080);
 
         f.getContentPane().add(l1);
         f.getContentPane().add(l2);
         f.getContentPane().add(l3);
         f.getContentPane().add(img1);
 
-          f.setSize(1300,1000);
+        f.setSize(f.getWidth(),f.getHeight());
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         f.setVisible(true);
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         f.setVisible(false);
         SwitchEmployeCLient switchec= new SwitchEmployeCLient();
         switchec.run();

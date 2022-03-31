@@ -20,6 +20,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import modelmvc.findUsersId;
 
 /**
  *
@@ -29,7 +31,17 @@ public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {
         Accueil accueil = new Accueil();
-       accueil.Accueil();
+        accueil.Accueil();
 
+       ReservationDAOImpl r= new ReservationDAOImpl();
+       ArrayList<Reservation> rl= new ArrayList<>();
+       
+       //rl=r.GetAllReservation();
+    
+       findUsersId id= new findUsersId();
+       
+       JLabel jlabel= new JLabel("VIP");
+       
+       //id.IdUser(jlabel);
     }
 }
