@@ -1,6 +1,7 @@
 package viewmvc;
 
 import DAO.*;
+import controlmvc.MailSender;
 import controlmvc.ReadImage;
 import controlmvc.ReducPaiement;
 import java.awt.Color;
@@ -35,10 +36,10 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
     JInternalFrame creavol = new JInternalFrame();
     ArrayList<Vol> vol = new ArrayList<>();
     VolDAOImpl voldao = new VolDAOImpl();
-    
+
     int reduction;
     float promo;
-    
+
     Clients c = new Clients();
     JPanel pan = new JPanel();
 
@@ -69,8 +70,8 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         JButton[] buttons = new JButton[city.size()];
 
         System.out.println("La ville choisie est :" + city.get(id).GetNom());
-        reduction  =reduc.ReducPaiement(c, city.get(id));
-        promo=(1-((float)reduction/(float)(city.get(id).GetPrix())))*100;
+        reduction = reduc.ReducPaiement(c, city.get(id));
+        promo = (1 - ((float) reduction / (float) (city.get(id).GetPrix()))) * 100;
         System.out.println("Chargement....");
 
         for (int j = 0; j < vol.size(); j++) {
@@ -107,7 +108,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 btnprix.setBackground(Color.WHITE);
                 btnpromo.setBackground(Color.WHITE);
 
-                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(j).GetId())));
+                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(id).GetId())));
                 btn.addActionListener(this);
 
                 pan.add(btn);
@@ -197,6 +198,11 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         pdao.AddPaiement(paye);
 
         desktop1.add(paiement).setVisible(true);
+        
+        UsersDAOImpl udao= new UsersDAOImpl();
+        Users user= new Users();
+        user=udao.GetUser(c.GetId());
+        System.out.println(new MailSender().sendMail("marvel.history.fr@gmail.com", user.GetMail(), "Confirmation réservation vol n° " + volrecord.GetNumeroVol(), "On vous remercie pour la reservation de vol n° " + volrecord.GetNumeroVol() + " en destination de " + volrecord.GetDestination() + " au prix de " + paye.GetMontant() + "€\n Cordialement, l'administration de l'Aeroport de Monaco"));
         //voldao.DeleteVol(idvol);
         //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");
     }
