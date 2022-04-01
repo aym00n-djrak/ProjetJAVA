@@ -142,12 +142,13 @@ public class EmployeDAOImpl implements EmployeDAO{
     }
     
     @Override
-    public void UpdateEmploye(Employe employe){
+    public void UpdateEmploye(int id,Employe employe){
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "update employe set idEmployes=" + employe.GetId() + "," + "Nom='" + employe.GetNom()
-                + "'" + "," + "Prenom='" + employe.GetPrenom() + "'" + "," + "Departement='" + employe.GetDepartement() + "'" + "," + "Compagnie='" + employe.GetCompagnie()+ "'" + "," + "vol_idVol="+ employe.GetForeignKey();
+        String sql = "update employe set Nom='" + employe.GetNom()
+                + "'" + "," + "Prenom='" + employe.GetPrenom() + "'" + "," + "Departement='" + employe.GetDepartement() + "'" + "," + "Compagnie='" + employe.GetCompagnie()+ "'" 
+                + " where idEmployes="+ employe.GetId();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";

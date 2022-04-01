@@ -6,9 +6,11 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,13 +20,14 @@ public class ClientsDAOImpl implements ClientsDAO {
 
     java.sql.Connection con;
 
+    @Override
     public void AddClient(Clients client) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom()
-                + "'" + "," + "'" + client.GetPrenom() + "'" + "," + "'" + client.GetDateNaissance()
-                + "'" + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
+        String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom() + "'"
+                + ",'" + client.GetClasse() + "'," + "'" + client.GetPrenom() + "'" + "," + client.GetAge()
+                + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -82,22 +85,19 @@ public class ClientsDAOImpl implements ClientsDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat = stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
+            System.out.println();
 
-            while (encore) {
-                System.out.println();
-
+            while (resultat.next()) {
                 client.SetId(resultat.getInt("idMembres"));
                 client.SetNom(resultat.getString("Nom"));
                 client.SetPrenom(resultat.getString("Prénom"));
                 client.SetClasse(resultat.getString("classe"));
-                client.SetDateNaissance(resultat.getString("Date de naissance"));
-                client.SetNumReservation(resultat.getInt("Numéro de reservation"));
+                client.SetAge(resultat.getInt("Age"));
+                client.SetNumReservation(resultat.getInt("reservation"));
                 client.SetForeignKeyUser(resultat.getInt("users_idusers"));
             }
-
             resultat.close();
 
         } catch (SQLException e) {
@@ -125,15 +125,15 @@ public class ClientsDAOImpl implements ClientsDAO {
         }
         return client;
     }
-    
+
     @Override
-    public void UptdateClient(Clients client){
+    public void UptdateClient(int id, Clients client) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "update clients set idMembres=" + client.GetId() + "," + "Nom='" + client.GetNom()
-                + "'" + "," + "Prénom='" + client.GetPrenom() + "'" + "," + "classe='" + client.GetClasse() + "'" + "," + "Date de naissance='" + client.GetDateNaissance() + "'" + "," + "Numéro de reservation=" + client.GetNumReservation() + "," + "users=idusers="
-                + client.GetForeignKeyUser();
+        String sql = "UPDATE clients "
+                + " SET  Nom='" + client.GetNom() + "',Prénom='" + client.GetPrenom() + "',classe='" + client.GetClasse() + "',Age=" + client.GetAge() + ",reservation=" + client.GetNumReservation()
+                + " WHERE idMembres=" + id;
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -145,7 +145,6 @@ public class ClientsDAOImpl implements ClientsDAO {
             java.sql.Statement stmt = con.createStatement();
 
             stmt.executeUpdate(sql);
-
             System.out.println("Record is updated into clients table for  client : " + client.GetId());
 
         } catch (SQLException e) {
@@ -220,4 +219,74 @@ public class ClientsDAOImpl implements ClientsDAO {
 
     }
 
+    @Override
+    public ArrayList<Clients> GetAllClient() {
+        ArrayList<Clients> c = new ArrayList<Clients>();
+        Clients client = new Clients();
+        Connection dbConnection = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+        int compteur = 0;
+
+        String sql = "SELECT * FROM clients ";
+
+        try {
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            // con = DriverManager.getConnection(DBurl, "root", "");
+            con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
+
+            modelmvc.Connection.affiche("DataBase connected !");
+
+            java.sql.Statement stmt = con.createStatement();
+
+            resultat = stmt.executeQuery(sql);
+
+            System.out.println();
+
+            boolean encore = resultat.next();
+
+            while (encore) {
+                client = new Clients();
+
+                System.out.print("Id: " + resultat.getInt("idMembres") + " nom: " + resultat.getString("Nom") + " Prenom: " + resultat.getString("Prénom") + " Classe: " + resultat.getString("classe") + " Age: " + resultat.getInt("Age") + " reservation: " + resultat.getInt("reservation") + " users_idusers :" + resultat.getInt("users_idusers"));
+                System.out.println();
+                client.SetId(resultat.getInt("idMembres"));
+                client.SetNom(resultat.getString("Nom"));
+                client.SetPrenom(resultat.getString("Prénom"));
+                client.SetClasse(resultat.getString("classe"));
+                client.SetAge(resultat.getInt("Age"));
+                client.SetNumReservation(resultat.getInt("reservation"));
+                client.SetForeignKeyUser(resultat.getInt("users_idusers"));
+
+                c.add(client);
+                encore = resultat.next();
+                compteur++;
+            }
+            resultat.close();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dbConnection != null) {
+                try {
+                    dbConnection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        return c;
+    }
 }

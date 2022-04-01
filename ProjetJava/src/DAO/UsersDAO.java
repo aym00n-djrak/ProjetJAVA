@@ -4,6 +4,8 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author remyj
@@ -13,6 +15,8 @@ public interface UsersDAO {
     public void AddUser(Users user);
     
     public Users GetUser(int iduser);
+    
+    public ArrayList<Users> GetAllUser();
     
     public void UpdateUser(Users user);
     

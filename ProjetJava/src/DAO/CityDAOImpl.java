@@ -4,8 +4,14 @@
  */
 package DAO;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,7 +29,7 @@ public class CityDAOImpl implements CityDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "insert into city values( NULL ," + "'" + city.GetNom()
+        String sql = "insert into city values("+city.GetId()+"," + "'" + city.GetNom()
                 + "'" + "," + "'" + city.GetPays() + "'" + "," + city.GetPrix() + ")";
 
         try {
@@ -121,12 +127,13 @@ public class CityDAOImpl implements CityDAO {
         return city;
     }
 
-    public void UpdateCity(City city) {
+    public void UpdateCity(int id,City city) {
         Connection dbConnection = null;
         Statement statement = null;
 
         String sql = "update city set idCity=" + city.GetId() + "," + "city_name='" + city.GetNom()
-                + "'" + "," + "Pays='" + city.GetPays() + "'" + "," + "Tarifs=" + city.GetPrix() + ")";
+                + "'" + "," + "Pays='" + city.GetPays() + "'" + "," + "Tarifs=" + city.GetPrix()
+                +"where idCity="+city.GetId();
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -235,7 +242,6 @@ public class CityDAOImpl implements CityDAO {
 
             resultat = stmt.executeQuery(sql);
 
-//            System.out.print("Id: " + resultat.getInt("idCity") + " Name: " + resultat.getString("city_name") + " Pays: " + resultat.getString("Pays") + "Tarif: " + resultat.getInt("Tarifs"));
             System.out.println();
 
             boolean encore = resultat.next();
@@ -281,5 +287,5 @@ public class CityDAOImpl implements CityDAO {
         }
         return c;
     }
-
 }
+  

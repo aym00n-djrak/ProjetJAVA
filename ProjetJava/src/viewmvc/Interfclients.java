@@ -6,6 +6,7 @@ package viewmvc;
 
 import modelmvc.CreaClients;
 import DAO.Clients;
+import DAO.ClientsDAOImpl;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -17,6 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import modelmvc.findUsersId;
 
 /**
  *
@@ -43,59 +45,68 @@ public class Interfclients extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopclients = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        vol1 = new javax.swing.JButton();
         manage = new javax.swing.JButton();
         destinations1 = new javax.swing.JButton();
-        vol1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        bck = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Espace clients");
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        desktopclients.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout desktopclientsLayout = new javax.swing.GroupLayout(desktopclients);
         desktopclients.setLayout(desktopclientsLayout);
         desktopclientsLayout.setHorizontalGroup(
             desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 888, Short.MAX_VALUE)
+            .addGap(0, 1468, Short.MAX_VALUE)
         );
         desktopclientsLayout.setVerticalGroup(
             desktopclientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        manage.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        manage.setForeground(new java.awt.Color(0, 204, 204));
-        manage.setText("Gérer vos réservations");
-        manage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        destinations1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        destinations1.setForeground(new java.awt.Color(255, 153, 153));
-        destinations1.setText("Destinations ");
-        destinations1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destinations1ActionPerformed(evt);
-            }
-        });
-
+        vol1.setBackground(new java.awt.Color(204, 255, 204));
         vol1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        vol1.setForeground(new java.awt.Color(51, 204, 0));
-        vol1.setText("Creer un client");
+        vol1.setText("Créer un compte client");
+        vol1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 0, 0)));
         vol1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vol1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        jLabel1.setText("INTERFACE CLIENT");
+        manage.setBackground(new java.awt.Color(204, 255, 255));
+        manage.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        manage.setText("Gérer vos réservations");
+        manage.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 0, 0)));
+        manage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageActionPerformed(evt);
+            }
+        });
+
+        destinations1.setBackground(new java.awt.Color(255, 204, 153));
+        destinations1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        destinations1.setText("Destinations ");
+        destinations1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 0, 0)));
+        destinations1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinations1ActionPerformed(evt);
+            }
+        });
+
+        bck.setBackground(new java.awt.Color(204, 204, 255));
+        bck.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Bonjour :");
@@ -105,71 +116,112 @@ public class Interfclients extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText(txt);
 
-        jButton1.setBackground(new java.awt.Color(204, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Connection");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout bckLayout = new javax.swing.GroupLayout(bck);
+        bck.setLayout(bckLayout);
+        bckLayout.setHorizontalGroup(
+            bckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bckLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        bckLayout.setVerticalGroup(
+            bckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bckLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(bckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton2.setText("Déconnection");
+        jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton1.setText("Connection");
+        jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel1.setText("INTERFACE CLIENT");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jButton2))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(bck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desktopclients))
+                .addComponent(desktopclients)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101)
-                .addComponent(vol1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(manage, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(destinations1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addComponent(desktopclients)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(desktopclients))
+                .addGap(192, 192, 192)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Espace client");
@@ -180,9 +232,15 @@ public class Interfclients extends javax.swing.JFrame {
 
     private void manageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageActionPerformed
         desktopclients.removeAll();
-
+        int id;
+        ClientsDAOImpl cdao = new ClientsDAOImpl();
         try {
+            findUsersId findid = new findUsersId();
+            id = findid.IdUser(jLabel3);
+            client = cdao.GetClient(id);
+            System.out.println("Le client est: " + client.GetPrenom());
             ListVolReserve list = new ListVolReserve();
+            System.out.println(client.GetPrenom());
             list.init(desktopclients, client);
             //desktopclients.add(list).setVisible(true);
         } catch (SQLException ex) {
@@ -195,9 +253,14 @@ public class Interfclients extends javax.swing.JFrame {
     private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
         // TODO add your handling code here:       
         desktopclients.removeAll();
-
+        int id;
+        ClientsDAOImpl cdao = new ClientsDAOImpl();
         try {
             desktopclients.removeAll();
+            findUsersId findid = new findUsersId();
+            id = findid.IdUser(jLabel3);
+            client = cdao.GetClient(id);
+            System.out.println("Le client est: " + client.GetPrenom());
             //Destinations d1 = new Destinations();
             ListVolclient d1 = new ListVolclient();
             d1.init(desktopclients, client);
@@ -216,7 +279,7 @@ public class Interfclients extends javax.swing.JFrame {
         CreaClients creacl = new CreaClients();
         creacl.run(client);
         desktopclients.add(creacl).setVisible(true);
-        System.out.println("Le client est: "+client.GetPrenom());
+        System.out.println("Le client est: " + client.GetPrenom());
         jLabel3.setText(client.GetPrenom());
         System.out.println(jLabel3.getText());
 
@@ -226,8 +289,8 @@ public class Interfclients extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         LoginClient login = new LoginClient();
-        login.Login(client,jLabel3);
-        System.out.println("Le client est: "+client.GetPrenom());
+        login.Login(client, jLabel3);
+        System.out.println("Le client est: " + client.GetPrenom());
         jLabel3.setText(client.GetPrenom());
         System.out.println(jLabel3.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -245,6 +308,7 @@ public class Interfclients extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bck;
     private javax.swing.JDesktopPane desktopclients;
     private javax.swing.JButton destinations1;
     private javax.swing.JButton jButton1;
@@ -252,6 +316,7 @@ public class Interfclients extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton manage;
     private javax.swing.JButton vol1;
     // End of variables declaration//GEN-END:variables

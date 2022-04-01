@@ -13,7 +13,7 @@ public class Clients {
     private int idmembre;
     private String nom;
     private String prenom;
-    private String datenaissance;
+    private int age;
     private String classe;
     private int numreservation;
 
@@ -53,12 +53,12 @@ public class Clients {
         classe=c;
     }
     
-    public String GetDateNaissance() {
-        return datenaissance;
+    public int GetAge() {
+        return age;
     }
 
-    public void SetDateNaissance(String date) {
-        datenaissance=date;
+    public void SetAge(int a) {
+        age=a;
     }
 
     public int GetNumReservation() {

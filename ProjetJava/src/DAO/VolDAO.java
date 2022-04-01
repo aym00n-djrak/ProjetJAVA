@@ -4,18 +4,22 @@
  */
 package DAO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author remyj
  */
 public interface VolDAO {
-    
+
     public void AddVol(Vol vol);
-    
+
     public Vol GetVol(int idvol);
-    
-    public void UpdateVol(Vol vol);
-    
+
+    public ArrayList<Vol> GetAllVol();
+
+    public void UpdateVol(int id, Vol vol);
+
     public void DeleteVol(int idvol);
-    
+
 }

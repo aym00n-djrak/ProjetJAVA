@@ -14,7 +14,6 @@ import java.sql.Statement;
  *
  * @author remyj
  */
-/*
 public class InviteDAOImpl implements InviteDAO {
 
     java.sql.Connection con;
@@ -215,4 +214,3 @@ public class InviteDAOImpl implements InviteDAO {
 
     }
 }
-*/

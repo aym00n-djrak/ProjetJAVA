@@ -11,6 +11,7 @@ package DAO;
 public class Vol {
 
     private int idvol;
+    private String destination;
     private String compagnie;
     private int numerovol;
     private String typeavion;
@@ -18,13 +19,22 @@ public class Vol {
     private String datearrivee;
     private String heuredepart;
     private String heurearrivee;
+    private int idcity;
 
     public int GetId() {
         return idvol;
     }
 
     public void SetId(int id) {
-        idvol=id;
+        idvol = id;
+    }
+
+    public String GetDestination() {
+        return destination;
+    }
+
+    public void SetDestination(String dest) {
+        destination = dest;
     }
 
     public String GetCompagnie() {
@@ -32,7 +42,7 @@ public class Vol {
     }
 
     public void SetCompagnie(String comp) {
-        compagnie=comp;
+        compagnie = comp;
     }
 
     public int GetNumeroVol() {
@@ -40,7 +50,7 @@ public class Vol {
     }
 
     public void SetNumeroVol(int num) {
-        numerovol=num;
+        numerovol = num;
     }
 
     public String GetTypeAvion() {
@@ -48,7 +58,7 @@ public class Vol {
     }
 
     public void SetTypeAvion(String type) {
-        typeavion=type;
+        typeavion = type;
     }
 
     public String GetDateDepart() {
@@ -56,7 +66,7 @@ public class Vol {
     }
 
     public void SetDateDepart(String date) {
-        datedepart=date;
+        datedepart = date;
     }
 
     public String GetDateArrivee() {
@@ -64,7 +74,7 @@ public class Vol {
     }
 
     public void SetDateArrivee(String date) {
-        datearrivee=date;
+        datearrivee = date;
     }
 
     public String GetHeureDepart() {
@@ -72,16 +82,25 @@ public class Vol {
     }
 
     public void SetHeureDepart(String heure) {
-        heuredepart=heure;
+        heuredepart = heure;
     }
 
     public String GetHeureArrivee() {
         return heurearrivee;
     }
+
+    public void SetHeureArrivee(String heure) {
+        heurearrivee = heure;
+    }
     
-        public void SetHeureArrivee(String heure)
+    public int GetForeignKeyCity()
     {
-        heurearrivee=heure;
+        return idcity;
+    }
+    
+    public void SetForeignKeyCity(int id)
+    {
+        idcity=id;
     }
 
 }
