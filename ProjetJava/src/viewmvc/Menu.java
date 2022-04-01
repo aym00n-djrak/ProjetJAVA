@@ -4,17 +4,10 @@
  */
 package viewmvc;
 
-import controlmvc.*;
 import controlmvc.Eventlist;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import javax.swing.*;
-import java.io.*;
 import java.sql.SQLException;
-import javax.imageio.ImageIO;
 
 /**
  *

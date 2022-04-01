@@ -8,7 +8,6 @@ package viewmvc;
  *
  * @author Clarence
  */
-import DAO.*;
 import controlmvc.DataCity;
 import java.util.ArrayList;
 import modelmvc.ConvertAlistToList;

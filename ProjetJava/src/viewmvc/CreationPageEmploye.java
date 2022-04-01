@@ -6,22 +6,14 @@ package viewmvc;
 
 import DAO.Employe;
 import controlmvc.*;
-import modelmvc.Connection;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import modelmvc.Fenetre;
 
 /**
  *

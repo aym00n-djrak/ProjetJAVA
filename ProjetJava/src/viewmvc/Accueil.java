@@ -5,10 +5,8 @@
 package viewmvc;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import javax.swing.*;
 import java.io.*;
-import javax.imageio.ImageIO;
 
 /**
  *

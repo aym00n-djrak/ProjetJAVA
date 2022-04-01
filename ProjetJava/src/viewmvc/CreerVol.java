@@ -4,11 +4,8 @@
  */
 package viewmvc;
 
-import DAO.City;
-import DAO.CityDAOImpl;
 import DAO.Vol;
 import DAO.VolDAOImpl;
-import controlmvc.ConfirmationReservation;
 import controlmvc.ConfirmationVol;
 import controlmvc.EmailVerif;
 import controlmvc.Invite;
@@ -16,9 +13,6 @@ import controlmvc.NewMember;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;

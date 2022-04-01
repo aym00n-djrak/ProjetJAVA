@@ -10,18 +10,9 @@ import modelmvc.CreaCity;
 import DAO.Clients;
 import DAO.ClientsDAOImpl;
 import DAO.Employe;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
-import modelmvc.findUsersId;
 
 /**
  *

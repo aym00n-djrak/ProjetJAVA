@@ -2,14 +2,10 @@ package viewmvc;
 
 import DAO.Employe;
 import controlmvc.*;
-import modelmvc.Fenetre;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

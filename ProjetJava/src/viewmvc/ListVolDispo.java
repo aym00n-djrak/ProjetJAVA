@@ -5,15 +5,10 @@ import controlmvc.ReadImage;
 import controlmvc.ReducPaiement;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
