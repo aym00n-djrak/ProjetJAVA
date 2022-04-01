@@ -40,23 +40,21 @@ public class InsertImage {
                 PreparedStatement ps
                         = con.prepareStatement("insert into image values(?,?,?)");
 
-                //id
+                //idImage
 
                     
                 ps.setString(1, "" + id);
                 
                 
-                //taille
+                //Size IMAge
                 ps.setInt(2, 99);
-                //image
+                //Image
                 ps.setBinaryStream(3, (InputStream) input, (int) file.length());
 
-                //exécution de la requête
+                //QUERY
                 ps.executeUpdate();
                 System.out.println("Image insérée avec succès!");
-                //fermer le preparedStatement
                 ps.close();
-                //fermer la connexion
                 con.close();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
