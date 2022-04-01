@@ -4,7 +4,14 @@
  */
 package controlmvc;
 
-import DAO.*;
+import modelmvc.DAO.UsersDAOImpl;
+import modelmvc.DAO.EmployeDAOImpl;
+import modelmvc.DAO.Employe;
+import modelmvc.DAO.Clients;
+import modelmvc.DAO.UsersEmplDAOImpl;
+import modelmvc.DAO.Users;
+import modelmvc.DAO.UsersEmpl;
+import modelmvc.DAO.ClientsDAOImpl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.regex.*;
@@ -50,7 +57,7 @@ public class EmailVerif {
         return verif;
     }
 
-    public Clients verifcreaboutonmailusers(JButton b,JTextField t0, JTextField t1, JPasswordField p1, JFrame f) {
+    public Clients verifcreaboutonmailusers(JButton b, JTextField t0, JTextField t1, JPasswordField p1, JFrame f) {
         {
 
             Identifiants enregistrement = new Identifiants();
@@ -256,7 +263,7 @@ public class EmailVerif {
         return client;
     }
 
-    public Employe verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f,JLabel j) {
+    public Employe verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f, JLabel j) {
 
         b.addActionListener(new ActionListener() {
             @Override

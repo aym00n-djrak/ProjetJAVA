@@ -14,10 +14,10 @@ import viewmvc.CreationPageClient;
  * @author remyj
  */
 public class Eventlist implements ActionListener {
-        
+
     @Override
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
     }
-    
+
 }

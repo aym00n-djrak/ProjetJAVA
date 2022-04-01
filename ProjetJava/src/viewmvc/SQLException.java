@@ -9,5 +9,5 @@ package viewmvc;
  * @author remyj
  */
 class SQLException extends Exception {
-    
+
 }

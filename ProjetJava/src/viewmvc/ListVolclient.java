@@ -1,11 +1,13 @@
 package viewmvc;
 
-import DAO.*;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.Vol;
+import modelmvc.DAO.VolDAOImpl;
+import modelmvc.DAO.Clients;
 import controlmvc.ReadImage;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -61,30 +63,30 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
         System.out.println(city.size());
 
         for (int i = 0; i < city.size(); i++) {
-                System.out.println(i);
-                JButton btn = new JButton(city.get(i).GetNom());
-                JButton btnimg = new JButton();
-                JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
-                ReadImage im = new ReadImage();
+            System.out.println(i);
+            JButton btn = new JButton(city.get(i).GetNom());
+            JButton btnimg = new JButton();
+            JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
+            ReadImage im = new ReadImage();
 
-                btn.setPreferredSize(boutonDim);
-                btnimg.setPreferredSize(boutonDim);
-                btnprix.setPreferredSize(boutonDim);
+            btn.setPreferredSize(boutonDim);
+            btnimg.setPreferredSize(boutonDim);
+            btnprix.setPreferredSize(boutonDim);
 
-                buttons[i] = btn;
+            buttons[i] = btn;
 
-                btn.setBackground(Color.ORANGE);
-                btnprix.setBackground(Color.WHITE);
+            btn.setBackground(Color.ORANGE);
+            btnprix.setBackground(Color.WHITE);
 
-                buttons[i] = btn;
-                //Image img= im.getImage(i);
+            buttons[i] = btn;
+            //Image img= im.getImage(i);
 
-                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(i).GetId())));
-                btn.addActionListener(this);
+            btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(i).GetId())));
+            btn.addActionListener(this);
 
-                pan.add(btn);
-                pan.add(btnimg);
-                pan.add(btnprix);
+            pan.add(btn);
+            pan.add(btnimg);
+            pan.add(btnprix);
         }
         System.out.println("Chargement terminé");
 

@@ -4,12 +4,12 @@
  */
 package controlmvc;
 
-import DAO.City;
-import DAO.CityDAO;
-import DAO.CityDAOImpl;
-import DAO.Clients;
-import DAO.ClientsDAO;
-import DAO.ClientsDAOImpl;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAO;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.Clients;
+import modelmvc.DAO.ClientsDAO;
+import modelmvc.DAO.ClientsDAOImpl;
 import com.mysql.cj.xdevapi.Client;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

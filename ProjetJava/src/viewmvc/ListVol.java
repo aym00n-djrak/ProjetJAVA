@@ -1,7 +1,11 @@
 package viewmvc;
 
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.Employe;
+import modelmvc.DAO.Vol;
+import modelmvc.DAO.VolDAOImpl;
 import modelmvc.CreaVol;
-import DAO.*;
 import controlmvc.ReadImage;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,8 +32,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
     ArrayList<City> city = new ArrayList<City>();
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
-    
-    Employe employe= new Employe();
+
+    Employe employe = new Employe();
 
     JPanel pan = new JPanel();
 
@@ -50,8 +54,8 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
     public void init(JDesktopPane desktop, Employe e) throws SQLException {
 
-        employe= e;
-        
+        employe = e;
+
         desktop1 = desktop;
         city = citydao.GetAllCity();
 
@@ -92,7 +96,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
         city = citydao.GetAllCity();
         //CreerVol creavol = new CreerVol();
-        CreaVol creavol= new CreaVol();
+        CreaVol creavol = new CreaVol();
         VolDAOImpl vol = new VolDAOImpl();
         Vol volcity = new Vol();
         InfoVille info = new InfoVille();
@@ -112,6 +116,6 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
         JOptionPane.showMessageDialog(null, "La destination : " + btn.getText() + " a bien été créée dirigez vous vers l'interface de création de vol !");
         setVisible(false);
-        
+
     }
 }

@@ -4,16 +4,15 @@
  */
 package viewmvc;
 
-import DAO.*;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
 import controlmvc.EmailVerif;
 import controlmvc.Invite;
 import controlmvc.NewMember;
-import controlmvc.Eventlist;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;

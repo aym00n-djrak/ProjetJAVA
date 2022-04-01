@@ -11,16 +11,14 @@ import java.util.ArrayList;
  * @author remyj
  */
 public class ConvertAlistToList {
-    
-    public String[] convert(ArrayList<String> name)
-    {
-        String[] liste= new String[name.size()];
-        
-        for(int i=0; i<name.size();i++)
-        {
-            liste[i]=name.get(i);   
+
+    public String[] convert(ArrayList<String> name) {
+        String[] liste = new String[name.size()];
+
+        for (int i = 0; i < name.size(); i++) {
+            liste[i] = name.get(i);
         }
         return liste;
     }
-    
+
 }

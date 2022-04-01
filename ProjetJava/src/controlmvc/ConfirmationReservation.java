@@ -30,7 +30,7 @@ public class ConfirmationReservation {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                        JOptionPane.showMessageDialog(b,"Reservation effectuée, passer au paiement !");
+                JOptionPane.showMessageDialog(b, "Reservation effectuée, passer au paiement !");
 
             }
 

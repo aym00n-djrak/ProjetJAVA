@@ -19,7 +19,6 @@ import javax.mail.internet.MimeMultipart;
 
 public class MailSender {
 
-    
     public String sendMail(String from, String to, String subject, String msgBody) {
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");

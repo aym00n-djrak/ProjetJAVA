@@ -8,8 +8,8 @@ package viewmvc;
  *
  * @author Clarence
  */
-import DAO.*;
 import javax.swing.JOptionPane;
+
 public class Ajoutervol extends javax.swing.JInternalFrame {
 
     /**
@@ -258,7 +258,7 @@ public class Ajoutervol extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void combovoyageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combovoyageActionPerformed
-       //none
+        //none
     }//GEN-LAST:event_combovoyageActionPerformed
 
     private void combodepartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combodepartActionPerformed
@@ -270,9 +270,8 @@ public class Ajoutervol extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_comboarriveeActionPerformed
 
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
-        JOptionPane.showMessageDialog(null,"Réservation effectuée ! ");
+        JOptionPane.showMessageDialog(null, "Réservation effectuée ! ");
     }//GEN-LAST:event_validerActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adultes;

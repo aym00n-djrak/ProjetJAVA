@@ -1,6 +1,16 @@
 package viewmvc;
 
-import DAO.*;
+import modelmvc.DAO.PaiementDAOImpl;
+import modelmvc.DAO.UsersDAOImpl;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.ReservationDAOImpl;
+import modelmvc.DAO.Reservation;
+import modelmvc.DAO.Paiement;
+import modelmvc.DAO.Clients;
+import modelmvc.DAO.VolDAOImpl;
+import modelmvc.DAO.Vol;
+import modelmvc.DAO.Users;
 import controlmvc.MailSender;
 import controlmvc.ReadImage;
 import controlmvc.ReducPaiement;
@@ -198,10 +208,10 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         pdao.AddPaiement(paye);
 
         desktop1.add(paiement).setVisible(true);
-        
-        UsersDAOImpl udao= new UsersDAOImpl();
-        Users user= new Users();
-        user=udao.GetUser(c.GetId());
+
+        UsersDAOImpl udao = new UsersDAOImpl();
+        Users user = new Users();
+        user = udao.GetUser(c.GetId());
         System.out.println(new MailSender().sendMail("marvel.history.fr@gmail.com", user.GetMail(), "Confirmation réservation vol n° " + volrecord.GetNumeroVol(), "On vous remercie pour la reservation de vol n° " + volrecord.GetNumeroVol() + " en destination de " + volrecord.GetDestination() + " au prix de " + paye.GetMontant() + "€\n Cordialement, l'administration de l'Aeroport de Monaco"));
         //voldao.DeleteVol(idvol);
         //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");

@@ -4,7 +4,10 @@
  */
 package modelmvc;
 
-import DAO.*;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.Vol;
+import modelmvc.DAO.VolDAOImpl;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -712,7 +715,6 @@ public class CreaVol extends javax.swing.JInternalFrame {
         System.out.println("L'indice de la ville est: " + combocopy.getSelectedIndex());
         id = combocopy.getSelectedIndex();
         System.out.println("Id: " + id);
-
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 

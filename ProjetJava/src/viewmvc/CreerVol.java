@@ -4,10 +4,10 @@
  */
 package viewmvc;
 
-import DAO.City;
-import DAO.CityDAOImpl;
-import DAO.Vol;
-import DAO.VolDAOImpl;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.Vol;
+import modelmvc.DAO.VolDAOImpl;
 import controlmvc.ConfirmationReservation;
 import controlmvc.ConfirmationVol;
 import controlmvc.EmailVerif;
@@ -48,14 +48,15 @@ public class CreerVol extends JInternalFrame implements ActionListener {
     CreationPageClient creationPage = new CreationPageClient();
     public Vol vol = new Vol();
     ConfirmationVol confvol = new ConfirmationVol();
-     JLabel ecran = new JLabel();
-/*
+    JLabel ecran = new JLabel();
+
+    /*
     public CreerVol() {
         super("Créer vol");
         CreerVol creer = new CreerVol();
         creer.InterfaceCreerVol(vol, desktop, panneau);
     }
-*/
+     */
     public void InterfaceCreerVol(Vol v, JDesktopPane desktop, JPanel panneau) {
 
         vol = v;
@@ -222,7 +223,7 @@ public class CreerVol extends JInternalFrame implements ActionListener {
                 true);
 
         //Ajout au bureau 
-        desktop.add(creervol).setVisible(true);      
+        desktop.add(creervol).setVisible(true);
     }
 
     @Override

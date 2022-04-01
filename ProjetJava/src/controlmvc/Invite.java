@@ -4,8 +4,8 @@
  */
 package controlmvc;
 
-import DAO.Clients;
-import DAO.Employe;
+import modelmvc.DAO.Clients;
+import modelmvc.DAO.Employe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;

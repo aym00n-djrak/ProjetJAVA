@@ -5,15 +5,15 @@
 package modelmvc;
 
 import javax.swing.*;
+
 /**
  *
  * @author remyj
  */
 public class Fenetre {
-    
-    public void panneau(String phrase)
-    {
-        JOptionPane.showMessageDialog(null,phrase);
+
+    public void panneau(String phrase) {
+        JOptionPane.showMessageDialog(null, phrase);
     }
-    
+
 }

@@ -4,7 +4,8 @@
  */
 package viewmvc;
 
-import DAO.*;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
 import controlmvc.ReadImage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,10 +36,10 @@ public class InfoVille extends JInternalFrame implements ActionListener {
         setResizable(false);
         JLabel titre = new JLabel(c.GetNom());
         JButton btnimg = new JButton();
-        JButton res= new JButton("Réserver");
+        JButton res = new JButton("Réserver");
 
         titre.setBounds(50, 30, 50, 20);
-        res.setBounds(500,500,100,200);
+        res.setBounds(500, 500, 100, 200);
         btnimg.setBounds(50, 120, 100, 30);
 
         btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(c.GetId())));

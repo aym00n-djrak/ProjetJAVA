@@ -91,16 +91,16 @@ public class SwitchEmployeCLient extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-       Interfclients interfc= new Interfclients();
-       interfc.run();
-       
+        Interfclients interfc = new Interfclients();
+        interfc.run();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-       Interfemployes interfe= new Interfemployes();
-       interfe.run();
+        Interfemployes interfe = new Interfemployes();
+        interfe.run();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -109,7 +109,6 @@ public class SwitchEmployeCLient extends javax.swing.JFrame {
     public void run() {
         new SwitchEmployeCLient().setVisible(true);
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

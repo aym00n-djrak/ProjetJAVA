@@ -1,18 +1,21 @@
 package viewmvc;
 
-import DAO.*;
+import modelmvc.DAO.PaiementDAOImpl;
+import modelmvc.DAO.City;
+import modelmvc.DAO.CityDAOImpl;
+import modelmvc.DAO.ReservationDAOImpl;
+import modelmvc.DAO.Reservation;
+import modelmvc.DAO.Paiement;
+import modelmvc.DAO.Clients;
+import modelmvc.DAO.VolDAOImpl;
+import modelmvc.DAO.Vol;
 import controlmvc.ReadImage;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;

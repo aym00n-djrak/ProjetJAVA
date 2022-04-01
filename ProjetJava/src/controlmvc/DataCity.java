@@ -26,8 +26,8 @@ public class DataCity {
         try {
 
 //            String DBurl = "jdbc:mysql://localhost/booking";
-        //    String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
-        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            //    String DBurl = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11479534";
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
@@ -35,7 +35,7 @@ public class DataCity {
 
             java.sql.Statement stmt = con.createStatement();
 
-            requete = "INSERT INTO city VALUES(NULL,'"+name+"','"+place+"')";
+            requete = "INSERT INTO city VALUES(NULL,'" + name + "','" + place + "')";
 
             System.out.println("Parcours de la table");
 
@@ -56,10 +56,10 @@ public class DataCity {
     }
 
     public void PickSelectedData(String name, String place) {
-try {
+        try {
 
 //            String DBurl = "jdbc:mysql://localhost/booking";
-        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
@@ -73,7 +73,6 @@ try {
 
             resultats = stmt.executeQuery(requete);
 
-
         } catch (SQLException e) {
             System.out.println("SQLException");
             do {
@@ -86,10 +85,11 @@ try {
         }
 
     }
+
     public ArrayList<String> PickData(ArrayList<String> name) {
-try {
+        try {
 //            String DBurl = "jdbc:mysql://localhost/booking";
-        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
@@ -102,18 +102,16 @@ try {
             System.out.println("Parcours de la table");
 
             resultats = stmt.executeQuery(requete);
-            
-            boolean encore= resultats.next();
-            
-             
+
+            boolean encore = resultats.next();
 
             while (encore) {
-                System.out.print("Id: "+ resultats.getInt("idCity")+" City: "+resultats.getString("city_name")+" pays: "+ resultats.getString("Pays")+"tarifs: "+resultats.getInt("Tarifs"));
+                System.out.print("Id: " + resultats.getInt("idCity") + " City: " + resultats.getString("city_name") + " pays: " + resultats.getString("Pays") + "tarifs: " + resultats.getInt("Tarifs"));
                 System.out.println();
                 name.add(resultats.getString("city_name"));
                 encore = resultats.next();
             }
-            
+
             resultats.close();
             return name;
 
