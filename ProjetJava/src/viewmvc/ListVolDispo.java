@@ -107,7 +107,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 btnprix.setBackground(Color.WHITE);
                 btnpromo.setBackground(Color.WHITE);
 
-                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(id)));
+                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(j).GetId())));
                 btn.addActionListener(this);
 
                 pan.add(btn);

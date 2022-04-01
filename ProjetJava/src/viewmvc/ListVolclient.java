@@ -28,8 +28,8 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
     ArrayList<City> city = new ArrayList<City>();
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
-    
-    Clients c= new Clients();
+
+    Clients c = new Clients();
 
     JPanel pan = new JPanel();
 
@@ -50,39 +50,41 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
 
     public void init(JDesktopPane desktop, Clients client) throws SQLException {
 
-        c=client;
-        
+        c = client;
+
         desktop1 = desktop;
         city = citydao.GetAllCity();
 
         JButton[] buttons = new JButton[city.size()];
         System.out.println("Chargement....");
 
+        System.out.println(city.size());
+
         for (int i = 0; i < city.size(); i++) {
-            JButton btn = new JButton(city.get(i).GetNom());
-            JButton btnimg = new JButton();
-            JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
-            ReadImage im = new ReadImage();
+                System.out.println(i);
+                JButton btn = new JButton(city.get(i).GetNom());
+                JButton btnimg = new JButton();
+                JButton btnprix = new JButton("Prix : " + city.get(i).GetPrix() + " €");
+                ReadImage im = new ReadImage();
 
-            btn.setPreferredSize(boutonDim);
-            btnimg.setPreferredSize(boutonDim);
-            btnprix.setPreferredSize(boutonDim);
+                btn.setPreferredSize(boutonDim);
+                btnimg.setPreferredSize(boutonDim);
+                btnprix.setPreferredSize(boutonDim);
 
-            buttons[i] = btn;
+                buttons[i] = btn;
 
-            btn.setBackground(Color.ORANGE);
-            btnprix.setBackground(Color.WHITE);
+                btn.setBackground(Color.ORANGE);
+                btnprix.setBackground(Color.WHITE);
 
-            buttons[i] = btn;
-            //Image img= im.getImage(i);
+                buttons[i] = btn;
+                //Image img= im.getImage(i);
 
-            btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(i)));
-            btn.addActionListener(this);
+                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(i).GetId())));
+                btn.addActionListener(this);
 
-            pan.add(btn);
-            pan.add(btnimg);
-            pan.add(btnprix);
-
+                pan.add(btn);
+                pan.add(btnimg);
+                pan.add(btnprix);
         }
         System.out.println("Chargement terminé");
 
@@ -116,9 +118,9 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
 
         setVisible(false);
         try {
-            ListVolDispo listedispo= new ListVolDispo();
+            ListVolDispo listedispo = new ListVolDispo();
             listedispo = new ListVolDispo();
-            System.out.println("Le client est :"+ c.GetPrenom());
+            System.out.println("Le client est :" + c.GetPrenom());
             listedispo.init(desktop1, id, c);
         } catch (SQLException ex) {
             Logger.getLogger(ListVolclient.class.getName()).log(Level.SEVERE, null, ex);

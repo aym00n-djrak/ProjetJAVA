@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 public class ReadImage extends JFrame {
 
     java.sql.Connection con;
+    Image img;
 
     public Image getImage(int id) throws SQLException {
         //creation et exécution de la requête
@@ -28,7 +29,7 @@ public class ReadImage extends JFrame {
         // con = DriverManager.getConnection(DBurl, "root", "");
         con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
-        PreparedStatement statement = con.prepareStatement("SELECT image FROM image WHERE idImage = "+id);
+        PreparedStatement statement = con.prepareStatement("SELECT image FROM image WHERE idImage = " + id);
         ResultSet res = statement.executeQuery();
         //récupérer l'image sous forme d'octet
         byte[] image = null;
@@ -36,7 +37,10 @@ public class ReadImage extends JFrame {
             image = res.getBytes("image");
         }
         //créer l'image 
-        Image img = Toolkit.getDefaultToolkit().createImage(image);
+
+        img = Toolkit.getDefaultToolkit().createImage(image);
+
         return img;
+
     }
 }
