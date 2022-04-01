@@ -74,7 +74,7 @@ public class ListVol extends JInternalFrame implements ActionListener {
 
             buttons[i] = btn;
 
-            btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(i)));
+            btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(i).GetId())));
             btn.addActionListener(this);
 
             pan.add(btn);

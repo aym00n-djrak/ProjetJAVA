@@ -582,12 +582,13 @@ public class CreaVol extends javax.swing.JInternalFrame {
 
     private void executerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executerActionPerformed
         System.out.println("Id: " + id);
+        c = cdao.GetAllCity();
 
         VolDAOImpl voldao = new VolDAOImpl();
         Vol vol = new Vol();
         vol.SetId(Integer.parseInt(idtxt.getText()));
 
-        city = cdao.GetCity(id);
+        city = cdao.GetCity(c.get(id).GetId());
         vol.SetDestination(city.GetNom());
 
         vol.SetCompagnie(nametxt.getText());
@@ -598,7 +599,7 @@ public class CreaVol extends javax.swing.JInternalFrame {
         vol.SetHeureArrivee(compatxt4.getText());
         vol.SetNumeroVol(Integer.parseInt(surnametxt.getText()));
         vol.SetTypeAvion(depttxt.getText());
-        vol.SetForeignKeyCity(id);
+        vol.SetForeignKeyCity(c.get(id).GetId());
         voldao.AddVol(vol);
         JOptionPane.showMessageDialog(null, "Vol bien ajoutée !");
         setVisible(false);
@@ -620,7 +621,9 @@ public class CreaVol extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         VolDAOImpl voldao = new VolDAOImpl();
         Vol vol = new Vol();
-        city = cdao.GetCity(id);
+        c = cdao.GetAllCity();
+
+        city = cdao.GetCity(c.get(id).GetId());
 
         vol.SetId(Integer.parseInt(idtxt.getText()));
         vol.SetDestination(city.GetNom());
@@ -683,7 +686,9 @@ public class CreaVol extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         VolDAOImpl voldao = new VolDAOImpl();
         Vol vol = new Vol();
-        city = cdao.GetCity(id);
+        c = cdao.GetAllCity();
+
+        city = cdao.GetCity(c.get(id).GetId());
         vol.SetId(Integer.parseInt(idtxt.getText()));
 
         vol.SetDestination(city.GetNom());

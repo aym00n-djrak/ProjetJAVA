@@ -2,6 +2,7 @@ package viewmvc;
 
 import DAO.*;
 import controlmvc.ReadImage;
+import controlmvc.ReducPaiement;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -26,16 +27,19 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(200, 75);
     ArrayList<City> city = new ArrayList<City>();
-    
+
     ArrayList<Reservation> reservationliste = new ArrayList<>();
-    
+    ReducPaiement reduc = new ReducPaiement();
+
     CityDAOImpl citydao = new CityDAOImpl();
     JInternalFrame creavol = new JInternalFrame();
     ArrayList<Vol> vol = new ArrayList<>();
     VolDAOImpl voldao = new VolDAOImpl();
-
+    
+    int reduction;
+    float promo;
+    
     Clients c = new Clients();
-
     JPanel pan = new JPanel();
 
     JScrollPane scrollPane = new JScrollPane(pan);
@@ -56,7 +60,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
     public void init(JDesktopPane desktop, int id, Clients client) throws SQLException {
 
         c = client;
-        System.out.println("Le client est : "+c.GetPrenom());
+        System.out.println("Le client est : " + c.GetPrenom());
         desktop1 = desktop;
         city = citydao.GetAllCity();
 
@@ -65,7 +69,8 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         JButton[] buttons = new JButton[city.size()];
 
         System.out.println("La ville choisie est :" + city.get(id).GetNom());
-
+        reduction  =reduc.ReducPaiement(c, city.get(id));
+        promo=(1-((float)reduction/(float)(city.get(id).GetPrix())))*100;
         System.out.println("Chargement....");
 
         for (int j = 0; j < vol.size(); j++) {
@@ -80,8 +85,9 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 JButton numvol = new JButton("Numéro de vol: " + vol.get(j).GetNumeroVol());
 
                 JButton btnimg = new JButton();
-                JButton btnprix = new JButton("Prix : " + city.get(id).GetPrix() + " €");
-
+                JButton btnprix = new JButton("Prix : " + reduction + " €");
+                System.out.println("La reduc affichage est de :" + promo);
+                JButton btnpromo = new JButton("Promo de: " + promo + " %");
                 ReadImage im = new ReadImage();
 
                 btn.setPreferredSize(boutonDim);
@@ -93,13 +99,15 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
 
                 btnimg.setPreferredSize(boutonDim);
                 btnprix.setPreferredSize(boutonDim);
+                btnpromo.setPreferredSize(boutonDim);
 
                 buttons[j] = btn;
 
                 btn.setBackground(Color.ORANGE);
                 btnprix.setBackground(Color.WHITE);
+                btnpromo.setBackground(Color.WHITE);
 
-                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(id)));
+                btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(city.get(j).GetId())));
                 btn.addActionListener(this);
 
                 pan.add(btn);
@@ -110,6 +118,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 pan.add(type);
                 pan.add(numvol);
                 pan.add(btnprix);
+                pan.add(btnpromo);
 
                 idcity = id;
                 idvol = vol.get(j).GetId();
@@ -149,13 +158,13 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         reservation.SetConfirmation(0);
         reservation.SetForeignKeyVol(idvol);
         reservation.SetForeignKeyClientMembre(c.GetNumReservation());
-        
-        System.out.println("l'id reserv membre est : "+reservation.GetForeignKeyClientMembre());
+
+        System.out.println("l'id reserv membre est : " + reservation.GetForeignKeyClientMembre());
 
         reservdao.AddReservation(reservation);
 
         JOptionPane.showMessageDialog(null, "Voyage vers : " + btn.getText() + " sauvegardé dans le billet,  vous allez être redirigez vers l'interface de paiement.");
-        
+
         reservationliste = reservdao.GetAllReservation();
 
         for (int i = 0; i < reservationliste.size(); i++) {
@@ -163,22 +172,23 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
                 r = reservdao.GetReservation(reservationliste.get(i).GetId());
             }
         }
-        
-        
-        System.out.println("L'id de la liste est : "+r.GetId());
+
+        System.out.println("L'id de la liste est : " + r.GetId());
         setVisible(false);
         Paiementaffichage paiement = new Paiementaffichage();
 
         Paiement paye = new Paiement();
         PaiementDAOImpl pdao = new PaiementDAOImpl();
 
-        paye.SetMontant(city.get(idcity).GetPrix());
+        //paye.SetMontant(city.get(idcity).GetPrix());
+        //paye.SetMontant(reduc.ReducPaiement(c, city.get(idcity)));
+        paye.SetMontant(reduction);
         paye.SetDate(volrecord.GetDateDepart());
         paye.SetForeignKeyReservationt(r.GetId());
         paye.SetForeignKeyClient(c.GetId());
-        
-        System.out.println("L'id Client est: "+c.GetId());
-        
+
+        System.out.println("L'id Client est: " + c.GetId());
+
         System.out.println(paye.GetMontant());
         System.out.println(paye.GetDate());
         System.out.println(paye.GetForeignKeyReservation());
