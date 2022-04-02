@@ -55,7 +55,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
         age1 = new javax.swing.JLabel();
         agetxt1 = new javax.swing.JTextField();
         id1 = new javax.swing.JLabel();
-        idtxt1 = new javax.swing.JTextField();
+        foreigntxt = new javax.swing.JTextField();
         actualiser = new javax.swing.JButton();
         supp = new javax.swing.JButton();
         ajout = new javax.swing.JButton();
@@ -113,8 +113,18 @@ public class CreaClients extends javax.swing.JInternalFrame {
                 numtxtActionPerformed(evt);
             }
         });
+        numtxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numtxtKeyTyped(evt);
+            }
+        });
 
         agetxt.setBackground(new java.awt.Color(204, 204, 204));
+        agetxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                agetxtKeyTyped(evt);
+            }
+        });
 
         age1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         age1.setText("Classe");
@@ -124,15 +134,15 @@ public class CreaClients extends javax.swing.JInternalFrame {
         id1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         id1.setText("ID");
 
-        idtxt1.setBackground(new java.awt.Color(204, 204, 204));
-        idtxt1.addActionListener(new java.awt.event.ActionListener() {
+        foreigntxt.setBackground(new java.awt.Color(204, 204, 204));
+        foreigntxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idtxt1ActionPerformed(evt);
+                foreigntxtActionPerformed(evt);
             }
         });
-        idtxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+        foreigntxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                idtxt1KeyTyped(evt);
+                foreigntxtKeyTyped(evt);
             }
         });
 
@@ -150,7 +160,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
                         .addGap(338, 338, 338))
                     .addGroup(backLayout.createSequentialGroup()
                         .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(idtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(backLayout.createSequentialGroup()
                                 .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(backLayout.createSequentialGroup()
@@ -196,7 +206,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
                     .addGroup(backLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(backLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(prenom)
                             .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(backLayout.createSequentialGroup()
@@ -308,7 +318,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
         c.SetClasse(agetxt1.getText());
         c.SetAge(Integer.parseInt(agetxt.getText()));
         c.SetNumReservation(Integer.parseInt(numtxt.getText()));
-        c.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
+        c.SetForeignKeyUser(Integer.parseInt(foreigntxt.getText()));
 
         cdao.UptdateClient(c.GetId(), c);
     }//GEN-LAST:event_actualiserActionPerformed
@@ -322,7 +332,7 @@ public class CreaClients extends javax.swing.JInternalFrame {
         c.SetClasse(agetxt1.getText());
         c.SetAge(Integer.parseInt(agetxt.getText()));
         c.SetNumReservation(Integer.parseInt(numtxt.getText()));
-        c.SetForeignKeyUser(Integer.parseInt(idtxt1.getText()));
+        c.SetForeignKeyUser(Integer.parseInt(foreigntxt.getText()));
 
         cdao.AddClient(c);
         JOptionPane.showMessageDialog(null, "Client ajouté");
@@ -344,9 +354,9 @@ public class CreaClients extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numtxtActionPerformed
 
-    private void idtxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxt1ActionPerformed
+    private void foreigntxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foreigntxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idtxt1ActionPerformed
+    }//GEN-LAST:event_foreigntxtActionPerformed
 
     private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
         // TODO add your handling code here:
@@ -359,9 +369,26 @@ public class CreaClients extends javax.swing.JInternalFrame {
              }
     }//GEN-LAST:event_idtxtKeyTyped
 
-    private void idtxt1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idtxt1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idtxt1KeyTyped
+    private void foreigntxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foreigntxtKeyTyped
+       char foreign = evt.getKeyChar();
+            if ( ((foreign < '0') || (foreign > '9')) && (foreign != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_foreigntxtKeyTyped
+
+    private void numtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numtxtKeyTyped
+        char num = evt.getKeyChar();
+            if ( ((num < '0') || (num > '9')) && (num != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_numtxtKeyTyped
+
+    private void agetxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agetxtKeyTyped
+       char age = evt.getKeyChar();
+            if ( ((age < '0') || (age > '9')) && (age != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_agetxtKeyTyped
 
     public void run(Clients client) {
         c = client;
@@ -378,10 +405,10 @@ public class CreaClients extends javax.swing.JInternalFrame {
     private javax.swing.JButton ajout;
     private javax.swing.JPanel back;
     private javax.swing.JPanel background;
+    public javax.swing.JTextField foreigntxt;
     private javax.swing.JLabel id;
     private javax.swing.JLabel id1;
     public javax.swing.JTextField idtxt;
-    public javax.swing.JTextField idtxt1;
     private javax.swing.JLabel informations;
     private javax.swing.JLabel nomclient;
     public javax.swing.JTextField nomtxt;

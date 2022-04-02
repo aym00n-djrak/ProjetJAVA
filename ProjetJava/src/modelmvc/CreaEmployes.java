@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import DAO.*;
 import controlmvc.EmailVerif;
+import java.awt.event.KeyEvent;
 import javax.swing.JDesktopPane;
 import modelmvc.Connection;
 
@@ -40,7 +41,7 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
         backg = new javax.swing.JPanel();
         infos = new javax.swing.JLabel();
         ground = new javax.swing.JPanel();
-        ref = new javax.swing.JLabel();
+        reforeign = new javax.swing.JLabel();
         reftxt = new javax.swing.JTextField();
         namemploye = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
@@ -87,14 +88,19 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
 
         ground.setBackground(new java.awt.Color(204, 204, 204));
 
-        ref.setBackground(new java.awt.Color(255, 255, 255));
-        ref.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ref.setForeground(new java.awt.Color(255, 255, 255));
-        ref.setText("Foreign");
+        reforeign.setBackground(new java.awt.Color(255, 255, 255));
+        reforeign.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        reforeign.setForeground(new java.awt.Color(255, 255, 255));
+        reforeign.setText("Foreign");
 
         reftxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reftxtActionPerformed(evt);
+            }
+        });
+        reftxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                reftxtKeyTyped(evt);
             }
         });
 
@@ -161,6 +167,12 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
         ref2.setForeground(new java.awt.Color(255, 255, 255));
         ref2.setText("Référence");
 
+        foreigntxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                foreigntxtKeyTyped(evt);
+            }
+        });
+
         executer2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         executer2.setForeground(new java.awt.Color(102, 0, 255));
         executer2.setText("Update");
@@ -182,26 +194,27 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
                             .addGroup(groundLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(premployes)
-                                    .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(namemploye, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(premployes))))
                         .addGap(86, 86, 86)
                         .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(76, 76, 76)
-                        .addComponent(ref)
-                        .addGap(27, 27, 27)
-                        .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(groundLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(departement)
-                            .addComponent(compagnie))
-                        .addGap(18, 18, 18)
+                        .addGap(39, 39, 39)
                         .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(depttxt, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(compatxt)))
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addComponent(compagnie)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(departement)
+                                    .addComponent(reforeign))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(groundLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(suppBouton)
@@ -209,38 +222,39 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
                         .addComponent(executer2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(executer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         groundLayout.setVerticalGroup(
             groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(groundLayout.createSequentialGroup()
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(groundLayout.createSequentialGroup()
-                        .addComponent(ref2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(groundLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ref)
-                            .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)))
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(namemploye, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nametxt))
-                .addGap(39, 39, 39)
+                .addGap(41, 41, 41)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(premployes)
-                    .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(reftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reforeign)
+                    .addComponent(foreigntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ref2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(departement)
-                    .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(compagnie)
-                    .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addComponent(depttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(compatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(namemploye, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nametxt))
+                            .addComponent(departement))
+                        .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(surnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(compagnie)))
+                            .addGroup(groundLayout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(premployes)))))
+                .addGap(72, 72, 72)
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(executer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(executer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -253,21 +267,22 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
         backgLayout.setHorizontalGroup(
             backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
+            .addGroup(backgLayout.createSequentialGroup()
+                .addGap(430, 430, 430)
                 .addComponent(infos, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(387, 387, 387))
         );
         backgLayout.setVerticalGroup(
             backgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(69, 69, 69)
                 .addComponent(infos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         jInternalFrame1.setClosable(true);
@@ -458,23 +473,21 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(backg, javax.swing.GroupLayout.PREFERRED_SIZE, 1064, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(backg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 532, Short.MAX_VALUE)
+                    .addGap(0, 693, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 532, Short.MAX_VALUE)))
+                    .addGap(0, 692, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(backg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 310, Short.MAX_VALUE)
+                    .addGap(0, 385, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 310, Short.MAX_VALUE)))
+                    .addGap(0, 385, Short.MAX_VALUE)))
         );
 
         pack();
@@ -580,9 +593,20 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
         Connection.affiche("Employé mis à jour!");
     }//GEN-LAST:event_executer2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void reftxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reftxtKeyTyped
+        char r = evt.getKeyChar();
+            if ( ((r < '0') || (r > '9')) && (r != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_reftxtKeyTyped
+
+    private void foreigntxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foreigntxtKeyTyped
+        char foreign = evt.getKeyChar();
+            if ( ((foreign < '0') || (foreign > '9')) && (foreign != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_foreigntxtKeyTyped
+
     public void run() {
         new CreaEmployes().setVisible(true);
     }
@@ -612,9 +636,9 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
     private javax.swing.JTextField nametxt1;
     private javax.swing.JLabel premployes;
     private javax.swing.JLabel premployes1;
-    private javax.swing.JLabel ref;
     private javax.swing.JLabel ref1;
     private javax.swing.JLabel ref2;
+    private javax.swing.JLabel reforeign;
     private javax.swing.JTextField reftxt;
     private javax.swing.JTextField reftxt1;
     private javax.swing.JButton suppBouton;
