@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -61,6 +62,11 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
 
         numtxt.setBackground(new java.awt.Color(204, 204, 204));
         numtxt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        numtxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numtxtKeyTyped(evt);
+            }
+        });
 
         date.setFont(new java.awt.Font("SimSun", 0, 36)); // NOI18N
         date.setText("Date d'expiration");
@@ -102,11 +108,11 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(crypto, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(groundLayout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(datetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addComponent(datetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cryptotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)))
+                        .addComponent(cryptotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)))
                 .addGap(115, 115, 115))
             .addGroup(groundLayout.createSequentialGroup()
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +144,14 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
                 .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(date)
                     .addComponent(crypto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cryptotxt)
-                    .addComponent(datetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(groundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addComponent(datetxt)
+                        .addGap(35, 35, 35))
+                    .addGroup(groundLayout.createSequentialGroup()
+                        .addComponent(cryptotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                        .addGap(33, 33, 33)))
                 .addComponent(payer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -174,14 +183,14 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cryptotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cryptotxtActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_cryptotxtActionPerformed
 
     private void datetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datetxtActionPerformed
@@ -193,6 +202,13 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Paiement effectué !");
         setVisible(false);
     }//GEN-LAST:event_payerActionPerformed
+
+    private void numtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numtxtKeyTyped
+        char c = evt.getKeyChar();
+             if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_numtxtKeyTyped
 
     public void run() {
         new Paiementaffichage().setVisible(true);

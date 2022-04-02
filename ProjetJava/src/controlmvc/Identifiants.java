@@ -8,6 +8,8 @@ import modelmvc.Fenetre;
 import modelmvc.Connection;
 
 import java.sql.*;
+import modelmvc.Fenetre;
+import modelmvc.Fenetre;
 
 /**
  *

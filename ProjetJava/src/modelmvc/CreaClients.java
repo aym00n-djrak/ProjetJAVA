@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 
 import DAO.*;
 import controlmvc.EmailVerif;
+import java.awt.event.KeyEvent;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
@@ -89,6 +90,11 @@ public class CreaClients extends javax.swing.JInternalFrame {
                 idtxtActionPerformed(evt);
             }
         });
+        idtxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idtxtKeyTyped(evt);
+            }
+        });
 
         prenom.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         prenom.setText("Prénom");
@@ -122,6 +128,11 @@ public class CreaClients extends javax.swing.JInternalFrame {
         idtxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idtxt1ActionPerformed(evt);
+            }
+        });
+        idtxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idtxt1KeyTyped(evt);
             }
         });
 
@@ -340,6 +351,17 @@ public class CreaClients extends javax.swing.JInternalFrame {
     private void idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idtxtActionPerformed
+
+    private void idtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idtxtKeyTyped
+                char id = evt.getKeyChar();
+                   if ( ((id < '0') || (id > '9')) && (id != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  // ignorer l'événement
+             }
+    }//GEN-LAST:event_idtxtKeyTyped
+
+    private void idtxt1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idtxt1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idtxt1KeyTyped
 
     public void run(Clients client) {
         c = client;

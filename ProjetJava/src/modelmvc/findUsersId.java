@@ -4,18 +4,17 @@
  */
 package modelmvc;
 
-import DAO.*;
+import DAO.Clients;
+import DAO.ClientsDAOImpl;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 
 /**
  *
- * @author remyj
+ * @author Clarence
  */
 public class findUsersId {
-    
-    
-    public int IdUser(JLabel j)
+  public int IdUser(JLabel j)
     {
         int id=0;
         ClientsDAOImpl cdao= new ClientsDAOImpl();
@@ -34,4 +33,5 @@ public class findUsersId {
         
         return id;
     }
+    
 }

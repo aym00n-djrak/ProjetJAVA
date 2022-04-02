@@ -23,7 +23,7 @@ public class ReducPaiement {
 
         int prix;
 
-        CityDAOImpl ci = new CityDAOImpl();
+       // CityDAOImpl ci = new CityDAOImpl();
 
         System.out.println("Votre age est : " + client.GetAge());
         System.out.println("La ville est : " + c.GetNom());
@@ -42,7 +42,7 @@ public class ReducPaiement {
 
         } else {
             prix = c.GetPrix();
-            JOptionPane.showMessageDialog(null, "Vous ne bénéficiez d'aucun tarif sur les vols");
+            JOptionPane.showMessageDialog(null, "Vous ne bénéficiez d'aucunes réductions sur les vols");
 
             System.out.println("Vous devez payer : " + prix);
 
