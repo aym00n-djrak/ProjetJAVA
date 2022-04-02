@@ -81,11 +81,9 @@ public class InviteDAOImpl implements InviteDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat = stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
+            while (resultat.next()) {
                 System.out.println();
 
                 invite.SetId(resultat.getInt("idInvites"));

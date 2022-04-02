@@ -645,7 +645,38 @@ public class CreaVol extends javax.swing.JInternalFrame {
         vol.SetTypeAvion(depttxt.getText());
 
         voldao.DeleteVol(vol.GetId());
+
         JOptionPane.showMessageDialog(null, "Vol bien supprimé !");
+
+        ReservationDAOImpl rdao = new ReservationDAOImpl();
+        ArrayList<Reservation> r = new ArrayList();
+        Reservation reserv = new Reservation();
+
+        r = rdao.GetAllReservation();
+
+        for (int i = 0; i < r.size(); i++) {
+            if (r.get(i).GetForeignKeyVol() == vol.GetId()) {
+                reserv = rdao.GetReservation(r.get(i).GetId());
+            }
+        }
+        PaiementDAOImpl pdao = new PaiementDAOImpl();
+        ArrayList<Paiement> p = new ArrayList<>();
+        Paiement paye = new Paiement();
+
+        p = pdao.GetAllPaiement();
+
+        for (int i = 0; i < r.size(); i++) {
+            if (p.get(i).GetForeignKeyReservation() == reserv.GetId()) {
+                paye = pdao.GetPaiement(p.get(i).GetId());
+            }
+        }
+
+        pdao.DeletePaiement(paye.GetForeignKeyReservation());
+        JOptionPane.showMessageDialog(null, "Réservation bien supprimé !");
+
+        rdao.DeleteReservation(reserv.GetId());
+        JOptionPane.showMessageDialog(null, "Paiement bien supprimé !");
+
         setVisible(false);
     }//GEN-LAST:event_suppBoutonActionPerformed
 
@@ -726,16 +757,16 @@ public class CreaVol extends javax.swing.JInternalFrame {
 
     private void idtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idtxtKeyTyped
         char idvol = evt.getKeyChar();
-            if ( ((idvol < '0') || (idvol > '9')) && (idvol != KeyEvent.VK_BACK_SPACE)) {
-                  evt.consume();  
-             }
+        if (((idvol < '0') || (idvol > '9')) && (idvol != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_idtxtKeyTyped
 
     private void numvoltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numvoltxtKeyTyped
         char vol = evt.getKeyChar();
-            if ( ((vol < '0') || (vol > '9')) && (vol != KeyEvent.VK_BACK_SPACE)) {
-                  evt.consume();  // ignorer l'événement
-             }
+        if (((vol < '0') || (vol > '9')) && (vol != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();  // ignorer l'événement
+        }
     }//GEN-LAST:event_numvoltxtKeyTyped
 
     public void run() {

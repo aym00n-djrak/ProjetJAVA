@@ -82,11 +82,9 @@ public class UsersEmplDAOImpl implements UsersEmplDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat = stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
+            while (resultat.next()) {
                 System.out.println();
 
                 user.SetId(resultat.getInt("idusers"));

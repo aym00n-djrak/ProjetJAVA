@@ -84,11 +84,9 @@ public class PaiementDAOImpl implements PaiementDAO {
 
             java.sql.Statement stmt = con.createStatement();
 
-            stmt.executeQuery(sql);
+            resultat=stmt.executeQuery(sql);
 
-            boolean encore = resultat.next();
-
-            while (encore) {
+            while (resultat.next()) {
                 System.out.println();
 
                 paiement.SetId(resultat.getInt("idPaiement"));
@@ -174,11 +172,11 @@ public class PaiementDAOImpl implements PaiementDAO {
     }
 
     @Override
-    public void DeletePaiement(int idpaiement) {
+    public void DeletePaiement(int idreservation) {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "delete from paiement where idPaiement=" + idpaiement;
+        String sql = "delete from paiement where idRéservation=" + idreservation;
 
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
@@ -191,7 +189,7 @@ public class PaiementDAOImpl implements PaiementDAO {
 
             stmt.executeUpdate(sql);
 
-            System.out.println("Record is Deleted into paiement table for  paiement : " + idpaiement);
+            System.out.println("Record is Deleted into paiement table for  réservation : " + idreservation);
 
         } catch (SQLException e) {
 

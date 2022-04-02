@@ -115,6 +115,7 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
                 date.setBackground(Color.WHITE);
                 prix.setBackground(Color.WHITE);
 
+                System.out.println(vol.GetForeignKeyCity());
                 btnimg.setIcon(new javax.swing.ImageIcon(im.getImage(vol.GetForeignKeyCity())));
                 btn.addActionListener(this);
 
