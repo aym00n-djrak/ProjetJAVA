@@ -4,13 +4,12 @@
  */
 package modelmvc;
 
-import modelmvc.DAO.EmployeDAOImpl;
-import modelmvc.DAO.Employe;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import DAO.*;
 import controlmvc.EmailVerif;
 import javax.swing.JDesktopPane;
 import modelmvc.Connection;
@@ -574,7 +573,7 @@ public class CreaEmployes extends javax.swing.JInternalFrame {
         employe.SetDepartement(depttxt.getText());
         employe.SetForeignKey(Integer.parseInt(foreigntxt.getText()));
 
-        employedao.UpdateEmploye(employe.GetId(), employe);
+        employedao.UpdateEmploye(employe.GetId(),employe);
         setVisible(false);
         Connection.affiche("Employé mis à jour!");
     }//GEN-LAST:event_executer2ActionPerformed

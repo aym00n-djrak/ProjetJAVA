@@ -4,16 +4,24 @@
  */
 package viewmvc;
 
-import modelmvc.DAO.Clients;
+import DAO.Clients;
 import controlmvc.*;
+import modelmvc.Connection;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import modelmvc.Fenetre;
 
 /**
  *
@@ -23,7 +31,7 @@ public class CreationPageClient {
 
     public JFrame f;
     JLabel l0, l1, l2;
-    public JTextField t0, t1;
+    public JTextField t0,t1;
     public JPasswordField p1;
     JButton b1, b2, b3, b4;
     Clients c = new Clients();
@@ -87,7 +95,7 @@ public class CreationPageClient {
         f.setResizable(false);
         f.setVisible(true);
 
-        c = verif.verifcreaboutonmailusers(b1, t0, t1, p1, f);
+        c = verif.verifcreaboutonmailusers(b1,t0, t1, p1, f);
         b2.addActionListener(new Eventlist());
 
     }

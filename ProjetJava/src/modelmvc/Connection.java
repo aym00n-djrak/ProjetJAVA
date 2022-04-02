@@ -4,6 +4,7 @@
  */
 package modelmvc;
 
+
 import java.sql.*;
 
 /**
@@ -16,16 +17,17 @@ public class Connection {
      * @param args the command line arguments
      */
     //public static void main(String[] args) {
-    // TODO code application logic here
-    //ETABLISSEMENT DE LA BDD
-    java.sql.Connection con;
-    ResultSet resultats = null;
-    String requete = "";
+        // TODO code application logic here
+        //ETABLISSEMENT DE LA BDD
+        java.sql.Connection con;
+        ResultSet resultats = null;
+        String requete = "";
 
     /**
      *
      */
-    public void Connection() {
+    public void Connection()
+        {
 //chargement du pilote
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); //com.mysql.jdbc.Driver
@@ -73,10 +75,10 @@ public class Connection {
         } catch (Exception e) {
             e.printStackTrace();
         }
-         */
+        */
         affiche("Fin du programme de connection");
-
-        //  System.exit(0);
+               
+      //  System.exit(0);
     }
 
     public static void affiche(String message) {
@@ -89,3 +91,4 @@ public class Connection {
 
     }
 }
+

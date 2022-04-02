@@ -28,6 +28,7 @@ public class Menu {
     ImageIcon img;
 
     //Modele.Connection connection= new Modele.Connection();
+
     public void Menu() throws SQLException {
 
         java.net.URL url = this.getClass().getResource("batman.jpg");

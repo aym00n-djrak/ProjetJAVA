@@ -19,19 +19,18 @@ public class Identifiants {
     modelmvc.Fenetre phrase = new Fenetre();
     String databaseMail = "";
     String databasePassword = "";
-    String databaseId = "";
+    String databaseId= "";
     String requete = "";
     ResultSet resultats = null;
 
     java.sql.Connection con;
     int id;
-
     public Boolean Iduser(String mail, String password) {
         //Creation d'une requete SQL
         try {
 
 //            String DBurl = "jdbc:mysql://localhost/booking";
-            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
@@ -74,13 +73,13 @@ public class Identifiants {
         }
         return false;
     }
-
-    public Boolean Iduserempl(String mail, String password) {
+    
+        public Boolean Iduserempl(String mail, String password) {
         //Creation d'une requete SQL
         try {
 
 //            String DBurl = "jdbc:mysql://localhost/booking";
-            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 
@@ -131,7 +130,8 @@ public class Identifiants {
 
             // String DBurl = "jdbc:mysql://localhost/booking";
             //con = DriverManager.getConnection(DBurl, "root", "");
-            String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
+           
+        String DBurl= "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
             con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
 

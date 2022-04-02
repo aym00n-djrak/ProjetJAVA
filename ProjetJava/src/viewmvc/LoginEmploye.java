@@ -1,6 +1,6 @@
 package viewmvc;
 
-import modelmvc.DAO.Employe;
+import DAO.Employe;
 import controlmvc.*;
 import modelmvc.Fenetre;
 
@@ -18,8 +18,8 @@ import java.util.logging.Logger;
 public class LoginEmploye implements ActionListener {
 
     JFrame f;
-    JLabel l1, l2;
-    JTextField t1;
+    JLabel  l1, l2;
+    JTextField  t1;
     JPasswordField p1;
     JButton b1, b2, b3, b4;
     EmailVerif verif = new EmailVerif();
@@ -44,6 +44,8 @@ public class LoginEmploye implements ActionListener {
         l2 = new JLabel("MDP");
         l2.setForeground(Color.red);
         l2.setBounds(50, 80, 100, 30);
+
+
 
         t1 = new JTextField(20);
         t1.setForeground(Color.MAGENTA);

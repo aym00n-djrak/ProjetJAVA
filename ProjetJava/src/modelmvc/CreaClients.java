@@ -4,13 +4,12 @@
  */
 package modelmvc;
 
-import modelmvc.DAO.Clients;
-import modelmvc.DAO.ClientsDAOImpl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import DAO.*;
 import controlmvc.EmailVerif;
 import java.util.Set;
 import javax.swing.JOptionPane;

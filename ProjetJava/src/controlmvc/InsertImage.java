@@ -21,7 +21,7 @@ public class InsertImage {
         {
 
             try {
-
+                
                 String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
                 // con = DriverManager.getConnection(DBurl, "root", "");
                 con = DriverManager.getConnection(DBurl, "remyjova@projetjava2022", "Remy9999.");
@@ -41,8 +41,11 @@ public class InsertImage {
                         = con.prepareStatement("insert into image values(?,?,?)");
 
                 //idImage
-                ps.setString(1, "" + id);
 
+                    
+                ps.setString(1, "" + id);
+                
+                
                 //Size IMAge
                 ps.setInt(2, 99);
                 //Image

@@ -4,7 +4,7 @@
  */
 package controlmvc;
 
-import modelmvc.DAO.Vol;
+import DAO.Vol;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class ConfirmationVol {
 
-    public void volreserv(JDesktopPane desktop, JButton b, Vol vol, JInternalFrame ouverture, JLabel ecran) {
+    public void volreserv( JDesktopPane desktop, JButton b, Vol vol, JInternalFrame ouverture,JLabel ecran) {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,3 +40,5 @@ public class ConfirmationVol {
         });
     }
 }
+
+

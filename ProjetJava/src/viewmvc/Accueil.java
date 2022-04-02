@@ -25,7 +25,7 @@ public class Accueil {
     public void Accueil() throws IOException, InterruptedException {
 
         f = new JFrame("Bienvenue !");
-
+        
         f.getContentPane().setLayout(null);
         //f.getContentPane().setBackground(Color.BLACK);
 
@@ -55,14 +55,14 @@ public class Accueil {
         f.getContentPane().add(l3);
         f.getContentPane().add(img1);
 
-        f.setSize(f.getWidth(), f.getHeight());
+        f.setSize(f.getWidth(),f.getHeight());
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         f.setVisible(true);
 
         Thread.sleep(2000);
         f.setVisible(false);
-        SwitchEmployeCLient switchec = new SwitchEmployeCLient();
+        SwitchEmployeCLient switchec= new SwitchEmployeCLient();
         switchec.run();
 
     }

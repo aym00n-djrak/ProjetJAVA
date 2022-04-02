@@ -15,14 +15,15 @@ import javax.swing.*;
  * @author remyj
  */
 public class Fichier extends JFrame implements ActionListener {
-
-    JButton open = new JButton("Sélectionner un fichier");
-
-    public Fichier() {
+    
+    JButton open= new JButton("Sélectionner un fichier");
+    
+    public Fichier()
+    {
         super("Explorateur de fichier");
-
-        setSize(450, 100);
-
+        
+        setSize(450,100);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         open.addActionListener(this);
         JPanel pane = new JPanel();
@@ -30,28 +31,30 @@ public class Fichier extends JFrame implements ActionListener {
         pane.setLayout(bord);
         pane.add(open);
         setContentPane(pane);
-        setVisible(true);
+        setVisible(true);  
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        JTextArea a = new JTextArea();
-
-        JFileChooser chooser = new JFileChooser();
+        
+        JTextArea a= new JTextArea();
+        
+        JFileChooser chooser= new JFileChooser();
         chooser.setApproveButtonText("Choix du fichier...");
         chooser.showOpenDialog(null);
-
-        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+        
+        if(chooser.showOpenDialog(null)==JFileChooser.APPROVE_OPTION)
+        {
             a.append(chooser.getSelectedFile().getAbsolutePath());
             System.out.println(a.getAccessibleContext());
-            String Firm = chooser.getSelectedFile().getAbsolutePath();
+            String Firm= chooser.getSelectedFile().getAbsolutePath();
             System.out.println(Firm);
-            InsertImage i = new InsertImage();
+            InsertImage i= new InsertImage();
             //i.Insert(Firm, 1 );
             this.setVisible(false);
-
+            
         }
     }
-
+    
+    
 }

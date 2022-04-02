@@ -5,8 +5,8 @@
 package viewmvc;
 
 import modelmvc.CreaClients;
-import modelmvc.DAO.Clients;
-import modelmvc.DAO.ClientsDAOImpl;
+import DAO.Clients;
+import DAO.ClientsDAOImpl;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -200,6 +200,7 @@ public class Interfclients extends javax.swing.JFrame {
             Logger.getLogger(Interfclients.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+
     }//GEN-LAST:event_manageActionPerformed
 
     private void destinations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinations1ActionPerformed
@@ -235,6 +236,7 @@ public class Interfclients extends javax.swing.JFrame {
         jLabel3.setText(client.GetPrenom());
         System.out.println(jLabel3.getText());
 
+
     }//GEN-LAST:event_vol1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -256,6 +258,7 @@ public class Interfclients extends javax.swing.JFrame {
     public void run() {
         new Interfclients().setVisible(true);
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopclients;

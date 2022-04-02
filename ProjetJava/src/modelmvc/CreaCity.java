@@ -4,13 +4,12 @@
  */
 package modelmvc;
 
-import modelmvc.DAO.City;
-import modelmvc.DAO.CityDAOImpl;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import DAO.*;
 import controlmvc.EmailVerif;
 import controlmvc.InsertImage;
 import javax.swing.JDesktopPane;
@@ -515,6 +514,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Destination bien supprimée !");
         setVisible(false);
 
+
     }//GEN-LAST:event_suppBoutonActionPerformed
 
     private void reftxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reftxt1ActionPerformed
@@ -553,7 +553,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
         c.SetNom(nametxt.getText());
         c.SetPays(surnametxt.getText());
         c.SetPrix(Integer.parseInt(depttxt.getText()));
-        city.UpdateCity(c.GetId(), c);
+        city.UpdateCity(c.GetId(),c);
 
         JOptionPane.showMessageDialog(null, "Destination bien mise à jour !");
         setVisible(false);
@@ -561,7 +561,7 @@ public class CreaCity extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_executer2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JTextArea a = new JTextArea();
+ JTextArea a = new JTextArea();
 
         JFileChooser chooser = new JFileChooser();
         chooser.setApproveButtonText("Choix du fichier...");
