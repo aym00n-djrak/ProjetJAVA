@@ -627,7 +627,10 @@ public class CreaVol extends javax.swing.JInternalFrame {
         Vol vol = new Vol();
         vol.SetId(Integer.parseInt(idtxt.getText()));
 
-        city = cdao.GetCity(id);
+        ArrayList<City> c = new ArrayList<>();
+        c = cdao.GetAllCity();
+        city = cdao.GetCity(c.get(id).GetId());
+
         vol.SetDestination(city.GetNom());
 
         vol.SetCompagnie(nametxt.getText());
@@ -638,6 +641,8 @@ public class CreaVol extends javax.swing.JInternalFrame {
         vol.SetHeureArrivee(compatxt4.getText());
         vol.SetNumeroVol(Integer.parseInt(numvoltxt.getText()));
         vol.SetTypeAvion(depttxt.getText());
+
+        vol.SetForeignKeyCity(city.GetId());
 
         voldao.AddVol(vol);
         JOptionPane.showMessageDialog(null, "Vol bien ajoutée !");
@@ -754,10 +759,14 @@ public class CreaVol extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         VolDAOImpl voldao = new VolDAOImpl();
         Vol vol = new Vol();
-        city = cdao.GetCity(id);
         vol.SetId(Integer.parseInt(idtxt.getText()));
 
+        ArrayList<City> c = new ArrayList<>();
+        c = cdao.GetAllCity();
+        city = cdao.GetCity(c.get(id).GetId());
+
         vol.SetDestination(city.GetNom());
+
         vol.SetCompagnie(nametxt.getText());
         vol.SetDateArrivee(compatxt2.getText());
         vol.SetDateDepart(compatxt.getText());
@@ -766,6 +775,8 @@ public class CreaVol extends javax.swing.JInternalFrame {
         vol.SetHeureArrivee(compatxt4.getText());
         vol.SetNumeroVol(Integer.parseInt(numvoltxt.getText()));
         vol.SetTypeAvion(depttxt.getText());
+
+        vol.SetForeignKeyCity(city.GetId());
 
         voldao.UpdateVol(vol.GetId(), vol);
         JOptionPane.showMessageDialog(null, "Vol bien mis à jour !");

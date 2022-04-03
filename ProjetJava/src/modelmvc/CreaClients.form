@@ -62,7 +62,7 @@
                           <Component id="supp" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="ajout" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="503" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="514" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
                       <Component id="supp" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                       <Component id="actualiser" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="79" max="32767" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,48 +119,44 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="id1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="num" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="numtxt" pref="75" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="338" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="id1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="id" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="age1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="foreigntxt" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <Component id="idtxt" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <Component id="prenomtxt" min="-2" pref="188" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nomclient" min="-2" max="-2" attributes="0"/>
-                                  <Component id="prenom" min="-2" max="-2" attributes="0"/>
-                                  <Component id="age" min="-2" max="-2" attributes="0"/>
+                                  <Component id="id" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="age1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="foreigntxt" pref="188" max="32767" attributes="0"/>
+                          <Component id="idtxt" pref="188" max="32767" attributes="0"/>
+                          <Component id="agetxt1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="nomclient" min="-2" max="-2" attributes="0"/>
+                          <Component id="prenom" min="-2" max="-2" attributes="0"/>
+                          <Component id="age" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="agetxt1" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="agetxt" min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="nomtxt" min="-2" pref="232" max="-2" attributes="0"/>
+                          <Component id="nomtxt" pref="232" max="32767" attributes="0"/>
+                          <Component id="prenomtxt" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="84" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="num" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="numtxt" pref="90" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="721" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -182,31 +178,23 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="idtxt" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="foreigntxt" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="prenom" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="id" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="agetxt1" min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="foreigntxt" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="prenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="id" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="prenomtxt" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="age1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="age" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="agetxt" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="agetxt1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="num" min="-2" max="-2" attributes="0"/>
                           <Component id="numtxt" min="-2" pref="34" max="-2" attributes="0"/>
@@ -332,6 +320,9 @@
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agetxt1ActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>

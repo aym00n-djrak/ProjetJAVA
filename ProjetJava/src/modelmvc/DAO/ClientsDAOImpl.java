@@ -26,7 +26,7 @@ public class ClientsDAOImpl implements ClientsDAO {
         Statement statement = null;
 
         String sql = "insert into clients values(" + client.GetId() + "," + "'" + client.GetNom() + "'"
-                + ",'" + client.GetClasse() + "'," + "'" + client.GetPrenom() + "'" + "," + client.GetAge()
+                + ",'" + client.GetPrenom() + "'," + "'" + client.GetClasse() + "'" + "," + client.GetAge()
                 + "," + client.GetNumReservation() + "," + client.GetForeignKeyUser() + ")";
 
         try {

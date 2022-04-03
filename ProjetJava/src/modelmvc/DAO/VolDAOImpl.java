@@ -132,9 +132,9 @@ public class VolDAOImpl implements VolDAO {
         Connection dbConnection = null;
         Statement statement = null;
 
-        String sql = "UPDATE vol SET idVol=" + vol.GetId() + ",destination='" + vol.GetDestination() + "'," + "Compagnie='" + vol.GetCompagnie() + "',Numero_vol=" + vol.GetNumeroVol() + ",Type_Avion='" + vol.GetTypeAvion() + "',Date de départ='" + vol.GetDateDepart() + "',Date de retour='" + vol.GetDateArrivee() + "',Heure de départ='" + vol.GetHeureDepart() + "',Heure d'arrivée='" + vol.GetHeureArrivee() + "',idCity=" + vol.GetForeignKeyCity()
-                + " WHERE idVol=" + vol.GetId();
-
+        String sql = "UPDATE `vol`"
+                + "SET `destination`='" + vol.GetDestination() + "',`Compagnie`='" + vol.GetCompagnie() + "',`Numero_vol`=" + vol.GetNumeroVol() + ",`Type_Avion`='" + vol.GetTypeAvion() + "',`Date de départ`='" + vol.GetDateDepart() + "',`Date de retour`='" + vol.GetDateArrivee() + "',`Heure de départ`='" + vol.GetHeureArrivee() + "',`Heure d'arrivée`='" + vol.GetHeureDepart() + "',`idCity`=" + vol.GetForeignKeyCity()
+                + " WHERE idVol=" + id;
         try {
             String DBurl = "jdbc:mysql://projetjava2022.mysql.database.azure.com:3306/booking";
             // con = DriverManager.getConnection(DBurl, "root", "");
