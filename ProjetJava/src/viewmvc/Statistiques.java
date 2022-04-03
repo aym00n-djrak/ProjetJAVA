@@ -4,6 +4,7 @@
  */
 package viewmvc;
 
+import java.awt.Color;
 import java.sql.DriverManager;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -49,7 +50,7 @@ public class Statistiques extends javax.swing.JInternalFrame {
             frame.setSize(400, 650);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println(e);
         }
     }
 }
