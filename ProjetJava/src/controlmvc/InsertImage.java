@@ -13,6 +13,8 @@ import java.io.*;
  *
  * @author remyj
  */
+
+//CLASSE POUR INSERER UNE IMAGE DANS LA BDD
 public class InsertImage {
 
     java.sql.Connection con;

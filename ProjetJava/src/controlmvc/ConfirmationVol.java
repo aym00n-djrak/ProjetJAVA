@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
  */
 public class ConfirmationVol {
 
+    
+    //METHODE POUR CONFIRMER UN VOL ET OUVIR UNE FRAME
     public void volreserv(JDesktopPane desktop, JButton b, Vol vol, JInternalFrame ouverture, JLabel ecran) {
         b.addActionListener(new ActionListener() {
             @Override
@@ -29,6 +31,8 @@ public class ConfirmationVol {
         });
     }
 
+    
+    //AFFICHAGE DE LA CONFIRMATION DE VOL
     public void confirmationvol(JButton b) {
         b.addActionListener(new ActionListener() {
             @Override

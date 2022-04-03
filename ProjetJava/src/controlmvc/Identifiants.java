@@ -25,6 +25,8 @@ public class Identifiants {
 
     java.sql.Connection con;
     int id;
+    
+    //METHODE POUR RECUPER LEMAIL + MDP DE UTILISATEUR ET VERIFIER EN UTILSANG EMAILVERIF
 
     public Boolean Iduser(String mail, String password) {
         //Creation d'une requete SQL
@@ -124,6 +126,8 @@ public class Identifiants {
         return false;
     }
 
+    
+    //METHODE POUR INSERER DANS BDD LE MAIL + MDP
     public void InsertionBDD(String mail, String password) {
         //Creation d'une requete SQL
 

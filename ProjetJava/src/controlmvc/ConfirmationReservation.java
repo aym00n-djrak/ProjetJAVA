@@ -14,6 +14,8 @@ import javax.swing.*;
  */
 public class ConfirmationReservation {
 
+    
+    //METHODE POUR OUVRIR FERMER UNE FRAME
     public void paiementreserv(JButton b, JInternalFrame ouverture, JInternalFrame fermeture) {
         b.addActionListener(new ActionListener() {
             @Override
@@ -25,6 +27,8 @@ public class ConfirmationReservation {
             }
         });
     }
+    
+    //METHODE POUR AFFICHER LA CONFIRMATION DE RESERVATION
 
     public void confirmationreserv(JButton b) {
         b.addActionListener(new ActionListener() {

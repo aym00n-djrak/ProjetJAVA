@@ -17,6 +17,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+
+//CLASSE POUR ENVOYER UN MAIL EN SUIVANT LA METHODE SMTP
 public class MailSender {
 
     public String sendMail(String from, String to, String subject, String msgBody) {

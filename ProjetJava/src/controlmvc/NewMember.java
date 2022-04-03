@@ -20,6 +20,8 @@ import viewmvc.LoginEmploye;
  *
  * @author remyj
  */
+
+//CLASSE POUR CREER UN NOUVEAU MEMBRE
 public class NewMember {
 
     CreationPageClient creationPageclient = new CreationPageClient();

@@ -14,6 +14,8 @@ import java.util.ArrayList;
  *
  * @author remyj
  */
+
+//METHODE POUR RECUPERER LES DONNEES DUNE DESTINATION V1 (APRES ON UTILISE DAO);
 public class DataCity {
 
     java.sql.Connection con;

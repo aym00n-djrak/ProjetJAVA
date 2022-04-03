@@ -30,6 +30,8 @@ public class Invite {
     Clients client = new Clients();
     Employe employe = new Employe();
 
+    
+    //METHODE POUR DONNER LES INFORMATIONS DU MODE INVITE CLIENT
     public Clients invitebuttonclient(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         b.addActionListener(new ActionListener() {
             @Override
@@ -46,6 +48,8 @@ public class Invite {
         return client;
     }
 
+    
+    //METHODE POUR DONNER LES INFORMATIONS DU MODE INVITE EMPLOYE
     public Employe invitebuttonemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         b.addActionListener(new ActionListener() {
             @Override

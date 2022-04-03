@@ -20,6 +20,8 @@ import javax.swing.JOptionPane;
  */
 public class ReducPaiement {
 
+    
+    //METHODE QUI IMPLEMENTE LES REDUCTIONS
     public int ReducPaiement(Clients client, City c) {
 
         int prix;

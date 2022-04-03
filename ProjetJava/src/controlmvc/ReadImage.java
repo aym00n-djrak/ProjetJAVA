@@ -18,6 +18,8 @@ import javax.swing.JLabel;
  *
  * @author remyj
  */
+
+//CLASSE POUR LIRE UNE IMAGE
 public class ReadImage extends JFrame {
 
     java.sql.Connection con;

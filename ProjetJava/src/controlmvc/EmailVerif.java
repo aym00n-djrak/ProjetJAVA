@@ -31,6 +31,8 @@ import viewmvc.SwitchEmployeCLient;
  *
  * @author remyj
  */
+
+//CLASSE DE VERIFICATION DEMAIL EN UTILISANT UNE EXPRESSION REGULIERE
 public class EmailVerif {
 
     SwitchEmployeCLient switchec = new SwitchEmployeCLient();
@@ -57,6 +59,8 @@ public class EmailVerif {
         return verif;
     }
 
+    
+    //BOUTON POUR VERIF LID DUN CLIENT
     public Clients verifcreaboutonmailusers(JButton b, JTextField t0, JTextField t1, JPasswordField p1, JFrame f) {
         {
 
@@ -104,6 +108,7 @@ public class EmailVerif {
         }
         return client;
     }
+    //BOUTON POUR VERIF LID DUN EMPLOYE
 
     public Employe verifcreaboutonmailusersempl(JButton b, JTextField t1, JPasswordField p1, JFrame f) {
         {
@@ -155,6 +160,8 @@ public class EmailVerif {
         return employe;
     }
 
+    
+    //ACTION BOUTON POUR EMPLOYE
     public void creationemployes(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JDesktopPane f, Employe e) {
         {
             employe = e;
@@ -183,6 +190,9 @@ public class EmailVerif {
             });
         }
     }
+
+    
+        //ACTION BOUTON POUR CLIENT
 
     public void creationclients(JButton b, JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JTextField t6, JFrame f, Clients c) {
         {
@@ -215,6 +225,8 @@ public class EmailVerif {
         }
     }
 
+    
+    //METHODE POUR RECUPERER LE COMTPE CLIENT
     public Clients verifboutonmailclient(JButton b, JTextField t1, JPasswordField p1, JFrame f, JLabel j) {
         b.addActionListener(new ActionListener() {
             int id = 0;
@@ -262,6 +274,8 @@ public class EmailVerif {
         System.out.println(j.getText());
         return client;
     }
+
+        //METHODE POUR RECUPERER LE COMTPE EMPLOYE
 
     public Employe verifboutonmailemploye(JButton b, JTextField t1, JPasswordField p1, JFrame f, JLabel j) {
 

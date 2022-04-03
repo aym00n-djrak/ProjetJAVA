@@ -13,9 +13,13 @@ import viewmvc.CreationPageClient;
  *
  * @author remyj
  */
+
+//CLASSE DEVENEMETNT
 public class Eventlist implements ActionListener {
 
     @Override
+    
+    //EVENEMENT POUR QUITTER LAPPLICATION
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
     }
