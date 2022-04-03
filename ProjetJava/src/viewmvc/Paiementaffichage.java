@@ -77,6 +77,11 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
                 datetxtActionPerformed(evt);
             }
         });
+        datetxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                datetxtKeyTyped(evt);
+            }
+        });
 
         crypto.setFont(new java.awt.Font("SimSun", 0, 36)); // NOI18N
         crypto.setText("Cryptogramme");
@@ -86,6 +91,11 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
         cryptotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cryptotxtActionPerformed(evt);
+            }
+        });
+        cryptotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cryptotxtKeyTyped(evt);
             }
         });
 
@@ -161,7 +171,7 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(117, 117, 117))
         );
@@ -178,19 +188,20 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cryptotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cryptotxtActionPerformed
-      
     }//GEN-LAST:event_cryptotxtActionPerformed
 
     private void datetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datetxtActionPerformed
@@ -205,10 +216,24 @@ public class Paiementaffichage extends javax.swing.JInternalFrame {
 
     private void numtxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numtxtKeyTyped
         char c = evt.getKeyChar();
-             if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
-                  evt.consume();  // ignorer l'événement
+             if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) { //VK_BACK_SAPCE = barre d'espace
+                  evt.consume();  
              }
     }//GEN-LAST:event_numtxtKeyTyped
+
+    private void datetxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_datetxtKeyTyped
+         char txtpaiement = evt.getKeyChar();
+            if ( ((txtpaiement < '0') || (txtpaiement > '9')) && (txtpaiement != KeyEvent.VK_BACK_SPACE)) {
+                  evt.consume();  
+             }
+    }//GEN-LAST:event_datetxtKeyTyped
+
+    private void cryptotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cryptotxtKeyTyped
+        char cryptopaiement = evt.getKeyChar(); 
+             if (((cryptopaiement<'0')|| (cryptopaiement>'9')&&(cryptopaiement != KeyEvent.VK_BACK_SPACE))){
+                         evt.consume();
+}
+    }//GEN-LAST:event_cryptotxtKeyTyped
 
     public void run() {
         new Paiementaffichage().setVisible(true);
