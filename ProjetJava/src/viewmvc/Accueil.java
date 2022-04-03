@@ -22,6 +22,8 @@ public class Accueil {
     ImageIcon img;
     JLabel img1;
 
+    
+    //METHODE QUI CREE LA PAGE DACCUEIL TEXTE + PARTICIPANT
     public void Accueil() throws IOException, InterruptedException {
 
         f = new JFrame("Bienvenue !");
@@ -37,7 +39,7 @@ public class Accueil {
         img1.setBounds(0, 0, 1920, 1080);
 
         //LABEL
-        l1 = new JLabel("Réservation ");
+        l1 = new JLabel("Billeterie Aéroportuaire");
         l1.setBounds(300, 300, 900, 50);
         l1.setFont(new Font("Symbol BOLD", Font.BOLD, 60));
         l1.setForeground(Color.red);
@@ -62,6 +64,8 @@ public class Accueil {
 
         Thread.sleep(2000);
         f.setVisible(false);
+        
+        //TRANSITION VERS LINTERFACE DE SELECTION EMPLOYE CLIENT
         SwitchEmployeCLient switchec = new SwitchEmployeCLient();
         switchec.run();
 

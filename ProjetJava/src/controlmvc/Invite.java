@@ -18,7 +18,6 @@ import modelmvc.Fenetre;
 import viewmvc.Interfclients;
 import viewmvc.Interfclients;
 import viewmvc.Interfemployes;
-import viewmvc.Menu;
 import viewmvc.Réservation;
 
 /**

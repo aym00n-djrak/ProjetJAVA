@@ -19,6 +19,9 @@ import javax.swing.JTextField;
  *
  * @author remyj
  */
+
+
+//CLASSE QUI AFFICHE ET IMPLEMENTE LA CREATION DUN IDENTIFIANT DUN NOUVEL EMPLOYE
 public class CreationPageEmploye {
 
     public JFrame f;
@@ -33,6 +36,8 @@ public class CreationPageEmploye {
     controlmvc.EmailVerif verif = new controlmvc.EmailVerif();
 
     public void Creation() throws SQLException {
+        
+        //INITIALISIATION DES TEXTES/ FRAME /FIELDS
 
         f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);
@@ -70,6 +75,8 @@ public class CreationPageEmploye {
         b2 = new JButton("Exit");
         b2.setForeground(Color.RED);
         b2.setBounds(200, 140, 100, 30);
+        
+        //AJOUT A LA FRAME DES FIELDS / BUTTONS
 
         f.getContentPane().add(l0);
         f.getContentPane().add(l1);

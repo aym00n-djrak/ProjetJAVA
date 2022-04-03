@@ -45,12 +45,12 @@ public class ListVol extends JInternalFrame implements ActionListener {
     public ListVol() throws SQLException {
         super("Mes destinations");
 
-        // this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 1000);
-        // init();
 
     }
+    
+    //METHODE POUR CREER LINTERFACE DE LA LISTE DES DESTINATIONS
 
     public void init(JDesktopPane desktop, Employe e) throws SQLException {
 
@@ -94,12 +94,13 @@ public class ListVol extends JInternalFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        //UNE FOIS LA DESTINATIONS SELECTIONNEES ON SE DIRIGE VERS LA CREATION DE VOL
+        
         city = citydao.GetAllCity();
         //CreerVol creavol = new CreerVol();
         CreaVol creavol = new CreaVol();
         VolDAOImpl vol = new VolDAOImpl();
         Vol volcity = new Vol();
-        InfoVille info = new InfoVille();
         JButton btn = (JButton) e.getSource();
 
         for (int i = 0; i < city.size(); i++) {

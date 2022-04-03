@@ -19,6 +19,8 @@ import javax.swing.JTextField;
  *
  * @author remyj
  */
+
+//CLASSE QUI AFFICHE ET IMPLEMENTE LA CREATION DUN IDENTIFIANT DUN NOUVEAU CLIENT
 public class CreationPageClient {
 
     public JFrame f;
@@ -34,6 +36,8 @@ public class CreationPageClient {
 
     public void Creation() throws SQLException {
 
+        //INITIALISATION DES FIELDS
+        
         f = new JFrame("Création membre");
         f.getContentPane().setLayout(null);
         f.getContentPane().setBackground(Color.black);
@@ -71,6 +75,8 @@ public class CreationPageClient {
         b2 = new JButton("Exit");
         b2.setForeground(Color.RED);
         b2.setBounds(200, 150, 100, 30);
+        
+        //AJOUT DES FIELDS/ BUTTONS A LA FRAME
 
         f.getContentPane().add(l0);
         f.getContentPane().add(l1);

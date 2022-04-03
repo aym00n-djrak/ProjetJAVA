@@ -12,6 +12,7 @@ import javax.swing.*;
  */
 public class Fenetre {
 
+    //METHODE QUI AFFICHE UN PANNEAU DE MESSAGE
     public void panneau(String phrase) {
         JOptionPane.showMessageDialog(null, phrase);
     }

@@ -34,6 +34,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+//CLASSE QUI PERMET LAFFICHAGE DES VOLS DISPONIBLES NE FONCTION DE LA DESTINATION SELECTIOONNEES
+
 public class ListVolDispo extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(200, 75);
@@ -212,7 +214,7 @@ public class ListVolDispo extends JInternalFrame implements ActionListener {
         UsersDAOImpl udao = new UsersDAOImpl();
         Users user = new Users();
         user = udao.GetUser(c.GetId());
-        System.out.println(new MailSender().sendMail("marvel.history.fr@gmail.com", user.GetMail(), "Confirmation réservation vol n° " + volrecord.GetNumeroVol(), "On vous remercie pour la reservation de vol n° " + volrecord.GetNumeroVol() + ", d'identifiant: "+volrecord.GetId()+" en destination de " + volrecord.GetDestination() + " au prix de " + paye.GetMontant() + "€. Cordialement, l'administration de l'Aeroport de Monaco"));
+        System.out.println(new MailSender().sendMail("marvel.history.fr@gmail.com", user.GetMail(), "Confirmation réservation vol n° " + volrecord.GetNumeroVol(), "On vous remercie pour la reservation de vol n  " + volrecord.GetNumeroVol() + ", d'identifiant: "+volrecord.GetId()+" en destination de " + volrecord.GetDestination() + " au prix de " + paye.GetMontant() + "euro. Cordialement, l'administration de l'Aeroport de Monaco"));
         //voldao.DeleteVol(idvol);
         //  JOptionPane.showMessageDialog(null, "Le vol n°" + volrecord.GetNumeroVol() + " en destination de : " + btn.getText() + " a été supprimé de la base de données.");
     }

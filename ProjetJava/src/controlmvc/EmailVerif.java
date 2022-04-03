@@ -20,7 +20,6 @@ import javax.swing.*;
 import modelmvc.Connection;
 import modelmvc.Fenetre;
 import viewmvc.CreationPageClient;
-import viewmvc.Menu;
 import java.sql.SQLException;
 import viewmvc.Interfclients;
 import viewmvc.Interfemployes;

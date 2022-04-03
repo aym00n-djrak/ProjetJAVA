@@ -56,6 +56,9 @@ public class ListVolReserve extends JInternalFrame implements ActionListener {
 
     }
 
+    
+    //METHODE QUI AFFICHE LES VOLS RESERVE PAR UN CLIENT
+    
     public void init(JDesktopPane desktop, Clients client) throws SQLException {
 
         c = client;

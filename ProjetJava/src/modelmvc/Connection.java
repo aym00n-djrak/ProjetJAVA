@@ -10,6 +10,8 @@ import java.sql.*;
  *
  * @author remyj
  */
+
+//CLASSE QUI IMPLEMENTE LA CONNECTION AU DRIVER DE JDBC
 public class Connection {
 
     /**

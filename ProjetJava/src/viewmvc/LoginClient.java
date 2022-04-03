@@ -29,6 +29,8 @@ public class LoginClient {
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPageClient creationPage = new CreationPageClient();
+    
+    //METHODE QUI CREE LAFFICHAGE DE CONNECTION POUR UN CLIENT
 
     public void Login(Clients c, JLabel j) {
 

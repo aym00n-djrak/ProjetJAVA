@@ -15,6 +15,8 @@ import javax.swing.JLabel;
  */
 public class findUsersId {
 
+    
+    //METHODE QUI PERMET DE RETROUVER L'identifiant d'un USER A PARTIR DU TEXTE DUN JLABEL
     public int IdUser(JLabel j) {
         int id = 0;
         ClientsDAOImpl cdao = new ClientsDAOImpl();

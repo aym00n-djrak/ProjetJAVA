@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author remyj
  */
 public class ConvertAlistToList {
-
+//METHODE QUI CONVERTI DES ARRAYLISTE EN LISTE DE STRING
     public String[] convert(ArrayList<String> name) {
         String[] liste = new String[name.size()];
 

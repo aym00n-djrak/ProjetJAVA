@@ -12,6 +12,8 @@ import java.sql.SQLException;
  *
  * @author remyj
  */
+
+//CLASSE EXECUTABLE POUR LANCER LE LOGICIEL DE BOOKING
 public class Executable {
 
     public static void main(String args[]) throws IOException, InterruptedException, SQLException, SQLException, SQLException, SQLException, SQLException {

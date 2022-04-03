@@ -31,6 +31,7 @@ public class ReducPaiement {
         System.out.println("Votre age est : " + client.GetAge());
         System.out.println("La ville est : " + c.GetNom());
 
+        //REDUCTION POUR SENIOR
         if (client.GetAge() < 100 && client.GetAge() > 65) {
             System.out.println("Vous bénéficiez du tarif senior : réduction de 20% sur votre billet");
             JOptionPane.showMessageDialog(null, "Vous bénéficiez du tarif senior : réduction de 20% sur votre billet");
@@ -38,8 +39,9 @@ public class ReducPaiement {
             prix = c.GetPrix() - c.GetPrix() * 20 / 100;
             System.out.println("Vous devez donc payer : " + prix);
 
+        //REDUCTION POUR enfant
         } else if (client.GetAge() < 17 && client.GetAge() > 0) {
-            JOptionPane.showMessageDialog(null, "Vous bénéficiez du tarif senior : réduction de 15% sur votre billet");
+            JOptionPane.showMessageDialog(null, "Vous bénéficiez du tarif enfant : réduction de 15% sur votre billet");
             prix = c.GetPrix() - c.GetPrix() * 15 / 100;
             System.out.println("Vous devez donc payer : " + prix);
 

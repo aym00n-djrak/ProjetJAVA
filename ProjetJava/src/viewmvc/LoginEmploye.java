@@ -28,6 +28,9 @@ public class LoginEmploye implements ActionListener {
 
     modelmvc.Fenetre phrase = new modelmvc.Fenetre();
     CreationPageClient creationPage = new CreationPageClient();
+    
+    
+    //METHODE QUI CREE LAFFICHAGE DE CONNECTION POUR UN EMPLOYE
 
     public void Login(Employe e, JLabel j) {
 

@@ -24,6 +24,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+//AFFICHAGE SEMBLABLE A LISTVOL IL AFFICHE LES DESTINATIONS PUIS UNE FOIS 
+//LA DESTINATION SELECTIONNEE ON PASSERA AU VOL DISPO POUR CETTE DESTIANTION
+
 public class ListVolclient extends JInternalFrame implements ActionListener {
 
     Dimension boutonDim = new Dimension(150, 75);
@@ -101,10 +104,8 @@ public class ListVolclient extends JInternalFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         city = citydao.GetAllCity();
-        CreerVol creavol = new CreerVol();
         VolDAOImpl vol = new VolDAOImpl();
         Vol volcity = new Vol();
-        InfoVille info = new InfoVille();
         JButton btn = (JButton) e.getSource();
 
         for (int i = 0; i < city.size(); i++) {
